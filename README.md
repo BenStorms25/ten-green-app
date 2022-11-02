@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Getting Started with the 10Green Site
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Helpful extensions to have installed:
+
+Prettier - install through VSCode, then go to File -> Preferences -> Format On Save, and check the box to format with preitteir every time the file is saved.  
+
+ES7 React snippets - install through VSCode, allows you to create basic react components with ease.  
 
 ## Available Scripts
 
