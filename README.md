@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Helpful extensions to have installed:
 
-Preittier - install through VSCode, then go to File -> Preferences -> Format On Save, and check the box to format with preitteir every time the file is saved.  
+Prettier - install through VSCode, then go to File -> Preferences -> Format On Save, and check the box to format with preitteir every time the file is saved.  
 
 ES7 React snippets - install through VSCode, allows you to create basic react components with ease.  
 
