@@ -8,6 +8,12 @@ Prettier - install through VSCode, then go to File -> Preferences -> Format On S
 
 ES7 React snippets - install through VSCode, allows you to create basic react components with ease.  
 
+React Developer Tools - install via chrome extensions.  Just google "react developer tools", and install to your broswer.  This will help immensely when debugging the react app.
+
+### Development Protocol
+
+Before doing any work to the site, be sure to checkout a working branch to do your development in, and do not make any commits to the main branch unless absolutely necessary.  A pull request can be made for the working branch to be merged into the main branch once development has been completed. 
+
 ## Available Scripts
 
 In the project directory, you can run:
