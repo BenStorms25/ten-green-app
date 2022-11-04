@@ -1,11 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
-      <p>this is a p tag</p>
       <Home />
     </div>
   );
