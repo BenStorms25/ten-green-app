@@ -24,6 +24,9 @@ function CustomNav() {
         <a className="custom-nav-link" href="#pollutants">
           Pollutants
         </a>
+        <a className="custom-nav-link" href="#standards">
+          Standards
+        </a>
         <a className="custom-nav-link" href="#ozone">
           Ozone
         </a>
