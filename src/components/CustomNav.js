@@ -12,26 +12,27 @@ function CustomNav() {
   // would like to use react-router, and have found tutorial on how to do so,
   // but still need to figure that out
   return (
-    <div className="top-bar">
-      <div className="navbar">
-        <img src={tenGreenLogo} className="navbar-logo"></img>
-        <div className="nav">
-          <a className="custom-nav-link" href="#home">
-            Home
-          </a>
-          <a className="custom-nav-link" href="#data">
-            Data
-          </a>
-          <a className="custom-nav-link" href="#pollutants">
-            Pollutants
-          </a>
-          <a className="custom-nav-link" href="#ozone">
-            Ozone
-          </a>
-          <a className="custom-nav-link" href="#about">
-            About
-          </a>
-        </div>
+    <div className="navbar">
+      <img src={tenGreenLogo} className="navbar-logo"></img>
+      <div className="nav">
+        <a className="custom-nav-link" href="#home">
+          Home
+        </a>
+        <a className="custom-nav-link" href="#data">
+          Data
+        </a>
+        <a className="custom-nav-link" href="#pollutants">
+          Pollutants
+        </a>
+        <a className="custom-nav-link" href="#standards">
+          Standards
+        </a>
+        <a className="custom-nav-link" href="#ozone">
+          Ozone
+        </a>
+        <a className="custom-nav-link" href="#about">
+          About
+        </a>
       </div>
     </div>
   );
