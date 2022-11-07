@@ -4,7 +4,7 @@ import "./YourAQNow.css";
 function YourAQNow() {
   return (
     <div>
-      <button className="AQNowButton">Your AQ Now</button>
+      <button className="AQNowButton">Your Air Quality Now</button>
     </div>
   );
 }

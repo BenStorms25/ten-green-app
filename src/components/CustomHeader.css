@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   animation: transitionIn 0.5s;
 }
-.umaine-logo {
-  height: 4rem;
+.header-logo {
+  height: 2rem;
   padding-right: 1rem;
 }
 
