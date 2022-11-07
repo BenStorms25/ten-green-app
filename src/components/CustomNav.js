@@ -50,7 +50,7 @@ function CustomNav() {
 //             <Nav.Link href="#ozone">Ozone</Nav.Link>
 //             <Nav.Link href="#about">About</Nav.Link>
 //           </Nav>
-//         </Container>
+//         </Container>--
 //       </Navbar>
 //     </div>
 

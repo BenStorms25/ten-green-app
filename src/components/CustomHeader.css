@@ -4,8 +4,18 @@
   align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  animation: transitionIn 0.5s;
 }
 .umaine-logo {
   height: 4rem;
   padding-right: 1rem;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
