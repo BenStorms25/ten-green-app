@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
-import CustomNav from "../components/CustomNav";
 import HomeContent from "../components/HomeContent";
 import "./styles/Home.css";
 
 function Home() {
   useEffect(() => {
-    document.title = "10Green - Home";
+    document.title = "Home - 10Green";
   }, []);
 
   return (
