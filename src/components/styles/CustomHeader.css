@@ -1,0 +1,21 @@
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  animation: transitionIn 0.5s;
+}
+.header-logo {
+  height: 2rem;
+  padding-right: 1rem;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
