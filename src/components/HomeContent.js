@@ -1,6 +1,6 @@
 import React from "react";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
-import "./HomeContent.css";
+import "./styles/HomeContent.css";
 
 function HomeContent() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./YourAQNow.css";
+import "./styles/YourAQNow.css";
 
 function YourAQNow() {
   return (
