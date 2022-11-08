@@ -16,8 +16,8 @@ function CustomHeader() {
         location.pathname === "/" ? "top-bar-animation" : "top-bar-no-animation"
       }
     >
-      <img className="header-logo" src={umaineLogo}></img>
-      <img className="header-logo" src={climateChangeLogo}></img>
+      <img className="header-logo" alt="" src={umaineLogo}></img>
+      <img className="header-logo" alt="" src={climateChangeLogo}></img>
       <CustomNav />
       <YourAQNow />
     </header>
