@@ -8,8 +8,22 @@ function HomeContent() {
     const globeDiv = document.querySelector("#globe");
 
     window.addEventListener("scroll", function () {
+      // 2000 worked well for the scaling
       let scaler = window.scrollY / 2000;
-      globeDiv.setAttribute("style", "transform: scale(" + (1 + scaler) + ");");
+      if (window.scrollY < 850) {
+        // 0 to 800 scrollY, scale globe
+        globeDiv.setAttribute(
+          "style",
+          "transform: scale(" + (1 + scaler) + ");"
+        );
+      } else {
+        // after 1200 scrollY, reverse process
+        globeDiv.setAttribute(
+          "style",
+          "transform: scale(" + (1.35 - (scaler - 0.5)) + ");"
+        );
+      }
+
       // could add to this to fade in the map
     });
   });
