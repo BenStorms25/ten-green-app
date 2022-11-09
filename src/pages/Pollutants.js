@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import CustomHeader from "../components/CustomHeader";
 
 function Pollutants() {
-  return <div></div>;
+  useEffect(() => {
+    document.title = "Pollutants - 10Green";
+  }, []);
+  return (
+    <div>
+      <CustomHeader />
+    </div>
+  );
 }
 
 export default Pollutants;

@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import CustomHeader from "../components/CustomHeader";
 
 function Data() {
-  return <div></div>;
+  useEffect(() => {
+    document.title = "Data - 10Green";
+  }, []);
+
+  return (
+    <div>
+      <CustomHeader />
+    </div>
+  );
 }
 
 export default Data;

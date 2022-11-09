@@ -1,11 +1,20 @@
-.top-bar {
+.top-bar-animation {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  animation: transitionIn 0.5s;
+  animation: transitionIn 0.7s;
 }
+
+.top-bar-no-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .header-logo {
   height: 2rem;
   padding-right: 1rem;

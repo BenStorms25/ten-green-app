@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
+import CustomHeader from "../components/CustomHeader";
 
 function About() {
   useEffect(() => {
-    document.title = "10Green - About";
+    document.title = "About - 10Green";
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <CustomHeader />
+    </div>
+  );
 }
 
 export default About;
