@@ -17,12 +17,13 @@
   padding-bottom: 5rem;
   padding-top: 5rem;
 }
-.globe {
+#globe {
   border-radius: 50%;
   width: 100rem;
   height: 100rem;
   background-color: #002a5c;
   display: inline-block;
+  transform: scale(1);
 }
 
 @keyframes transitionIn {

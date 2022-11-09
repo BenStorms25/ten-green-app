@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from "react";
 import tenGreenLogo from "../images/10Greenblacklogo.png";
-import Home from "../pages/Home.js";
-import Data from "../pages/Data.js";
-import Pollutants from "../pages/Pollutants.js";
-import Standards from "../pages/Standards.js";
-import Ozone from "../pages/Ozone.js";
-import About from "../pages/About.js";
 import "./styles/CustomNav.css";
 
 function CustomNav() {
   return (
     <div className="navbar">
-      <img src={tenGreenLogo} className="navbar-logo"></img>
+      <img src={tenGreenLogo} alt="" className="navbar-logo"></img>
       <div className="nav">
         <a className="custom-nav-link" href="/">
           Home
