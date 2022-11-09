@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
+import CustomFooter from "../components/CustomFooter";
 import HomeContent from "../components/HomeContent";
 
 import "./styles/Home.css";
@@ -13,6 +14,7 @@ function Home() {
     <div className="home-page">
       <CustomHeader />
       <HomeContent />
+      <CustomFooter />
     </div>
   );
 }
