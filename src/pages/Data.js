@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
 import * as d3 from "d3";
+import MapApp from "../Interactive-Map-Source";
 
 function Data() {
   useEffect(() => {
@@ -12,7 +13,8 @@ function Data() {
     <div>
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <CustomHeader />
-      <p>This is some data for the data page</p>
+      <p>Below is an example d3 program.</p>
+      <MapApp/>
     </div>
   );
 }

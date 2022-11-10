@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useUSAtlas } from './useUSAtlas';
-import { useData } from './useData';
-import { BubbleMap } from './BubbleMap';
-import { DateHistogram } from './DateHistogram';
+import { useUSAtlas } from './useUSAtlas.js';
+import { useData } from './useData.js';
+import { BubbleMap } from './BubbleMap.js';
+import { DateHistogram } from './DateHistogram.js';
 
 const width = 960;
 const height = 500;
 
-const App = () => {
+const MapApp = () => {
   const USAtlas = useUSAtlas();
   const data = useData();
 
@@ -23,5 +23,6 @@ return (
 	);
 };
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+export default MapApp;
+//const rootElement = document.getElementById('root');
+//ReactDOM.render(<App />, rootElement);

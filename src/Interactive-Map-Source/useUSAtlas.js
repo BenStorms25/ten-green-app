@@ -11,7 +11,7 @@ export const useUSAtlas = () => {
       const { states } = topology.objects;
     	setData({
         states: feature(topology, states),
-        interiors: mesh(topology, states, (a, b) => a != b)
+        interiors: mesh(topology, states, (a, b) => a !== b)
       });
     });
   }, []);
