@@ -30,20 +30,4 @@ function CustomNav() {
   );
 }
 
-// <div className="top-bar">
-//       <Navbar className="navbar">
-//         <img src={tenGreenLogo} className="navbar-logo"></img>
-//         <Container>
-//           <Nav className="nav">
-//             <Nav.Link href="#home">Home</Nav.Link>
-//             <Nav.Link href="#data">Data</Nav.Link>
-//             <Nav.Link href="#pollutants">Pollutants</Nav.Link>
-//             <Nav.Link href="#standards">Standards</Nav.Link>
-//             <Nav.Link href="#ozone">Ozone</Nav.Link>
-//             <Nav.Link href="#about">About</Nav.Link>
-//           </Nav>
-//         </Container>--
-//       </Navbar>
-//     </div>
-
 export default CustomNav;
