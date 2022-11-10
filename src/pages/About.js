@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
+import AboutContent from "../components/AboutContent";
+import "./styles/About.css";
 
 function About() {
   useEffect(() => {
@@ -7,8 +9,9 @@ function About() {
   }, []);
 
   return (
-    <div>
+    <div className="about-page">
       <CustomHeader />
+      <AboutContent />
     </div>
   );
 }

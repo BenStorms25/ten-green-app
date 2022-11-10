@@ -4,7 +4,8 @@ import "./styles/HomeContent.css";
 
 function HomeContent() {
   // scale the globe on scroll
-  useEffect(() => {
+
+  function scaleGlobe() {
     const globeDiv = document.querySelector("#globe");
 
     window.addEventListener("scroll", function () {
@@ -26,7 +27,12 @@ function HomeContent() {
 
       // could add to this to fade in the map
     });
+  }
+
+  useEffect(() => {
+    scaleGlobe();
   });
+
   return (
     <>
       <div className="center-div">

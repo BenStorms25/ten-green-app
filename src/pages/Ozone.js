@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
+import OzoneContent from "../components/OzoneContent";
+import "./styles/Ozone.css";
 
 function Ozone() {
   useEffect(() => {
@@ -7,8 +9,9 @@ function Ozone() {
   }, []);
 
   return (
-    <div>
+    <div className="ozone-page">
       <CustomHeader />
+      <OzoneContent />
     </div>
   );
 }
