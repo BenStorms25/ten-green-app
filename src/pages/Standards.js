@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
+import "./styles/Standards.css";
 
 function Standards() {
   useEffect(() => {
@@ -7,7 +8,7 @@ function Standards() {
   }, []);
 
   return (
-    <div>
+    <div className="standards-page">
       <CustomHeader />
     </div>
   );

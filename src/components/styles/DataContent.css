@@ -1,0 +1,19 @@
+.data-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: auto;
+  margin: auto;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+.d3-graph {
+  background-color: green;
+  width: 80rem;
+  height: 30rem;
+}
+.header {
+  float: left;
+}
