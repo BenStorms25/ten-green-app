@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
 import DataContent from "../components/DataContent";
 import "./styles/Data.css";
@@ -15,6 +15,7 @@ function Data() {
     <div className="data-page">
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <CustomHeader />
+      The below map is an example of a D3 application. 
       <MapApp />
     </div>
   );
