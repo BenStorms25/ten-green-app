@@ -4,7 +4,8 @@ import {
 	max,
 	timeFormat,
 	extent,
-	histogram as bin,
+	//histogram as bin,
+  bin,
 	timeMonths,
 	mean 
 } from 'd3';

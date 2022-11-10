@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import { useUSAtlas } from './useUSAtlas.js';
 import { useData } from './useData.js';
 import { BubbleMap } from './BubbleMap.js';
-import { DateHistogram } from './DateHistogram.js';
+//import { DateHistogram } from './DateHistogram.js';
 
 const width = 960;
 const height = 500;
