@@ -8,20 +8,25 @@ function Globe() {
   function scaleAndTransitionGlobe() {
     const globeDiv = document.querySelector("#globe");
     const globeImage = document.querySelector("#globe-image");
+    const interactiveMapImage = document.querySelector("#interactive-map-svg");
 
     window.addEventListener("scroll", function () {
       // 2000 worked well for the scaling
       let scaler = window.scrollY / 2000;
       let opacity = 1;
+
       if (window.scrollY < 850) {
         // 0 to 800 scrollY, scale globe
         globeDiv.setAttribute(
           "style",
           "transform: scale(" + (1 + scaler) + ");"
         );
-        // as window scrolly increases, decrease opacity at a rate such that opacity is 0 at 850 scrollY
+
         opacity = 1 - window.scrollY / 850;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
+
+        // inverse the opacity process for the map
+        interactiveMapImage.style.opacity = 1 - opacity;
       } else {
         // after 1200 scrollY, reverse process
         globeDiv.setAttribute(
@@ -33,7 +38,8 @@ function Globe() {
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
       }
 
-      // could add to this to fade in the map
+      // fade out the map
+      interactiveMapImage.style.opacity = 1 - opacity;
     });
   }
 
@@ -47,8 +53,8 @@ function Globe() {
     <div className="globe-div">
       <div id="globe">
         <img id="globe-image" src={globeImage} alt=""></img>
+        <MapApp />
       </div>
-      <MapApp />
     </div>
   );
 }
