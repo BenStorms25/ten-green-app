@@ -8,7 +8,7 @@ function Globe() {
   function scaleAndTransitionGlobe() {
     const globeDiv = document.querySelector("#globe");
     const globeImage = document.querySelector("#globe-image");
-    const interactiveMapImage = document.querySelector("#interactive-map-svg");
+    let interactiveMapImage = document.querySelector("#interactive-map-svg");
 
     window.addEventListener("scroll", function () {
       // 2000 worked well for the scaling
@@ -25,7 +25,10 @@ function Globe() {
         opacity = 1 - window.scrollY / 850;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
 
-        // inverse the opacity process for the map
+        // having trouble with grabbing the map with the queryselector
+        if (!interactiveMapImage) {
+          interactiveMapImage = document.querySelector("#interactive-map-svg");
+        }
         interactiveMapImage.style.opacity = 1 - opacity;
       } else {
         // after 1200 scrollY, reverse process
@@ -38,16 +41,21 @@ function Globe() {
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
       }
 
-      // fade out the map
+      // having trouble with grabbing the map with the queryselector
+      if (!interactiveMapImage) {
+        interactiveMapImage = document.querySelector("#interactive-map-svg");
+      }
       interactiveMapImage.style.opacity = 1 - opacity;
     });
   }
 
   useEffect(() => {
+    const loading = document.querySelector(".loading");
+    if (loading) {
+      loading.style.left = "50%";
+    }
     scaleAndTransitionGlobe();
   });
-
-  useEffect(() => {}, []);
 
   return (
     <div className="globe-div">
