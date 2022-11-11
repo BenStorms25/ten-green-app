@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./styles/Globe.css";
 import globeImage from "../images/10 Green Globe Green Cream 1.png";
+import MapApp from "../Interactive-Map-Source";
 
 function Globe() {
   // scale globe and transition to map on scroll
@@ -18,13 +19,18 @@ function Globe() {
           "style",
           "transform: scale(" + (1 + scaler) + ");"
         );
-        globeImage.setAttribute("style", "opacity: " + { opacity } + ";");
+        // as window scrolly increases, decrease opacity at a rate such that opacity is 0 at 850 scrollY
+        opacity = 1 - window.scrollY / 850;
+        globeImage.setAttribute("style", "opacity: " + opacity + ";");
       } else {
         // after 1200 scrollY, reverse process
         globeDiv.setAttribute(
           "style",
           "transform: scale(" + (1.35 - (scaler - 0.5)) + ");"
         );
+        //reverse process for opacity
+        opacity = (window.scrollY - 850) / 850;
+        globeImage.setAttribute("style", "opacity: " + opacity + ";");
       }
 
       // could add to this to fade in the map
@@ -35,11 +41,14 @@ function Globe() {
     scaleAndTransitionGlobe();
   });
 
+  useEffect(() => {}, []);
+
   return (
     <div className="globe-div">
       <div id="globe">
         <img id="globe-image" src={globeImage} alt=""></img>
       </div>
+      <MapApp />
     </div>
   );
 }

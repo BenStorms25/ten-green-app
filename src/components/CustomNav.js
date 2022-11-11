@@ -1,5 +1,5 @@
 import React from "react";
-import tenGreenLogo from "../images/10Greenblacklogo.png";
+import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import "./styles/CustomNav.css";
 
 function CustomNav() {
