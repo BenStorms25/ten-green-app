@@ -20,3 +20,10 @@
   max-height: 100%;
   opacity: 1;
 }
+
+#interactive-map-svg {
+  position: absolute;
+  top: 30rem;
+  left: 20rem;
+  z-index: 12;
+}

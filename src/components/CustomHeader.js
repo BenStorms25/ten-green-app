@@ -1,7 +1,7 @@
 import React from "react";
 import CustomNav from "./CustomNav";
 import YourAQNow from "./YourAQNow";
-import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";
+import umaineLogo from "../images/UMaine_fullcrest_logo4c.png";
 import climateChangeLogo from "../images/cci_logo_v8_sep2022.png";
 import { useLocation } from "react-router-dom";
 import "./styles/CustomHeader.css";
