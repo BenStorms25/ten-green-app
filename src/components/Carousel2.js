@@ -1,49 +1,29 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import {Swiper, SwiperSlide } from "swiper/react";
+import "../components/styles/Carousel2.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function Swiper_Carousel() {
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'vertical',
-        loop: true,
-    
-        // If we need pagination
-        pagination: {
-        el: '.swiper-pagination',
-        },
-    
-        // Navigation arrows
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    
-        // And if we need scrollbar
-        scrollbar: {
-        el: '.swiper-scrollbar',
-        },
-    });
-
-    <div class="swiper">
-    
-    <div class="swiper-wrapper">
-        
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
+const Carousel2 = () => {
+    return (
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
         ...
-    </div>
-    
-    <div class="swiper-pagination"></div>
+      </Swiper>
+    );
+  };
 
-    
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    
-    <div class="swiper-scrollbar"></div>
-    </div>
-}
-export default Swiper_Carousel;
+  export default Carousel2;

@@ -1,5 +1,5 @@
 import React from "react";
-import Swipe_Carousel from "./Carousel2"
+import Swiper_Carousel from "./Carousel2";
 
 function AboutContent() {
   return <div>
