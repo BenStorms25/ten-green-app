@@ -1,9 +1,24 @@
 import React from "react";
-import Swiper_Carousel from "./Carousel2";
+import SwiperCarousel from "./Carousel2";
 
 function AboutContent() {
   return <div>
-    <Swiper_Carousel />
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+      <code>
+    <SwiperCarousel />
+    </code>
+    </pre>
   </div>;
 }
 
