@@ -1,9 +1,15 @@
 import React from "react";
 import Carousel from "./Carousel";
 
+import NameTag from "./NameTag";
 function AboutContent() {
   return <div>
-    <Carousel />
+    {/*<Carousel />*/}
+  <NameTag
+  name= "Default Team Member"
+  bio= "This is where the default team member's bio will go."
+  img_path="./images/WorkerProfile.png"
+  />
   </div>;
 }
 

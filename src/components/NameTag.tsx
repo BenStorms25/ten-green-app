@@ -1,5 +1,5 @@
 import React from "react"
-import "./styles/NameTag.css"
+import styles from "src/components/styles/HomeContent.css";
 import { Image } from "react-bootstrap";
 export interface NameTagProps {
     name: string;
@@ -8,5 +8,5 @@ export interface NameTagProps {
 }
 
 export default function NameTag(props: NameTagProps) {
-
+<div className={styles}
 }
