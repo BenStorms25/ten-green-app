@@ -14,3 +14,5 @@ ProfileArray[1].src = ScienceGuyPicture
 
 ProfileArray[1] = new Image();
 ProfileArray[1].src = KnightPicture
+
+

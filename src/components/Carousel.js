@@ -1,54 +1,32 @@
-import React, { useState } from 'react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import {Swiper, SwiperSlide } from "swiper/react";
+import "../components/styles/Carousel2.css";
+import 'swiper/swiper.min.css'
+import 'swiper/swiper-bundle.css'
 
-const Carousel = () => {
 
-    const [slides] = useState([
-        {
-            source: "../images/img1.jpg",
-            title: "Half Moon Pier"
-        },
-        {
-            source: "../images/img2.jpg",
-            title: "Port Washington Rocks"
-        },
-        {
-            source: "../images/img3.jpg",
-            title: "Abandoned Rail"
-        }
-    ]);
-
-    // SET CAROUSEL DEFAULTS
-    let [currentPosition, setCurrentPosition] = useState(0); // Initial slide index value
-    let currentSlide = slides[currentPosition]; // variable index value we can reference later
-
-    const arrowRightClick = () => {
-        currentPosition !== slides.length -1 ? // Check index length
-        setCurrentPosition(currentPosition + 1) : setCurrentPosition(currentPosition = 0);
-        currentSlide = slides[currentPosition];
-    }
-
-    const arrowLeftClick = () => {
-        currentPosition !== 0 ? // Check index length
-        setCurrentPosition(currentPosition - 1) : setCurrentPosition(currentPosition = slides.length - 1);
-        currentSlide = slides[currentPosition];
-    }
-
+import OfficeWorkerPicture from "../images/OfficeWorker.jpg";
+import ScienceGuyPicture from "../images/ScienceGuy.jpg";
+const Carousel2 = () => {
     return (
-        <div className="carousel-block">
-            <div className="flex-container">
-                <div id="slider">
-                    <div className="slide">
-                        <img src={currentSlide.source} alt={currentSlide.title} title={currentSlide.title} className="slider-img" />
-                        <div className="arrows">
-                            <div id="arrow-left" onClick={arrowLeftClick}><i className="fas fa-arrow-alt-circle-left"></i></div>
-                            <div id="arrow-right" onClick={arrowRightClick}><i className="fas fa-arrow-alt-circle-right"></i></div>
-                        </div>
-                    </div>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        loop={true}
+        slidesPerView={1}
+        navigation
+        //pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+        <SwiperSlide><img src= {OfficeWorkerPicture} alt="" width="1120px" height="626px"/></SwiperSlide>
+        <SwiperSlide><img src= {ScienceGuyPicture} alt="" width="1120px" height="626px"/></SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        ...
+      </Swiper>
+    );
+  };
 
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Carousel;
+  export default Carousel2;
