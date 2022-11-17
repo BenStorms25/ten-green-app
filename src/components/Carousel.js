@@ -7,7 +7,7 @@ import 'swiper/swiper-bundle.css'
 
 import OfficeWorkerPicture from "../images/OfficeWorker.jpg";
 import ScienceGuyPicture from "../images/ScienceGuy.jpg";
-const Carousel2 = () => {
+const Carousel = () => {
     return (
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -29,4 +29,4 @@ const Carousel2 = () => {
     );
   };
 
-  export default Carousel2;
+  export default Carousel;

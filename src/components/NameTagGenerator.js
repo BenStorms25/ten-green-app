@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import OfficeWorkerPicture from "../images/OfficeWorker.jpg";
+import OfficeWorkerPicture from "../images/WorkerProfile.png";
 import ScienceGuyPicture from "../images/ScienceGuy.jpg";
 import KnightPicture from "../images/Knight.jpg"
 const ProfileArray = new Array();

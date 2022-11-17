@@ -1,0 +1,9 @@
+.circular--square {
+    border-radius: 50%;
+}
+
+.box {
+    width: 1119px;
+    height: 626px;
+    border-radius: 25px;
+}
