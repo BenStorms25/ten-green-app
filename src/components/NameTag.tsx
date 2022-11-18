@@ -1,5 +1,5 @@
 import React from "react"
-import NTstyles from "./styles/NameTag.css"
+import NTstyles from "./styles/NameTag.module.css"
 import { Image } from "react-bootstrap";
 export interface NameTagProps {
     name: string;
@@ -8,5 +8,11 @@ export interface NameTagProps {
 }
 
 export default function NameTag(props: NameTagProps) {
-<div className={box}
+
+    return (
+    <div className={NTstyles.box}>
+    <header>{props.name}</header>
+    </div>
+    
+    );
 }

@@ -1,9 +1,9 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import {Swiper, SwiperSlide } from "swiper/react";
-import "../components/styles/Carousel2.css";
+import "../components/styles/Carousel.css";
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.css'
-
+import NameTag from './NameTag.tsx';
 
 import OfficeWorkerPicture from "../images/OfficeWorker.jpg";
 import ScienceGuyPicture from "../images/ScienceGuy.jpg";

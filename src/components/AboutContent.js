@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "./Carousel";
+import NameTag from "./NameTag.tsx";
 
-import NameTag from "./NameTag";
 function AboutContent() {
   return <div>
     {/*<Carousel />*/}

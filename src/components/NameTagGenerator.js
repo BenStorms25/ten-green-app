@@ -6,6 +6,7 @@ import ScienceGuyPicture from "../images/ScienceGuy.jpg";
 import KnightPicture from "../images/Knight.jpg"
 const ProfileArray = new Array();
 
+const NameArray = new 
 ProfileArray[0] = new Image();
 ProfileArray[0].src = OfficeWorkerPicture
 

@@ -3,7 +3,11 @@
 }
 
 .box {
+    background-color: rgb(255, 0, 0);
+    border: 10px solid #000;
     width: 1119px;
     height: 626px;
     border-radius: 25px;
+    
+    
 }
