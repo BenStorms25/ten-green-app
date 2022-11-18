@@ -50,10 +50,6 @@ function Globe() {
   }
 
   useEffect(() => {
-    const loading = document.querySelector(".loading");
-    if (loading) {
-      loading.style.left = "50%";
-    }
     scaleAndTransitionGlobe();
   });
 
