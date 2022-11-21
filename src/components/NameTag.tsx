@@ -12,6 +12,8 @@ export default function NameTag(props: NameTagProps) {
     return (
     <div className={NTstyles.box}>
     <header>{props.name}</header>
+
+    
     </div>
     
     );
