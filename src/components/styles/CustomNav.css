@@ -1,6 +1,6 @@
 .navbar {
   border-radius: 1rem;
-  background-color: #edf0f0;
+  background-color: #3e3e46;
   width: 50rem;
   display: flex;
   justify-content: space-between;
@@ -17,7 +17,7 @@
   padding-right: 1rem;
 }
 .custom-nav-link {
-  color: #002a5c;
+  color: white;
   text-decoration: none;
   transition: 0.2s;
 }

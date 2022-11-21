@@ -15,7 +15,6 @@ function Data() {
     <div className="data-page">
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <CustomHeader />
-      The below map is an example of a D3 application. 
       <MapApp />
     </div>
   );
