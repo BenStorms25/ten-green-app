@@ -1,11 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { useUsaGeo } from './useUsaGeo';
-import { Marks, dots } from './Marks';
-import { useData } from './useData';
-import { dataFilter } from './dataFilter';
-import { usePoints } from './usePoints';
-import { scaleOrdinal, hcl } from 'd3';
+import React, { useState, useCallback, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { useUsaGeo } from "./useUsaGeo";
+import { Marks, dots } from "./Marks";
+import { useData } from "./useData";
+import { dataFilter } from "./dataFilter";
+import { usePoints } from "./usePoints";
+import * as d3 from "d3";
+import { scaleOrdinal, hcl } from "d3";
+import "../components/styles/Globe.css";
 
 const width = 960;
 const height = 500;
@@ -29,7 +31,7 @@ const App = () => {
   const play = () => {
     console.log(year);
     if (+year === 2021) {
-      console.log(2021)
+      console.log(2021);
       return;
     }
 
@@ -106,4 +108,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
