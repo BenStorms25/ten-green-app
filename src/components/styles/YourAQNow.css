@@ -1,15 +1,16 @@
 .AQNowButton {
   margin-left: 1rem;
-  background-color: #3e3e46;
-  color: #edf0f0;
+  background-color: #bde59c;
+  color: black;
   border-radius: 0.7rem;
   border-width: 0rem;
+  border-color: #bde59c;
+  box-shadow: none;
   width: 7rem;
   height: 3.6rem;
   transition: 0.3s;
 }
 .AQNowButton:hover {
-  background-color: #67cfcf;
-  color: #edf0f0;
+  background-color: #fefefe;
   box-shadow: none;
 }

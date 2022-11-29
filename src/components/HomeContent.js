@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Globe from "./Globe.js";
-import tenGreenLogo from "../images/10Greenblacklogo.png";
+import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import "./styles/HomeContent.css";
 
 function HomeContent() {
