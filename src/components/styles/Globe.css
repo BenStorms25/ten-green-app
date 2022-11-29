@@ -22,7 +22,7 @@
   opacity: 1;
 }
 
-#interactive-map-svg {
+#interactive-map {
   position: absolute;
   top: 35rem;
   left: 20rem;

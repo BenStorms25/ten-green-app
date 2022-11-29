@@ -8,7 +8,7 @@ function FilterMaps(props) {
   };
 
   return (
-    <>
+    <div className="filter-by">
       <p class="header-text">Filter By: </p>
       <div class="dropdown">
         <select value={props.currentMap} onChange={handleChange}>
@@ -19,7 +19,7 @@ function FilterMaps(props) {
           ))}
         </select>
       </div>
-    </>
+    </div>
   );
 }
 

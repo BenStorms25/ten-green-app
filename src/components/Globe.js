@@ -20,7 +20,6 @@ function Globe() {
     const globeDiv = document.querySelector("#globe");
     const globeImage = document.querySelector("#globe-image");
     let interactiveMapImage = document.querySelector("#interactive-map-svg");
-    let filterByMaps = document.querySelector("#filter-maps-div");
 
     window.addEventListener("scroll", function () {
       // 2000 worked well for the scaling
@@ -38,14 +37,9 @@ function Globe() {
 
         // having trouble with grabbing the map with the queryselector
         if (!interactiveMapImage) {
-          interactiveMapImage = document.querySelector("#interactive-map-svg");
+          interactiveMapImage = document.querySelector("#interactive-map");
         }
         interactiveMapImage.style.opacity = 1 - opacity;
-
-        if (!filterByMaps) {
-          filterByMaps = document.querySelector("#filter-maps-div");
-        }
-        filterByMaps.style.opacity = 1 - opacity;
       } else {
         // set globe div to overflow hidden
         globeDiv.setAttribute("style", "transform: scale(" + 1.35 + ");");
@@ -53,24 +47,34 @@ function Globe() {
     });
   }
 
+  function renderMap(currentMap) {
+    if (currentMap === "") {
+      return <MapApp />;
+    } else if (currentMap === "ozone") {
+      return <p></p>;
+    } else if (currentMap === "nitrogen") {
+      return <p></p>;
+    } else if (currentMap === "co2") {
+      return <p></p>;
+    }
+  }
+
   useEffect(() => {
     scaleAndTransitionGlobe();
-    // make size of the page
   });
 
   return (
     <div className="globe-div">
       <div id="globe">
         <img id="globe-image" src={globeImage} alt=""></img>
-
-        <MapApp />
-      </div>
-      <div id="filter-maps-div">
-        <FilterMaps
-          currentMap={currentMap}
-          setCurrentMap={setCurrentMap}
-          mapOptions={mapOptions}
-        />
+        <div id="interactive-map">
+          <FilterMaps
+            currentMap={currentMap}
+            setCurrentMap={setCurrentMap}
+            mapOptions={mapOptions}
+          />
+          {renderMap(currentMap)}
+        </div>
       </div>
     </div>
   );
