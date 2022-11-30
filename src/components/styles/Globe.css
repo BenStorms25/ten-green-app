@@ -3,9 +3,10 @@
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  padding-bottom: 20rem;
-  padding-top: 5rem;
+  padding-bottom: 0rem;
+  padding-top: 10rem;
 }
+
 #globe {
   border-radius: 50%;
   width: 100rem;
@@ -21,9 +22,19 @@
   opacity: 1;
 }
 
-#interactive-map-svg {
+#interactive-map {
+  background-color: white;
+  border-radius: 3%;
+  padding: 2rem 1rem 2rem 1rem;
   position: absolute;
-  top: 30rem;
+  top: 35rem;
+  left: 20rem;
+  z-index: 12;
+}
+
+#filter-maps-div {
+  position: absolute;
+  top: 55rem;
   left: 20rem;
   z-index: 12;
 }
