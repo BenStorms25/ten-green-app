@@ -1,0 +1,14 @@
+.box {
+    background-color: rgb(255, 255, 255);
+    width: 761px;
+    height: 426px;
+    border-radius: 25px;
+    
+    
+}
+
+.black_box {
+    background-color: #3e3e46;
+    width: 400px;
+    height: 400px;
+}

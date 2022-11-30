@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
 import PollutantsContent from "../components/PollutantsContent";
 import "./styles/Pollutants.css";
-import Dropdown from "react-bootstrap/Dropdown"
-import DropdownButton from "react-bootstrap/DropdownButton"
 
 
 
