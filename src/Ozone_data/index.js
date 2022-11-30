@@ -12,7 +12,6 @@ import "../components/styles/Globe.css";
 const width = 960;
 const height = 500;
 const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
-console.log(colorScale);
 
 const App = () => {
   const data = useData();

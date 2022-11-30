@@ -8,13 +8,13 @@ import FilterMaps from "./FilterMaps.js";
 function Globe() {
   // options to filter by pollutant
   const mapOptions = [
-    { value: "", text: "--Filter By--" },
+    { value: "", text: "Default" },
     { value: "ozone", text: "Ozone" },
     { value: "nitrogen", text: "Nitrogen" },
     { value: "co2", text: "CO2" },
   ];
 
-  const [currentMap, setCurrentMap] = React.useState("");
+  const [currentMap, setCurrentMap] = useState("");
 
   // scale globe and transition to map on scroll
   function scaleAndTransitionGlobe() {

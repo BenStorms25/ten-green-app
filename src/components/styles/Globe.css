@@ -23,6 +23,9 @@
 }
 
 #interactive-map {
+  background-color: white;
+  border-radius: 3%;
+  padding: 2rem 1rem 2rem 1rem;
   position: absolute;
   top: 35rem;
   left: 20rem;

@@ -8,7 +8,9 @@
   margin: auto;
   padding-top: 7rem;
   padding-bottom: 7rem;
+  background-color: #213832;
 }
+
 .d3-graph {
   background-color: green;
   width: 80rem;
@@ -16,4 +18,10 @@
 }
 .header {
   float: left;
+}
+
+#interactive-map {
+  background-color: white;
+  border-radius: 3%;
+  padding: 2rem 1rem 2rem 1rem;
 }

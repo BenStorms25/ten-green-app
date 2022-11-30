@@ -3,14 +3,13 @@ import "./styles/FilterMaps.css";
 
 function FilterMaps(props) {
   const handleChange = (e) => {
-    console.log(e.target.value);
     props.setCurrentMap(e.target.value);
   };
 
   return (
     <div className="filter-by">
-      <p class="header-text">Filter By: </p>
-      <div class="dropdown">
+      <p className="header-text">Filter Map By:&nbsp; </p>
+      <div className="dropdown">
         <select value={props.currentMap} onChange={handleChange}>
           {props.mapOptions.map((mapOption) => (
             <option key={mapOption.value} value={mapOption.value}>
