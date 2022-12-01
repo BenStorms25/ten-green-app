@@ -6,7 +6,7 @@
   padding-bottom: 0rem;
 }
 .ten-green-logo {
-  width: 40rem;
+  max-width: 40%;
   animation: transitionIn 1s;
   padding-right: 1rem;
 }

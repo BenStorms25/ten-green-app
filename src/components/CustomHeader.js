@@ -2,7 +2,8 @@ import React from "react";
 import CustomNav from "./CustomNav";
 import YourAQNow from "./YourAQNow";
 import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";
-import climateChangeLogo from "../images/cci_logo_v8_sep2022.png";
+
+import climateChangeLogo from "../images/climateChangeWhite.png";
 import { useLocation } from "react-router-dom";
 import "./styles/CustomHeader.css";
 
@@ -16,10 +17,9 @@ function CustomHeader() {
         location.pathname === "/" ? "top-bar-animation" : "top-bar-no-animation"
       }
     >
-      <img className="header-logo" alt="" src={umaineLogo}></img>
-      <img className="header-logo" alt="" src={climateChangeLogo}></img>
       <CustomNav />
-      <YourAQNow />
+      <img className="header-logo" alt="" src={climateChangeLogo}></img>
+      <img className="header-logo" alt="" src={umaineLogo}></img>
     </header>
   );
 }

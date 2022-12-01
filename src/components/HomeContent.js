@@ -5,8 +5,6 @@ import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 
 function HomeContent() {
-  // scale the globe on scroll
-
   return (
     <>
       <div className="center-div">

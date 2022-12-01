@@ -1,20 +1,20 @@
-.navbar {
-  border-radius: 1rem;
-  background-color: #fefefe;
-  width: 50rem;
+/* #navbar-outer {
+  width: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .navbar-logo {
   max-width: 15%;
   height: auto;
   padding-left: 1rem;
 }
+
 .nav {
   display: flex;
   justify-content: space-around;
   width: 35rem;
   padding-right: 1rem;
+  background-color: blue;
 }
 .custom-nav-link {
   color: black;
@@ -23,4 +23,118 @@
 }
 .custom-nav-link:hover {
   color: #bde59c;
+}
+.nav-link:hover {
+  color: #bde59c;
+}
+
+#navbar-inner {
+  display: flex;
+  justify-content: space-around;
+  max-width: 70%;
+  height: 3rem;
+  border-radius: 2%;
+  box-shadow: 0.1rem 0.1rem;
+} */
+
+.navbar {
+  width: 45rem;
+  color: white;
+}
+
+#navID {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.brand-title {
+  margin: 1.5rem;
+}
+
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  box-shadow: 0.05rem 0.05rem black;
+}
+.navbar-links li {
+  list-style: none;
+}
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  display: block;
+}
+.navbar-links a:hover {
+  color: #bde59c;
+}
+.navbar-logo {
+  width: 8rem;
+  height: auto;
+  padding-left: 1rem;
+}
+.toggle-button {
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.5rem;
+  height: 1rem;
+}
+
+.toggle-button .bar {
+  height: 0.15rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+@media (max-width: 895px) {
+  .toggle-button {
+    display: flex;
+  }
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+  .active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  #navID {
+    justify-content: flex-start;
+  }
+  .mobile-logo {
+    display: block;
+    height: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    top: 1.4rem;
+  }
+  .mobile-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navbar-logo {
+    padding-right: 1rem;
+  }
 }
