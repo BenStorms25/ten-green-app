@@ -3,11 +3,15 @@ import MapApp from "../Interactive-Map-Source";
 import OzoneMap from "../Ozone_data";
 import FilterMaps from "./FilterMaps";
 import "./styles/InteractiveMap.css";
+import useWindowSize from "./useWindowSize";
 
 function InteractiveMap() {
   const [currentMap, setCurrentMap] = useState("");
   // swap mounted back and forth until svg can be identified
   const [mounted, setMounted] = useState(true);
+
+  let windowSize = useWindowSize();
+  console.log(windowSize);
 
   function styleMap() {
     let USMap = document.getElementById("interactive-map-svg");
@@ -20,7 +24,6 @@ function InteractiveMap() {
 
   function shrinkMapWithContainer() {
     let svg = document.getElementById("interactive-map-svg");
-    console.log("svg: " + svg);
     // wait until DOM is loaded
     if (!svg) {
       // swap mounted, triggering useEffect again
@@ -28,7 +31,6 @@ function InteractiveMap() {
       return;
     }
 
-    console.log(svg);
     const { xMin, xMax, yMin, yMax } = [...svg.children].reduce((acc, el) => {
       const { x, y, width, height } = el.getBBox();
       if (!acc.xMin || x < acc.xMin) acc.xMin = x;
@@ -42,14 +44,13 @@ function InteractiveMap() {
 
     svg.setAttribute("viewBox", viewbox);
   }
-  // use svg format
-  //useSvgFormat();
 
   useEffect(() => {
     // every render get width
+    console.log("useEffect");
     shrinkMapWithContainer();
     styleMap();
-  }, [mounted]);
+  }, [mounted, windowSize.width]);
 
   // options to filter by pollutant
   const mapOptions = [

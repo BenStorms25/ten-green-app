@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import MapApp from "../Interactive-Map-Source";
-
 import FilterMaps from "./FilterMaps.js";
 import InteractiveMap from "./InteractiveMap";
 

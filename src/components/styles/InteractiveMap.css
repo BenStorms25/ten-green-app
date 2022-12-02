@@ -2,18 +2,63 @@
   background-color: white;
   border-radius: 3%;
   padding: 2rem 1rem 2rem 1rem;
-  max-width: 50%;
+  max-width: 60%;
   text-align: center;
   position: relative;
-  top: -30rem;
+  top: -33rem;
 }
 .USMap {
   position: relative;
-  right: 3rem;
+  right: 2.7rem;
 }
 #filter-maps-div {
   position: absolute;
   top: 55rem;
   left: 20rem;
   z-index: 12;
+}
+
+@media (1200px <= width <= 1680px) {
+  .USMap {
+    right: 2.7rem;
+  }
+}
+@media (1000px <= width <= 1200px) {
+  .USMap {
+    right: 1.5rem;
+  }
+  #interactive-map {
+    max-width: 70%;
+    top: -15rem;
+  }
+}
+
+@media (800px <= width <= 1000px) {
+  .USMap {
+    right: 1rem;
+  }
+  #interactive-map {
+    max-width: 90%;
+    top: -10rem;
+  }
+}
+
+@media (500px <= width <= 800px) {
+  .USMap {
+    right: 0.7rem;
+  }
+  #interactive-map {
+    max-width: 90%;
+    top: -10rem;
+  }
+}
+
+@media (width <= 500px) {
+  .USMap {
+    right: 0.7rem;
+  }
+  #interactive-map {
+    max-width: 90%;
+    top: 15rem;
+  }
 }
