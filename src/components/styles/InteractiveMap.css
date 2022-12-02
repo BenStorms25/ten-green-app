@@ -1,0 +1,19 @@
+#interactive-map {
+  background-color: white;
+  border-radius: 3%;
+  padding: 2rem 1rem 2rem 1rem;
+  max-width: 50%;
+  text-align: center;
+  position: relative;
+  top: -30rem;
+}
+.USMap {
+  position: relative;
+  right: 3rem;
+}
+#filter-maps-div {
+  position: absolute;
+  top: 55rem;
+  left: 20rem;
+  z-index: 12;
+}
