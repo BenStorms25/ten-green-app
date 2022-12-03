@@ -16,7 +16,9 @@ function CustomNav() {
   return (
     <nav className="navbar" id="navID">
       <div className="mobile-header">
-        <img src={tenGreenLogo} alt="" className="navbar-logo"></img>
+        <a href="/">
+          <img src={tenGreenLogo} alt="" className="navbar-logo"></img>
+        </a>
         <img className="mobile-logo" alt="" src={climateChangeLogo}></img>
         <img className="mobile-logo" alt="" src={umaineLogo}></img>
       </div>

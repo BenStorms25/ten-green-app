@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 895px) {
+@media (max-width: 960px) {
   .header-logo {
     display: none;
   }

@@ -38,7 +38,7 @@
 } */
 
 .navbar {
-  width: 45rem;
+  width: 46rem;
   color: white;
 }
 
@@ -57,7 +57,6 @@
   margin: 0;
   padding: 0;
   display: flex;
-  box-shadow: 0.025rem 0.025rem black;
 }
 .navbar-links li {
   list-style: none;
@@ -65,7 +64,7 @@
 .navbar-links a {
   text-decoration: none;
   color: white;
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   display: block;
 }
 .navbar-links a:hover {
@@ -75,6 +74,7 @@
   width: 8rem;
   height: auto;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 .toggle-button {
   position: absolute;
@@ -98,7 +98,8 @@
   display: none;
 }
 
-@media (max-width: 895px) {
+/* Navbar collapse at specific width */
+@media (max-width: 960px) {
   .toggle-button {
     display: flex;
   }
