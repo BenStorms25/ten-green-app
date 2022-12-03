@@ -6,8 +6,8 @@ import { BubbleMap } from "./BubbleMap.js";
 import "../components/styles/Globe.css";
 //import { DateHistogram } from './DateHistogram.js';
 
-const width = 960;
-const height = 500;
+const width = window.innerWidth / 2;
+const height = width / 1.92;
 
 const MapApp = () => {
   const USAtlas = useUSAtlas();
@@ -18,7 +18,12 @@ const MapApp = () => {
   }
 
   return (
-    <svg width={width} height={height} id="interactive-map-svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width * 1.2} ${height * 1.2}`}
+      id="interactive-map-svg"
+    >
       <BubbleMap data={data} USAtlas={USAtlas} />
     </svg>
   );

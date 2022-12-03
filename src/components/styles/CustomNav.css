@@ -57,7 +57,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  box-shadow: 0.05rem 0.05rem black;
+  box-shadow: 0.025rem 0.025rem black;
 }
 .navbar-links li {
   list-style: none;

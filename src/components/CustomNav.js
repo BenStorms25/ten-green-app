@@ -6,10 +6,10 @@ import climateChangeLogo from "../images/climateChangeWhite.png";
 import "./styles/CustomNav.css";
 
 function CustomNav() {
+  // collapse nav bar links after certain screen width
   function collapseNav() {
     const toggleButton = document.getElementsByClassName("toggle-button")[0];
     let navbarLinks = document.getElementsByClassName("navbar-links")[0];
-
     navbarLinks.classList.toggle("active");
   }
 

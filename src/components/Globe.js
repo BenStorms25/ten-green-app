@@ -2,20 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import MapApp from "../Interactive-Map-Source";
-import OzoneMap from "../Ozone_data";
 import FilterMaps from "./FilterMaps.js";
+import InteractiveMap from "./InteractiveMap";
 
 function Globe() {
-  // options to filter by pollutant
-  const mapOptions = [
-    { value: "", text: "Default" },
-    { value: "ozone", text: "Ozone" },
-    { value: "nitrogen", text: "Nitrogen" },
-    { value: "co2", text: "CO2" },
-  ];
-
-  const [currentMap, setCurrentMap] = useState("");
-
   // scale globe and transition to map on scroll
   function scaleAndTransitionGlobe() {
     const globeDiv = document.querySelector("#globe");
@@ -48,19 +38,6 @@ function Globe() {
     });
   }
 
-  function renderMap(currentMap) {
-    // alternate between maps based on selection
-    if (currentMap === "") {
-      return <MapApp />;
-    } else if (currentMap === "ozone") {
-      return <OzoneMap />;
-    } else if (currentMap === "nitrogen") {
-      return <p></p>;
-    } else if (currentMap === "co2") {
-      return <p></p>;
-    }
-  }
-
   useEffect(() => {
     scaleAndTransitionGlobe();
   });
@@ -69,13 +46,8 @@ function Globe() {
     <div className="globe-div">
       <div id="globe">
         <img id="globe-image" src={globeImage} alt=""></img>
-        <div id="interactive-map">
-          <FilterMaps
-            currentMap={currentMap}
-            setCurrentMap={setCurrentMap}
-            mapOptions={mapOptions}
-          />
-          {renderMap(currentMap)}
+        <div className="interactive-map-container">
+          <InteractiveMap />
         </div>
       </div>
     </div>
