@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import FilterMaps from "./FilterMaps";
 import MapApp from "../Interactive-Map-Source";
-import OzoneMap from "../Ozone_data";
+import OzoneMap from "../Homepage-map";
 import * as d3 from "d3";
 
 function DataContent() {

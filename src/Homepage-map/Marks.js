@@ -17,19 +17,22 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     ],
     UsaGeo[0]
   );
+
+  // <path
+  //           className="border"
+  //           d={path(feature)}
+  //           fill={
+  //             colorScale(dataMap.get(feature.id))
+  //               ? colorScale(dataMap.get(feature.id))
+  //               : "grey"
+  //           }
+  //         ></path>
+
   return (
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
-          <path
-            className="border"
-            d={path(feature)}
-            fill={
-              colorScale(dataMap.get(feature.id))
-                ? colorScale(dataMap.get(feature.id))
-                : "grey"
-            }
-          >
+          <path className="border" d={path(feature)} fill={"grey"}>
             <title>
               {feature.properties.name}, {states.get(feature.id.slice(0, 2))}
               &#xA;{dataMap.get(feature.id)}
