@@ -63,7 +63,7 @@ function InteractiveMap() {
   function renderMap(currentMap) {
     // alternate between maps based on selection
     if (currentMap === "") {
-      //eturn <MapApp viewSites={viewSites} />;
+      //return <MapApp viewSites={viewSites} />;
       return <HomepageMap />;
     } else if (currentMap === "ozone") {
       return <MapApp />;

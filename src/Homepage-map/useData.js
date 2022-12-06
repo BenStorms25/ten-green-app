@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { csv } from "d3";
+import { csv, json } from "d3";
 
-const csvUrl =
-  "https://gist.githubusercontent.com/itsyaboichase/ccf5f349e0a6eaed79f07171592463ad/raw/5f26401065f343cdbe2f997189cde60f894e73f1/ozone_2000-2021";
 // const csvUrl =
-//   "https://gist.githubusercontent.com/BenStorms25/b62644c7998767ce365134997ccf083e/raw/5b4eac490f1306c9a4ab8a48686fd8693074705e/gistfile1.txt";
+//   "https://gist.githubusercontent.com/itsyaboichase/ccf5f349e0a6eaed79f07171592463ad/raw/5f26401065f343cdbe2f997189cde60f894e73f1/ozone_2000-2021";
+const jsonUrl =
+  "https://gist.githubusercontent.com/BenStorms25/b62644c7998767ce365134997ccf083e/raw/5b4eac490f1306c9a4ab8a48686fd8693074705e/gistfile1.txt";
 
 export const useData = () => {
   const [data, setData] = useState(null);
@@ -25,11 +25,8 @@ export const useData = () => {
       }
       return d;
     };
-    csv(csvUrl, row).then((res) => {
-      res.max = max;
-      res.min = min;
+    json(jsonUrl).then((res) => {
       setData(res);
-      console.log(res);
     });
   }, []);
 
