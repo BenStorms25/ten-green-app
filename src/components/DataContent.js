@@ -1,42 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
-import FilterMaps from "./FilterMaps";
-import MapApp from "../Interactive-Map-Source";
-import OzoneMap from "../Ozone_data";
-import * as d3 from "d3";
-
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import CountyList from "../content/UpdatedCountyData.json";
+import { Button } from "bootstrap";
 function DataContent() {
-  const mapOptions = [
-    { value: "", text: "Default" },
-    { value: "ozone", text: "Ozone" },
-    { value: "nitrogen", text: "Nitrogen" },
-    { value: "co2", text: "CO2" },
-  ];
 
-  function renderMap(currentMap) {
-    // alternate between maps based on selection
-    if (currentMap === "") {
-      return <MapApp />;
-    } else if (currentMap === "ozone") {
-      return <OzoneMap />;
-    } else if (currentMap === "nitrogen") {
-      return <p></p>;
-    } else if (currentMap === "co2") {
-      return <p></p>;
-    }
-  }
+  const CountyListArray = CountyList;
 
-  const [currentMap, setCurrentMap] = useState("");
+  const ClickableLocation = (location) => <Button>{location}</Button>
 
-  return (
-    <div className="data-container">
-      <FilterMaps
-        currentMap={currentMap}
-        setCurrentMap={setCurrentMap}
-        mapOptions={mapOptions}
-      />
-      {renderMap(currentMap)}
-    </div>
+  const handleOnSearch = (string, results) => {
+    console.log(string, results);
+  };
+
+  const handleOnHover = (result) => {
+    console.log(result);
+  };
+
+  const handleOnSelect = (item) => {
+    console.log(item);
+  };
+
+  const handleOnFocus = () => {
+    console.log("Focused");
+  };
+
+  const handleOnClear = () => {
+    console.log("Cleared");
+  };
+  return (  
+    <><ReactSearchAutocomplete
+      items={CountyListArray}
+      maxResults={15}
+      fuseOptions={{ keys: ["county_name"] }}
+      resultStringKeyName={"display_name"}
+      onSearch={handleOnSearch}
+      onHover={handleOnHover}
+      onSelect={handleOnSelect}
+      onFocus={handleOnFocus}
+      onClear={handleOnClear}
+      styling={{ zIndex: 3 }}
+      autoFocus /><ClickableLocation location="test" /></>
+
+
   );
 }
 
