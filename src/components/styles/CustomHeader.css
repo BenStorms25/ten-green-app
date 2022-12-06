@@ -30,3 +30,9 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 960px) {
+  .header-logo {
+    display: none;
+  }
+}

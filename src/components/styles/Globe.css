@@ -21,20 +21,8 @@
   max-height: 100%;
   opacity: 1;
 }
-
-#interactive-map {
-  background-color: white;
-  border-radius: 3%;
-  padding: 2rem 1rem 2rem 1rem;
-  position: absolute;
-  top: 35rem;
-  left: 20rem;
-  z-index: 12;
-}
-
-#filter-maps-div {
-  position: absolute;
-  top: 55rem;
-  left: 20rem;
-  z-index: 12;
+.interactive-map-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
