@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MapApp from "../Interactive-Map-Source";
-import OzoneMap from "../Ozone_data";
+import HomepageMap from "../Homepage-map";
 import FilterMaps from "./FilterMaps";
+import ToggleSites from "./ToggleSites";
 import "./styles/InteractiveMap.css";
 import useWindowSize from "./useWindowSize";
 
@@ -9,9 +10,9 @@ function InteractiveMap() {
   const [currentMap, setCurrentMap] = useState("");
   // swap mounted back and forth until svg can be identified
   const [mounted, setMounted] = useState(true);
+  const [viewSites, setViewSites] = useState(true);
 
   let windowSize = useWindowSize();
-  console.log(windowSize);
 
   function styleMap() {
     let USMap = document.getElementById("interactive-map-svg");
@@ -47,7 +48,6 @@ function InteractiveMap() {
 
   useEffect(() => {
     // every render get width
-    console.log("useEffect");
     shrinkMapWithContainer();
     styleMap();
   }, [mounted, windowSize.width]);
@@ -63,9 +63,10 @@ function InteractiveMap() {
   function renderMap(currentMap) {
     // alternate between maps based on selection
     if (currentMap === "") {
-      return <MapApp />;
+      //eturn <MapApp viewSites={viewSites} />;
+      return <HomepageMap />;
     } else if (currentMap === "ozone") {
-      return <OzoneMap />;
+      return <MapApp />;
     } else if (currentMap === "nitrogen") {
       return <p></p>;
     } else if (currentMap === "co2") {
@@ -74,11 +75,7 @@ function InteractiveMap() {
   }
   return (
     <div id="interactive-map">
-      <FilterMaps
-        currentMap={currentMap}
-        setCurrentMap={setCurrentMap}
-        mapOptions={mapOptions}
-      />
+      <ToggleSites setViewSites={setViewSites} viewSites={viewSites} />
       {renderMap(currentMap)}
     </div>
   );

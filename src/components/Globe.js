@@ -23,7 +23,7 @@ function Globe() {
           "transform: scale(" + (1 + scaler) + ");"
         );
 
-        opacity = 1 - window.scrollY / 650;
+        opacity = 1 - window.scrollY / 300;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
 
         // having trouble with grabbing the map with the queryselector

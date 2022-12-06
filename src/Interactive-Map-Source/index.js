@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import ReactDOM from 'react-dom';
 import { useUSAtlas } from "./useUSAtlas.js";
 import { useData } from "./useData.js";
@@ -9,7 +9,7 @@ import "../components/styles/Globe.css";
 const width = window.innerWidth / 2;
 const height = width / 1.92;
 
-const MapApp = () => {
+const MapApp = ({ viewSites }) => {
   const USAtlas = useUSAtlas();
   const data = useData();
 
@@ -24,7 +24,7 @@ const MapApp = () => {
       viewBox={`0 0 ${width * 1.2} ${height * 1.2}`}
       id="interactive-map-svg"
     >
-      <BubbleMap data={data} USAtlas={USAtlas} />
+      <BubbleMap data={data} USAtlas={USAtlas} viewSites={viewSites} />
     </svg>
   );
 };
