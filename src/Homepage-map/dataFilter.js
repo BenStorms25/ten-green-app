@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+
 export const DataFilter = (data, year) => {
+  const StateAbrevs = 
+  [ 'AL', 'AK', 'null', 'AZ', 'AR', 'CA', 'null', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'null', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'null', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'null', 'WA', 'WV', 'WI', 'WY' ];
+
   const dispatch = useDispatch();
 
   // basic data point
   class DataPoint {
     constructor() {
       this.countyName = "";
+      this.id = "";
       this.measure = "";
       this.dataValue = 0;
       this.year = 2000;
@@ -22,7 +27,8 @@ export const DataFilter = (data, year) => {
 
   // populate DataPoints objs with data from data array
   for (let i = 0; i < data.length; i++) {
-    dataPoints[i].countyName = data[i].countyName;
+    dataPoints[i].countyName = data[i].county;
+    dataPoints[i].id = data[i].id;
     if (data[i].measure === "10green") {
       dataPoints[i].measure = "10green";
       dataPoints[i].dataValue = data[i].data[year - 2000];
@@ -65,8 +71,17 @@ export const DataFilter = (data, year) => {
     }
   }
 
+
   // dispatch data points to redux store
   dataPoints.forEach((point) => {
+
+    const lowerCaseName = point.countyName;
+    const Capitalized = lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
+    const StateIndex = parseInt(point.id.slice(0, 2)); 
+    const ActualState = StateAbrevs[(StateIndex - 1)];
+    const finalName = Capitalized + ", " + ActualState
+    
+    dispatch({ type: "SET_COUNTY_NAME", payload: finalName});
     switch (point.measure) {
       case "10green":
         dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
