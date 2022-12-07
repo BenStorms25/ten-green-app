@@ -28,7 +28,7 @@
     return data;
   };
 
-  const dataFilter = (data, year) => {
+  const DataFilter = (data, year) => {
     return new Map(data.map((obj) => [obj.id, +obj["ozone_" + year]]));
   };
 
@@ -36,7 +36,7 @@
   const path = d3$1.geoPath(projection);
 
   const Marks = ({ UsaGeo, data, year, colorScale }) => {
-    let dataMap = dataFilter(data, year);
+    let dataMap = DataFilter(data, year);
     const states = new Map(
       UsaGeo[1].features.map((d) => [d.id, d.properties.name])
     );

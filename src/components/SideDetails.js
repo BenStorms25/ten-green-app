@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./styles/SideDetails.css";
 
 function SideDetails() {
-  const [countyName, setCountyName] = useState("Penobscot, Maine");
-  const [tenGreenScore, setTenGreenScore] = useState(null);
-  const [aqi, setAqi] = useState(null);
-  const [ozone, setOzone] = useState(null);
-  const [pm25, setPm25] = useState(null);
-  const [pm10, setPm10] = useState(null);
-  const [so2, setSo2] = useState(null);
-  const [no2, setNo2] = useState(null);
-  const [no, setNo] = useState(null);
-  const [nickel, setNickel] = useState(null);
-  const [lead, setLead] = useState(null);
-  const [co, setCo] = useState(null);
-  const [cadmium, setCadmium] = useState(null);
-  const [arsenic, setArsenic] = useState(null);
+  const countyName = useSelector((state) => state.countyName);
+  const tenGreenScore = useSelector((state) => state.tenGreenScore);
+  const aqi = useSelector((state) => state.aqi);
+  const arsenic = useSelector((state) => state.arsenic);
+  const cadmium = useSelector((state) => state.cadmium);
+  const co = useSelector((state) => state.co);
+  const lead = useSelector((state) => state.lead);
+  const nickel = useSelector((state) => state.nickel);
+  const no = useSelector((state) => state.no);
+  const no2 = useSelector((state) => state.no2);
+  const ozone = useSelector((state) => state.ozone);
+  const pm10 = useSelector((state) => state.pm10);
+  const pm25 = useSelector((state) => state.pm25);
+  const so2 = useSelector((state) => state.so2);
 
   return (
     <div className="side-details">

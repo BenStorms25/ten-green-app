@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
-import { dataFilter } from "./dataFilter";
+import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
 import { scaleOrdinal, hcl } from "d3";

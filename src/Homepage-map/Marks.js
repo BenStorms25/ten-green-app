@@ -1,5 +1,5 @@
 import { geoIdentity, geoPath } from "d3";
-import { dataFilter } from "./dataFilter";
+import { DataFilter } from "./DataFilter";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -24,7 +24,7 @@ export const Marks = ({
   setPm25,
   setSo2,
 }) => {
-  let dataMap = dataFilter(
+  let dataMap = DataFilter(
     data,
     year,
     setCountyName,
@@ -54,6 +54,9 @@ export const Marks = ({
     ],
     UsaGeo[0]
   );
+  // UsaGeo[i] will return an obj with id and name
+
+  // states refers to all the states
 
   // <path
   //           className="border"
@@ -68,7 +71,6 @@ export const Marks = ({
   return (
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
-        console.log(feature);
         return (
           <path
             className="border"
