@@ -5,6 +5,7 @@ import FilterMaps from "./FilterMaps";
 import ToggleSites from "./ToggleSites";
 import "./styles/InteractiveMap.css";
 import useWindowSize from "./useWindowSize";
+import SideDetails from "./SideDetails";
 
 function InteractiveMap() {
   const [currentMap, setCurrentMap] = useState("");
@@ -15,7 +16,7 @@ function InteractiveMap() {
   let windowSize = useWindowSize();
 
   function styleMap() {
-    let USMap = document.getElementById("interactive-map-svg");
+    let USMap = document.getElementById("homepage-map-svg");
     // wait until DOM is loaded
     if (!USMap) {
       return;
@@ -75,8 +76,10 @@ function InteractiveMap() {
   }
   return (
     <div id="interactive-map">
-      <ToggleSites setViewSites={setViewSites} viewSites={viewSites} />
-      {renderMap(currentMap)}
+      <div className="map-and-details">
+        <HomepageMap />
+        <SideDetails />
+      </div>
     </div>
   );
 }

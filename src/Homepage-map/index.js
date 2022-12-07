@@ -9,8 +9,8 @@ import * as d3 from "d3";
 import { scaleOrdinal, hcl } from "d3";
 import "../components/styles/Globe.css";
 
-const width = 960;
-const height = 500;
+const width = window.innerWidth / 2;
+const height = width / 1.92;
 const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
 
 const App = () => {
@@ -94,7 +94,12 @@ const App = () => {
         />
       </div>
 
-      <svg width={width} height={height}>
+      <svg
+        width={width}
+        height={height}
+        id="homepage-map-svg"
+        viewBox={`0 0 ${width * 1.2} ${height * 1.2}`}
+      >
         <Marks
           UsaGeo={UsaGeo}
           data={data}

@@ -6,6 +6,7 @@ const path = geoPath(projection);
 
 export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   let dataMap = dataFilter(data, year);
+
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
@@ -32,7 +33,15 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
-          <path className="border" d={path(feature)} fill={"grey"}>
+          <path
+            className="border"
+            d={path(feature)}
+            fill={
+              colorScale(dataMap.get(feature.id))
+                ? colorScale(dataMap.get(feature.id))
+                : "grey"
+            }
+          >
             <title>
               {feature.properties.name}, {states.get(feature.id.slice(0, 2))}
               &#xA;{dataMap.get(feature.id)}

@@ -2,20 +2,24 @@
   background-color: #fffff3;
   border-radius: 3%;
   padding: 2rem 1rem 2rem 1rem;
-  max-width: 70%;
+  max-width: 60%;
   scale: 1.3;
   position: relative;
   top: -60rem;
 }
 .USMap {
   position: relative;
-  right: 2.7rem;
+  right: 3rem;
+  scale: 1.1;
 }
 #filter-maps-div {
   position: absolute;
   top: 55rem;
   left: 20rem;
   z-index: 12;
+}
+.map-and-details {
+  display: flex;
 }
 
 @media (1200px <= width <= 1680px) {
