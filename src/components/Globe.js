@@ -24,12 +24,6 @@ function Globe() {
 
         opacity = 1 - window.scrollY / 600;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
-
-        // having trouble with grabbing the map with the queryselector
-        // if (!interactiveMapImage) {
-        //   interactiveMapImage = document.querySelector("#interactive-map");
-        // }
-        // interactiveMapImage.style.opacity = 1 - opacity;
       } else {
         // set globe div to overflow hidden
         globeDiv.setAttribute("style", "transform: scale(" + 1.35 + ");");

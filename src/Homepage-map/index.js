@@ -120,20 +120,6 @@ const App = ({
           data={data}
           year={year}
           colorScale={colorScale}
-          setCountyName={setCountyName}
-          setTenGreenScore={setTenGreenScore}
-          setAqi={setAqi}
-          setArsenic={setArsenic}
-          setCadmium={setCadmium}
-          setCo={setCo}
-          setLead={setLead}
-          setNickel={setNickel}
-          setNo={setNo}
-          setNo2={setNo2}
-          setOzone={setOzone}
-          setPm10={setPm10}
-          setPm25={setPm25}
-          setSo2={setSo2}
         />
         <points point={point} />
       </svg>
