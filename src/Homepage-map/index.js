@@ -13,22 +13,7 @@ const width = window.innerWidth / 2;
 const height = width / 1.92;
 const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
 
-const App = ({
-  setCountyName,
-  setTenGreenScore,
-  setAqi,
-  setArsenic,
-  setCadmium,
-  setCo,
-  setLead,
-  setNickel,
-  setNo,
-  setNo2,
-  setOzone,
-  setPm10,
-  setPm25,
-  setSo2,
-}) => {
+const App = () => {
   const data = useData();
   const point = usePoints();
   const UsaGeo = useUsaGeo();
