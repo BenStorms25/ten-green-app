@@ -13,7 +13,22 @@ const width = window.innerWidth / 2;
 const height = width / 1.92;
 const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
 
-const App = () => {
+const App = ({
+  setCountyName,
+  setTenGreenScore,
+  setAqi,
+  setArsenic,
+  setCadmium,
+  setCo,
+  setLead,
+  setNickel,
+  setNo,
+  setNo2,
+  setOzone,
+  setPm10,
+  setPm25,
+  setSo2,
+}) => {
   const data = useData();
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -98,13 +113,27 @@ const App = () => {
         width={width}
         height={height}
         id="homepage-map-svg"
-        viewBox={`0 0 ${width * 1.2} ${height * 1.2}`}
+        viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
       >
         <Marks
           UsaGeo={UsaGeo}
           data={data}
           year={year}
           colorScale={colorScale}
+          setCountyName={setCountyName}
+          setTenGreenScore={setTenGreenScore}
+          setAqi={setAqi}
+          setArsenic={setArsenic}
+          setCadmium={setCadmium}
+          setCo={setCo}
+          setLead={setLead}
+          setNickel={setNickel}
+          setNo={setNo}
+          setNo2={setNo2}
+          setOzone={setOzone}
+          setPm10={setPm10}
+          setPm25={setPm25}
+          setSo2={setSo2}
         />
         <points point={point} />
       </svg>

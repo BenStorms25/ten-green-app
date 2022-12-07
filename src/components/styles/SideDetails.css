@@ -1,5 +1,28 @@
 .side-details {
   width: 20%;
-  position: relative;
-  right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  right: 5rem;
+}
+
+.side-details input {
+  margin-bottom: 0.5rem;
+  height: 1.2rem;
+  width: 6rem;
+  margin-right: 2rem;
+}
+.side-details label {
+  font-size: 0.6rem;
+}
+
+@media (1600px <= width <= 1700px) {
+  .side-details {
+    right: 9rem;
+  }
+}
+@media (1500px <= width <= 1600px) {
+  .side-details {
+    right: 12rem;
+  }
 }

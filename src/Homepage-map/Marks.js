@@ -4,8 +4,44 @@ import { dataFilter } from "./dataFilter";
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
-export const Marks = ({ UsaGeo, data, year, colorScale }) => {
-  let dataMap = dataFilter(data, year);
+export const Marks = ({
+  UsaGeo,
+  data,
+  year,
+  colorScale,
+  setCountyName,
+  setTenGreenScore,
+  setAqi,
+  setArsenic,
+  setCadmium,
+  setCo,
+  setLead,
+  setNickel,
+  setNo,
+  setNo2,
+  setOzone,
+  setPm10,
+  setPm25,
+  setSo2,
+}) => {
+  let dataMap = dataFilter(
+    data,
+    year,
+    setCountyName,
+    setTenGreenScore,
+    setAqi,
+    setArsenic,
+    setCadmium,
+    setCo,
+    setLead,
+    setNickel,
+    setNo,
+    setNo2,
+    setOzone,
+    setPm10,
+    setPm25,
+    setSo2
+  );
 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
@@ -32,6 +68,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   return (
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
+        console.log(feature);
         return (
           <path
             className="border"

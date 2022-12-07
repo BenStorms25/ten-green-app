@@ -13,6 +13,21 @@ function InteractiveMap() {
   const [mounted, setMounted] = useState(true);
   const [viewSites, setViewSites] = useState(true);
 
+  const [countyName, setCountyName] = useState("Penobscot, Maine");
+  const [tenGreenScore, setTenGreenScore] = useState(null);
+  const [aqi, setAqi] = useState(null);
+  const [ozone, setOzone] = useState(null);
+  const [pm25, setPm25] = useState(null);
+  const [pm10, setPm10] = useState(null);
+  const [so2, setSo2] = useState(null);
+  const [no2, setNo2] = useState(null);
+  const [no, setNo] = useState(null);
+  const [nickel, setNickel] = useState(null);
+  const [lead, setLead] = useState(null);
+  const [co, setCo] = useState(null);
+  const [cadmium, setCadmium] = useState(null);
+  const [arsenic, setArsenic] = useState(null);
+
   let windowSize = useWindowSize();
 
   function styleMap() {
@@ -51,7 +66,7 @@ function InteractiveMap() {
     // every render get width
     shrinkMapWithContainer();
     styleMap();
-  }, [mounted, windowSize.width]);
+  }, []);
 
   // options to filter by pollutant
   const mapOptions = [
@@ -61,11 +76,46 @@ function InteractiveMap() {
     { value: "co2", text: "CO2" },
   ];
 
+  const mapValueProps = {
+    setCountyName,
+    setAqi,
+    setArsenic,
+    setCadmium,
+    setCo,
+    setLead,
+    setNickel,
+    setNo,
+    setNo2,
+    setOzone,
+    setPm10,
+    setPm25,
+    setSo2,
+    setTenGreenScore,
+  };
+
   function renderMap(currentMap) {
     // alternate between maps based on selection
     if (currentMap === "") {
       //return <MapApp viewSites={viewSites} />;
-      return <HomepageMap />;
+      //return <HomepageMap {...mapValueProps} />;
+      return (
+        <HomepageMap
+          setCountyName={setCountyName}
+          setTenGreenScore={setTenGreenScore}
+          setAqi={setAqi}
+          setArsenic={setArsenic}
+          setCadmium={setCadmium}
+          setCo={setCo}
+          setLead={setLead}
+          setNickel={setNickel}
+          setNo={setNo}
+          setNo2={setNo2}
+          setOzone={setOzone}
+          setPm10={setPm10}
+          setPm25={setPm25}
+          setSo2={setSo2}
+        />
+      );
     } else if (currentMap === "ozone") {
       return <MapApp />;
     } else if (currentMap === "nitrogen") {
