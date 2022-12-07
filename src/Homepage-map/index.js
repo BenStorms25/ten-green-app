@@ -8,6 +8,8 @@ import { usePoints } from "./usePoints";
 import * as d3 from "d3";
 import { scaleOrdinal, hcl } from "d3";
 import "../components/styles/Globe.css";
+import "../components/styles/InteractiveMap.css";
+import "./styles.css";
 
 const width = window.innerWidth / 2;
 const height = width / 1.92;
@@ -89,6 +91,7 @@ const App = () => {
         <input
           type="button"
           value="play"
+          id="playButton"
           style={{ width: 50, marginTop: 10 }}
           onClick={play}
         />
