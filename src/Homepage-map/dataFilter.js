@@ -75,8 +75,9 @@ export const DataFilter = (data, year) => {
   // dispatch data points to redux store
   dataPoints.forEach((point) => {
 
-    const lowerCaseName = point.countyName;
-    const Capitalized = lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
+    //const lowerCaseName = point.countyName;
+    //const Capitalized = lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
+    const Capitalized = point.countyName.slice(0, -6);
     const StateIndex = parseInt(point.id.slice(0, 2)); 
     const ActualState = StateAbrevs[(StateIndex - 1)];
     const finalName = Capitalized + ", " + ActualState
