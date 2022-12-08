@@ -85,6 +85,7 @@ export const DataFilter = (data, year, id) => {
     //console.log("the id is ::: ", id);
     // if the id is equal to selected ID, then populate the dataPoints array
     if (data[i].id === id) {
+      dataPoints[i].id = data[i].id;
       dataPoints[i].county = data[i].county;
       if (data[i].measure === "10green") {
         dataPoints[i].measure = "10green";
@@ -131,9 +132,7 @@ export const DataFilter = (data, year, id) => {
 
   // dispatch data points to redux store
   dataPoints.forEach((point) => {
-    //const lowerCaseName = point.countyName;
-    //const Capitalized = lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
-    const Capitalized = point.county;
+    const Capitalized = point.county.slice(0, -7);
     const StateIndex = parseInt(point.id.slice(0, 2));
     const ActualState = StateAbrevs[StateIndex - 1];
     const finalName = Capitalized + ", " + ActualState;
@@ -142,7 +141,7 @@ export const DataFilter = (data, year, id) => {
     switch (point.measure) {
       case "10green":
         dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
-        dispatch({ type: "SET_COUNTY_NAME", payload: point.county });
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         break;
       case "aqi":
         dispatch({ type: "SET_AQI", payload: point.dataValue });
