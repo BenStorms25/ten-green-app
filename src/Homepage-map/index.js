@@ -11,9 +11,10 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 
+ 
 const width = window.innerWidth / 2;
 const height = width / 1.92;
-const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
+const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([0, 10]);
 
 const App = () => {
   const data = useData();
