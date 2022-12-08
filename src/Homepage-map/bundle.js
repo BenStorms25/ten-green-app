@@ -28,9 +28,9 @@
     return data;
   };
 
-  const DataFilter = (data, year) => {
-    return new Map(data.map((obj) => [obj.id, +obj["ozone_" + year]]));
-  };
+  // const DataFilter = (data, year) => {
+  //   return new Map(data.map((obj) => [obj.id, +obj["ozone_" + year]]));
+  // };
 
   const projection = d3$1.geoIdentity().reflectY(false);
   const path = d3$1.geoPath(projection);
