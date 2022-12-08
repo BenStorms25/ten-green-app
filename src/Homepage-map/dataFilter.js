@@ -133,12 +133,12 @@ export const DataFilter = (data, year, id) => {
   dataPoints.forEach((point) => {
     //const lowerCaseName = point.countyName;
     //const Capitalized = lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
-    const Capitalized = point.county.slice(0, -6);
-    const StateIndex = parseInt(point.id.slice(0, 2));
-    const ActualState = StateAbrevs[StateIndex - 1];
-    const finalName = Capitalized + ", " + ActualState;
+    // const Capitalized = point.county.slice(0, -6);
+    // const StateIndex = parseInt(point.id.slice(0, 2));
+    // const ActualState = StateAbrevs[StateIndex - 1];
+    // const finalName = Capitalized + ", " + ActualState;
 
-    dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
+    //dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
     switch (point.measure) {
       case "10green":
         dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
