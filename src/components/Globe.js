@@ -10,7 +10,6 @@ function Globe() {
   function scaleAndTransitionGlobe() {
     const globeDiv = document.querySelector("#globe");
     const globeImage = document.querySelector("#globe-image");
-    let interactiveMapImage = document.querySelector("#interactive-map-svg");
 
     window.addEventListener("scroll", function () {
       // 2000 worked well for the scaling
@@ -23,14 +22,8 @@ function Globe() {
           "transform: scale(" + (1 + scaler) + ");"
         );
 
-        opacity = 1 - window.scrollY / 300;
+        opacity = 1 - window.scrollY / 600;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
-
-        // having trouble with grabbing the map with the queryselector
-        if (!interactiveMapImage) {
-          interactiveMapImage = document.querySelector("#interactive-map");
-        }
-        interactiveMapImage.style.opacity = 1 - opacity;
       } else {
         // set globe div to overflow hidden
         globeDiv.setAttribute("style", "transform: scale(" + 1.35 + ");");
@@ -43,14 +36,16 @@ function Globe() {
   });
 
   return (
-    <div className="globe-div">
-      <div id="globe">
-        <img id="globe-image" src={globeImage} alt=""></img>
-        <div className="interactive-map-container">
-          <InteractiveMap />
+    <>
+      <div className="globe-div">
+        <div id="globe">
+          <img id="globe-image" src={globeImage} alt=""></img>
         </div>
       </div>
-    </div>
+      <div className="interactive-map-container">
+        <InteractiveMap />
+      </div>
+    </>
   );
 }
 

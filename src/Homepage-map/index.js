@@ -3,21 +3,23 @@ import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
-import { dataFilter } from "./dataFilter";
+import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
 import { scaleOrdinal, hcl } from "d3";
 import "../components/styles/Globe.css";
+import "../components/styles/InteractiveMap.css";
+import "./styles.css";
 
-const width = 960;
-const height = 500;
+const width = window.innerWidth / 2;
+const height = width / 1.92;
 const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
 
 const App = () => {
   const data = useData();
   const point = usePoints();
   const UsaGeo = useUsaGeo();
-  const [year, setYear] = useState(2000);
+  const [year, setYear] = useState(1980);
 
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
@@ -54,7 +56,7 @@ const App = () => {
             type="range"
             id="year"
             name="year"
-            min="2000"
+            min="1980"
             max="2021"
             step="1"
             list="tickmarks"
@@ -62,6 +64,26 @@ const App = () => {
             onChange={(e) => handleSliderChange(e)}
           />
           <datalist id="tickmarks">
+            <option value="1980" label="1980"></option>
+            <option value="1981" label="1981"></option>
+            <option value="1982" label="1982"></option>
+            <option value="1983" label="1983"></option>
+            <option value="1984" label="1984"></option>
+            <option value="1985" label="1985"></option>
+            <option value="1986" label="1986"></option>
+            <option value="1987" label="1987"></option>
+            <option value="1988" label="1988"></option>
+            <option value="1989" label="1989"></option>
+            <option value="1990" label="1990"></option>
+            <option value="1991" label="1991"></option>
+            <option value="1992" label="1992"></option>
+            <option value="1993" label="1993"></option>
+            <option value="1994" label="1994"></option>
+            <option value="1995" label="1995"></option>
+            <option value="1996" label="1996"></option>
+            <option value="1997" label="1997"></option>
+            <option value="1998" label="1998"></option>
+            <option value="1999" label="1999"></option>
             <option value="2000" label="2000"></option>
             <option value="2001" label="2001"></option>
             <option value="2002" label="2002"></option>
@@ -89,12 +111,18 @@ const App = () => {
         <input
           type="button"
           value="play"
+          id="playButton"
           style={{ width: 50, marginTop: 10 }}
           onClick={play}
         />
       </div>
 
-      <svg width={width} height={height}>
+      <svg
+        width={width}
+        height={height}
+        id="homepage-map-svg"
+        viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
+      >
         <Marks
           UsaGeo={UsaGeo}
           data={data}
