@@ -69,8 +69,9 @@ export const DataFilter = (data, year, id) => {
       this.county = "";
       this.id = "";
       this.measure = "";
-      this.dataValue = 0;
+      this.dataValue = "";
       this.year = 1980;
+      this.warning = "N/A";
     }
   }
 
@@ -89,43 +90,95 @@ export const DataFilter = (data, year, id) => {
       dataPoints[i].county = data[i].county;
       if (data[i].measure === "10green") {
         dataPoints[i].measure = "10green";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+        dataPoints[i].dataValue = data[i].data[year - 1980];}
+        else {
+          dataPoints[i].dataValue = "N/A"
+        }
       } else if (data[i].measure === "aqi") {
         dataPoints[i].measure = "aqi";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "arsenic") {
         dataPoints[i].measure = "arsenic";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "cadmium") {
         dataPoints[i].measure = "cadmium";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "co") {
         dataPoints[i].measure = "co";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "lead") {
         dataPoints[i].measure = "lead";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "nickel") {
         dataPoints[i].measure = "nickel";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "no") {
         dataPoints[i].measure = "no";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "no2") {
         dataPoints[i].measure = "no2";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "ozone") {
         dataPoints[i].measure = "ozone";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "pm10") {
         dataPoints[i].measure = "pm10";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "pm25") {
         dataPoints[i].measure = "pm25";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       } else if (data[i].measure === "so2") {
         dataPoints[i].measure = "so2";
-        dataPoints[i].dataValue = data[i].data[year - 1980];
+        if (data[i].data[year - 1980] !== null){
+          dataPoints[i].dataValue = data[i].data[year - 1980];}
+          else {
+            dataPoints[i].dataValue = "N/A"
+          }
       }
     }
   }
@@ -140,8 +193,9 @@ export const DataFilter = (data, year, id) => {
     
     switch (point.measure) {
       case "10green":
-        dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
+        console.log(point.dataValue);
+        dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
         break;
       case "aqi":
         dispatch({ type: "SET_AQI", payload: point.dataValue });
