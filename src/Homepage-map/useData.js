@@ -13,7 +13,7 @@ export const useData = () => {
 
   useEffect(() => {
     let max = 0;
-    let min = 20;
+    let min = 40;
 
     const row = (d) => {
       for (const property in d) {

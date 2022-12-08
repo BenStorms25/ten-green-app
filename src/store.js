@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 
 const initialState = {
-  countyName: "Select a County",
+  county: "Select a County",
   id: "",
-  year: 2000,
+  year: 1980,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,
@@ -23,7 +23,7 @@ function reducer(state = initialState, action) {
   if (action.type === "SET_COUNTY_NAME") {
     return {
       ...state,
-      countyName: action.payload,
+      county: action.payload,
     };
   }
   if (action.type === "SET_TEN_GREEN_SCORE") {

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import "./styles/SideDetails.css";
 
 function SideDetails() {
-  const countyName = useSelector((state) => state.countyName);
+  const county = useSelector((state) => state.county);
   const tenGreenScore = useSelector((state) => state.tenGreenScore);
   const aqi = useSelector((state) => state.aqi);
   const arsenic = useSelector((state) => state.arsenic);
@@ -20,7 +20,7 @@ function SideDetails() {
 
   return (
     <div className="side-details">
-      <h6>{countyName}</h6>
+      <h6>{county}</h6>
 
       <label className="e-float-text e-label-top">10Green Score </label>
       <input
