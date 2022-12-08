@@ -1,11 +1,13 @@
 import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
+import { useState } from "react";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
 export const Marks = ({ UsaGeo, data, year, colorScale }) => {
-  let dataMap = DataFilter(data, year);
+  const [selectId, setSelectedId] = useState(null);
+  let dataMap = DataFilter(data, year, selectId);
 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
@@ -39,6 +41,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
           <path
             className="border"
             d={path(feature)}
+            onClick={() => setSelectedId(feature.id)}
             fill={
               colorScale(dataMap.get(feature.id))
                 ? colorScale(dataMap.get(feature.id))

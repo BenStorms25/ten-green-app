@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-export const DataFilter = (data, year) => {
+export const DataFilter = (data, year, id) => {
   const dispatch = useDispatch();
 
   // basic data point
@@ -22,46 +22,50 @@ export const DataFilter = (data, year) => {
 
   // populate DataPoints objs with data from data array
   for (let i = 0; i < data.length; i++) {
-    dataPoints[i].countyName = data[i].countyName;
-    if (data[i].measure === "10green") {
-      dataPoints[i].measure = "10green";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "aqi") {
-      dataPoints[i].measure = "aqi";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "arsenic") {
-      dataPoints[i].measure = "arsenic";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "cadmium") {
-      dataPoints[i].measure = "cadmium";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "co") {
-      dataPoints[i].measure = "co";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "lead") {
-      dataPoints[i].measure = "lead";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "nickel") {
-      dataPoints[i].measure = "nickel";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "no") {
-      dataPoints[i].measure = "no";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "no2") {
-      dataPoints[i].measure = "no2";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "ozone") {
-      dataPoints[i].measure = "ozone";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "pm10") {
-      dataPoints[i].measure = "pm10";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "pm25") {
-      dataPoints[i].measure = "pm25";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
-    } else if (data[i].measure === "so2") {
-      dataPoints[i].measure = "so2";
-      dataPoints[i].dataValue = data[i].data[year - 2000];
+    console.log("the id is ::: ", id);
+    // if the id is equal to selected ID, then populate the dataPoints array
+    if (data[i].id === id) {
+      dataPoints[i].countyName = data[i].countyName;
+      if (data[i].measure === "10green") {
+        dataPoints[i].measure = "10green";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "aqi") {
+        dataPoints[i].measure = "aqi";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "arsenic") {
+        dataPoints[i].measure = "arsenic";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "cadmium") {
+        dataPoints[i].measure = "cadmium";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "co") {
+        dataPoints[i].measure = "co";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "lead") {
+        dataPoints[i].measure = "lead";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "nickel") {
+        dataPoints[i].measure = "nickel";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "no") {
+        dataPoints[i].measure = "no";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "no2") {
+        dataPoints[i].measure = "no2";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "ozone") {
+        dataPoints[i].measure = "ozone";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "pm10") {
+        dataPoints[i].measure = "pm10";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "pm25") {
+        dataPoints[i].measure = "pm25";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      } else if (data[i].measure === "so2") {
+        dataPoints[i].measure = "so2";
+        dataPoints[i].dataValue = data[i].data[year - 2000];
+      }
     }
   }
 
