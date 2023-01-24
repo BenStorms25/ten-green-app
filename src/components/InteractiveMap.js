@@ -5,6 +5,7 @@ import FilterMaps from "./FilterMaps";
 import ToggleSites from "./ToggleSites";
 import "./styles/InteractiveMap.css";
 import useWindowSize from "./useWindowSize";
+import SideDetails from "./SideDetails";
 
 function InteractiveMap() {
   const [currentMap, setCurrentMap] = useState("");
@@ -12,10 +13,8 @@ function InteractiveMap() {
   const [mounted, setMounted] = useState(true);
   const [viewSites, setViewSites] = useState(true);
 
-  let windowSize = useWindowSize();
-
   function styleMap() {
-    let USMap = document.getElementById("interactive-map-svg");
+    let USMap = document.getElementById("homepage-map-svg");
     // wait until DOM is loaded
     if (!USMap) {
       return;
@@ -50,7 +49,7 @@ function InteractiveMap() {
     // every render get width
     shrinkMapWithContainer();
     styleMap();
-  }, [mounted, windowSize.width]);
+  }, []);
 
   // options to filter by pollutant
   const mapOptions = [
@@ -60,10 +59,13 @@ function InteractiveMap() {
     { value: "co2", text: "CO2" },
   ];
 
+  const mapValueProps = {};
+
   function renderMap(currentMap) {
     // alternate between maps based on selection
     if (currentMap === "") {
-      //eturn <MapApp viewSites={viewSites} />;
+      //return <MapApp viewSites={viewSites} />;
+      //return <HomepageMap {...mapValueProps} />;
       return <HomepageMap />;
     } else if (currentMap === "ozone") {
       return <MapApp />;
@@ -75,8 +77,10 @@ function InteractiveMap() {
   }
   return (
     <div id="interactive-map">
-      <ToggleSites setViewSites={setViewSites} viewSites={viewSites} />
-      {renderMap(currentMap)}
+      <div className="map-and-details">
+        <HomepageMap />
+        <SideDetails />
+      </div>
     </div>
   );
 }
