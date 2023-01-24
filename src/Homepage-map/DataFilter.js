@@ -83,102 +83,101 @@ export const DataFilter = (data, year, id) => {
 
   // populate DataPoints objs with data from data array
   for (let i = 0; i < data.length; i++) {
-    //console.log("the id is ::: ", id);
     // if the id is equal to selected ID, then populate the dataPoints array
     if (data[i].id === id) {
       dataPoints[i].id = data[i].id;
       dataPoints[i].county = data[i].county;
       if (data[i].measure === "10green") {
         dataPoints[i].measure = "10green";
-        if (data[i].data[year - 1980] !== null){
-        dataPoints[i].dataValue = data[i].data[year - 1980];}
-        else {
-          dataPoints[i].dataValue = "N/A"
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
         }
       } else if (data[i].measure === "aqi") {
         dataPoints[i].measure = "aqi";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "arsenic") {
         dataPoints[i].measure = "arsenic";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "cadmium") {
         dataPoints[i].measure = "cadmium";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "co") {
         dataPoints[i].measure = "co";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "lead") {
         dataPoints[i].measure = "lead";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "nickel") {
         dataPoints[i].measure = "nickel";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "no") {
         dataPoints[i].measure = "no";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "no2") {
         dataPoints[i].measure = "no2";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "ozone") {
         dataPoints[i].measure = "ozone";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "pm10") {
         dataPoints[i].measure = "pm10";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "pm25") {
         dataPoints[i].measure = "pm25";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       } else if (data[i].measure === "so2") {
         dataPoints[i].measure = "so2";
-        if (data[i].data[year - 1980] !== null){
-          dataPoints[i].dataValue = data[i].data[year - 1980];}
-          else {
-            dataPoints[i].dataValue = "N/A"
-          }
+        if (data[i].data[year - 1980] !== null) {
+          dataPoints[i].dataValue = data[i].data[year - 1980];
+        } else {
+          dataPoints[i].dataValue = "N/A";
+        }
       }
     }
   }
@@ -190,11 +189,9 @@ export const DataFilter = (data, year, id) => {
     const ActualState = StateAbrevs[StateIndex - 1];
     const finalName = Capitalized + ", " + ActualState;
 
-    
     switch (point.measure) {
       case "10green":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        console.log(point.dataValue);
         dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
         break;
       case "aqi":
@@ -235,12 +232,9 @@ export const DataFilter = (data, year, id) => {
         break;
       default:
         break;
-        
     }
   });
 
-  // for loop over each year
-  for (let i = 0; i < parseInt(data[0].y2) - parseInt(data[0].y1); i++) {}
-
+  // return data that will be mapped to the map
   return new Map(data.map((obj) => [obj.id, obj.data[year - 1980]]));
 };
