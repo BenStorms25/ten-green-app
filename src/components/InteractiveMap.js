@@ -46,6 +46,23 @@ function InteractiveMap() {
     svg.setAttribute("viewBox", viewbox);
   }
 
+  // function zoomInOnState() {
+  //   let svg = document.getElementById("interactive-map-svg");
+  //   // wait until DOM is loaded
+  //   if (!svg) {
+  //     // swap mounted, triggering useEffect again
+  //     setMounted(!mounted);
+  //     return;
+  //   }
+
+  //   let VB = svg
+  //     .setAttribute("viewBox")
+  //     .split(" ")
+  //     .map((c) => +c);
+  //   let DMAX = VB.slice(2),
+  //     WMIN = 8;
+  // }
+
   useEffect(() => {
     // every render get width
     shrinkMapWithContainer();

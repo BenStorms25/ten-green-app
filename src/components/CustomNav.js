@@ -34,19 +34,16 @@ function CustomNav() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/data">Data</a>
-          </li>
-          <li>
-            <a href="/pollutants">Pollutants</a>
-          </li>
-          <li>
-            <a href="/standards">Standards</a>
-          </li>
-          <li>
-            <a href="/ozone">Ozone</a>
-          </li>
-          <li>
             <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/score-map">Score Map</a>
+          </li>
+          <li>
+            <a href="/pollutants-and-standards">Pollutants/Standards</a>
+          </li>
+          <li>
+            <a href="/aq-forecast">AQ Forecast</a>
           </li>
         </ul>
       </div>
