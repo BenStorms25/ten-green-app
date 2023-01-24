@@ -19,8 +19,18 @@
   left: 20rem;
   z-index: 12;
 }
+
+.click-to-select-county {
+  font-size: small;
+  text-align: center;
+  font-style: italic;
+}
+
 .map-and-details {
   display: flex;
+}
+.map-title {
+  text-align: center;
 }
 
 @media (1200px <= width <= 1680px) {

@@ -6,12 +6,13 @@ import ToggleSites from "./ToggleSites";
 import "./styles/InteractiveMap.css";
 import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
+import { useSelector } from "react-redux";
 
 function InteractiveMap() {
-  const [currentMap, setCurrentMap] = useState("");
   // swap mounted back and forth until svg can be identified
   const [mounted, setMounted] = useState(true);
-  const [viewSites, setViewSites] = useState(true);
+
+  const county = useSelector((state) => state.county);
 
   function styleMap() {
     let USMap = document.getElementById("homepage-map-svg");
@@ -45,38 +46,38 @@ function InteractiveMap() {
     svg.setAttribute("viewBox", viewbox);
   }
 
+  // function zoomInOnState() {
+  //   let svg = document.getElementById("interactive-map-svg");
+  //   // wait until DOM is loaded
+  //   if (!svg) {
+  //     // swap mounted, triggering useEffect again
+  //     setMounted(!mounted);
+  //     return;
+  //   }
+
+  //   let VB = svg
+  //     .setAttribute("viewBox")
+  //     .split(" ")
+  //     .map((c) => +c);
+  //   let DMAX = VB.slice(2),
+  //     WMIN = 8;
+  // }
+
   useEffect(() => {
     // every render get width
     shrinkMapWithContainer();
     styleMap();
   }, []);
 
-  // options to filter by pollutant
-  const mapOptions = [
-    { value: "", text: "Default" },
-    { value: "ozone", text: "Ozone" },
-    { value: "nitrogen", text: "Nitrogen" },
-    { value: "co2", text: "CO2" },
-  ];
-
-  const mapValueProps = {};
-
-  function renderMap(currentMap) {
-    // alternate between maps based on selection
-    if (currentMap === "") {
-      //return <MapApp viewSites={viewSites} />;
-      //return <HomepageMap {...mapValueProps} />;
-      return <HomepageMap />;
-    } else if (currentMap === "ozone") {
-      return <MapApp />;
-    } else if (currentMap === "nitrogen") {
-      return <p></p>;
-    } else if (currentMap === "co2") {
-      return <p></p>;
-    }
-  }
   return (
     <div id="interactive-map">
+      <h5 className="map-title">10Green Score by County - 1980 to 2021</h5>
+      {county === "Select a County" ? (
+        <p className="click-to-select-county">
+          Click on map to select a county
+        </p>
+      ) : null}
+
       <div className="map-and-details">
         <HomepageMap />
         <SideDetails />

@@ -13,10 +13,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/data" element={<Data />} />
-          <Route path="/pollutants" element={<Pollutants />} />
-          <Route path="/standards" element={<Standards />} />
-          <Route path="/ozone" element={<Ozone />} />
+          <Route path="/score-map" element={<Data />} />
+          <Route path="/pollutants-and-standards" element={<Pollutants />} />
+          <Route path="/aq-forecast" element={<Standards />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
@@ -25,3 +24,5 @@ function App() {
 }
 
 export default App;
+
+// 1027#
