@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import CountyList from "../content/UpdatedCountyData.json";
+import CountyList from "../content/FinalCountyList.json";
 import { Button } from "bootstrap";
 function DataContent() {
 
@@ -32,8 +32,8 @@ function DataContent() {
     <><ReactSearchAutocomplete
       items={CountyListArray}
       maxResults={15}
-      fuseOptions={{ keys: ["county_name"] }}
-      resultStringKeyName={"display_name"}
+      fuseOptions={{ keys: ["state_name"] }}
+      resultStringKeyName={"county_name"}
       onSearch={handleOnSearch}
       onHover={handleOnHover}
       onSelect={handleOnSelect}
