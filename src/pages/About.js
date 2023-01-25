@@ -10,8 +10,10 @@ function About() {
 
   return (
     <div className="about-page">
+      
       <CustomHeader />
       <DataContent />
+
     </div>
   );
 }

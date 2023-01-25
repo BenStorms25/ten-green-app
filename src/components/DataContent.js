@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import CountyList from "../content/FinalCountyList.json";
+import CountyList from "../content/Formatted_Country_Data.json";
 import { Button } from "bootstrap";
 function DataContent() {
 
   const CountyListArray = CountyList;
 
-  const ClickableLocation = (location) => <Button>{location}</Button>
+  //const ClickableLocation = (location) => <Button>{location}</Button>
 
   const handleOnSearch = (string, results) => {
     console.log(string, results);
@@ -31,16 +31,19 @@ function DataContent() {
   return (  
     <><ReactSearchAutocomplete
       items={CountyListArray}
-      maxResults={15}
-      fuseOptions={{ keys: ["state_name"] }}
-      resultStringKeyName={"county_name"}
+      maxResults={5}
       onSearch={handleOnSearch}
       onHover={handleOnHover}
       onSelect={handleOnSelect}
       onFocus={handleOnFocus}
       onClear={handleOnClear}
+      fuseOptions={{ keys: ["display_name"] }}
+      resultStringKeyName={"display_name"}
       styling={{ zIndex: 3 }}
-      autoFocus /><ClickableLocation location="test" /></>
+      autoFocus />
+      
+    {/* <ClickableLocation location="test" /> */}
+    </>
 
 
   );
