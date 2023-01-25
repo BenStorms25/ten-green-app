@@ -1,6 +1,8 @@
+import React, { useEffect } from "react";
 import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
 import { useState } from "react";
+import { zoomInOnState } from "../components/ZoomInOnState";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -12,6 +14,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
+  useEffect(() => {
+    zoomInOnState();
+  }, []);
 
   projection.fitExtent(
     [
