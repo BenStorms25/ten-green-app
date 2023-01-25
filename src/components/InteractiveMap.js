@@ -46,28 +46,51 @@ function InteractiveMap() {
     svg.setAttribute("viewBox", viewbox);
   }
 
-  // function zoomInOnState() {
-  //   let svg = document.getElementById("interactive-map-svg");
-  //   // wait until DOM is loaded
-  //   if (!svg) {
-  //     // swap mounted, triggering useEffect again
-  //     setMounted(!mounted);
-  //     return;
-  //   }
+  function zoomInOnState() {
+    // should be loaded by this time since this func should be triggered by click
+    let svg = document.getElementById("homepage-map-svg");
+    // wait until DOM is loaded
+    if (!svg) {
+      return;
+    }
 
-  //   let VB = svg
-  //     .setAttribute("viewBox")
-  //     .split(" ")
-  //     .map((c) => +c);
-  //   let DMAX = VB.slice(2),
-  //     WMIN = 8;
-  // }
+    var transformMatrix = [1, 0, 0, 1, 0, 0];
+    var viewbox = svg.getAttributeNS(null, "viewBox").split(" ");
+    var centerX = parseFloat(viewbox[2]) / 2;
+    var centerY = parseFloat(viewbox[3]) / 2;
+    var matrixGroup = svg.getElementById("matrix-group");
+
+    function pan(dx, dy) {
+      transformMatrix[4] += dx;
+      transformMatrix[5] += dy;
+
+      var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
+      matrixGroup.setAttributeNS(null, "transform", newMatrix);
+    }
+
+    function zoom(scale) {
+      for (var i = 0; i < 4; i++) {
+        transformMatrix[i] *= scale;
+      }
+      transformMatrix[4] += (1 - scale) * centerX;
+      transformMatrix[5] += (1 - scale) * centerY;
+
+      var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
+      matrixGroup.setAttributeNS(null, "transform", newMatrix);
+    }
+
+    zoom(1.25);
+  }
 
   useEffect(() => {
     // every render get width
     shrinkMapWithContainer();
     styleMap();
   }, []);
+
+  useEffect(() => {
+    zoomInOnState();
+  }, [county]);
 
   return (
     <div id="interactive-map">

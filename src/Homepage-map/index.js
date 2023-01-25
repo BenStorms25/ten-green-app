@@ -11,7 +11,6 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 
- 
 const width = window.innerWidth / 2;
 const height = width / 1.92;
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([0, 10]);
@@ -124,13 +123,15 @@ const App = () => {
         id="homepage-map-svg"
         viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
       >
-        <Marks
-          UsaGeo={UsaGeo}
-          data={data}
-          year={year}
-          colorScale={colorScale}
-        />
-        <points point={point} />
+        <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
+          <Marks
+            UsaGeo={UsaGeo}
+            data={data}
+            year={year}
+            colorScale={colorScale}
+          />
+          <points point={point} />
+        </g>
       </svg>
     </div>
   );
