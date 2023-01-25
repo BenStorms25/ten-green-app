@@ -78,8 +78,6 @@ function InteractiveMap() {
       var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
       matrixGroup.setAttributeNS(null, "transform", newMatrix);
     }
-
-    zoom(1.25);
   }
 
   useEffect(() => {
