@@ -3,8 +3,13 @@ import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import CountyList from "../content/CountyData.json";
 import { Button } from "bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+
+
 
 function DataContent() {
+
+  const dispatch = useDispatch();
 
   const CountyListArray = CountyList;
 
@@ -19,7 +24,9 @@ function DataContent() {
   };
 
   const handleOnSelect = (item) => {
+    const id_as_string = item.internal_id.toString();
     console.log(item.internal_id);
+    dispatch({ type: "SET_ID", payload: id_as_string});
   };
 
   const handleOnFocus = () => {

@@ -26,6 +26,12 @@ function reducer(state = initialState, action) {
       county: action.payload,
     };
   }
+  if (action.type === "SET_ID") {
+    return {
+      ...state,
+      id: action.payload,
+    }
+  }
   if (action.type === "SET_TEN_GREEN_SCORE") {
     return {
       ...state,
