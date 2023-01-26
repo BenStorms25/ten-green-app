@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import CountyList from "../content/Formatted_Country_Data.json";
+import CountyList from "../content/CountyData.json";
 import { Button } from "bootstrap";
+
 function DataContent() {
 
   const CountyListArray = CountyList;
 
-  //const ClickableLocation = (location) => <Button>{location}</Button>
+  
 
   const handleOnSearch = (string, results) => {
-    console.log(string, results);
+    
   };
 
   const handleOnHover = (result) => {
-    console.log(result);
+    
   };
 
   const handleOnSelect = (item) => {
-    console.log(item);
+    console.log(item.internal_id);
   };
 
   const handleOnFocus = () => {
@@ -29,7 +30,9 @@ function DataContent() {
     console.log("Cleared");
   };
   return (  
-    <><ReactSearchAutocomplete
+
+    <div style={{width:300, margin: 20}}>
+    <ReactSearchAutocomplete
       items={CountyListArray}
       maxResults={5}
       onSearch={handleOnSearch}
@@ -41,9 +44,9 @@ function DataContent() {
       resultStringKeyName={"display_name"}
       styling={{ zIndex: 3 }}
       autoFocus />
-      
-    {/* <ClickableLocation location="test" /> */}
-    </>
+  </div>
+    
+    
 
 
   );
