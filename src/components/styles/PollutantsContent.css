@@ -1,0 +1,39 @@
+.center-content {
+  width: 70%;
+  margin: auto;
+  padding-top: 5rem;
+}
+.center-content h1 {
+  color: white;
+  margin-bottom: 5rem;
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 7%;
+}
+.card {
+  flex: 0 2 32%;
+  margin-bottom: 1rem;
+  padding: 1.5rem 1rem;
+}
+.card p {
+  padding-top: 1rem;
+  font-size: large;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+.card button {
+  width: 40%;
+  height: 2.5rem;
+  background-color: #bde59c;
+  border: none;
+  border-radius: 5%;
+  box-shadow: 0 8px 6px -6px gray;
+  font-weight: bold;
+}
+.card img {
+  border-radius: 5%;
+  height: 15rem;
+}
