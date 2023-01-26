@@ -1,14 +1,22 @@
-import React, { useEffect } from "react";
-import { geoIdentity, geoPath } from "d3";
+import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { zoomInOnState } from "../components/ZoomInOnState";
+
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
 export const Marks = ({ UsaGeo, data, year, colorScale }) => {
-  const [selectId, setSelectedId] = useState(null);
+  let [selectId, setSelectedId] = useState(null);
+
+  let incomingID = useSelector((state) => state.id);
+
+  useEffect(() => {
+    setSelectedId(incomingID);
+  }, [incomingID]);
+  
   let dataMap = DataFilter(data, year, selectId);
 
   const states = new Map(
@@ -43,10 +51,15 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
+          
           <path
             className="border"
             d={path(feature)}
-            onClick={() => setSelectedId(feature.id)}
+            onClick={() => setSelectedId(feature.id)
+             }
+            // onClick={() => console.log(feature.id)
+            // }
+            
             fill={
               colorScale(dataMap.get(feature.id))
                 ? colorScale(dataMap.get(feature.id))

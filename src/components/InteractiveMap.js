@@ -7,6 +7,7 @@ import "./styles/InteractiveMap.css";
 import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
+import DataContent from "./DataContent";
 import { zoomInOnState } from "./ZoomInOnState";
 
 function InteractiveMap() {
@@ -67,11 +68,15 @@ function InteractiveMap() {
           Click on map to select a county
         </p>
       ) : null}
-
+      
       <div className="map-and-details">
         <HomepageMap />
         <SideDetails />
+        <div className="search-bar">
+        <DataContent />
       </div>
+      </div>
+      
     </div>
   );
 }

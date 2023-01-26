@@ -1,42 +1,61 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
-import FilterMaps from "./FilterMaps";
-import MapApp from "../Interactive-Map-Source";
-import OzoneMap from "../Homepage-map";
-import * as d3 from "d3";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import CountyList from "../content/CountyData.json";
+import { Button } from "bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+
+
 
 function DataContent() {
-  const mapOptions = [
-    { value: "", text: "Default" },
-    { value: "ozone", text: "Ozone" },
-    { value: "nitrogen", text: "Nitrogen" },
-    { value: "co2", text: "CO2" },
-  ];
 
-  function renderMap(currentMap) {
-    // alternate between maps based on selection
-    if (currentMap === "") {
-      return <MapApp />;
-    } else if (currentMap === "ozone") {
-      return <OzoneMap />;
-    } else if (currentMap === "nitrogen") {
-      return <p></p>;
-    } else if (currentMap === "co2") {
-      return <p></p>;
-    }
-  }
+  const dispatch = useDispatch();
 
-  const [currentMap, setCurrentMap] = useState("");
+  const CountyListArray = CountyList;
 
-  return (
-    <div className="data-container">
-      <FilterMaps
-        currentMap={currentMap}
-        setCurrentMap={setCurrentMap}
-        mapOptions={mapOptions}
-      />
-      {renderMap(currentMap)}
-    </div>
+  
+
+  const handleOnSearch = (string, results) => {
+    
+  };
+
+  const handleOnHover = (result) => {
+    
+  };
+
+  const handleOnSelect = (item) => {
+    const id_as_string = item.internal_id.toString();
+    console.log(item.internal_id);
+    dispatch({ type: "SET_ID", payload: id_as_string});
+  };
+
+  const handleOnFocus = () => {
+    console.log("Focused");
+  };
+
+  const handleOnClear = () => {
+    console.log("Cleared");
+  };
+  return (  
+
+    <div style={{width:300, margin: 20}}>
+    <ReactSearchAutocomplete
+      items={CountyListArray}
+      maxResults={5}
+      onSearch={handleOnSearch}
+      onHover={handleOnHover}
+      onSelect={handleOnSelect}
+      onFocus={handleOnFocus}
+      onClear={handleOnClear}
+      fuseOptions={{ keys: ["display_name"] }}
+      resultStringKeyName={"display_name"}
+      styling={{ zIndex: 3 }}
+      autoFocus />
+  </div>
+    
+    
+
+
   );
 }
 

@@ -29,6 +29,12 @@
 .map-and-details {
   display: flex;
 }
+
+.search-bar {
+  position: absolute;
+  bottom: 37rem;
+  left: 50rem;
+}
 .map-title {
   text-align: center;
 }

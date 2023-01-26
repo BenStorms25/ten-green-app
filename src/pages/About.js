@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
-import AboutContent from "../components/AboutContent";
+import DataContent from "../components/DataContent";
 import "./styles/About.css";
 
 function About() {
@@ -10,8 +10,10 @@ function About() {
 
   return (
     <div className="about-page">
+      
       <CustomHeader />
-      <AboutContent />
+      <DataContent />
+
     </div>
   );
 }
