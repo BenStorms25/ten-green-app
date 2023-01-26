@@ -1,0 +1,27 @@
+.entire-page {
+  background-color: #213832;
+}
+.center-content {
+  width: 60%;
+  margin: auto;
+  padding-top: 5rem;
+}
+.center-content h1 {
+  color: white;
+  margin-bottom: 5rem;
+}
+.descriptionAndImplications {
+  background-color: white;
+  padding: 4rem;
+  border-radius: 1%;
+  margin-bottom: 5rem;
+}
+.descriptionAndImplications h2 {
+  margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+}
+.descriptionAndImplications p {
+  margin-bottom: 3rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: large;
+}
