@@ -2,7 +2,7 @@ import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { zoomInOnState } from "../components/ZoomInOnState";
 
 
 const projection = geoIdentity().reflectY(false);
@@ -22,6 +22,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
+  useEffect(() => {
+    zoomInOnState();
+  }, []);
 
   projection.fitExtent(
     [

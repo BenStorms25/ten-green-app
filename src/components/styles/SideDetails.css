@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  right: 5rem;
+  right: 5.5rem;
+  margin-left: 6.5rem;
 }
 
 .side-details input {

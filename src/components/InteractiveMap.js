@@ -8,6 +8,7 @@ import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
+import { zoomInOnState } from "./ZoomInOnState";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
@@ -47,28 +48,17 @@ function InteractiveMap() {
     svg.setAttribute("viewBox", viewbox);
   }
 
-  // function zoomInOnState() {
-  //   let svg = document.getElementById("interactive-map-svg");
-  //   // wait until DOM is loaded
-  //   if (!svg) {
-  //     // swap mounted, triggering useEffect again
-  //     setMounted(!mounted);
-  //     return;
-  //   }
-
-  //   let VB = svg
-  //     .setAttribute("viewBox")
-  //     .split(" ")
-  //     .map((c) => +c);
-  //   let DMAX = VB.slice(2),
-  //     WMIN = 8;
-  // }
-
   useEffect(() => {
-    // every render get width
+    // responsive design
     shrinkMapWithContainer();
     styleMap();
+    //zoomInOnState();
   }, []);
+
+  useEffect(() => {
+    // when user clicks on new county, zoom in on state
+    zoomInOnState();
+  }, [county]);
 
   return (
     <div id="interactive-map">
