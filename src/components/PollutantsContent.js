@@ -14,7 +14,7 @@ import largeParticulateMatterImage from "../images/largeparticles.png";
 
 function PollutantsContent() {
   return (
-    <div className="center-content">
+    <div className="center-content-1">
       <h1>Pollutants & Standards</h1>
       <div className="pollutant-cards">
         <div class="centered">
