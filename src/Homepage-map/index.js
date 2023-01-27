@@ -18,6 +18,8 @@ const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([0, 10]);
 
 const App = () => {
   const data = useData();
+  
+  
   const point = usePoints();
   const UsaGeo = useUsaGeo();
   const [year, setYear] = useState(1980);
