@@ -1,0 +1,102 @@
+.entire-page-1 {
+  background-color: #213832;
+}
+.center-content-2 {
+  width: 60%;
+  margin: auto;
+  padding-top: 5rem;
+}
+.center-content-2 h1 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 4rem;
+}
+.description {
+  background-color: white;
+  border-radius: 3%;
+  margin-bottom: 5rem;
+  display: flex;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.description h1 {
+  margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+  padding: 0rem 1rem;
+}
+.description p {
+  margin-bottom: 3rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: large;
+  padding: 0rem 1.5rem;
+}
+.description h1 {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 2rem;
+  padding-top: 4rem;
+  font-size: 2.5rem;
+}
+.tenGreenImage {
+  width: 17rem;
+  height: auto;
+}
+.image-div {
+  width: 5rem;
+}
+.paragraph-div {
+  width: 40rem;
+}
+.paragraph-div-2 p {
+  padding-left: 1rem;
+}
+.cciImage {
+  width: 14rem;
+  height: auto;
+}
+.meet-the-team-header {
+  margin: auto;
+  width: 40%;
+  text-align: center;
+}
+.team-cards img {
+  width: 25%;
+  height: auto;
+}
+.cards-1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-radius: 7%;
+  padding-bottom: 5rem;
+}
+.card-1 {
+  display: flex;
+  flex: 0 1 31.5%;
+  margin-bottom: 1rem;
+  padding: 1.5rem 1rem;
+  margin: 0.5rem 0.5rem;
+  background-color: white;
+  border-radius: 6%;
+  height: 7rem;
+}
+.card-1 div {
+  width: 50%;
+  padding-left: 1rem;
+  align-items: center;
+}
+.card-1 p {
+  font-family: "Open Sans", sans-serif;
+  font-size: large;
+}
+.card-1 button {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #bde59c;
+  border: none;
+  border-radius: 5%;
+  box-shadow: 0 8px 6px -6px gray;
+  font-weight: bold;
+  position: relative;
+  bottom: 0.75rem;
+}

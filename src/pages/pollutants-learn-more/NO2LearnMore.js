@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function NO2LearnMore() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function NO2LearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }

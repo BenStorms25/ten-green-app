@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
 import "./styles/PollutantLearnMore.css";
-
+import CustomFooter from "../../components/CustomFooter";
 function SO2LearnMore() {
   useEffect(() => {
     document.title = "SO2 - 10Green";
@@ -33,6 +33,7 @@ function SO2LearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }

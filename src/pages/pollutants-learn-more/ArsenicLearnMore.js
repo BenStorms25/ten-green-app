@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function ArsenicLearnMore() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function ArsenicLearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }
