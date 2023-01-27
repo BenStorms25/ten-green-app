@@ -1,0 +1,18 @@
+footer {
+  height: 20rem;
+  background-color: white;
+  justify-content: center;
+}
+footer img {
+  width: 13rem;
+  margin: auto;
+}
+.footer-content {
+  justify-content: center;
+  margin: auto;
+  width: 45%;
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
