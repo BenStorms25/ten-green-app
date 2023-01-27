@@ -28,20 +28,17 @@ function HomeContent() {
   }
   
   const data = useData();
-  // console.log(data.length);
-  // let dataMap = DataFilter(fulldata, 2021, selectId);
+  
   let dataPoints=[];
   for (let j = 0; j < 42; j++) {
     dataPoints.push(new DataPoint());
   }
-  // for (let i = 0; i < data.length; i++){
-  //   console.log(data[i].id);
-  // }
+  
   
 if (data){
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
-    if (data[i].measure === "pm25") {
+    if (data[i].measure === "10green") {
       
       for (let year = 1980; year < 2022; year++){
         if (data[i].data[year - 1980] !== null) {
@@ -51,7 +48,7 @@ for (let i = 0; i < data.length; i++){
           dataPoints[year - 1980].year = year;
         } else {
           console.log("Null");
-          dataPoints[year - 1980].value = {x: 5};
+          dataPoints[year - 1980].value = {x: 0};
           dataPoints[year - 1980].year = year;
         }
         

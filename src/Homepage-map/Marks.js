@@ -1,7 +1,7 @@
 import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 
 
@@ -43,8 +43,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   //               : "grey"
   //           }
   //         ></path>
-
+  const dispatch = useDispatch();
   return (
+    
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
@@ -52,7 +53,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
           <path
             className="border"
             d={path(feature)}
-            onClick={() => setSelectedId(feature.id)
+            onClick={() => dispatch({ type: "SET_ID", payload: feature.id})
              }
             // onClick={() => console.log(feature.id)
             // }
