@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
-import DataContent from "../components/DataContent";
+import { GraphWidget } from "../components/GraphWidget";
 import "./styles/About.css";
 
 function About() {
@@ -12,7 +12,7 @@ function About() {
     <div className="about-page">
       
       <CustomHeader />
-      <DataContent />
+      <GraphWidget />
 
     </div>
   );

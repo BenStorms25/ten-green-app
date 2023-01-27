@@ -1,10 +1,21 @@
 import React, { useEffect } from "react";
 import Globe from "./Globe.js";
+import {GraphWidget} from"./GraphWidget.js"
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 
 function HomeContent() {
+  const data = [];
+const rand = 10;
+for (let i = 0; i < 43; i++) {
+  let d = {
+    year: 1980 + i,
+    value: { x: Math.random() * (rand ) }
+  };
+
+  data.push(d);
+}
   return (
     <>
       <div className="center-div">
@@ -23,6 +34,8 @@ function HomeContent() {
         </div>
       </div>
       <Globe />
+      <GraphWidget
+      data={data}/>
     </>
   );
 }
