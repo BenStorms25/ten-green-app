@@ -53,7 +53,7 @@ const App = () => {
   return (
     <div class="flex-container">
       <div class="slider-wrapper">
-        <label for="year">Year {year}</label>
+        {/* <label for="year">Year {year}</label> */}
         <div>
           <input
             type="range"
@@ -111,13 +111,13 @@ const App = () => {
             <option value="2021" label="2021"></option>
           </datalist>
         </div>
-        <input
+        {/* <input
           type="button"
           value="play"
           id="playButton"
           style={{ width: 50, marginTop: 10 }}
           onClick={play}
-        />
+        /> */}
       </div>
 
       <svg
