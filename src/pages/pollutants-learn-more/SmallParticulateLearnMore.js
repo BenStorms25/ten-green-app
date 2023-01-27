@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function SmallParticulateLearnMore() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function SmallParticulateLearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }

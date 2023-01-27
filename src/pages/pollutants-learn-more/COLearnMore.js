@@ -1,5 +1,6 @@
 import React from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function COLearnMore() {
   return (
@@ -26,6 +27,7 @@ function COLearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }

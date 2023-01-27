@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function LeadLearnMore() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function LeadLearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }

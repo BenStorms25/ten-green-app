@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CustomHeader from "../../components/CustomHeader";
+import CustomFooter from "../../components/CustomFooter";
 
 function OzoneLearnMore() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function OzoneLearnMore() {
           </p>
         </div>
       </div>
+      <CustomFooter />
     </div>
   );
 }
