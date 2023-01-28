@@ -67,16 +67,17 @@ function InteractiveMap() {
         <p className="click-to-select-county">
           Click on map to select a county
         </p>
-      ) : null}
-      
+      ) : (
+        <p className="click-to-select-county">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      )}
+
       <div className="map-and-details">
         <HomepageMap />
         <SideDetails />
         <div className="search-bar">
-        <DataContent />
+          <DataContent />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }
