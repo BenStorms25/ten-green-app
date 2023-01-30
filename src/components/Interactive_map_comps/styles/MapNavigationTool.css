@@ -1,0 +1,27 @@
+.navigation-tool-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  left: 20rem;
+  height: 4rem;
+}
+.arrow {
+  font-size: 24px;
+}
+.left-arrow {
+  margin-right: 0.34rem;
+  font-size: 24px;
+}
+.right-arrow {
+  margin-left: 0.34rem;
+  font-size: 24px;
+}
+.up-down-zoom-arrows {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+.plus-and-minus {
+  font-size: 14px;
+}

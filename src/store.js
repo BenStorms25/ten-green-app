@@ -17,6 +17,9 @@ const initialState = {
   pm10: 0,
   pm25: 0,
   so2: 0,
+  panX: 40,
+  panY: 65,
+  zoom: 1.2,
 };
 
 function reducer(state = initialState, action) {
@@ -30,7 +33,7 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       id: action.payload,
-    }
+    };
   }
   if (action.type === "SET_TEN_GREEN_SCORE") {
     return {
@@ -110,8 +113,29 @@ function reducer(state = initialState, action) {
       so2: action.payload,
     };
   }
+  if (action.type === "SET_PAN_X") {
+    return {
+      ...state,
+      panX: action.payload,
+    };
+  }
+  if (action.type === "SET_PAN_Y") {
+    return {
+      ...state,
+      panY: action.payload,
+    };
+  }
+  if (action.type === "SET_ZOOM") {
+    return {
+      ...state,
+      zoom: action.payload,
+    };
+  }
 
   return state;
 }
 
-export const store = createStore(reducer);
+export const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);

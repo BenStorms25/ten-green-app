@@ -8,7 +8,7 @@ import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
-import { zoomInOnState } from "./ZoomInOnState";
+import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
@@ -56,8 +56,7 @@ function InteractiveMap() {
   }, []);
 
   useEffect(() => {
-    // when user clicks on new county, zoom in on state
-    zoomInOnState();
+    // when user clicks on new county, zoom in on stateOnState();
   }, [county]);
 
   return (
