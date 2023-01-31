@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import CountyList from "../content/CountyData.json";
+import CountyList from "../content/ZipsToFips2.json";
 import { Button } from "bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -47,8 +47,8 @@ function DataContent() {
       onSelect={handleOnSelect}
       onFocus={handleOnFocus}
       onClear={handleOnClear}
-      fuseOptions={{ keys: ["display_name"] }}
-      resultStringKeyName={"display_name"}
+      fuseOptions={{ keys: ["zip_code"] }}
+      resultStringKeyName={"zip_code"}
       styling={{ zIndex: 3 }}
       autoFocus />
   </div>
