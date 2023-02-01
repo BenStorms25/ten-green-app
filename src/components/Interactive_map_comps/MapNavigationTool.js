@@ -10,11 +10,23 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles/MapNavigationTool.css";
 
-// zoom and pan class used to pass zoom and pan values around
-class ZoomPan {
-  constructor(x, y, zoom) {
-    this.x = x;
-    this.y = y;
+// transform matrix used by ZoomAndPan to manipulate svg values
+class TransformMatrix {
+  constructor(
+    transform0,
+    transform1,
+    transform2,
+    transform3,
+    transform4,
+    transform5,
+    zoom
+  ) {
+    this.transform0 = transform0;
+    this.transform1 = transform1;
+    this.transform2 = transform2;
+    this.transform3 = transform3;
+    this.transform4 = transform4;
+    this.transform5 = transform5;
     this.zoom = zoom;
   }
 }
@@ -22,43 +34,87 @@ class ZoomPan {
 function MapNavigationTool() {
   const dispatch = useDispatch();
 
-  // grabs values from redux
-  const currentX = useSelector((state) => state.panX);
-  const currentY = useSelector((state) => state.panY);
+  // grab transform matrix values from redux
+  const currentTransform0 = useSelector((state) => state.transform0);
+  const currentTransform1 = useSelector((state) => state.transform1);
+  const currentTransform2 = useSelector((state) => state.transform2);
+  const currentTransform3 = useSelector((state) => state.transform3);
+  const currentTransform4 = useSelector((state) => state.transform4);
+  const currentTransform5 = useSelector((state) => state.transform5);
   const currentZoom = useSelector((state) => state.zoom);
 
   //constructs obj from values to be passed to pan/zoom function
-  const currentPanAndZoom = new ZoomPan(currentX, currentY, currentZoom);
+  let currentPanAndZoom = new TransformMatrix(
+    currentTransform0,
+    currentTransform1,
+    currentTransform2,
+    currentTransform3,
+    currentTransform4,
+    currentTransform5,
+    currentZoom
+  );
+
+  // update transform values in redux
+  const updateTransformValues = () => {
+    dispatch({
+      type: "SET_TRANSFORM_0",
+      payload: currentPanAndZoom.transform0,
+    });
+    dispatch({
+      type: "SET_TRANSFORM_1",
+      payload: currentPanAndZoom.transform1,
+    });
+    dispatch({
+      type: "SET_TRANSFORM_2",
+      payload: currentPanAndZoom.transform2,
+    });
+    dispatch({
+      type: "SET_TRANSFORM_3",
+      payload: currentPanAndZoom.transform3,
+    });
+    dispatch({
+      type: "SET_TRANSFORM_4",
+      payload: currentPanAndZoom.transform4,
+    });
+    dispatch({
+      type: "SET_TRANSFORM_5",
+      payload: currentPanAndZoom.transform5,
+    });
+    dispatch({
+      type: "SET_ZOOM",
+      payload: currentPanAndZoom.zoom,
+    });
+  };
 
   const handlePanLeft = () => {
     // zoom and pan is called, and is passed the values constructed above
-    const newX = ZoomAndPan("left", currentPanAndZoom);
-    dispatch({ type: "SET_PAN_X", payload: newX });
+    currentPanAndZoom = ZoomAndPan("left", currentPanAndZoom);
+    updateTransformValues();
   };
 
   const handlePanUp = () => {
-    const newY = ZoomAndPan("up", currentPanAndZoom);
-    dispatch({ type: "SET_PAN_Y", payload: newY });
+    currentPanAndZoom = ZoomAndPan("up", currentPanAndZoom);
+    updateTransformValues();
   };
 
   const handlePanDown = () => {
-    const newY = ZoomAndPan("down", currentPanAndZoom);
-    dispatch({ type: "SET_PAN_Y", payload: newY });
+    currentPanAndZoom = ZoomAndPan("down", currentPanAndZoom);
+    updateTransformValues();
   };
 
   const handlePanRight = () => {
-    const newX = ZoomAndPan("right", currentPanAndZoom);
-    dispatch({ type: "SET_PAN_X", payload: newX });
+    currentPanAndZoom = ZoomAndPan("right", currentPanAndZoom);
+    updateTransformValues();
   };
 
   const handleZoomIn = () => {
-    let newZoom = ZoomAndPan("zoom_in", currentPanAndZoom);
-    dispatch({ type: "SET_ZOOM", payload: newZoom });
+    currentPanAndZoom = ZoomAndPan("zoom_in", currentPanAndZoom);
+    updateTransformValues();
   };
 
   const handleZoomOut = () => {
-    let newZoom = ZoomAndPan("zoom_out", currentPanAndZoom);
-    dispatch({ type: "SET_ZOOM", payload: newZoom });
+    currentPanAndZoom = ZoomAndPan("zoom_out", currentPanAndZoom);
+    updateTransformValues();
   };
 
   return (

@@ -7,7 +7,21 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
   }
 
   // create initial svg matrix to describe svg viewbox
-  var transformMatrix = [1, 0, 0, 1, 0, 0];
+  var transformMatrix;
+
+  if (!currentPanAndZoom) {
+    transformMatrix = [1, 0, 0, 1, 0, 0];
+  } else {
+    transformMatrix = [
+      currentPanAndZoom.transform0,
+      currentPanAndZoom.transform1,
+      currentPanAndZoom.transform2,
+      currentPanAndZoom.transform3,
+      currentPanAndZoom.transform4,
+      currentPanAndZoom.transform5,
+    ];
+  }
+
   var viewbox = svg.getAttributeNS(null, "viewBox").split(" ");
   var centerX = parseFloat(viewbox[2]) / 2;
   var centerY = parseFloat(viewbox[3]) / 2;
@@ -20,6 +34,10 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
+
+    // reassign x and y vals to be sent back to react comp.
+    currentPanAndZoom.transform4 = transformMatrix[4];
+    currentPanAndZoom.transform5 = transformMatrix[5];
   }
 
   // zoom on svg
@@ -32,6 +50,15 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
+
+    // reassign all values for currentPanandZoom to be sent back to react comp.
+    currentPanAndZoom.transform0 = transformMatrix[0];
+    currentPanAndZoom.transform1 = transformMatrix[1];
+    currentPanAndZoom.transform2 = transformMatrix[2];
+    currentPanAndZoom.transform3 = transformMatrix[3];
+    currentPanAndZoom.transform4 = transformMatrix[4];
+    currentPanAndZoom.transform5 = transformMatrix[5];
+    currentPanAndZoom.zoom = currentPanAndZoom.zoom * scale;
   }
 
   // initial view of map
@@ -40,26 +67,25 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
     pan(40, 65);
     zoom(1.2);
   }
-
   // perform pan or zoom based on operation, then return changed value
   if (operation === "up") {
-    pan(currentPanAndZoom.x, currentPanAndZoom.y + 25);
-    return currentPanAndZoom.y + 25;
+    pan(0, 25);
+    return currentPanAndZoom;
   } else if (operation === "down") {
-    pan(currentPanAndZoom.x, currentPanAndZoom.y - 25);
-    return currentPanAndZoom.y - 25;
+    pan(0, -25);
+    return currentPanAndZoom;
   } else if (operation === "left") {
-    pan(currentPanAndZoom.x + 25, currentPanAndZoom.y);
-    return currentPanAndZoom.x + 25;
+    pan(25, 0);
+    return currentPanAndZoom;
   } else if (operation === "right") {
-    pan(currentPanAndZoom.x - 25, currentPanAndZoom.y);
-    return currentPanAndZoom.x - 25;
+    pan(-25, 0);
+    return currentPanAndZoom;
   } else if (operation === "zoom_in") {
-    zoom(currentPanAndZoom.zoom * 1.25);
-    return currentPanAndZoom.zoom * 1.25;
+    zoom(1.25);
+    return currentPanAndZoom;
   } else if (operation === "zoom_out") {
-    zoom(currentPanAndZoom.zoom * 0.8);
-    return currentPanAndZoom.zoom * 0.8;
+    zoom(0.8);
+    return currentPanAndZoom;
   } else {
     resetZoom();
   }

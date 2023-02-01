@@ -20,6 +20,12 @@ const initialState = {
   panX: 40,
   panY: 65,
   zoom: 1.2,
+  transform0: 1,
+  transform1: 0,
+  transform2: 0,
+  transform3: 1,
+  transform4: 0,
+  transform5: 0,
 };
 
 function reducer(state = initialState, action) {
@@ -129,6 +135,46 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       zoom: action.payload,
+    };
+  }
+  if (action.type === "SET_TRANSFORM_0") {
+    return {
+      ...state,
+      transform0: action.payload,
+    };
+  }
+  if (action.type === "SET_TRANSFORM_1") {
+    return {
+      ...state,
+      transform1: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_2") {
+    return {
+      ...state,
+      transform2: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_3") {
+    return {
+      ...state,
+      transform3: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_4") {
+    return {
+      ...state,
+      transform4: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_5") {
+    return {
+      ...state,
+      transform5: action.payload,
     };
   }
 
