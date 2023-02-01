@@ -10,7 +10,7 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
   var transformMatrix;
 
   if (!currentPanAndZoom) {
-    transformMatrix = [1, 0, 0, 1, 0, 0];
+    transformMatrix = [1.2, 0, 0, 1.2, -63, 9];
   } else {
     transformMatrix = [
       currentPanAndZoom.transform0,
@@ -34,6 +34,10 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
+    console.log(transformMatrix);
+    if (!currentPanAndZoom) {
+      return;
+    }
 
     // reassign x and y vals to be sent back to react comp.
     currentPanAndZoom.transform4 = transformMatrix[4];
@@ -50,6 +54,10 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
+    console.log(transformMatrix);
+    if (!currentPanAndZoom) {
+      return;
+    }
 
     // reassign all values for currentPanandZoom to be sent back to react comp.
     currentPanAndZoom.transform0 = transformMatrix[0];
@@ -59,14 +67,16 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
     currentPanAndZoom.transform4 = transformMatrix[4];
     currentPanAndZoom.transform5 = transformMatrix[5];
     currentPanAndZoom.zoom = currentPanAndZoom.zoom * scale;
+    console.log(transformMatrix);
   }
 
   // initial view of map
-  function resetZoom() {
-    // initial values
-    pan(40, 65);
-    zoom(1.2);
-  }
+  // function resetZoom() {
+  //   // initial values
+  //   return;
+  //   // pan(40, 65);
+  //   // zoom(1.2);
+  // }
   // perform pan or zoom based on operation, then return changed value
   if (operation === "up") {
     pan(0, 25);
@@ -81,13 +91,13 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
     pan(-25, 0);
     return currentPanAndZoom;
   } else if (operation === "zoom_in") {
-    zoom(1.25);
+    zoom(1.1);
     return currentPanAndZoom;
   } else if (operation === "zoom_out") {
-    zoom(0.8);
+    zoom(0.9);
     return currentPanAndZoom;
   } else {
-    resetZoom();
+    pan(0, 0);
   }
 
   // when state is clicked, navigate to that state.  One way it COULD work

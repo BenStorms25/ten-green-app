@@ -23,7 +23,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   );
   useEffect(() => {
     //currently causing an error when trying to set map to inital pan and zoom
-    //ZoomAndPan();
+    ZoomAndPan();
   }, []);
 
   projection.fitExtent(

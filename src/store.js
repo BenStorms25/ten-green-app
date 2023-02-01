@@ -20,12 +20,12 @@ const initialState = {
   panX: 40,
   panY: 65,
   zoom: 1.2,
-  transform0: 1,
+  transform0: 1.2,
   transform1: 0,
   transform2: 0,
-  transform3: 1,
-  transform4: 0,
-  transform5: 0,
+  transform3: 1.2,
+  transform4: -63,
+  transform5: 9,
 };
 
 function reducer(state = initialState, action) {
