@@ -32,10 +32,10 @@ function SideDetails() {
       />
       <label className="e-float-text e-label-top">AQI </label>
       {/* <input type="text" required={true} readOnly={true} value={aqi} /> */}
-      <button onClick={dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi"})}>{aqi}</button>
+      <button onClick={()=>dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi"})}>{aqi}</button>
       <label className="e-float-text e-label-top">Ozone </label>
       {/* <input type="text" required={true} readOnly={true} value={ozone} /> */}
-      <button onClick={dispatch({ type: "SET_CURRENT_MEASURE", payload: "ozone"})}>{ozone}</button>
+      <button onClick={()=>dispatch({ type: "SET_CURRENT_MEASURE", payload: "ozone"})}>{ozone}</button>
       <label className="e-float-text e-label-top">PM25 </label>
       <input type="text" required={true} readOnly={true} value={pm25} />
       <label className="e-float-text e-label-top">PM10 </label>

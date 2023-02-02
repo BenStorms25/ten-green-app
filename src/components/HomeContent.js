@@ -41,6 +41,7 @@ function HomeContent() {
   
   
 if (data){
+  console.log(currentmeasure);
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
     if (data[i].measure === currentmeasure) {
