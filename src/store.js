@@ -18,7 +18,6 @@ const initialState = {
   pm25: 0,
   so2: 0,
   current_measure: "10green",
-  graph_min: 0,
   graph_max: 0,
 };
 
@@ -117,6 +116,13 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       current_measure: action.payload,
+    };
+  }
+
+  if (action.type === "SET_GRAPH_MAX") {
+    return {
+      ...state,
+      graph_max: action.payload,
     };
   }
 
