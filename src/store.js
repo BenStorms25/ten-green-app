@@ -17,6 +17,15 @@ const initialState = {
   pm10: 0,
   pm25: 0,
   so2: 0,
+  panX: 40,
+  panY: 65,
+  zoom: 1.2,
+  transform0: 1.2,
+  transform1: 0,
+  transform2: 0,
+  transform3: 1.2,
+  transform4: -63,
+  transform5: 9,
 };
 
 function reducer(state = initialState, action) {
@@ -30,7 +39,7 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       id: action.payload,
-    }
+    };
   }
   if (action.type === "SET_TEN_GREEN_SCORE") {
     return {
@@ -110,8 +119,69 @@ function reducer(state = initialState, action) {
       so2: action.payload,
     };
   }
+  if (action.type === "SET_PAN_X") {
+    return {
+      ...state,
+      panX: action.payload,
+    };
+  }
+  if (action.type === "SET_PAN_Y") {
+    return {
+      ...state,
+      panY: action.payload,
+    };
+  }
+  if (action.type === "SET_ZOOM") {
+    return {
+      ...state,
+      zoom: action.payload,
+    };
+  }
+  if (action.type === "SET_TRANSFORM_0") {
+    return {
+      ...state,
+      transform0: action.payload,
+    };
+  }
+  if (action.type === "SET_TRANSFORM_1") {
+    return {
+      ...state,
+      transform1: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_2") {
+    return {
+      ...state,
+      transform2: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_3") {
+    return {
+      ...state,
+      transform3: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_4") {
+    return {
+      ...state,
+      transform4: action.payload,
+    };
+  }
+
+  if (action.type === "SET_TRANSFORM_5") {
+    return {
+      ...state,
+      transform5: action.payload,
+    };
+  }
 
   return state;
 }
 
-export const store = createStore(reducer);
+export const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
