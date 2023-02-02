@@ -17,6 +17,7 @@ const initialState = {
   pm10: 0,
   pm25: 0,
   so2: 0,
+  current_measure: "10green",
 };
 
 function reducer(state = initialState, action) {
@@ -108,6 +109,12 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       so2: action.payload,
+    };
+  }
+  if (action.type === "SET_CURRENT_MEASURE") {
+    return {
+      ...state,
+      current_measure: action.payload,
     };
   }
 

@@ -6,6 +6,7 @@ import { DataFilter } from "../Homepage-map/DataFilter";
 import { Marks, dots } from "../Homepage-map/Marks";
 import "./styles/GraphWidget.css";
 
+
 const styles = {
     fontFamily: "sans-serif",
     textAlign: "center"
@@ -28,6 +29,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 export const GraphWidget =  ({data}) => {
     // let currentID = useSelector((state) => state.id);
     // let dataMap = DataFilter(data, year, currentID);
+    const county = useSelector((state) => state.county);
+const current_measure = useSelector((state) => state.current_measure);
     return (
         <div id = "graphwidget">
 <div style={styles}>
@@ -46,7 +49,7 @@ export const GraphWidget =  ({data}) => {
       
     >
       <text x={200 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
-            <tspan fontSize="14">Title</tspan>
+            <tspan fontSize="14">{county}, {current_measure}</tspan>
         </text>
       <Line type="monotone" dataKey="value.x" stroke="#bde59c" dot={false} strokeWidth={4} />
       <XAxis dataKey="year" type={'category'} interval={4} minTickGap= {5} tickLine={true} domain={['dataMin', 'dataMax']} />

@@ -13,12 +13,17 @@ import { useSelector } from "react-redux";
 function HomeContent() {
 
   let [selectId, setSelectedId] = useState(null);
-  
+  let [currentmeasure, setcurrentmeasure] = useState(null);
   let incomingID = useSelector((state) => state.id);
+  let incomingmeasure = useSelector((state) => state.current_measure);
   
   useEffect(() => {
     setSelectedId(incomingID);
   }, [incomingID]);
+  useEffect(() => {
+    setcurrentmeasure(incomingmeasure);
+  }, [incomingmeasure]);
+
   // let selectId = "51041";
   class DataPoint {
     constructor() {
@@ -38,7 +43,7 @@ function HomeContent() {
 if (data){
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
-    if (data[i].measure === "10green") {
+    if (data[i].measure === currentmeasure) {
       
       for (let year = 1980; year < 2022; year++){
         if (data[i].data[year - 1980] !== null) {

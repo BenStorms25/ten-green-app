@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./styles/SideDetails.css";
 
 function SideDetails() {
@@ -17,6 +17,7 @@ function SideDetails() {
   const pm10 = useSelector((state) => state.pm10);
   const pm25 = useSelector((state) => state.pm25);
   const so2 = useSelector((state) => state.so2);
+  const dispatch = useDispatch();
 
   return (
     <div className="side-details">
@@ -30,9 +31,11 @@ function SideDetails() {
         value={tenGreenScore}
       />
       <label className="e-float-text e-label-top">AQI </label>
-      <input type="text" required={true} readOnly={true} value={aqi} />
+      {/* <input type="text" required={true} readOnly={true} value={aqi} /> */}
+      <button onClick={dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi"})}>{aqi}</button>
       <label className="e-float-text e-label-top">Ozone </label>
-      <input type="text" required={true} readOnly={true} value={ozone} />
+      {/* <input type="text" required={true} readOnly={true} value={ozone} /> */}
+      <button onClick={dispatch({ type: "SET_CURRENT_MEASURE", payload: "ozone"})}>{ozone}</button>
       <label className="e-float-text e-label-top">PM25 </label>
       <input type="text" required={true} readOnly={true} value={pm25} />
       <label className="e-float-text e-label-top">PM10 </label>
