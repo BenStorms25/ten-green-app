@@ -33,9 +33,9 @@ const App = () => {
   };
 
   const play = () => {
-    console.log(year);
+    
     if (+year === 2021) {
-      console.log(2021);
+      
       return;
     }
 
@@ -43,7 +43,7 @@ const App = () => {
     const x = setInterval(() => {
       y++;
       setYear(y);
-      console.log(y);
+    
       if (y === 2021) {
         clearInterval(x);
       }

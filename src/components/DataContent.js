@@ -25,16 +25,16 @@ function DataContent() {
 
   const handleOnSelect = (item) => {
     const id_as_string = item.internal_id.toString();
-    console.log(item.internal_id);
-    dispatch({ type: "SET_ID", payload: id_as_string});
+    
+      dispatch({ type: "SET_ID", payload: id_as_string});
   };
 
   const handleOnFocus = () => {
-    console.log("Focused");
+    
   };
 
   const handleOnClear = () => {
-    console.log("Cleared");
+    
   };
   return (  
 

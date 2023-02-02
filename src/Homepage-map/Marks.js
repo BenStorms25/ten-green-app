@@ -55,8 +55,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
             d={path(feature)}
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id})
              }
-            // onClick={() => console.log(feature.id)
-            // }
+            
             
             fill={
               colorScale(dataMap.get(feature.id))

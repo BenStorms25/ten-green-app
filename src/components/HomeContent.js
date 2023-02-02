@@ -41,20 +41,20 @@ function HomeContent() {
   
   
 if (data){
-  console.log(currentmeasure);
+ 
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
     if (data[i].measure === currentmeasure) {
       
       for (let year = 1980; year < 2022; year++){
         if (data[i].data[year - 1980] !== null) {
-          console.log("Not Null");
+          
           dataPoints[year - 1980].value = {x: data[i].data[year - 1980]};
           // dataPoints[year - 1980].value = data[i].data[year - 1980];
 
           dataPoints[year - 1980].year = year;
         } else {
-          console.log("Null");
+          
           dataPoints[year - 1980].value = "N/A";
           dataPoints[year - 1980].year = year;
         }
