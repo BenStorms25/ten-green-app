@@ -16,8 +16,8 @@ const jsonUrl = "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div >
-        <p className="label">{` ${payload[0].value} `}</p>
+      <div>
+        <p>{` ${payload[0].value} `}</p>
       </div>
     );
   }
@@ -35,12 +35,23 @@ export const GraphWidget =  ({data}) => {
       width={800}
       height={300}
       data={data}
-      margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+      //margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+
+      margin={{
+        top: 50,
+        right: 30,
+        left: 0,
+        bottom: 0,
+    }}
+      
     >
+      <text x={200 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
+            <tspan fontSize="14">Title</tspan>
+        </text>
       <Line type="monotone" dataKey="value.x" stroke="#bde59c" dot={false} strokeWidth={4} />
       <XAxis dataKey="year" type={'category'} interval={4} minTickGap= {5} tickLine={true} domain={['dataMin', 'dataMax']} />
       <YAxis />
-      <Tooltip content={<CustomTooltip />} />
+      <Tooltip wrapperStyle={{ outline: 'none' }} content={<CustomTooltip />} />
     </LineChart>
   </div>
   </div>
