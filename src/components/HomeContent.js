@@ -23,7 +23,7 @@ function HomeContent() {
   class DataPoint {
     constructor() {
       this.year = 1980;
-      this.value = "";
+      this.value = 0;
     }
   }
   
@@ -44,7 +44,8 @@ for (let i = 0; i < data.length; i++){
         if (data[i].data[year - 1980] !== null) {
           console.log("Not Null");
           dataPoints[year - 1980].value = {x: data[i].data[year - 1980]};
-          
+          // dataPoints[year - 1980].value = data[i].data[year - 1980];
+
           dataPoints[year - 1980].year = year;
         } else {
           console.log("Null");
