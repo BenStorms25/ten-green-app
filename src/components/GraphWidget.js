@@ -26,7 +26,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export const GraphWidget =  ({data}) => {
+export const GraphWidget =  ({data, max}) => {
     // let currentID = useSelector((state) => state.id);
     // let dataMap = DataFilter(data, year, currentID);
     const county = useSelector((state) => state.county);
@@ -53,7 +53,7 @@ const current_measure = useSelector((state) => state.current_measure);
         </text>
       <Line type="monotone" dataKey="value.x" stroke="#bde59c" dot={false} strokeWidth={4} />
       <XAxis dataKey="year" type={'category'} interval={4} minTickGap= {5} tickLine={true} domain={['dataMin', 'dataMax']} />
-      <YAxis />
+      <YAxis type="number" domain={[0, max]}/>
       <Tooltip wrapperStyle={{ outline: 'none' }} content={<CustomTooltip />} />
     </LineChart>
   </div>

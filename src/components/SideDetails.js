@@ -22,7 +22,7 @@ function SideDetails() {
   function adjust_graph(value) {
     if (value === "tenGreenScore")
     {console.log(value);
-    dispatch({ type: "SET_CURRENT_MEASURE", payload: "tenGreenScore"});
+    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green"});
     dispatch({ type: "SET_GRAPH_MAX", payload: 10});
   }
   else if (value === "aqi")
@@ -35,11 +35,11 @@ function SideDetails() {
   }
   else if (value === "cadmium")
     {dispatch({ type: "SET_CURRENT_MEASURE", payload: "cadmium"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: .001})
+    dispatch({ type: "SET_GRAPH_MAX", payload: .005})
   }
   else if (value === "co")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 2})
+    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "co"})
+    dispatch({ type: "SET_GRAPH_MAX", payload: 1.5})
   }
   else if (value === "lead")
     {dispatch({ type: "SET_CURRENT_MEASURE", payload: "lead"})

@@ -16,6 +16,8 @@ function HomeContent() {
   let [currentmeasure, setcurrentmeasure] = useState(null);
   let incomingID = useSelector((state) => state.id);
   let incomingmeasure = useSelector((state) => state.current_measure);
+  let [current_graph_max, setgraphmax] = useState(null);
+  let incominggraphmax = useSelector((state) => state.graph_max);
   
   useEffect(() => {
     setSelectedId(incomingID);
@@ -23,6 +25,9 @@ function HomeContent() {
   useEffect(() => {
     setcurrentmeasure(incomingmeasure);
   }, [incomingmeasure]);
+  useEffect(() => {
+    setgraphmax(incominggraphmax);
+  }, [incominggraphmax]);
 
   // let selectId = "51041";
   class DataPoint {
@@ -41,7 +46,7 @@ function HomeContent() {
   
   
 if (data){
- 
+ console.log(current_graph_max);
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
     if (data[i].measure === currentmeasure) {
@@ -90,7 +95,8 @@ for (let i = 0; i < data.length; i++){
       </div>
       <Globe />
       <GraphWidget
-      data={dataPoints}/>
+      data={dataPoints}
+      max={current_graph_max}/>
     </>
   );
 }
