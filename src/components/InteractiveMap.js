@@ -9,6 +9,7 @@ import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
 import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
+import MapLegend from "./Interactive_map_comps/MapLegend";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
@@ -71,6 +72,7 @@ function InteractiveMap() {
       )}
 
       <div className="map-and-details">
+        <MapLegend />
         <HomepageMap />
         <SideDetails />
         <div className="search-bar">

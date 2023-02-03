@@ -79,16 +79,16 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
   // }
   // perform pan or zoom based on operation, then return changed value
   if (operation === "up") {
-    pan(0, 25);
+    pan(0, 75);
     return currentPanAndZoom;
   } else if (operation === "down") {
-    pan(0, -25);
+    pan(0, -75);
     return currentPanAndZoom;
   } else if (operation === "left") {
-    pan(25, 0);
+    pan(75, 0);
     return currentPanAndZoom;
   } else if (operation === "right") {
-    pan(-25, 0);
+    pan(-75, 0);
     return currentPanAndZoom;
   } else if (operation === "zoom_in") {
     zoom(1.1);
