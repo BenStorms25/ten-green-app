@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
-import { useData2 } from "./useData2";
 import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
@@ -28,7 +27,7 @@ if (current_measure === "ozone"){
 }
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
 let data = useData();
-let data2 = useData2();
+//let data2 = useData2();
 
 // let data = data2;
 // setData(useData());
@@ -44,7 +43,7 @@ let data2 = useData2();
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data2 || !point) {
+  if (!UsaGeo || !data ||  !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -150,12 +149,15 @@ let data2 = useData2();
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
         
+          
             <Marks
             UsaGeo={UsaGeo}
-            data={data2}
+            data={data}
             year={year}
             colorScale={colorScale}
           />
+          
+      
           <points point={point} />
         </g>
       </svg>

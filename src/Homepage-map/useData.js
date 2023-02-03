@@ -9,8 +9,7 @@ import { useSelector } from "react-redux";
 const jsonUrl10green =
   "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388b1bf1909b9d53a82/raw/7fa42c4d7fb1f139a5df89214f60f73549f62fab/allData.txt";
 
-const jsonUrlozone = 
-"https://gist.githubusercontent.com/Edaran123/2b826782da38bf3f99dd2b71ff734553/raw/4408fd8c19a7d79b13c37dddd8b10c3b929fa55f/ozone.txt";
+
 
 
 
@@ -37,19 +36,12 @@ export const useData = () => {
     //   console.log(d);
     //   return d;
     // };
-    if (current_measure === "10green"){
+    
       json(jsonUrl10green).then((res) => {
         setData(res);
         return data;
       });
-    }
-
-    if (current_measure === "ozone"){
-      json(jsonUrlozone).then((res) => {
-        setData(res);
-        return data;
-      })
-    }
+    
     
   }, []);
 
