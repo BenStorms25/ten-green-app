@@ -11,12 +11,20 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
+import { useSelector } from "react-redux";
+
+
+
+const App = () => {
+  const current_measure = useSelector((state) => state.current_measure);
 
 const width = window.innerWidth / 2;
 const height = width / 1.8;
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([10, 0]);
-
-const App = () => {
+let variableRange = 10;
+if (current_measure === "ozone"){
+   variableRange = .1;
+}
+const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
   const data = useData();
   
   

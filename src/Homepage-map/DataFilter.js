@@ -121,6 +121,7 @@ export const DataFilter = (data, year, id) => {
           dataPoints[i].dataValue = data[i].data[year - 1980];
         } else {
           dataPoints[i].dataValue = "N/A";
+          
         }
       } else if (data[i].measure === "lead") {
         dataPoints[i].measure = "lead";

@@ -8,6 +8,9 @@ import { csv, json } from "d3";
 const jsonUrl =
   "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388b1bf1909b9d53a82/raw/7fa42c4d7fb1f139a5df89214f60f73549f62fab/allData.txt";
 
+
+
+
 export const useData = () => {
   const [data, setData] = useState(null);
 
@@ -15,18 +18,19 @@ export const useData = () => {
     let max = 0;
     let min = 40;
 
-    const row = (d) => {
-      for (const property in d) {
-        if (property === "id") continue;
-        if (+d[property] > max) {
-          max = +d[property];
-        }
-        if (+d[property] < min) {
-          min = +d[property];
-        }
-      }
-      return d;
-    };
+    // const row = (d) => {
+    //   for (const property in d) {
+    //     if (property === "id") continue;
+    //     if (+d[property] > max) {
+    //       max = +d[property];
+    //     }
+    //     if (+d[property] < min) {
+    //       min = +d[property];
+    //     }
+    //   }
+    //   console.log(d);
+    //   return d;
+    // };
     json(jsonUrl).then((res) => {
       setData(res);
     });
