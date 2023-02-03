@@ -1,0 +1,10 @@
+#graphwidget {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3%;
+    padding: 2rem 1rem 2rem 1rem;
+    max-width: 60%;
+    scale: 1;
+    position: absolute;
+    top: 140rem;
+    left: 30rem;
+  }

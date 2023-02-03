@@ -1,7 +1,7 @@
 import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
 
 const projection = geoIdentity().reflectY(false);
@@ -46,18 +46,19 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   //               : "grey"
   //           }
   //         ></path>
-
+  const dispatch = useDispatch();
   return (
+    
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
           <path
             className="border"
             d={path(feature)}
-            onClick={() => setSelectedId(feature.id)}
-            // onClick={() => console.log(feature.id)
-            // }
-
+            onClick={() => dispatch({ type: "SET_ID", payload: feature.id})
+             }
+            
+            
             fill={
               colorScale(dataMap.get(feature.id))
                 ? colorScale(dataMap.get(feature.id))

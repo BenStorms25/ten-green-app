@@ -18,6 +18,8 @@ const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([10, 0]);
 
 const App = () => {
   const data = useData();
+  
+  
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
@@ -32,9 +34,9 @@ const App = () => {
   };
 
   const play = () => {
-    console.log(year);
+    
     if (+year === 2021) {
-      console.log(2021);
+      
       return;
     }
 
@@ -42,7 +44,7 @@ const App = () => {
     const x = setInterval(() => {
       y++;
       setYear(y);
-      console.log(y);
+    
       if (y === 2021) {
         clearInterval(x);
       }
@@ -52,7 +54,7 @@ const App = () => {
   return (
     <div class="flex-container">
       <div class="slider-wrapper">
-        <label for="year">Year {year}</label>
+        {/* <label for="year">Year {year}</label> */}
         <div>
           <input
             type="range"
@@ -110,13 +112,13 @@ const App = () => {
             <option value="2021" label="2021"></option>
           </datalist>
         </div>
-        <input
+        {/* <input
           type="button"
           value="play"
           id="playButton"
           style={{ width: 50, marginTop: 10 }}
           onClick={play}
-        />
+        /> */}
       </div>
       <MapNavigationTool />
       <svg
