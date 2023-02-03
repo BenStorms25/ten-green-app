@@ -5,23 +5,14 @@ import CountyList from "../content/ZipsToFips2.json";
 import { Button } from "bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-
-
 function DataContent() {
-
   const dispatch = useDispatch();
 
   const CountyListArray = CountyList;
 
-  
+  const handleOnSearch = (string, results) => {};
 
-  const handleOnSearch = (string, results) => {
-    
-  };
-
-  const handleOnHover = (result) => {
-    
-  };
+  const handleOnHover = (result) => {};
 
   const handleOnSelect = (item) => {
     const id_as_string = item.internal_id.toString();

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks, dots } from "./Marks";
@@ -10,11 +10,11 @@ import { scaleOrdinal, hcl } from "d3";
 import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
+import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 
- 
 const width = window.innerWidth / 2;
-const height = width / 1.92;
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([0, 10]);
+const height = width / 1.8;
+const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([10, 0]);
 
 const App = () => {
   const data = useData();
@@ -22,6 +22,7 @@ const App = () => {
   
   const point = usePoints();
   const UsaGeo = useUsaGeo();
+
   const [year, setYear] = useState(1980);
 
   if (!UsaGeo || !data || !point) {
@@ -119,23 +120,43 @@ const App = () => {
           onClick={play}
         /> */}
       </div>
-
+      <MapNavigationTool />
       <svg
         width={width}
         height={height}
         id="homepage-map-svg"
         viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
       >
-        <Marks
-          UsaGeo={UsaGeo}
-          data={data}
-          year={year}
-          colorScale={colorScale}
-        />
-        <points point={point} />
+        <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
+          <Marks
+            UsaGeo={UsaGeo}
+            data={data}
+            year={year}
+            colorScale={colorScale}
+          />
+          <points point={point} />
+        </g>
       </svg>
     </div>
   );
 };
 
 export default App;
+
+// <path
+//             class="button"
+//             onclick={console.log("left")}
+//             d="M5 25 l10 -6 a35 20 0 0 0 0 12z"
+//           />
+//           <path
+//             class="button"
+//             onclick={console.log("down")}
+//             d="M25 45 l6 -10 a20, 35 0 0,1 -12,0z"
+//           />
+//           <path
+//             class="button"
+//             onclick={console.log("right")}
+//             d="M45 25 l-10 -6 a35 20 0 0 1 0 12z"
+//           />
+//           <circle class="button" cx="25" cy="20.5" r="4" onclick="zoom(0.8)" />
+//           <circle class="button" cx="25" cy="29.5" r="4" onclick="zoom(1.25)" />

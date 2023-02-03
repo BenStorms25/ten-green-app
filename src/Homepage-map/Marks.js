@@ -2,8 +2,7 @@ import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-
+import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -16,12 +15,16 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   useEffect(() => {
     setSelectedId(incomingID);
   }, [incomingID]);
-  
+
   let dataMap = DataFilter(data, year, selectId);
 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
+  useEffect(() => {
+    //currently causing an error when trying to set map to inital pan and zoom
+    ZoomAndPan();
+  }, []);
 
   projection.fitExtent(
     [
@@ -49,7 +52,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
-          
           <path
             className="border"
             d={path(feature)}

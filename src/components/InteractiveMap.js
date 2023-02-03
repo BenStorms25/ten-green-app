@@ -8,6 +8,7 @@ import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
+import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
@@ -47,28 +48,16 @@ function InteractiveMap() {
     svg.setAttribute("viewBox", viewbox);
   }
 
-  // function zoomInOnState() {
-  //   let svg = document.getElementById("interactive-map-svg");
-  //   // wait until DOM is loaded
-  //   if (!svg) {
-  //     // swap mounted, triggering useEffect again
-  //     setMounted(!mounted);
-  //     return;
-  //   }
-
-  //   let VB = svg
-  //     .setAttribute("viewBox")
-  //     .split(" ")
-  //     .map((c) => +c);
-  //   let DMAX = VB.slice(2),
-  //     WMIN = 8;
-  // }
-
   useEffect(() => {
-    // every render get width
+    // responsive design
     shrinkMapWithContainer();
     styleMap();
+    //zoomInOnState();
   }, []);
+
+  useEffect(() => {
+    // when user clicks on new county, zoom in on stateOnState();
+  }, [county]);
 
   return (
     <div id="interactive-map">
@@ -77,16 +66,17 @@ function InteractiveMap() {
         <p className="click-to-select-county">
           Click on map to select a county
         </p>
-      ) : null}
-      
+      ) : (
+        <p className="click-to-select-county">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      )}
+
       <div className="map-and-details">
         <HomepageMap />
         <SideDetails />
         <div className="search-bar">
-        <DataContent />
+          <DataContent />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }
