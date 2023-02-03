@@ -46,7 +46,6 @@ function HomeContent() {
   
   
 if (data){
- console.log(current_graph_max);
 for (let i = 0; i < data.length; i++){
   if (data[i].id === selectId) {
     if (data[i].measure === currentmeasure) {
