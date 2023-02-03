@@ -1,16 +1,17 @@
 .map-legend {
   max-width: 20%;
-  width: 10%;
+  width: 5%;
   height: 30rem;
 }
 .score-card {
+  width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .score-stripe {
-  max-width: 20%;
-  height: 3.2rem;
+  max-width: 30%;
+  height: 3.3rem;
 }
 .score-number {
   margin-top: 1rem;
