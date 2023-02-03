@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
+import { useData2 } from "./useData2";
 import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
@@ -17,6 +18,7 @@ import { useSelector } from "react-redux";
 
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
+  
 
 const width = window.innerWidth / 2;
 const height = width / 1.8;
@@ -25,7 +27,16 @@ if (current_measure === "ozone"){
    variableRange = .1;
 }
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-  const data = useData();
+let data = useData();
+let data2 = useData2();
+
+// let data = data2;
+// setData(useData());
+
+// useEffect(() => {
+//   setData(useData);
+// }, [current_measure]);
+  
   
   
   const point = usePoints();
@@ -33,7 +44,7 @@ const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRang
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data || !point) {
+  if (!UsaGeo || !data2 || !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -58,6 +69,8 @@ const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRang
       }
     }, 1000);
   };
+
+  
 
   return (
     <div class="flex-container">
@@ -136,9 +149,10 @@ const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRang
         viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
-          <Marks
+        
+            <Marks
             UsaGeo={UsaGeo}
-            data={data}
+            data={data2}
             year={year}
             colorScale={colorScale}
           />

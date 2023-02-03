@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { csv, json } from "d3";
+import { useSelector } from "react-redux";
 
 // const csvUrl =
 //   "https://gist.githubusercontent.com/itsyaboichase/ccf5f349e0a6eaed79f07171592463ad/raw/5f26401065f343cdbe2f997189cde60f894e73f1/ozone_2000-2021";
 // const jsonUrl =
 //   "https://gist.githubusercontent.com/BenStorms25/b62644c7998767ce365134997ccf083e/raw/5b4eac490f1306c9a4ab8a48686fd8693074705e/gistfile1.txt";
-const jsonUrl =
+const jsonUrl10green =
   "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388b1bf1909b9d53a82/raw/7fa42c4d7fb1f139a5df89214f60f73549f62fab/allData.txt";
+
+const jsonUrlozone = 
+"https://gist.githubusercontent.com/Edaran123/2b826782da38bf3f99dd2b71ff734553/raw/4408fd8c19a7d79b13c37dddd8b10c3b929fa55f/ozone.txt";
+
+
 
 
 
 
 export const useData = () => {
   const [data, setData] = useState(null);
-
+  const current_measure = useSelector((state) => state.current_measure);
   useEffect(() => {
     let max = 0;
     let min = 40;
@@ -31,9 +37,20 @@ export const useData = () => {
     //   console.log(d);
     //   return d;
     // };
-    json(jsonUrl).then((res) => {
-      setData(res);
-    });
+    if (current_measure === "10green"){
+      json(jsonUrl10green).then((res) => {
+        setData(res);
+        return data;
+      });
+    }
+
+    if (current_measure === "ozone"){
+      json(jsonUrlozone).then((res) => {
+        setData(res);
+        return data;
+      })
+    }
+    
   }, []);
 
   return data;

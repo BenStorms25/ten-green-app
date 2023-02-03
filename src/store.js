@@ -17,7 +17,7 @@ const initialState = {
   pm10: 0,
   pm25: 0,
   so2: 0,
-  current_measure: "10green",
+  current_measure: "ozone",
   graph_max: 10,
   panX: 40,
   panY: 65,
