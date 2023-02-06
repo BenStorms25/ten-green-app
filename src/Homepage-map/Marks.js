@@ -52,6 +52,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
+          
           <path
             className="border"
             d={path(feature)}
