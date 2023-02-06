@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useUsaGeo } from "./useUsaGeo";
+import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
 import { DataFilter } from "./DataFilter";
@@ -12,14 +13,13 @@ import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 
-const width = window.innerWidth / 2;
-const height = width / 1.8;
+const width = window.innerWidth / 2.3;
+const height = width / 1.7;
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([10, 0]);
 
 const App = () => {
   const data = useData();
-  
-  
+
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
@@ -34,9 +34,7 @@ const App = () => {
   };
 
   const play = () => {
-    
     if (+year === 2021) {
-      
       return;
     }
 
@@ -44,7 +42,7 @@ const App = () => {
     const x = setInterval(() => {
       y++;
       setYear(y);
-    
+
       if (y === 2021) {
         clearInterval(x);
       }
@@ -53,6 +51,7 @@ const App = () => {
 
   return (
     <div class="flex-container">
+      <MapLegend />
       <div class="slider-wrapper">
         {/* <label for="year">Year {year}</label> */}
         <div>
@@ -113,19 +112,19 @@ const App = () => {
           </datalist>
         </div>
         {/* <input
-          type="button"
-          value="play"
-          id="playButton"
-          style={{ width: 50, marginTop: 10 }}
-          onClick={play}
-        /> */}
+        type="button"
+        value="play"
+        id="playButton"
+        style={{ width: 50, marginTop: 10 }}
+        onClick={play}
+      /> */}
       </div>
-      <MapNavigationTool />
       <svg
         width={width}
         height={height}
         id="homepage-map-svg"
         viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
+        style={{ border: "1px solid grey" }}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
           <Marks

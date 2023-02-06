@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MapApp from "../Interactive-Map-Source";
 import HomepageMap from "../Homepage-map";
 import FilterMaps from "./FilterMaps";
 import ToggleSites from "./ToggleSites";
@@ -10,6 +9,7 @@ import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
 import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
 import MapLegend from "./Interactive_map_comps/MapLegend";
+import ResetMap from "./Interactive_map_comps/ResetMap";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
@@ -72,9 +72,9 @@ function InteractiveMap() {
       )}
 
       <div className="map-and-details">
-        <MapLegend />
         <HomepageMap />
         <SideDetails />
+        <ResetMap />
         <div className="search-bar">
           <DataContent />
         </div>
