@@ -8,8 +8,10 @@
   top: -60rem;
 }
 #homepage-map-svg {
+  border: 1px grey;
+
   position: relative;
-  left: 5.5rem;
+  left: 1.5rem;
   top: 4.5rem;
   scale: 1;
 }
@@ -32,8 +34,8 @@
 
 .search-bar {
   position: absolute;
-  bottom: 38rem;
-  left: 48rem;
+  bottom: 40rem;
+  left: 50rem;
 }
 .map-title {
   text-align: center;
