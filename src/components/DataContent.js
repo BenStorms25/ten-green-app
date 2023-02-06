@@ -10,7 +10,7 @@ function DataContent() {
 
   const CountyListArray = CountyList;
 
-  const handleOnSearch = (string, results) => {};
+  
 
   const handleOnHover = (result) => {};
 
@@ -18,6 +18,19 @@ function DataContent() {
     const id_as_string = item.internal_id.toString();
 
     dispatch({ type: "SET_ID", payload: id_as_string });
+  };
+  const handleOnSearch = (string, results) => {
+
+    if (string.length === 5) {
+    for (var i = 0; i < CountyList.length; i++){
+      
+      if (CountyList[i].zip_code === string){
+        dispatch({ type: "SET_ID", payload: CountyList[i].internal_id.toString() });
+        break;
+      }
+    }
+  }
+    
   };
 
   const handleOnFocus = () => {};
