@@ -7,6 +7,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles/MapNavigationTool.css";
 
@@ -117,45 +118,57 @@ function MapNavigationTool() {
     updateTransformValues();
   };
 
+  const handleRefresh = () => {
+    currentPanAndZoom = ZoomAndPan(currentPanAndZoom);
+    updateTransformValues();
+  };
+
   return (
-    <div className="navigation-tool-wrapper">
-      <div className="left-arrow">
-        <FontAwesomeIcon
-          className="left-arrow"
-          onClick={handlePanLeft}
-          icon={faCaretLeft}
-        />
-      </div>
-      <div className="up-down-zoom-arrows">
-        <FontAwesomeIcon
-          className="arrow"
-          onClick={handlePanUp}
-          icon={faCaretUp}
-        />
-        <FontAwesomeIcon
-          className="plus-and-minus"
-          onClick={handleZoomIn}
-          icon={faPlus}
-        />
-        <FontAwesomeIcon
-          className="plus-and-minus"
-          onClick={handleZoomOut}
-          icon={faMinus}
-        />
-        <FontAwesomeIcon
-          className="arrow"
-          onClick={handlePanDown}
-          icon={faCaretDown}
-        />
-      </div>
-      <div className="right-arrow">
-        <FontAwesomeIcon
-          className="right-arrow"
-          onClick={handlePanRight}
-          icon={faCaretRight}
-        />
-      </div>
+    // <div className="navigation-tool-wrapper">
+    //   <div className="left-arrow">
+    //     <FontAwesomeIcon
+    //       className="left-arrow"
+    //       onClick={handlePanLeft}
+    //       icon={faCaretLeft}
+    //     />
+    //   </div>
+    //   <div className="up-down-zoom-arrows">
+    //     <FontAwesomeIcon
+    //       className="arrow"
+    //       onClick={handlePanUp}
+    //       icon={faCaretUp}
+    //     />
+    //     <FontAwesomeIcon
+    //       className="plus-and-minus"
+    //       onClick={handleZoomIn}
+    //       icon={faPlus}
+    //     />
+    //     <FontAwesomeIcon
+    //       className="plus-and-minus"
+    //       onClick={handleZoomOut}
+    //       icon={faMinus}
+    //     />
+    //     <FontAwesomeIcon
+    //       className="arrow"
+    //       onClick={handlePanDown}
+    //       icon={faCaretDown}
+    //     />
+    //   </div>
+    //   <div className="right-arrow">
+    //     <FontAwesomeIcon
+    //       className="right-arrow"
+    //       onClick={handlePanRight}
+    //       icon={faCaretRight}
+    //     />
+    //   </div>
+    <div className="refresh-div">
+      <FontAwesomeIcon
+        className="refresh-icon"
+        onClick={handleRefresh}
+        icon={faRefresh}
+      />
     </div>
+    //</div>
   );
 }
 
