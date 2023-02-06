@@ -3,7 +3,8 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
-  left: 20rem;
+  left: 5rem;
+  top: 0rem;
   height: 4rem;
 }
 .arrow {
@@ -24,4 +25,10 @@
 }
 .plus-and-minus {
   font-size: 14px;
+}
+.refresh-div {
+  margin-left: 1.5rem;
+}
+.refresh-icon {
+  font-size: 1.5rem;
 }

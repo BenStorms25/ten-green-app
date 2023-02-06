@@ -17,37 +17,30 @@ function DataContent() {
 
   const handleOnSelect = (item) => {
     const id_as_string = item.internal_id.toString();
-    
-      dispatch({ type: "SET_ID", payload: id_as_string});
+
+    dispatch({ type: "SET_ID", payload: id_as_string });
   };
 
-  const handleOnFocus = () => {
-    
-  };
+  const handleOnFocus = () => {};
 
-  const handleOnClear = () => {
-    
-  };
-  return (  
-
-    <div style={{width:300, margin: 20}}>
-    <ReactSearchAutocomplete
-      items={CountyListArray}
-      maxResults={5}
-      onSearch={handleOnSearch}
-      onHover={handleOnHover}
-      onSelect={handleOnSelect}
-      onFocus={handleOnFocus}
-      onClear={handleOnClear}
-      fuseOptions={{ keys: ["zip_code"] }}
-      resultStringKeyName={"zip_code"}
-      styling={{ zIndex: 3 }}
-      autoFocus />
-  </div>
-    
-    
-
-
+  const handleOnClear = () => {};
+  return (
+    <div style={{ width: 300, margin: 20 }}>
+      <ReactSearchAutocomplete
+        items={CountyListArray}
+        maxResults={5}
+        onSearch={handleOnSearch}
+        onHover={handleOnHover}
+        onSelect={handleOnSelect}
+        onFocus={handleOnFocus}
+        onClear={handleOnClear}
+        fuseOptions={{ keys: ["zip_code"] }}
+        resultStringKeyName={"zip_code"}
+        placeholder={"Enter ZIP Code"}
+        styling={{ zIndex: 3 }}
+        autoFocus={false}
+      />
+    </div>
   );
 }
 

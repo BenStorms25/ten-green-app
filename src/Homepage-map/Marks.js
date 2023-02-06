@@ -3,6 +3,7 @@ import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
+import { MakeDraggable } from "../components/Interactive_map_comps/MakeDraggable";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -23,7 +24,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   );
   useEffect(() => {
     //currently causing an error when trying to set map to inital pan and zoom
-    ZoomAndPan();
+    //ZoomAndPan();
+    // attatch drag and zoom listeners to svg on mount
+    MakeDraggable();
   }, []);
 
   projection.fitExtent(
@@ -48,7 +51,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   //         ></path>
   const dispatch = useDispatch();
   return (
-    
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
@@ -56,10 +58,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
           <path
             className="border"
             d={path(feature)}
-            onClick={() => dispatch({ type: "SET_ID", payload: feature.id})
-             }
-            
-            
+            onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
             fill={
               colorScale(dataMap.get(feature.id))
                 ? colorScale(dataMap.get(feature.id))
