@@ -12,7 +12,6 @@ function About() {
   return (
     <div className="about-page">
       <CustomHeader />
-
       <AboutContent />
     </div>
   );

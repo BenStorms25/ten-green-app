@@ -9,14 +9,15 @@ import { useSelector } from "react-redux";
 const jsonUrl10green =
   "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388b1bf1909b9d53a82/raw/7fa42c4d7fb1f139a5df89214f60f73549f62fab/allData.txt";
 
+const jsonUrlozone = 
+"https://gist.githubusercontent.com/Edaran123/d6217605265759c0db60f7ff9297d1da/raw/8ce88a2c38ac64a3dc2ce0c0a30c3a09bc03181e/ozoneupdated.txt";
 
 
 
 
 
 
-
-export const useData = () => {
+export const useData2 = () => {
   const [data, setData] = useState(null);
   const current_measure = useSelector((state) => state.current_measure);
   useEffect(() => {
@@ -36,11 +37,13 @@ export const useData = () => {
     //   console.log(d);
     //   return d;
     // };
+   
+
     
-      json(jsonUrl10green).then((res) => {
+      json(jsonUrlozone).then((res) => {
         setData(res);
         return data;
-      });
+      })
     
     
   }, []);

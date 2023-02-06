@@ -4,6 +4,7 @@ import { useUsaGeo } from "./useUsaGeo";
 import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
+import { useData2} from "./useData2"
 import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
@@ -12,20 +13,38 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
+import { useSelector } from "react-redux";
+
+
+
+const App = () => {
+  const current_measure = useSelector((state) => state.current_measure);
+  
 
 const width = window.innerWidth / 2.3;
 const height = width / 1.7;
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([10, 0]);
+let variableRange = 10;
+if (current_measure === "ozone"){
+   variableRange = .1;
+}
+const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
+let data = useData();
+//let data2 = useData2();
+let data2 = useData2();
+// let data = data2;
+// setData(useData());
 
-const App = () => {
-  const data = useData();
+// useEffect(() => {
+//   setData(useData);
+// }, [current_measure]);
+  
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data || !point) {
+  if (!UsaGeo || !data || !data2 || !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -48,6 +67,8 @@ const App = () => {
       }
     }, 1000);
   };
+
+  
 
   return (
     <div class="flex-container">
@@ -127,12 +148,25 @@ const App = () => {
         style={{ border: "1px solid grey" }}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
+        
+          {(current_measure === "ozone" ? 
+          (
+            <Marks
+            UsaGeo={UsaGeo}
+            data={data2}
+            year={year}
+            colorScale={colorScale}
+          /> ): 
+(
           <Marks
             UsaGeo={UsaGeo}
             data={data}
             year={year}
             colorScale={colorScale}
-          />
+          />))
+
+}
+      
           <points point={point} />
         </g>
       </svg>

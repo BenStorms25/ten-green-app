@@ -121,6 +121,7 @@ export const DataFilter = (data, year, id) => {
           dataPoints[i].dataValue = data[i].data[year - 1980];
         } else {
           dataPoints[i].dataValue = "N/A";
+          
         }
       } else if (data[i].measure === "lead") {
         dataPoints[i].measure = "lead";
@@ -219,6 +220,7 @@ export const DataFilter = (data, year, id) => {
         dispatch({ type: "SET_NO2", payload: point.dataValue });
         break;
       case "ozone":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_OZONE", payload: point.dataValue });
         break;
       case "pm10":

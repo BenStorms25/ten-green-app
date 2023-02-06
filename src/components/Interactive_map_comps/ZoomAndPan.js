@@ -34,7 +34,7 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
-    console.log(transformMatrix);
+    //console.log(transformMatrix);
     if (!currentPanAndZoom) {
       return;
     }
@@ -54,7 +54,7 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
 
     var newMatrix = "matrix(" + transformMatrix.join(" ") + ")";
     matrixGroup.setAttributeNS(null, "transform", newMatrix);
-    console.log(transformMatrix);
+    //console.log(transformMatrix);
     if (!currentPanAndZoom) {
       return;
     }
@@ -67,7 +67,7 @@ export function ZoomAndPan(operation, currentPanAndZoom) {
     currentPanAndZoom.transform4 = transformMatrix[4];
     currentPanAndZoom.transform5 = transformMatrix[5];
     currentPanAndZoom.zoom = currentPanAndZoom.zoom * scale;
-    console.log(transformMatrix);
+    //console.log(transformMatrix);
   }
 
   // initial view of map
