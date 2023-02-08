@@ -18,7 +18,7 @@ const initialState = {
   pm25: 0,
   so2: 0,
   current_measure: "10green",
-  graph_max: 0,
+  graph_max: 10,
   panX: 40,
   panY: 65,
   zoom: 1.2,

@@ -41,6 +41,17 @@ function HomeContent() {
     dataPoints.push(new DataPoint());
   }
 
+  // if (data){
+  // for (let i = 0; i < data.length; i++){
+  //   if (data[i].id === selectId) {
+  //     if (data[i].measure === currentmeasure) {
+
+  //       for (let year = 1980; year < 2022; year++){
+  //         if (data[i].data[year - 1980] !== null) {
+
+  //           dataPoints[year - 1980].value = {x: data[i].data[year - 1980]};
+  //           // dataPoints[year - 1980].value = data[i].data[year - 1980];
+
   if (data) {
     console.log(current_graph_max);
     for (let i = 0; i < data.length; i++) {
