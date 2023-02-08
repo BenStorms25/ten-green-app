@@ -78,14 +78,7 @@ function HomeContent() {
   useEffect(() => {
     removeScrollDown();
   }, []);
-  // for (let i = 0; i < 42; i++) {
-  //   let d = {
-  //     year: 1980 + i,
-  //     value: { x: Math.random() * (10 ) }
-  //   };
 
-  //   data.push(d);
-  // }
   return (
     <>
       <div className="center-div">
