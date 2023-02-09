@@ -1,5 +1,5 @@
 // used in interactive map svg
-export function MakeDraggable() {
+export function MakeDraggable(state = "none") {
   // grab svg and g
   var svgCanvas = document.getElementById("homepage-map-svg");
   var viewPort = document.getElementById("matrix-group");
@@ -8,8 +8,9 @@ export function MakeDraggable() {
   var offset = { x: 0, y: 0 };
   var factor = 0.02;
   var matrix = new DOMMatrix();
+  console.log("initial matrix: " + matrix);
 
-  // event listeners
+  // attatch event listeners
 
   // enable drag
   svgCanvas.addEventListener("pointerdown", function (event) {
@@ -22,11 +23,14 @@ export function MakeDraggable() {
     if (drag) {
       var tx = event.offsetX - offset.x;
       var ty = event.offsetY - offset.y;
+      console.log(tx, ty);
       offset = {
         x: event.offsetX,
         y: event.offsetY,
       };
+
       matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
+      console.log("mousemove matrix: " + matrix);
       viewPort.style.transform = matrix.toString();
     }
   });
@@ -51,6 +55,9 @@ export function MakeDraggable() {
         .scaleSelf(scale, scale)
         .translateSelf(-offset.x, -offset.y)
     );
+    console.log("zoom matrix: " + matrix);
     viewPort.style.transform = matrix.toString();
   });
+
+  // update has listenener val in redux
 }

@@ -4,7 +4,7 @@ import { useUsaGeo } from "./useUsaGeo";
 import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
-import { useData2} from "./useData2"
+import { useData2 } from "./useData2";
 import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
@@ -15,29 +15,50 @@ import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 import { useSelector } from "react-redux";
 
-
-
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
-  
+  const [mounted, setMounted] = useState(false);
+  const [attatched, setAttatched] = useState(false);
+  const width = window.innerWidth / 2.3;
+  const height = width / 1.7;
+  let variableRange = 10;
+  if (current_measure === "ozone") {
+    variableRange = 0.1;
+  }
+  const colorScale = d3
+    .scaleSequential(d3.interpolateRdYlGn)
+    .domain([variableRange, 0]);
+  let data = useData();
+  //let data2 = useData2();
+  let data2 = useData2();
+  let svgCanvas;
+  let viewPort;
 
-const width = window.innerWidth / 2.3;
-const height = width / 1.7;
-let variableRange = 10;
-if (current_measure === "ozone"){
-   variableRange = .1;
-}
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-let data = useData();
-//let data2 = useData2();
-let data2 = useData2();
-// let data = data2;
-// setData(useData());
+  // refs for svg and viewport
+  // const svgRef = useRef(null);
+  // const viewPortRef = useRef(null);
 
-// useEffect(() => {
-//   setData(useData);
-// }, [current_measure]);
-  
+  useEffect(() => {});
+
+  useEffect(() => {
+    svgCanvas = document.getElementById("homepage-map-svg");
+    viewPort = document.getElementById("matrix-group");
+    console.log(svgCanvas);
+    if (svgCanvas) {
+      setMounted(true);
+    }
+    if (mounted && !attatched) {
+      attatchListeners();
+      setAttatched(true);
+    }
+  });
+
+  // let data = data2;
+  // setData(useData());
+
+  // useEffect(() => {
+  //   setData(useData);
+  // }, [current_measure]);
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -68,7 +89,56 @@ let data2 = useData2();
     }, 1000);
   };
 
-  
+  function attatchListeners() {
+    var drag = false;
+    var offset = { x: 0, y: 0 };
+    var factor = 0.02;
+    var matrix = new DOMMatrix();
+    console.log("initial matrix: " + matrix);
+    // attatch event listeners
+    // enable drag
+    svgCanvas.addEventListener("pointerdown", function (event) {
+      drag = true;
+      offset = { x: event.offsetX, y: event.offsetY };
+    });
+    // sense when dragging
+    svgCanvas.addEventListener("pointermove", function (event) {
+      if (drag) {
+        var tx = event.offsetX - offset.x;
+        var ty = event.offsetY - offset.y;
+        console.log(tx, ty);
+        offset = {
+          x: event.offsetX,
+          y: event.offsetY,
+        };
+        matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
+        console.log("mousemove matrix: " + matrix);
+        viewPort.style.transform = matrix.toString();
+      }
+    });
+    // disable drag
+    svgCanvas.addEventListener("pointerup", function (event) {
+      drag = false;
+    });
+    // zoom
+    svgCanvas.addEventListener("wheel", function (event) {
+      event.preventDefault();
+      var zoom = event.deltaY > 0 ? -1 : 1;
+      var scale = 1 + factor * zoom;
+      offset = {
+        x: event.offsetX,
+        y: event.offsetY,
+      };
+      matrix.preMultiplySelf(
+        new DOMMatrix()
+          .translateSelf(offset.x, offset.y)
+          .scaleSelf(scale, scale)
+          .translateSelf(-offset.x, -offset.y)
+      );
+      console.log("zoom matrix: " + matrix);
+      viewPort.style.transform = matrix.toString();
+    });
+  }
 
   return (
     <div class="flex-container">
@@ -148,25 +218,22 @@ let data2 = useData2();
         style={{ border: "1px solid grey" }}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
-        
-          {(current_measure === "ozone" ? 
-          (
+          {current_measure === "ozone" ? (
             <Marks
-            UsaGeo={UsaGeo}
-            data={data2}
-            year={year}
-            colorScale={colorScale}
-          /> ): 
-(
-          <Marks
-            UsaGeo={UsaGeo}
-            data={data}
-            year={year}
-            colorScale={colorScale}
-          />))
+              UsaGeo={UsaGeo}
+              data={data2}
+              year={year}
+              colorScale={colorScale}
+            />
+          ) : (
+            <Marks
+              UsaGeo={UsaGeo}
+              data={data}
+              year={year}
+              colorScale={colorScale}
+            />
+          )}
 
-}
-      
           <points point={point} />
         </g>
       </svg>

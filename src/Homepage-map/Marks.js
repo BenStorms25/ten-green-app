@@ -2,8 +2,6 @@ import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
-import { MakeDraggable } from "../components/Interactive_map_comps/MakeDraggable";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -22,12 +20,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
-  useEffect(() => {
-    //currently causing an error when trying to set map to inital pan and zoom
-    //ZoomAndPan();
-    // attatch drag and zoom listeners to svg on mount
-    MakeDraggable();
-  }, []);
 
   projection.fitExtent(
     [
