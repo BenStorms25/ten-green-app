@@ -16,6 +16,7 @@ function InteractiveMap() {
   const [mounted, setMounted] = useState(true);
 
   const county = useSelector((state) => state.county);
+  const current_measure = useSelector((state) => state.current_measure);
 
   function styleMap() {
     let USMap = document.getElementById("homepage-map-svg");
@@ -62,7 +63,7 @@ function InteractiveMap() {
 
   return (
     <div id="interactive-map">
-      <h5 className="map-title">10Green Score by County - 1980 to 2021</h5>
+      <h5 className="map-title">{current_measure} Score by County - 1980 to 2021</h5>
       {county === "Select a County" ? (
         <p className="click-to-select-county">
           Click on map to select a county
