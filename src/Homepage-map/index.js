@@ -14,6 +14,9 @@ import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 import { useSelector } from "react-redux";
+import { faRefresh } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { transform } from "topojson";
 
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
@@ -21,6 +24,9 @@ const App = () => {
   const [attatched, setAttatched] = useState(false);
   const width = window.innerWidth / 2.3;
   const height = width / 1.7;
+
+  let matrix = new DOMMatrix();
+
   let variableRange = 10;
   if (current_measure === "ozone") {
     variableRange = 0.1;
@@ -33,12 +39,9 @@ const App = () => {
   let data2 = useData2();
   let svgCanvas;
   let viewPort;
-
-  // refs for svg and viewport
-  // const svgRef = useRef(null);
-  // const viewPortRef = useRef(null);
-
-  useEffect(() => {});
+  var drag = false;
+  var offset = { x: 0, y: 0 };
+  var factor = 0.02;
 
   useEffect(() => {
     svgCanvas = document.getElementById("homepage-map-svg");
@@ -89,60 +92,86 @@ const App = () => {
     }, 1000);
   };
 
-  function attatchListeners() {
-    var drag = false;
-    var offset = { x: 0, y: 0 };
-    var factor = 0.02;
-    var matrix = new DOMMatrix();
-    console.log("initial matrix: " + matrix);
-    // attatch event listeners
-    // enable drag
-    svgCanvas.addEventListener("pointerdown", function (event) {
-      drag = true;
-      offset = { x: event.offsetX, y: event.offsetY };
-    });
-    // sense when dragging
-    svgCanvas.addEventListener("pointermove", function (event) {
-      if (drag) {
-        var tx = event.offsetX - offset.x;
-        var ty = event.offsetY - offset.y;
-        console.log(tx, ty);
-        offset = {
-          x: event.offsetX,
-          y: event.offsetY,
-        };
-        matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
-        console.log("mousemove matrix: " + matrix);
-        viewPort.style.transform = matrix.toString();
-      }
-    });
-    // disable drag
-    svgCanvas.addEventListener("pointerup", function (event) {
-      drag = false;
-    });
-    // zoom
-    svgCanvas.addEventListener("wheel", function (event) {
-      event.preventDefault();
-      var zoom = event.deltaY > 0 ? -1 : 1;
-      var scale = 1 + factor * zoom;
+  const handleRefresh = () => {
+    console.log("handle refresh");
+    resetMap();
+  };
+
+  function resetMap() {
+    console.log("resetting map");
+    matrix = new DOMMatrix([1, 0, 0, 1, -15, 31]);
+    viewPort.style.transform = matrix.toString();
+    // detatch and reattatch listeners
+    detatchListeners();
+  }
+
+  function beginDrag(event) {
+    drag = true;
+    offset = { x: event.offsetX, y: event.offsetY };
+  }
+
+  function transformViewPort(event) {
+    if (drag) {
+      var tx = event.offsetX - offset.x;
+      var ty = event.offsetY - offset.y;
+      console.log(tx, ty);
       offset = {
         x: event.offsetX,
         y: event.offsetY,
       };
-      matrix.preMultiplySelf(
-        new DOMMatrix()
-          .translateSelf(offset.x, offset.y)
-          .scaleSelf(scale, scale)
-          .translateSelf(-offset.x, -offset.y)
-      );
-      console.log("zoom matrix: " + matrix);
+      console.log("before matrix man: " + matrix);
+      matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
+      console.log("mousemove matrix: " + matrix);
       viewPort.style.transform = matrix.toString();
-    });
+    }
+  }
+
+  function endDrag(event) {
+    drag = false;
+  }
+
+  function zoom(event) {
+    event.preventDefault();
+    var zoom = event.deltaY > 0 ? -1 : 1;
+    var scale = 1 + factor * zoom;
+    offset = {
+      x: event.offsetX,
+      y: event.offsetY,
+    };
+    matrix.preMultiplySelf(
+      new DOMMatrix()
+        .translateSelf(offset.x, offset.y)
+        .scaleSelf(scale, scale)
+        .translateSelf(-offset.x, -offset.y)
+    );
+    console.log("zoom matrix: " + matrix);
+    viewPort.style.transform = matrix.toString();
+  }
+
+  function attatchListeners() {
+    svgCanvas = document.getElementById("homepage-map-svg");
+    viewPort = document.getElementById("matrix-group");
+    console.log("adding listener");
+    svgCanvas.addEventListener("pointerdown", beginDrag);
+    svgCanvas.addEventListener("pointermove", transformViewPort);
+    svgCanvas.addEventListener("pointerup", endDrag);
+    svgCanvas.addEventListener("wheel", zoom);
+  }
+
+  function detatchListeners() {
+    console.log("removing listeners");
+    svgCanvas.removeEventListener("pointerdown", beginDrag);
+    svgCanvas.removeEventListener("pointermove", transformViewPort);
+    svgCanvas.removeEventListener("pointerup", endDrag);
+    svgCanvas.removeEventListener("wheel", zoom);
   }
 
   return (
     <div class="flex-container">
       <MapLegend />
+      <div className="refresh-div">
+        <button onClick={handleRefresh}>Reset Map</button>
+      </div>
       <div class="slider-wrapper">
         {/* <label for="year">Year {year}</label> */}
         <div>
