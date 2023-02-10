@@ -38,7 +38,9 @@
   left: 50rem;
 }
 .map-title {
-  text-align: center;
+  position: relative;
+  text-align: left;
+  left: 5rem;
 }
 
 @media (1200px <= width <= 1680px) {

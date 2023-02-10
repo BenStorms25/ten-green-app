@@ -5,6 +5,7 @@ import { useData } from "../Homepage-map/useData";
 import { DataFilter } from "../Homepage-map/DataFilter";
 import { Marks, dots } from "../Homepage-map/Marks";
 import "./styles/GraphWidget.css";
+import { Title_Formatter } from "./Title_Formatter";
 
 
 const styles = {
@@ -49,7 +50,7 @@ const current_measure = useSelector((state) => state.current_measure);
       
     >
       <text x={200 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
-            <tspan fontSize="14">{county}, {current_measure}</tspan>
+            <tspan fontSize="14">{county}, {Title_Formatter(current_measure)} Score over time</tspan>
         </text>
       <Line type="monotone" dataKey="value.x" stroke="#bde59c" dot={false} strokeWidth={4} />
       <XAxis dataKey="year" type={'category'} interval={4} minTickGap= {5} tickLine={true} domain={['dataMin', 'dataMax']} />

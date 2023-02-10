@@ -19,6 +19,8 @@
   font-size: 0.6rem;
 }
 
+
+
 @media (1600px <= width <= 1700px) {
   .side-details {
     right: 9rem;
