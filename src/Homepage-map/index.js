@@ -14,7 +14,7 @@ import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 import { useSelector } from "react-redux";
-
+import { Data_Formatter } from "../components/Data-Formatter";
 
 
 const App = () => {
@@ -28,23 +28,28 @@ if (current_measure === "ozone"){
    variableRange = .1;
 }
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-let data = useData();
+let data = Data_Formatter(current_measure);
+// let datatest = useData2();
 //let data2 = useData2();
-let data2 = useData2();
+//let data2 = useData2();
 // let data = data2;
 // setData(useData());
 
+//data = useData2();
 // useEffect(() => {
 //   setData(useData);
 // }, [current_measure]);
   
+// if (current_measure === "ozone"){
+//   data = datatest;
+// }
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data || !data2 || !point) {
+  if (!UsaGeo || !data ||  !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -149,7 +154,7 @@ let data2 = useData2();
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
         
-          {(current_measure === "ozone" ? 
+          {/* {(current_measure === "ozone" ? 
           (
             <Marks
             UsaGeo={UsaGeo}
@@ -165,7 +170,13 @@ let data2 = useData2();
             colorScale={colorScale}
           />))
 
-}
+} */}
+<Marks
+            UsaGeo={UsaGeo}
+            data={data}
+            year={year}
+            colorScale={colorScale}
+          />
       
           <points point={point} />
         </g>
