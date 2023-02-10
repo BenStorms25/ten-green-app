@@ -13,15 +13,19 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
 import { Data_Formatter2 } from "../components/Data_Formatter_2";
+import playbuttonpic from "../images/playbutton.png";
+import pausebuttonpic from "../images/pause button.png"
 
 
-
+let ispaused = false; 
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   
+  const dispatch = useDispatch();
+
 
 const width = window.innerWidth / 2.3;
 const height = width / 1.7;
@@ -51,7 +55,7 @@ let data = Data_Formatter2(current_measure);
 // if (current_measure === "ozone"){
 //   data = datatest;
 // }
-
+  
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
@@ -66,19 +70,37 @@ let data = Data_Formatter2(current_measure);
   };
 
   const play = () => {
+    console.log(ispaused);
+    
+    ispaused = false;
     if (+year === 2021) {
       return;
     }
 
     let y = year;
-    const x = setInterval(() => {
+    let x = setInterval(() => {
+      
+      // clearInterval(x);
+      if (ispaused == true){
+        console.log("TEST");
+        clearInterval(x);
+        
+      }
+      else {
       y++;
+      console.log(ispaused);
       setYear(y);
 
       if (y === 2021) {
         clearInterval(x);
-      }
+      }}
     }, 1000);
+  };
+
+  const pause = () => {
+    
+    ispaused = true;
+    console.log(ispaused);
   };
 
   
@@ -159,6 +181,10 @@ let data = Data_Formatter2(current_measure);
         style={{ width: 50, marginTop: 10 }}
         onClick={play}
       /> */}
+
+<div className="playButton"><img src={playbuttonpic} width={"40px"} height={"40px"} onClick={play} id={"playButton"}></img></div>
+<div className="pauseButton"><img src={pausebuttonpic} width={"35px"} height={"35px"} onClick={pause} id={"pauseButton"}></img></div>
+      
       </div>
       <svg
         width={width}

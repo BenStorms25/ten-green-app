@@ -43,10 +43,19 @@ pre {
   padding: 0;
 }
 
-/* #playButton {
+.playButton {
   position: fixed;
+  top: 42rem;
+  left: 3rem;
   z-index: 99;
-} */
+} 
+
+.pauseButton {
+  position: fixed;
+  top: 42rem;
+  left: 1rem;
+  z-index: 99;
+} 
 
  .slider-wrapper input {
   width: 750px;

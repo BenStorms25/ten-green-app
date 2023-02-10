@@ -28,6 +28,7 @@ const initialState = {
   transform3: 1.2,
   transform4: -63,
   transform5: 9,
+  ispaused: 0,
 };
 
 function reducer(state = initialState, action) {
@@ -192,6 +193,13 @@ function reducer(state = initialState, action) {
       ...state,
       transform5: action.payload,
     };
+  }
+
+  if (action.type === "PAUSE") {
+    return {
+      ...state,
+      ispaused: action.payload,
+    }
   }
 
   return state;
