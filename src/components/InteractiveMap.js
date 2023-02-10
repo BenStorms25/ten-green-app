@@ -10,12 +10,14 @@ import DataContent from "./DataContent";
 import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
 import MapLegend from "./Interactive_map_comps/MapLegend";
 import ResetMap from "./Interactive_map_comps/ResetMap";
+import { Title_Formatter } from "./Title_Formatter";
 
 function InteractiveMap() {
   // swap mounted back and forth until svg can be identified
   const [mounted, setMounted] = useState(true);
 
   const county = useSelector((state) => state.county);
+  const current_measure = useSelector((state) => state.current_measure);
 
   function styleMap() {
     let USMap = document.getElementById("homepage-map-svg");
@@ -62,7 +64,7 @@ function InteractiveMap() {
 
   return (
     <div id="interactive-map">
-      <h5 className="map-title">10Green Score by County - 1980 to 2021</h5>
+      <h5 className="map-title">{Title_Formatter(current_measure)} Score by County - 1980 to 2021</h5>
       {county === "Select a County" ? (
         <p className="click-to-select-county">
           Click on map to select a county

@@ -19,9 +19,12 @@ function SideDetails() {
   const so2 = useSelector((state) => state.so2);
   const dispatch = useDispatch();
 
+  const measures = ['tenGreenScore', 'aqi', 'ozone', 'so2', 'no2', 'no', 'co', 'pm25', 'pm10', 'arsenic', 'lead', 'cadmium', 'nickel'];
+  const [active, setActive] = useState(measures[0]);
+
   function adjust_graph(value) {
-    if (value === "tenGreenScore")
-    {console.log(value);
+    setActive(value);
+    if (value === "tenGreenScore"){
     dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green"});
     dispatch({ type: "SET_GRAPH_MAX", payload: 10});
   }
@@ -86,43 +89,43 @@ function SideDetails() {
         readOnly={true}
         value={tenGreenScore}
       /> */}
-      <button onClick={()=>adjust_graph("tenGreenScore")}>{tenGreenScore}</button>
+      <button className="button" disabled={active === "tenGreenScore"} onClick={()=>adjust_graph("tenGreenScore")}>{tenGreenScore}</button>
 
       <label className="e-float-text e-label-top">AQI </label>
       {/* <input type="text" required={true} readOnly={true} value={aqi} /> */}
-      <button onClick={()=>adjust_graph("aqi")}>{aqi}</button>
+      <button className="button" disabled={active === "aqi"} onClick={()=>adjust_graph("aqi")}>{aqi}</button>
       <label className="e-float-text e-label-top">Ozone </label>
       {/* <input type="text" required={true} readOnly={true} value={ozone} /> */}
-      <button onClick={()=>adjust_graph("ozone")}>{ozone}</button>
+      <button className="button" disabled={active === "ozone"} onClick={()=>adjust_graph("ozone")}>{ozone}</button>
       <label className="e-float-text e-label-top">PM25 </label>
       {/* <input type="text" required={true} readOnly={true} value={pm25} /> */}
-      <button onClick={()=>adjust_graph("pm25")}>{pm25}</button>
+      <button className="button" disabled={active === "pm25"} onClick={()=>adjust_graph("pm25")}>{pm25}</button>
       <label className="e-float-text e-label-top">PM10 </label>
-      <button onClick={()=>adjust_graph("pm10")}>{pm10}</button>
+      <button className="button" disabled={active === "pm10"} onClick={()=>adjust_graph("pm10")}>{pm10}</button>
       {/* <input type="text" required={true} readOnly={true} value={pm10} /> */}
       <label className="e-float-text e-label-top">SO2 </label>
-      <button onClick={()=>adjust_graph("so2")}>{so2}</button>
+      <button className="button" disabled={active === "so2"} onClick={()=>adjust_graph("so2")}>{so2}</button>
       {/* <input type="text" required={true} readOnly={true} value={so2} /> */}
       <label className="e-float-text e-label-top">NO2 </label>
-      <button onClick={()=>adjust_graph("no2")}>{no2}</button>
+      <button className="button" disabled={active === "no2"} onClick={()=>adjust_graph("no2")}>{no2}</button>
       {/* <input type="text" required={true} readOnly={true} value={no2} /> */}
       <label className="e-float-text e-label-top">NO </label>
-      <button onClick={()=>adjust_graph("no")}>{no}</button>
+      <button className="button" disabled={active === "no"} onClick={()=>adjust_graph("no")}>{no}</button>
       {/* <input type="text" required={true} readOnly={true} value={no} /> */}
       <label className="e-float-text e-label-top">Nickel </label>
-      <button onClick={()=>adjust_graph("nickel")}>{nickel}</button>
+      <button className="button" disabled={active === "nickel"} onClick={()=>adjust_graph("nickel")}>{nickel}</button>
       {/* <input type="text" required={true} readOnly={true} value={nickel} /> */}
       <label className="e-float-text e-label-top">Lead </label>
-      <button onClick={()=>adjust_graph("lead")}>{lead}</button>
+      <button className="button" disabled={active === "lead"} onClick={()=>adjust_graph("lead")}>{lead}</button>
       {/* <input type="text" required={true} readOnly={true} value={lead} /> */}
       <label className="e-float-text e-label-top">CO </label>
-      <button onClick={()=>adjust_graph("co")}>{co}</button>
+      <button className="button" disabled={active === "co"} onClick={()=>adjust_graph("co")}>{co}</button>
       {/* <input type="text" required={true} readOnly={true} value={co} /> */}
       <label className="e-float-text e-label-top">Cadmium </label>
-      <button onClick={()=>adjust_graph("cadmium")}>{cadmium}</button>
+      <button className="button" disabled={active === "cadmium"} onClick={()=>adjust_graph("cadmium")}>{cadmium}</button>
       {/* <input type="text" required={true} readOnly={true} value={cadmium} /> */}
       <label className="e-float-text e-label-top">Arsenic </label>
-      <button onClick={()=>adjust_graph("arsenic")}>{arsenic}</button>
+      <button className="button" disabled={active === "arsenic"} onClick={()=>adjust_graph("arsenic")}>{arsenic}</button>
       {/* <input type="text" required={true} readOnly={true} value={arsenic} /> */}
     </div>
   );

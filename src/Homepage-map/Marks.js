@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
 import { MakeDraggable } from "../components/Interactive_map_comps/MakeDraggable";
+import allData from "../content/data_files/allData.json";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -17,6 +18,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     setSelectedId(incomingID);
   }, [incomingID]);
 
+  DataFilter(allData, null, null);
   let dataMap = DataFilter(data, year, selectId);
 
   const states = new Map(

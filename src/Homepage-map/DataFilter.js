@@ -196,27 +196,35 @@ export const DataFilter = (data, year, id) => {
         dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
         break;
       case "aqi":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_AQI", payload: point.dataValue });
         break;
       case "arsenic":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_ARSENIC", payload: point.dataValue });
         break;
       case "cadmium":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_CADMIUM", payload: point.dataValue });
         break;
       case "co":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_CO", payload: point.dataValue });
         break;
       case "lead":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_LEAD", payload: point.dataValue });
         break;
       case "nickel":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NICKEL", payload: point.dataValue });
         break;
       case "no":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NO", payload: point.dataValue });
         break;
       case "no2":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NO2", payload: point.dataValue });
         break;
       case "ozone":
@@ -224,12 +232,15 @@ export const DataFilter = (data, year, id) => {
         dispatch({ type: "SET_OZONE", payload: point.dataValue });
         break;
       case "pm10":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_PM10", payload: point.dataValue });
         break;
       case "pm25":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_PM25", payload: point.dataValue });
         break;
       case "so2":
+        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_SO2", payload: point.dataValue });
         break;
       default:

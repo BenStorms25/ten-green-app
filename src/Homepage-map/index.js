@@ -13,13 +13,19 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Data_Formatter } from "../components/Data-Formatter";
+import { Data_Formatter2 } from "../components/Data_Formatter_2";
+import playbuttonpic from "../images/playbutton.png";
+import pausebuttonpic from "../images/pause button.png"
 
 
-
+let ispaused = false; 
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   
+  const dispatch = useDispatch();
+
 
 const width = window.innerWidth / 2.3;
 const height = width / 1.7;
@@ -27,24 +33,35 @@ let variableRange = 10;
 if (current_measure === "ozone"){
    variableRange = .1;
 }
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-let data = useData();
+
+let colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
+
+if (current_measure !== "10green"){
+  colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([variableRange, 0]);
+}
+// let data = useData();
+let data = Data_Formatter2(current_measure);
+// let datatest = useData2();
 //let data2 = useData2();
-let data2 = useData2();
+//let data2 = useData2();
 // let data = data2;
 // setData(useData());
 
+//data = useData2();
 // useEffect(() => {
 //   setData(useData);
 // }, [current_measure]);
   
-
+// if (current_measure === "ozone"){
+//   data = datatest;
+// }
+  
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data || !data2 || !point) {
+  if (!UsaGeo || !data ||  !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -53,19 +70,37 @@ let data2 = useData2();
   };
 
   const play = () => {
+    console.log(ispaused);
+    
+    ispaused = false;
     if (+year === 2021) {
       return;
     }
 
     let y = year;
-    const x = setInterval(() => {
+    let x = setInterval(() => {
+      
+      // clearInterval(x);
+      if (ispaused == true){
+        console.log("TEST");
+        clearInterval(x);
+        
+      }
+      else {
       y++;
+      console.log(ispaused);
       setYear(y);
 
       if (y === 2021) {
         clearInterval(x);
-      }
+      }}
     }, 1000);
+  };
+
+  const pause = () => {
+    
+    ispaused = true;
+    console.log(ispaused);
   };
 
   
@@ -87,6 +122,7 @@ let data2 = useData2();
             value={year}
             onChange={(e) => handleSliderChange(e)}
           />
+          
           <datalist id="tickmarks">
             <option value="1980" label="1980"></option>
             <option value="1981" label="1981"></option>
@@ -130,7 +166,13 @@ let data2 = useData2();
             <option value="2019" label="2019"></option>
             <option value="2020" label="2020"></option>
             <option value="2021" label="2021"></option>
+            
           </datalist>
+
+          <current_year>
+            {year}
+          </current_year>
+          
         </div>
         {/* <input
         type="button"
@@ -139,6 +181,10 @@ let data2 = useData2();
         style={{ width: 50, marginTop: 10 }}
         onClick={play}
       /> */}
+
+<div className="playButton"><img src={playbuttonpic} width={"40px"} height={"40px"} onClick={play} id={"playButton"}></img></div>
+<div className="pauseButton"><img src={pausebuttonpic} width={"35px"} height={"35px"} onClick={pause} id={"pauseButton"}></img></div>
+      
       </div>
       <svg
         width={width}
@@ -149,7 +195,7 @@ let data2 = useData2();
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
         
-          {(current_measure === "ozone" ? 
+          {/* {(current_measure === "ozone" ? 
           (
             <Marks
             UsaGeo={UsaGeo}
@@ -165,7 +211,13 @@ let data2 = useData2();
             colorScale={colorScale}
           />))
 
-}
+} */}
+<Marks
+            UsaGeo={UsaGeo}
+            data={data}
+            year={year}
+            colorScale={colorScale}
+          />
       
           <points point={point} />
         </g>
