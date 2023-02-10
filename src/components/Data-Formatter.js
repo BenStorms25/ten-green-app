@@ -13,6 +13,7 @@ import ozone from "../content/data_files/ozone.json"
 import pm10 from "../content/data_files/pm10.json"
 import pm25 from "../content/data_files/pm25.json"
 import so2 from "../content/data_files/so2.json"
+import allData from "../content/data_files/allData.json"
 
 
 export let Data_Formatter = (measure) => {
@@ -20,7 +21,7 @@ export let Data_Formatter = (measure) => {
 
     switch (measure) {
         case "10green": 
-            return (green10);
+            return (allData);
             case "aqi": 
             return (aqi);
             case "arsenic": 

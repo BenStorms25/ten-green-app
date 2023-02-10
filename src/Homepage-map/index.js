@@ -15,6 +15,8 @@ import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 import { useSelector } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
+import { Data_Formatter2 } from "../components/Data_Formatter_2";
+
 
 
 const App = () => {
@@ -27,8 +29,10 @@ let variableRange = 10;
 if (current_measure === "ozone"){
    variableRange = .1;
 }
+
 const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-let data = Data_Formatter(current_measure);
+let data = useData();
+data = Data_Formatter2(current_measure);
 // let datatest = useData2();
 //let data2 = useData2();
 //let data2 = useData2();
