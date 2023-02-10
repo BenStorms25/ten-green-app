@@ -100,6 +100,7 @@ let data = Data_Formatter2(current_measure);
             value={year}
             onChange={(e) => handleSliderChange(e)}
           />
+          
           <datalist id="tickmarks">
             <option value="1980" label="1980"></option>
             <option value="1981" label="1981"></option>
@@ -143,7 +144,13 @@ let data = Data_Formatter2(current_measure);
             <option value="2019" label="2019"></option>
             <option value="2020" label="2020"></option>
             <option value="2021" label="2021"></option>
+            
           </datalist>
+
+          <current_year>
+            {year}
+          </current_year>
+          
         </div>
         {/* <input
         type="button"
