@@ -30,9 +30,13 @@ if (current_measure === "ozone"){
    variableRange = .1;
 }
 
-const colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
-let data = useData();
-data = Data_Formatter2(current_measure);
+let colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
+
+if (current_measure !== "10green"){
+  colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([variableRange, 0]);
+}
+// let data = useData();
+let data = Data_Formatter2(current_measure);
 // let datatest = useData2();
 //let data2 = useData2();
 //let data2 = useData2();
