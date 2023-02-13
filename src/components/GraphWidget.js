@@ -62,3 +62,4 @@ const current_measure = useSelector((state) => state.current_measure);
     );
 };
 
+export default GraphWidget;

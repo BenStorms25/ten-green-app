@@ -37,10 +37,10 @@ export const useData = () => {
     //   return d;
     // };
     
-      json(jsonUrl10green).then((res) => {
-        setData(res);
-        return data;
-      });
+    json(jsonUrl10green).then((res) => {
+      setData(res);
+      return data;
+    });
     
     
   }, []);
