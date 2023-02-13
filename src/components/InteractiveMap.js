@@ -7,8 +7,7 @@ import useWindowSize from "./useWindowSize";
 import SideDetails from "./SideDetails";
 import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
-import { ZoomAndPan } from "./Interactive_map_comps/ZoomAndPan";
-import MapLegend from "./Interactive_map_comps/MapLegend";
+
 import ResetMap from "./Interactive_map_comps/ResetMap";
 import { Title_Formatter } from "./Title_Formatter";
 
@@ -55,12 +54,7 @@ function InteractiveMap() {
     // responsive design
     shrinkMapWithContainer();
     styleMap();
-    //zoomInOnState();
   }, []);
-
-  useEffect(() => {
-    // when user clicks on new county, zoom in on stateOnState();
-  }, [county]);
 
   return (
     <div id="interactive-map">

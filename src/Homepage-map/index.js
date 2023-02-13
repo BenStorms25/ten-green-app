@@ -4,7 +4,7 @@ import { useUsaGeo } from "./useUsaGeo";
 import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
-import { useData2} from "./useData2"
+import { useData2 } from "./useData2";
 import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
@@ -17,51 +17,89 @@ import { useSelector, useDispatch } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
 import { Data_Formatter2 } from "../components/Data_Formatter_2";
 import playbuttonpic from "../images/playbutton.png";
-import pausebuttonpic from "../images/pause button.png"
+import pausebuttonpic from "../images/pause button.png";
 
+import { faRefresh } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { transform } from "topojson";
 
-let ispaused = false; 
+let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
-  
+
   const dispatch = useDispatch();
 
+  const width = window.innerWidth / 2.3;
+  const height = width / 1.7;
+  let variableRange = 10;
+  if (current_measure === "ozone") {
+    variableRange = 0.1;
+  }
+  let colorScale = d3
+    .scaleSequential(d3.interpolateRdYlGn)
+    .domain([variableRange, 0]);
+  if (current_measure !== "10green") {
+    colorScale = d3
+      .scaleSequential(d3.interpolateYlGnBu)
+      .domain([variableRange, 0]);
+  }
+  // let data = useData();
+  let data = Data_Formatter2(current_measure);
+  // let datatest = useData2();
+  //let data2 = useData2();
+  //let data2 = useData2();
+  // let data = data2;
+  // setData(useData());
 
-const width = window.innerWidth / 2.3;
-const height = width / 1.7;
-let variableRange = 10;
-if (current_measure === "ozone"){
-   variableRange = .1;
-}
+  //data = useData2();
+  // useEffect(() => {
+  //   setData(useData);
+  // }, [current_measure]);
 
-let colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([variableRange, 0]);
+  // if (current_measure === "ozone"){
+  //   data = datatest;
+  // }
 
-if (current_measure !== "10green"){
-  colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([variableRange, 0]);
-}
-// let data = useData();
-let data = Data_Formatter2(current_measure);
-// let datatest = useData2();
-//let data2 = useData2();
-//let data2 = useData2();
-// let data = data2;
-// setData(useData());
+  const [mounted, setMounted] = useState(false);
+  const [attatched, setAttatched] = useState(false);
 
-//data = useData2();
-// useEffect(() => {
-//   setData(useData);
-// }, [current_measure]);
-  
-// if (current_measure === "ozone"){
-//   data = datatest;
-// }
-  
+  let matrix = new DOMMatrix();
+
+  //let data = useData();
+  //let data2 = useData2();
+  let data2 = useData2();
+  let svgCanvas;
+  let viewPort;
+  var drag = false;
+  var offset = { x: 0, y: 0 };
+  var factor = 0.02;
+
+  useEffect(() => {
+    svgCanvas = document.getElementById("homepage-map-svg");
+    viewPort = document.getElementById("matrix-group");
+    console.log(svgCanvas);
+    if (svgCanvas) {
+      setMounted(true);
+    }
+    if (mounted && !attatched) {
+      attatchListeners();
+      setAttatched(true);
+    }
+  });
+
+  // let data = data2;
+  // setData(useData());
+
+  // useEffect(() => {
+  //   setData(useData);
+  // }, [current_measure]);
+
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
   const [year, setYear] = useState(1980);
 
-  if (!UsaGeo || !data ||  !point) {
+  if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
   }
 
@@ -71,7 +109,7 @@ let data = Data_Formatter2(current_measure);
 
   const play = () => {
     console.log(ispaused);
-    
+
     ispaused = false;
     if (+year === 2021) {
       return;
@@ -79,35 +117,107 @@ let data = Data_Formatter2(current_measure);
 
     let y = year;
     let x = setInterval(() => {
-      
       // clearInterval(x);
-      if (ispaused == true){
+      if (ispaused == true) {
         console.log("TEST");
         clearInterval(x);
-        
-      }
-      else {
-      y++;
-      console.log(ispaused);
-      setYear(y);
+      } else {
+        y++;
+        console.log(ispaused);
+        setYear(y);
 
-      if (y === 2021) {
-        clearInterval(x);
-      }}
+        if (y === 2021) {
+          clearInterval(x);
+        }
+      }
     }, 1000);
   };
 
   const pause = () => {
-    
     ispaused = true;
     console.log(ispaused);
   };
 
-  
+  const handleRefresh = () => {
+    console.log("handle refresh");
+    resetMap();
+  };
+
+  function resetMap() {
+    console.log("resetting map");
+    matrix = new DOMMatrix([1, 0, 0, 1, -15, 31]);
+    viewPort.style.transform = matrix.toString();
+    // detatch and reattatch listeners
+    detatchListeners();
+  }
+
+  function beginDrag(event) {
+    drag = true;
+    offset = { x: event.offsetX, y: event.offsetY };
+  }
+
+  function transformViewPort(event) {
+    if (drag) {
+      var tx = event.offsetX - offset.x;
+      var ty = event.offsetY - offset.y;
+      console.log(tx, ty);
+      offset = {
+        x: event.offsetX,
+        y: event.offsetY,
+      };
+      console.log("before matrix man: " + matrix);
+      matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
+      console.log("mousemove matrix: " + matrix);
+      viewPort.style.transform = matrix.toString();
+    }
+  }
+
+  function endDrag(event) {
+    drag = false;
+  }
+
+  function zoom(event) {
+    event.preventDefault();
+    var zoom = event.deltaY > 0 ? -1 : 1;
+    var scale = 1 + factor * zoom;
+    offset = {
+      x: event.offsetX,
+      y: event.offsetY,
+    };
+    matrix.preMultiplySelf(
+      new DOMMatrix()
+        .translateSelf(offset.x, offset.y)
+        .scaleSelf(scale, scale)
+        .translateSelf(-offset.x, -offset.y)
+    );
+    console.log("zoom matrix: " + matrix);
+    viewPort.style.transform = matrix.toString();
+  }
+
+  function attatchListeners() {
+    svgCanvas = document.getElementById("homepage-map-svg");
+    viewPort = document.getElementById("matrix-group");
+    console.log("adding listener");
+    svgCanvas.addEventListener("pointerdown", beginDrag);
+    svgCanvas.addEventListener("pointermove", transformViewPort);
+    svgCanvas.addEventListener("pointerup", endDrag);
+    svgCanvas.addEventListener("wheel", zoom);
+  }
+
+  function detatchListeners() {
+    console.log("removing listeners");
+    svgCanvas.removeEventListener("pointerdown", beginDrag);
+    svgCanvas.removeEventListener("pointermove", transformViewPort);
+    svgCanvas.removeEventListener("pointerup", endDrag);
+    svgCanvas.removeEventListener("wheel", zoom);
+  }
 
   return (
     <div class="flex-container">
       <MapLegend />
+      <div className="refresh-div">
+        <button onClick={handleRefresh}>Reset Map</button>
+      </div>
       <div class="slider-wrapper">
         {/* <label for="year">Year {year}</label> */}
         <div>
@@ -122,7 +232,7 @@ let data = Data_Formatter2(current_measure);
             value={year}
             onChange={(e) => handleSliderChange(e)}
           />
-          
+
           <datalist id="tickmarks">
             <option value="1980" label="1980"></option>
             <option value="1981" label="1981"></option>
@@ -166,13 +276,9 @@ let data = Data_Formatter2(current_measure);
             <option value="2019" label="2019"></option>
             <option value="2020" label="2020"></option>
             <option value="2021" label="2021"></option>
-            
           </datalist>
 
-          <current_year>
-            {year}
-          </current_year>
-          
+          <current_year>{year}</current_year>
         </div>
         {/* <input
         type="button"
@@ -182,9 +288,24 @@ let data = Data_Formatter2(current_measure);
         onClick={play}
       /> */}
 
-<div className="playButton"><img src={playbuttonpic} width={"40px"} height={"40px"} onClick={play} id={"playButton"}></img></div>
-<div className="pauseButton"><img src={pausebuttonpic} width={"35px"} height={"35px"} onClick={pause} id={"pauseButton"}></img></div>
-      
+        <div className="playButton">
+          <img
+            src={playbuttonpic}
+            width={"40px"}
+            height={"40px"}
+            onClick={play}
+            id={"playButton"}
+          ></img>
+        </div>
+        <div className="pauseButton">
+          <img
+            src={pausebuttonpic}
+            width={"35px"}
+            height={"35px"}
+            onClick={pause}
+            id={"pauseButton"}
+          ></img>
+        </div>
       </div>
       <svg
         width={width}
@@ -194,7 +315,6 @@ let data = Data_Formatter2(current_measure);
         style={{ border: "1px solid grey" }}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
-        
           {/* {(current_measure === "ozone" ? 
           (
             <Marks
@@ -212,13 +332,23 @@ let data = Data_Formatter2(current_measure);
           />))
 
 } */}
-<Marks
-            UsaGeo={UsaGeo}
-            data={data}
-            year={year}
-            colorScale={colorScale}
-          />
-      
+
+          {current_measure === "ozone" ? (
+            <Marks
+              UsaGeo={UsaGeo}
+              data={data2}
+              year={year}
+              colorScale={colorScale}
+            />
+          ) : (
+            <Marks
+              UsaGeo={UsaGeo}
+              data={data}
+              year={year}
+              colorScale={colorScale}
+            />
+          )}
+
           <points point={point} />
         </g>
       </svg>
@@ -227,21 +357,3 @@ let data = Data_Formatter2(current_measure);
 };
 
 export default App;
-
-// <path
-//             class="button"
-//             onclick={console.log("left")}
-//             d="M5 25 l10 -6 a35 20 0 0 0 0 12z"
-//           />
-//           <path
-//             class="button"
-//             onclick={console.log("down")}
-//             d="M25 45 l6 -10 a20, 35 0 0,1 -12,0z"
-//           />
-//           <path
-//             class="button"
-//             onclick={console.log("right")}
-//             d="M45 25 l-10 -6 a35 20 0 0 1 0 12z"
-//           />
-//           <circle class="button" cx="25" cy="20.5" r="4" onclick="zoom(0.8)" />
-//           <circle class="button" cx="25" cy="29.5" r="4" onclick="zoom(1.25)" />

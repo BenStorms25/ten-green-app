@@ -55,7 +55,6 @@ function HomeContent() {
   //           // dataPoints[year - 1980].value = data[i].data[year - 1980];
 
   if (data) {
-    console.log(current_graph_max);
     for (let i = 0; i < data.length; i++) {
       if (data[i].id === selectId) {
         if (data[i].measure === currentmeasure) {
@@ -76,7 +75,7 @@ function HomeContent() {
   }
 
   function removeScrollDown() {
-    console.log("removing scroll down");
+    // remove scroll down arrow when user starts to scroll
     let downArrow = document.querySelector("#down-arrow");
     let scrollDown = document.querySelector("#scroll-down");
 
