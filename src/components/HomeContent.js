@@ -115,7 +115,9 @@ function HomeContent() {
         </div>
       </div>
       <Globe />
-      <GraphWidget data={dataPoints} max={current_graph_max} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <GraphWidget data={dataPoints} max={current_graph_max} />
+      </React.Suspense>
     </>
   );
 }
