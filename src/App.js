@@ -15,7 +15,7 @@ import SO2LearnMore from "./pages/pollutants-learn-more/SO2LearnMore";
 import LargeParticulateLearnMore from "./pages/pollutants-learn-more/LargeParticulateLearnMore.js";
 import NOLearnMore from "./pages/pollutants-learn-more/NOLearnMore";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
