@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import CountyList from "../content/ZipsToFips2.json";
-import { Button } from "bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function DataContent() {
   const dispatch = useDispatch();
 
   const CountyListArray = CountyList;
-
-  
 
   const handleOnHover = (result) => {};
 
@@ -20,17 +17,17 @@ function DataContent() {
     dispatch({ type: "SET_ID", payload: id_as_string });
   };
   const handleOnSearch = (string, results) => {
-
     if (string.length === 5) {
-    for (var i = 0; i < CountyList.length; i++){
-      
-      if (CountyList[i].zip_code === string){
-        dispatch({ type: "SET_ID", payload: CountyList[i].internal_id.toString() });
-        break;
+      for (var i = 0; i < CountyList.length; i++) {
+        if (CountyList[i].zip_code === string) {
+          dispatch({
+            type: "SET_ID",
+            payload: CountyList[i].internal_id.toString(),
+          });
+          break;
+        }
       }
     }
-  }
-    
   };
 
   const handleOnFocus = () => {};

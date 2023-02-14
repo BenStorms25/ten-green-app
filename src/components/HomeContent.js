@@ -5,7 +5,6 @@ import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import { useData } from "../Homepage-map/useData";
-import { DataFilter } from "../Homepage-map/DataFilter.js";
 import { useSelector } from "react-redux";
 
 const GraphWidget = React.lazy(() => import("./GraphWidget.js"));

@@ -1,33 +1,21 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
 import { useUsaGeo } from "./useUsaGeo";
 import MapLegend from "../components/Interactive_map_comps/MapLegend";
-import { Marks, dots } from "./Marks";
-import { useData } from "./useData";
+import { Marks } from "./Marks";
 import { useData2 } from "./useData2";
-import { DataFilter } from "./DataFilter";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
-import { scaleOrdinal, hcl } from "d3";
 import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
-import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
-import { useSelector, useDispatch } from "react-redux";
-import { Data_Formatter } from "../components/Data-Formatter";
+import { useSelector } from "react-redux";
 import { Data_Formatter2 } from "../components/Data_Formatter_2";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 
-import { faRefresh } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { transform } from "topojson";
-
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
-
-  const dispatch = useDispatch();
 
   const width = window.innerWidth / 2.3;
   const height = width / 1.7;
@@ -45,20 +33,6 @@ const App = () => {
   }
   // let data = useData();
   let data = Data_Formatter2(current_measure);
-  // let datatest = useData2();
-  //let data2 = useData2();
-  //let data2 = useData2();
-  // let data = data2;
-  // setData(useData());
-
-  //data = useData2();
-  // useEffect(() => {
-  //   setData(useData);
-  // }, [current_measure]);
-
-  // if (current_measure === "ozone"){
-  //   data = datatest;
-  // }
 
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
@@ -86,13 +60,6 @@ const App = () => {
       setAttatched(true);
     }
   });
-
-  // let data = data2;
-  // setData(useData());
-
-  // useEffect(() => {
-  //   setData(useData);
-  // }, [current_measure]);
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -280,13 +247,6 @@ const App = () => {
 
           <current_year>{year}</current_year>
         </div>
-        {/* <input
-        type="button"
-        value="play"
-        id="playButton"
-        style={{ width: 50, marginTop: 10 }}
-        onClick={play}
-      /> */}
 
         <div className="playButton">
           <img
@@ -315,24 +275,6 @@ const App = () => {
         style={{ border: "1px solid grey" }}
       >
         <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
-          {/* {(current_measure === "ozone" ? 
-          (
-            <Marks
-            UsaGeo={UsaGeo}
-            data={data2}
-            year={year}
-            colorScale={colorScale}
-          /> ): 
-(
-          <Marks
-            UsaGeo={UsaGeo}
-            data={data}
-            year={year}
-            colorScale={colorScale}
-          />))
-
-} */}
-
           {current_measure === "ozone" ? (
             <Marks
               UsaGeo={UsaGeo}

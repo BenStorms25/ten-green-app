@@ -9,13 +9,6 @@ import { useSelector } from "react-redux";
 const jsonUrl10green =
   "https://gist.githubusercontent.com/BenStorms25/0f2b99dfbdf45388b1bf1909b9d53a82/raw/7fa42c4d7fb1f139a5df89214f60f73549f62fab/allData.txt";
 
-
-
-
-
-
-
-
 export const useData = () => {
   const [data, setData] = useState(null);
   const current_measure = useSelector((state) => state.current_measure);
@@ -36,13 +29,11 @@ export const useData = () => {
     //   console.log(d);
     //   return d;
     // };
-    
+
     json(jsonUrl10green).then((res) => {
       setData(res);
       return data;
     });
-    
-    
   }, []);
 
   return data;
