@@ -18,6 +18,7 @@ import { Data_Formatter } from "../components/Data-Formatter";
 import { Data_Formatter2 } from "../components/Data_Formatter_2";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
+import getStateMatrix from "./getStateMatrix";
 
 import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -145,6 +146,10 @@ const App = () => {
     resetMap();
   };
 
+  const handleStateChange = () => {
+    setMatrix(getStateMatrix("ME"));
+  };
+
   function resetMap() {
     console.log("resetting map");
     setMatrix(new DOMMatrix([1, 0, 0, 1, -15, 31]));
@@ -215,6 +220,7 @@ const App = () => {
       <MapLegend />
       <div className="refresh-div">
         <button onClick={handleReset}>Reset Map</button>
+        <button onClick={handleStateChange}>State Change</button>
       </div>
       <div class="slider-wrapper">
         {/* <label for="year">Year {year}</label> */}
