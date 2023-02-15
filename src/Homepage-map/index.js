@@ -63,7 +63,7 @@ const App = () => {
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
 
-  let matrix = new DOMMatrix();
+  const [matrix, setMatrix] = useState(new DOMMatrix());
 
   //let data = useData();
   //let data2 = useData2();
@@ -74,10 +74,10 @@ const App = () => {
   var offset = { x: 0, y: 0 };
   var factor = 0.02;
 
+  // initially attatch event listeners
   useEffect(() => {
     svgCanvas = document.getElementById("homepage-map-svg");
     viewPort = document.getElementById("matrix-group");
-    console.log(svgCanvas);
     if (svgCanvas) {
       setMounted(true);
     }
@@ -87,12 +87,14 @@ const App = () => {
     }
   });
 
-  // let data = data2;
-  // setData(useData());
-
-  // useEffect(() => {
-  //   setData(useData);
-  // }, [current_measure]);
+  // matrix change should reattatch listeners
+  useEffect(() => {
+    if (mounted) {
+      // apply another transform so that map resets on first press
+      viewPort.style.transform = matrix.toString();
+      attatchListeners();
+    }
+  }, [matrix]);
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -138,17 +140,17 @@ const App = () => {
     console.log(ispaused);
   };
 
-  const handleRefresh = () => {
-    console.log("handle refresh");
+  const handleReset = () => {
+    console.log("handle reset");
     resetMap();
   };
 
   function resetMap() {
     console.log("resetting map");
-    matrix = new DOMMatrix([1, 0, 0, 1, -15, 31]);
+    setMatrix(new DOMMatrix([1, 0, 0, 1, -15, 31]));
     viewPort.style.transform = matrix.toString();
     // detatch and reattatch listeners
-    detatchListeners();
+    //detatchListeners();
   }
 
   function beginDrag(event) {
@@ -169,6 +171,8 @@ const App = () => {
       matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
       console.log("mousemove matrix: " + matrix);
       viewPort.style.transform = matrix.toString();
+      // assign matrix to state
+      setMatrix(matrix);
     }
   }
 
@@ -192,6 +196,8 @@ const App = () => {
     );
     console.log("zoom matrix: " + matrix);
     viewPort.style.transform = matrix.toString();
+    // assign matrix to state
+    setMatrix(matrix);
   }
 
   function attatchListeners() {
@@ -204,19 +210,11 @@ const App = () => {
     svgCanvas.addEventListener("wheel", zoom);
   }
 
-  function detatchListeners() {
-    console.log("removing listeners");
-    svgCanvas.removeEventListener("pointerdown", beginDrag);
-    svgCanvas.removeEventListener("pointermove", transformViewPort);
-    svgCanvas.removeEventListener("pointerup", endDrag);
-    svgCanvas.removeEventListener("wheel", zoom);
-  }
-
   return (
     <div class="flex-container">
       <MapLegend />
       <div className="refresh-div">
-        <button onClick={handleRefresh}>Reset Map</button>
+        <button onClick={handleReset}>Reset Map</button>
       </div>
       <div class="slider-wrapper">
         {/* <label for="year">Year {year}</label> */}
