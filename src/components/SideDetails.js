@@ -107,6 +107,7 @@ function SideDetails() {
       >
         {aqi}
       </button>
+      <hr></hr>
       <label className="e-float-text e-label-top">Ozone </label>
       {/* <input type="text" required={true} readOnly={true} value={ozone} /> */}
       <button

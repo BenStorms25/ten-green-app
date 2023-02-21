@@ -1,32 +1,33 @@
 .side-details {
-  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  right: 5.5rem;
-  margin-left: 6.5rem;
+  margin-left: 1.5rem;
 }
 
-.side-details input {
-  margin-bottom: 0.5rem;
-  height: 1.2rem;
-  width: 6rem;
-  margin-right: 2rem;
-  border: none;
+.side-details button {
+  margin-bottom: 0.3rem;
+  height: 1.7rem;
+  border: 1px solid grey;
+  width: 7rem;
   border-radius: 5px;
+  text-align: left;
 }
 .side-details label {
   font-size: 0.6rem;
 }
+.side-details hr {
+  margin: 0.5rem 0rem;
+}
 
 .button {
-/* background-color: black;
+  /* background-color: black;
 color: white; */
 }
 
-.button:disabled{
-background-color: lightblue;
-color: black; 
+.button:disabled {
+  background-color: lightblue;
+  color: black;
 }
 @media (1600px <= width <= 1700px) {
   .side-details {
