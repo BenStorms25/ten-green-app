@@ -4,9 +4,6 @@ import "./styles/MapLegend.css";
 function MapLegend() {
   return (
     <>
-      <p className="legend-label">
-        <i>10Green Score to Color</i>
-      </p>
       <div className="map-legend">
         <div className="score-card">
           <div

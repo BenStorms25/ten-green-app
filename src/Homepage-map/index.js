@@ -191,7 +191,6 @@ const App = () => {
 
   return (
     <div class="flex-container">
-      <MapLegend />
       <div className="refresh-div">
         <button onClick={handleReset}>Reset Map</button>
         <button onClick={handleStateChange}>State Change</button>
