@@ -50,7 +50,7 @@ const current_measure = useSelector((state) => state.current_measure);
       
     >
       <text x={200 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
-            <tspan fontSize="14">{county}, {Title_Formatter(current_measure)} Score over time</tspan>
+            <tspan fontSize="14">{county}, {Title_Formatter(current_measure)} Score</tspan>
         </text>
       <Line type="monotone" dataKey="value.x" stroke="#bde59c" dot={false} strokeWidth={4} />
       <XAxis dataKey="year" type={'category'} interval={4} minTickGap= {5} tickLine={true} domain={['dataMin', 'dataMax']} />
