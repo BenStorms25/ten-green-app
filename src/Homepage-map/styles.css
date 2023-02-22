@@ -45,6 +45,16 @@ pre {
   z-index: 99;
 }
 
+.reset-map-button {
+  position: absolute;
+  left: 48rem;
+  top: 36.5rem;
+  z-index: 99;
+  border: 1px solid grey;
+  border-radius: 3%;
+  font-size: 0.75rem;
+}
+
 .slider-wrapper input {
   width: 750px;
   height: 40px;

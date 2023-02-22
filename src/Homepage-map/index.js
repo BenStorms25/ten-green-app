@@ -38,7 +38,9 @@ const App = () => {
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
 
-  const [matrix, setMatrix] = useState(new DOMMatrix());
+  const [matrix, setMatrix] = useState(
+    new DOMMatrix([1.142, 0, 0, 1.142, -26.8, 27.9])
+  );
 
   //let data = useData();
   //let data2 = useData2();
@@ -116,7 +118,6 @@ const App = () => {
   };
 
   const handleReset = () => {
-    console.log("handle reset");
     resetMap();
   };
 
@@ -125,11 +126,8 @@ const App = () => {
   };
 
   function resetMap() {
-    console.log("resetting map");
-    setMatrix(new DOMMatrix([1, 0, 0, 1, -15, 31]));
+    setMatrix(new DOMMatrix([1.142, 0, 0, 1.142, -26.8, 27.9]));
     viewPort.style.transform = matrix.toString();
-    // detatch and reattatch listeners
-    //detatchListeners();
   }
 
   function beginDrag(event) {
@@ -198,7 +196,7 @@ const App = () => {
         viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
         style={{ border: "1px solid grey" }}
       >
-        <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
+        <g id="matrix-group" transform="matrix(1.142 0 0 1.142 -26.8 27.9)">
           {current_measure === "ozone" ? (
             <Marks
               UsaGeo={UsaGeo}
@@ -218,6 +216,7 @@ const App = () => {
           <points point={point} />
         </g>
       </svg>
+
       <div className="timeline">
         <div className="pauseButton">
           <img
@@ -237,7 +236,9 @@ const App = () => {
             id={"playButton"}
           ></img>
         </div>
-
+        <button className="reset-map-button" onClick={handleReset}>
+          Reset View
+        </button>
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 
