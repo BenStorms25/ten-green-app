@@ -1,32 +1,46 @@
 .side-details {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  right: 5.5rem;
-  margin-left: 6.5rem;
+  margin-left: 1rem;
 }
-
-.side-details input {
+.side-details h6 {
+  margin-bottom: 1.5rem;
+}
+.side-detail-pollutant {
+  text-align: center;
+  display: grid;
+  align-items: end;
+  grid-template-columns: 35% 65%;
+  margin: 0.5rem 0rem;
+}
+.side-detail-pollutant-10Green {
+  text-align: center;
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+.pollutant-title {
+  margin-right: 1rem;
+  text-align: left;
+  font-size: 0.7rem;
+}
+.side-details button {
+  margin-left: 0.5rem;
   margin-bottom: 0.5rem;
-  height: 1.2rem;
-  width: 6rem;
-  margin-right: 2rem;
-  border: none;
+  height: 1.7rem;
+  border: 1px solid grey;
   border-radius: 5px;
+  text-align: center;
 }
-.side-details label {
-  font-size: 0.6rem;
+.side-details hr {
+  margin: 0.5rem 0rem;
+  padding-bottom: 0.5rem;
+  height: 1px;
+
+  border-color: black;
 }
 
-.button {
-/* background-color: black;
-color: white; */
-}
-
-.button:disabled{
-background-color: lightblue;
-color: black; 
+.button:disabled {
+  background-color: lightblue;
+  color: black;
 }
 @media (1600px <= width <= 1700px) {
   .side-details {

@@ -34,7 +34,7 @@ function DataContent() {
 
   const handleOnClear = () => {};
   return (
-    <div style={{ width: 300, margin: 20 }}>
+    <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
         items={CountyListArray}
         maxResults={5}
