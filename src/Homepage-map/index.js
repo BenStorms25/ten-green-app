@@ -16,7 +16,7 @@ import getStateMatrix from "./getStateMatrix";
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
-
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let variableRange = 10;
@@ -184,13 +184,14 @@ const App = () => {
   return (
     <>
       <svg
-        width={width}
+        width={"100%"}
         height={height}
         id="homepage-map-svg"
-        viewBox={`0 0 ${width * 1.3} ${height * 1.3}`}
+        viewBox={`0 0 ${width * 1} ${height * 1}`}
         style={{ border: "1px solid grey" }}
+        preserveAspectRatio="xMidYMid meet"
       >
-        <g id="matrix-group" transform="matrix(1.142 0 0 1.142 -26.8 27.9)">
+        <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
           {current_measure === "ozone" ? (
             <Marks
               UsaGeo={UsaGeo}

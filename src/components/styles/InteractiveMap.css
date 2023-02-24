@@ -22,6 +22,18 @@
   border: 1px grey;
 }
 
+@media (width < 1130px) {
+  .map-bottom {
+    display: block;
+  }
+}
+
+@media (width < 1230px) {
+  #interactive-map {
+    width: 70%;
+  }
+}
+
 @media (1200px <= width <= 1680px) {
   .USMap {
     right: 2.7rem;
