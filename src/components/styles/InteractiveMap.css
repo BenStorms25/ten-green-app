@@ -14,8 +14,8 @@
   margin-bottom: 1rem;
 }
 .map-bottom {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 82% 18%;
 }
 
 #homepage-map-svg {

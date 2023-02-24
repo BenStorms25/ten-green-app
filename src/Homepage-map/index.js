@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useUsaGeo } from "./useUsaGeo";
-import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks } from "./Marks";
 import { useData2 } from "./useData2";
 import { usePoints } from "./usePoints";
@@ -18,8 +17,8 @@ let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
 
-  const width = window.innerWidth / 2;
-  const height = width / 1.7;
+  const width = window.innerWidth / 2.07;
+  const height = width / 1.6;
   let variableRange = 10;
   if (current_measure === "ozone") {
     variableRange = 0.1;
@@ -139,14 +138,11 @@ const App = () => {
     if (drag) {
       var tx = event.offsetX - offset.x;
       var ty = event.offsetY - offset.y;
-      console.log(tx, ty);
       offset = {
         x: event.offsetX,
         y: event.offsetY,
       };
-      console.log("before matrix man: " + matrix);
       matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
-      console.log("mousemove matrix: " + matrix);
       viewPort.style.transform = matrix.toString();
       // assign matrix to state
       setMatrix(matrix);
@@ -171,7 +167,6 @@ const App = () => {
         .scaleSelf(scale, scale)
         .translateSelf(-offset.x, -offset.y)
     );
-    console.log("zoom matrix: " + matrix);
     viewPort.style.transform = matrix.toString();
     // assign matrix to state
     setMatrix(matrix);
@@ -180,7 +175,6 @@ const App = () => {
   function attatchListeners() {
     svgCanvas = document.getElementById("homepage-map-svg");
     viewPort = document.getElementById("matrix-group");
-    console.log("adding listener");
     svgCanvas.addEventListener("pointerdown", beginDrag);
     svgCanvas.addEventListener("pointermove", transformViewPort);
     svgCanvas.addEventListener("pointerup", endDrag);
@@ -188,7 +182,7 @@ const App = () => {
   }
 
   return (
-    <div class="flex-container">
+    <>
       <svg
         width={width}
         height={height}
@@ -304,7 +298,7 @@ const App = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
