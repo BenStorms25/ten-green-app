@@ -16,7 +16,8 @@ import getStateMatrix from "./getStateMatrix";
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const county = useSelector((state) => state.county);
+  const [currentCounty, setCurrentCounty] = useState(county);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let variableRange = 10;
@@ -50,6 +51,13 @@ const App = () => {
   var offset = { x: 0, y: 0 };
   var factor = 0.02;
 
+  const handleStateChange = () => {
+    if (county.split(",").length > 1) {
+      let stateCode = county.split(",")[1].trim();
+      setMatrix(getStateMatrix(stateCode));
+    }
+  };
+
   // initially attatch event listeners
   useEffect(() => {
     svgCanvas = document.getElementById("homepage-map-svg");
@@ -71,6 +79,13 @@ const App = () => {
       attatchListeners();
     }
   }, [matrix]);
+
+  useEffect(() => {
+    if (currentCounty === "Select a County" && county === "Penobscot, ME") {
+    } else {
+      handleStateChange();
+    }
+  }, [county]);
 
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -119,8 +134,6 @@ const App = () => {
   const handleReset = () => {
     resetMap();
   };
-
-  const handleStateChange = () => {};
 
   function resetMap() {
     setMatrix(new DOMMatrix([0.85, 0, 0, 0.85, -28, 30]));
