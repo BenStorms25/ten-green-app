@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Globe from "./Globe.js";
-import { GraphWidget } from "./GraphWidget.js";
+//import { GraphWidget } from "./GraphWidget.js";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import { useData } from "../Homepage-map/useData";
-import { DataFilter } from "../Homepage-map/DataFilter.js";
 import { useSelector } from "react-redux";
+
+const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -112,7 +113,9 @@ function HomeContent() {
         </div>
       </div>
       <Globe />
-      <GraphWidget data={dataPoints} max={current_graph_max} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <GraphWidget data={dataPoints} max={current_graph_max} />
+      </React.Suspense>
     </>
   );
 }
