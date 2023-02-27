@@ -38,7 +38,7 @@ const App = () => {
   const [attatched, setAttatched] = useState(false);
 
   const [matrix, setMatrix] = useState(
-    new DOMMatrix([1.142, 0, 0, 1.142, -26.8, 27.9])
+    new DOMMatrix([0.85, 0, 0, 0.85, -28, 30])
   );
 
   //let data = useData();
@@ -120,12 +120,10 @@ const App = () => {
     resetMap();
   };
 
-  const handleStateChange = () => {
-    setMatrix(getStateMatrix("ME"));
-  };
+  const handleStateChange = () => {};
 
   function resetMap() {
-    setMatrix(new DOMMatrix([1.142, 0, 0, 1.142, -26.8, 27.9]));
+    setMatrix(new DOMMatrix([0.85, 0, 0, 0.85, -28, 30]));
     viewPort.style.transform = matrix.toString();
   }
 
@@ -187,11 +185,11 @@ const App = () => {
         width={"100%"}
         height={height}
         id="homepage-map-svg"
-        viewBox={`0 0 ${width * 1} ${height * 1}`}
+        viewBox={`0 0 ${812} ${483}`}
         style={{ border: "1px solid grey" }}
         preserveAspectRatio="xMidYMid meet"
       >
-        <g id="matrix-group" transform="matrix(1 0 0 1 0 0)">
+        <g id="matrix-group" transform="matrix(0.85 0 0 0.85 -28 30)">
           {current_measure === "ozone" ? (
             <Marks
               UsaGeo={UsaGeo}
