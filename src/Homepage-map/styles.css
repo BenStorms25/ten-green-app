@@ -141,3 +141,56 @@ pre {
 .border:hover {
   stroke: black;
 }
+
+@media (width >= 1700px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+}
+
+@media (max-width: 1700px) {
+  #homepage-map-svg {
+    height: 515px;
+  }
+}
+@media (max-width: 1600px) {
+  #homepage-map-svg {
+    height: 500px;
+  }
+}
+@media (max-width: 1500px) {
+  #homepage-map-svg {
+    height: 507px;
+  }
+}
+
+@media (max-width: 1400px) {
+  #homepage-map-svg {
+    height: 525px;
+  }
+}
+@media (max-width: 1130px) {
+  /* When side details snap below map */
+  #homepage-map-svg {
+    height: 400px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 900px) {
+  #homepage-map-svg {
+    height: 300px;
+  }
+}
+
+@media (max-width: 800px) {
+  #homepage-map-svg {
+    height: 280px;
+  }
+}
+
+@media (max-width: 650px) {
+  #homepage-map-svg {
+    height: 250px;
+  }
+}
