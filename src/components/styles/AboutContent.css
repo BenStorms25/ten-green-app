@@ -2,18 +2,21 @@
   background-color: #213832;
   font-family: "Open Sans", sans-serif;
 }
+
 .center-content-2 {
   width: 80%;
   margin: auto;
   padding-top: 5rem;
 }
+
 .center-content-2 h1 {
   font-size: 3.5rem;
   color: white;
   font-weight: bold;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.1rem;
   margin-bottom: 2rem;
 }
+
 .description {
   background-color: white;
   border-radius: 1rem;
@@ -23,29 +26,31 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+
 .description h2 {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: -0.1rem;
 }
+
 .description p {
   font-size: 1.4rem;
   font-weight: lighter;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.description a:link {
-  color:  #51931bcd;
-  text-decoration: none;
-}
+
+.description a:link,
 .description a:visited {
-  color:  #51931bcd;
+  color: #51931bcd;
   text-decoration: none;
 }
+
 .description a:hover {
-  color:  #bde59c;
+  color: #bde59c;
   text-decoration: underline;
 }
+
 .description a:active {
-  color:  #bde59c;
+  color: #bde59c;
 }
