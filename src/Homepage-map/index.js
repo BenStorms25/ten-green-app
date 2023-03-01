@@ -33,6 +33,7 @@ const App = () => {
   }
   // let data = useData();
   let data = Data_Formatter(current_measure);
+  console.log(current_measure);
 
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
