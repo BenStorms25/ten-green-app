@@ -78,3 +78,10 @@
     top: 15rem;
   }
 }
+
+@media (width <= 600px) {
+  .map-top {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}

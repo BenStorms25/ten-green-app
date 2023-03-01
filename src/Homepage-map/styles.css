@@ -45,10 +45,10 @@ pre {
   z-index: 99;
 }
 
-.reset-map-button {
+#reset-map-button {
   position: absolute;
-  left: 46rem;
-  top: 37rem;
+  left: 736px;
+  top: 37.5rem;
   z-index: 99;
   border: 1px solid grey;
   border-radius: 3%;
@@ -142,6 +142,12 @@ pre {
   stroke: black;
 }
 
+/* 
+  
+  Interactive Map Media Queries 
+  
+*/
+
 @media (width >= 1700px) {
   #homepage-map-svg {
     height: 520px;
@@ -192,5 +198,21 @@ pre {
 @media (max-width: 650px) {
   #homepage-map-svg {
     height: 250px;
+  }
+}
+
+/* 
+  
+  Reset button Media Queries 
+  
+*/
+@media (max-width < 1680px) {
+  #reset-map-button {
+    position: absolute;
+    top: 37.5rem;
+    z-index: 99;
+    border: 1px solid grey;
+    border-radius: 3%;
+    font-size: 0.75rem;
   }
 }

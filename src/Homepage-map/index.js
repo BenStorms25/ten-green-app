@@ -242,7 +242,7 @@ const App = () => {
             id={"playButton"}
           ></img>
         </div>
-        <button className="reset-map-button" onClick={handleReset}>
+        <button id="reset-map-button" onClick={handleReset}>
           Reset View
         </button>
         <div class="slider-wrapper">
