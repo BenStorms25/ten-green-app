@@ -8,7 +8,7 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import { useSelector } from "react-redux";
-import { Data_Formatter2 } from "../components/Data_Formatter_2";
+import { Data_Formatter } from "../components/Data-Formatter";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
@@ -33,7 +33,7 @@ const App = () => {
       .domain([variableRange, 0]);
   }
   // let data = useData();
-  let data = Data_Formatter2(current_measure);
+  let data = Data_Formatter(current_measure);
 
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
