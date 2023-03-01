@@ -1,11 +1,7 @@
-import { geoIdentity, geoPath, select } from "d3";
+import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
-import { DataFilter2 } from "./DataFilter2";
-import { DataFilter3 } from "./DataFilter3";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
-import { MakeDraggable } from "../components/Interactive_map_comps/MakeDraggable";
 import allData from "../content/data_files/allData.json";
 
 const projection = geoIdentity().reflectY(false);
@@ -13,25 +9,17 @@ const path = geoPath(projection);
 
 export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   let [selectId, setSelectedId] = useState(null);
-
+  const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
+  let dataMap = DataFilter(allData, data, year, selectId);
+  const states = new Map(
+    UsaGeo[1].features.map((d) => [d.id, d.properties.name])
+  );
 
   useEffect(() => {
     setSelectedId(incomingID);
   }, [incomingID]);
 
-  // DataFilter2(allData, null, null);
-  let dataMap = DataFilter(allData, data, year, selectId);
-
-  const states = new Map(
-    UsaGeo[1].features.map((d) => [d.id, d.properties.name])
-  );
-  useEffect(() => {
-    //currently causing an error when trying to set map to inital pan and zoom
-    //ZoomAndPan();
-    // attatch drag and zoom listeners to svg on mount
-    MakeDraggable();
-  }, []);
 
   projection.fitExtent(
     [
@@ -40,20 +28,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     ],
     UsaGeo[0]
   );
-  // UsaGeo[i] will return an obj with id and name
 
-  // states refers to all the states
-
-  // <path
-  //           className="border"
-  //           d={path(feature)}
-  //           fill={
-  //             colorScale(dataMap.get(feature.id))
-  //               ? colorScale(dataMap.get(feature.id))
-  //               : "grey"
-  //           }
-  //         ></path>
-  const dispatch = useDispatch();
   return (
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {

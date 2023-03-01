@@ -8,7 +8,6 @@ import "./styles/CustomNav.css";
 function CustomNav() {
   // collapse nav bar links after certain screen width
   function collapseNav() {
-    const toggleButton = document.getElementsByClassName("toggle-button")[0];
     let navbarLinks = document.getElementsByClassName("navbar-links")[0];
     navbarLinks.classList.toggle("active");
   }
@@ -34,16 +33,16 @@ function CustomNav() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/about">About</a>
+            <a href="/#/about">About</a>
           </li>
           <li>
-            <a href="/score-map">Score Map</a>
+            <a href="/#/score-map">Score Map</a>
           </li>
           <li>
-            <a href="/pollutants-and-standards">Pollutants/Standards</a>
+            <a href="/#/pollutants-and-standards">Pollutants/Standards</a>
           </li>
           <li>
-            <a href="/aq-forecast">AQ Forecast</a>
+            <a href="/#/aq-forecast">AQ Forecast</a>
           </li>
         </ul>
       </div>

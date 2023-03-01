@@ -19,114 +19,200 @@ function SideDetails() {
   const so2 = useSelector((state) => state.so2);
   const dispatch = useDispatch();
 
-  const measures = ['tenGreenScore', 'aqi', 'ozone', 'so2', 'no2', 'no', 'co', 'pm25', 'pm10', 'arsenic', 'lead', 'cadmium', 'nickel'];
+  const measures = [
+    "tenGreenScore",
+    "aqi",
+    "ozone",
+    "so2",
+    "no2",
+    "no",
+    "co",
+    "pm25",
+    "pm10",
+    "arsenic",
+    "lead",
+    "cadmium",
+    "nickel",
+  ];
   const [active, setActive] = useState(measures[0]);
 
   function adjust_graph(value) {
     setActive(value);
-    if (value === "tenGreenScore"){
-    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green"});
-    dispatch({ type: "SET_GRAPH_MAX", payload: 10});
+    if (value === "tenGreenScore") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 10 });
+    } else if (value === "aqi") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 60 });
+    } else if (value === "arsenic") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "arsenic" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.0015 });
+    } else if (value === "cadmium") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "cadmium" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.005 });
+    } else if (value === "co") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "co" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 1.5 });
+    } else if (value === "lead") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "lead" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.2 });
+    } else if (value === "nickel") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "nickel" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.01 });
+    } else if (value === "no") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "no" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 30 });
+    } else if (value === "no2") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "no2" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 60 });
+    } else if (value === "ozone") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "ozone" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.1 });
+    } else if (value === "pm10") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "pm10" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 50 });
+    } else if (value === "pm25") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "pm25" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 15 });
+    } else if (value === "so2") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "so2" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 40 });
+    }
   }
-  else if (value === "aqi")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "aqi"});
-    dispatch({ type: "SET_GRAPH_MAX", payload: 60});
-  }
-  else if (value === "arsenic")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "arsenic"});
-    dispatch({ type: "SET_GRAPH_MAX", payload: .0015});
-  }
-  else if (value === "cadmium")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "cadmium"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: .005})
-  }
-  else if (value === "co")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "co"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 1.5})
-  }
-  else if (value === "lead")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "lead"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: .200})
-  }
-  else if (value === "nickel")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "nickel"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: .01})
-  }
-  else if (value === "no")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "no"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 30})
-  }
-  else if (value === "no2")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "no2"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 60})
-  }
-  else if (value === "ozone")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "ozone"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: .1})
-  }
-  else if (value === "pm10")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "pm10"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 50})
-  }
-  else if (value === "pm25")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "pm25"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 15})
-  }
-  else if (value === "so2")
-    {dispatch({ type: "SET_CURRENT_MEASURE", payload: "so2"})
-    dispatch({ type: "SET_GRAPH_MAX", payload: 40})
-  }
-
-};
   return (
     <div className="side-details">
       <h6>{county}</h6>
-
-      <label className="e-float-text e-label-top">10Green Score </label>
-      {/* <input
-        type="text"
-        required={true}
-        readOnly={true}
-        value={tenGreenScore}
-      /> */}
-      <button className="button" disabled={active === "tenGreenScore"} onClick={()=>adjust_graph("tenGreenScore")}>{tenGreenScore}</button>
-
-      <label className="e-float-text e-label-top">AQI </label>
-      {/* <input type="text" required={true} readOnly={true} value={aqi} /> */}
-      <button className="button" disabled={active === "aqi"} onClick={()=>adjust_graph("aqi")}>{aqi}</button>
-      <label className="e-float-text e-label-top">Ozone </label>
-      {/* <input type="text" required={true} readOnly={true} value={ozone} /> */}
-      <button className="button" disabled={active === "ozone"} onClick={()=>adjust_graph("ozone")}>{ozone}</button>
-      <label className="e-float-text e-label-top">PM25 </label>
-      {/* <input type="text" required={true} readOnly={true} value={pm25} /> */}
-      <button className="button" disabled={active === "pm25"} onClick={()=>adjust_graph("pm25")}>{pm25}</button>
-      <label className="e-float-text e-label-top">PM10 </label>
-      <button className="button" disabled={active === "pm10"} onClick={()=>adjust_graph("pm10")}>{pm10}</button>
-      {/* <input type="text" required={true} readOnly={true} value={pm10} /> */}
-      <label className="e-float-text e-label-top">SO2 </label>
-      <button className="button" disabled={active === "so2"} onClick={()=>adjust_graph("so2")}>{so2}</button>
-      {/* <input type="text" required={true} readOnly={true} value={so2} /> */}
-      <label className="e-float-text e-label-top">NO2 </label>
-      <button className="button" disabled={active === "no2"} onClick={()=>adjust_graph("no2")}>{no2}</button>
-      {/* <input type="text" required={true} readOnly={true} value={no2} /> */}
-      <label className="e-float-text e-label-top">NO </label>
-      <button className="button" disabled={active === "no"} onClick={()=>adjust_graph("no")}>{no}</button>
-      {/* <input type="text" required={true} readOnly={true} value={no} /> */}
-      <label className="e-float-text e-label-top">Nickel </label>
-      <button className="button" disabled={active === "nickel"} onClick={()=>adjust_graph("nickel")}>{nickel}</button>
-      {/* <input type="text" required={true} readOnly={true} value={nickel} /> */}
-      <label className="e-float-text e-label-top">Lead </label>
-      <button className="button" disabled={active === "lead"} onClick={()=>adjust_graph("lead")}>{lead}</button>
-      {/* <input type="text" required={true} readOnly={true} value={lead} /> */}
-      <label className="e-float-text e-label-top">CO </label>
-      <button className="button" disabled={active === "co"} onClick={()=>adjust_graph("co")}>{co}</button>
-      {/* <input type="text" required={true} readOnly={true} value={co} /> */}
-      <label className="e-float-text e-label-top">Cadmium </label>
-      <button className="button" disabled={active === "cadmium"} onClick={()=>adjust_graph("cadmium")}>{cadmium}</button>
-      {/* <input type="text" required={true} readOnly={true} value={cadmium} /> */}
-      <label className="e-float-text e-label-top">Arsenic </label>
-      <button className="button" disabled={active === "arsenic"} onClick={()=>adjust_graph("arsenic")}>{arsenic}</button>
-      {/* <input type="text" required={true} readOnly={true} value={arsenic} /> */}
+      <div className="side-detail-pollutant-10Green">
+        <p className="pollutant-title">10Green Score</p>
+        <button
+          className="button"
+          disabled={active === "tenGreenScore"}
+          onClick={() => adjust_graph("tenGreenScore")}
+        >
+          {tenGreenScore}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">AQI</p>
+        <button
+          className="button"
+          disabled={active === "aqi"}
+          onClick={() => adjust_graph("aqi")}
+        >
+          {aqi}
+        </button>
+      </div>
+      <hr></hr>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">Ozone</p>
+        <button
+          className="button"
+          disabled={active === "ozone"}
+          onClick={() => adjust_graph("ozone")}
+        >
+          {!isNaN(ozone) ? ozone.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">PM25</p>
+        <button
+          className="button"
+          disabled={active === "pm25"}
+          onClick={() => adjust_graph("pm25")}
+        >
+          {!isNaN(pm25) ? pm25.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">PM10</p>
+        <button
+          className="button"
+          disabled={active === "pm10"}
+          onClick={() => adjust_graph("pm10")}
+        >
+          {!isNaN(pm10) ? pm10.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">SO2</p>
+        <button
+          className="button"
+          disabled={active === "so2"}
+          onClick={() => adjust_graph("so2")}
+        >
+          {!isNaN(so2) ? so2.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">NO2</p>
+        <button
+          className="button"
+          disabled={active === "no2"}
+          onClick={() => adjust_graph("no2")}
+        >
+          {!isNaN(no2) ? no2.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">NO</p>
+        <button
+          className="button"
+          disabled={active === "no"}
+          onClick={() => adjust_graph("no")}
+        >
+          {!isNaN(no) ? no.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">Nickel</p>
+        <button
+          className="button"
+          disabled={active === "nickel"}
+          onClick={() => adjust_graph("nickel")}
+        >
+          {!isNaN(nickel) ? nickel.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">Lead</p>
+        <button
+          className="button"
+          disabled={active === "lead"}
+          onClick={() => adjust_graph("lead")}
+        >
+          {!isNaN(lead) ? lead.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">CO</p>
+        <button
+          className="button"
+          disabled={active === "co"}
+          onClick={() => adjust_graph("co")}
+        >
+          {!isNaN(co) ? co.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">Cadmium</p>
+        <button
+          className="button"
+          disabled={active === "cadmium"}
+          onClick={() => adjust_graph("cadmium")}
+        >
+          {!isNaN(cadmium) ? cadmium.toFixed(3) : "N/A"}
+        </button>
+      </div>
+      <div className="side-detail-pollutant">
+        <p className="pollutant-title">Arsenic</p>
+        <button
+          className="button"
+          disabled={active === "arsenic"}
+          onClick={() => adjust_graph("arsenic")}
+        >
+          {!isNaN(arsenic) ? arsenic.toFixed(3) : "N/A"}
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Globe from "./Globe.js";
-import { GraphWidget } from "./GraphWidget.js";
+//import { GraphWidget } from "./GraphWidget.js";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import { useData } from "../Homepage-map/useData";
-import { DataFilter } from "../Homepage-map/DataFilter.js";
 import { useSelector } from "react-redux";
+
+const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -53,7 +54,6 @@ function HomeContent() {
   //           // dataPoints[year - 1980].value = data[i].data[year - 1980];
 
   if (data) {
-    console.log(current_graph_max);
     for (let i = 0; i < data.length; i++) {
       if (data[i].id === selectId) {
         if (data[i].measure === currentmeasure) {
@@ -74,7 +74,7 @@ function HomeContent() {
   }
 
   function removeScrollDown() {
-    console.log("removing scroll down");
+    // remove scroll down arrow when user starts to scroll
     let downArrow = document.querySelector("#down-arrow");
     let scrollDown = document.querySelector("#scroll-down");
 
@@ -113,7 +113,9 @@ function HomeContent() {
         </div>
       </div>
       <Globe />
-      <GraphWidget data={dataPoints} max={current_graph_max} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <GraphWidget data={dataPoints} max={current_graph_max} />
+      </React.Suspense>
     </>
   );
 }
