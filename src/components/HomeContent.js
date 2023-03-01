@@ -4,7 +4,7 @@ import Globe from "./Globe.js";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
-import { useData } from "../Homepage-map/useData";
+import allData from "../content/data_files/allData.json";
 import { useSelector } from "react-redux";
 
 const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
@@ -35,7 +35,7 @@ function HomeContent() {
     }
   }
 
-  const data = useData();
+  const data = allData;
 
   let dataPoints = [];
   for (let j = 0; j < 42; j++) {
