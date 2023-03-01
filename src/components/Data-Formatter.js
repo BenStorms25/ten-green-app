@@ -14,32 +14,37 @@ import so2 from "../content/data_files/so2.json";
 import allData from "../content/data_files/allData.json";
 
 export let Data_Formatter = (measure) => {
-  switch (measure) {
-    case "10green":
-      return allData;
-    case "aqi":
-      return aqi;
-    case "arsenic":
-      return arsenic;
-    case "cadmium":
-      return cadmium;
-    case "co":
-      return co;
-    case "lead":
-      return lead;
-    case "nickel":
-      return nickel;
-    case "no":
-      return no;
-    case "no2":
-      return no2;
-    case "ozone":
-      return ozone;
-    case "pm10":
-      return pm10;
-    case "pm25":
-      return pm25;
-    case "so2":
-      return so2;
-  }
-};
+
+
+    switch (measure) {
+        case "10green": 
+            return (green10);
+            case "aqi": 
+            return (aqi);
+            case "arsenic": 
+            return (arsenic);
+            case "cadmium": 
+            return (cadmium);
+            case "co": 
+            return (co);
+            case "lead": 
+            return (lead);
+            case "nickel": 
+            return (nickel);
+            case "no": 
+            return (no);
+            case "no2": 
+            return (no2);
+            case "ozone": 
+            return (ozone);
+            case "pm10": 
+            return (pm10);
+            case "pm25": 
+            return (pm25);
+            case "so2": 
+            return (so2);
+            
+
+    }
+    
+}
