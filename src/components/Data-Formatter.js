@@ -21,7 +21,7 @@ export let Data_Formatter = (measure) => {
 
     switch (measure) {
         case "10green": 
-            return (allData);
+            return (green10);
             case "aqi": 
             return (aqi);
             case "arsenic": 

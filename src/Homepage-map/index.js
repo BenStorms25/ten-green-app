@@ -5,7 +5,7 @@ import MapLegend from "../components/Interactive_map_comps/MapLegend";
 import { Marks, dots } from "./Marks";
 import { useData } from "./useData";
 import { useData2} from "./useData2"
-import { DataFilter } from "./DataFilter";
+import { DataFilter3 } from "./DataFilter3";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
 import { scaleOrdinal, hcl } from "d3";
@@ -15,9 +15,9 @@ import "./styles.css";
 import MapNavigationTool from "../components/Interactive_map_comps/MapNavigationTool";
 import { useSelector, useDispatch } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
-import { Data_Formatter2 } from "../components/Data_Formatter_2";
 import playbuttonpic from "../images/playbutton.png";
-import pausebuttonpic from "../images/pause button.png"
+import pausebuttonpic from "../images/pause button.png";
+import allData from "../content/data_files/allData.json";
 
 
 let ispaused = false; 
@@ -40,7 +40,9 @@ if (current_measure !== "10green"){
   colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([variableRange, 0]);
 }
 // let data = useData();
-let data = Data_Formatter2(current_measure);
+let data = Data_Formatter(current_measure);
+
+// let test = DataFilter3(allData, null, null, null);
 // let datatest = useData2();
 //let data2 = useData2();
 //let data2 = useData2();

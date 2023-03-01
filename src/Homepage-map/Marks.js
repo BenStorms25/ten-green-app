@@ -1,5 +1,7 @@
 import { geoIdentity, geoPath, select } from "d3";
 import { DataFilter } from "./DataFilter";
+import { DataFilter2 } from "./DataFilter2";
+import { DataFilter3 } from "./DataFilter3";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ZoomAndPan } from "../components/Interactive_map_comps/ZoomAndPan";
@@ -18,8 +20,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     setSelectedId(incomingID);
   }, [incomingID]);
 
-  DataFilter(allData, null, null);
-  let dataMap = DataFilter(data, year, selectId);
+  // DataFilter2(allData, null, null);
+  let dataMap = DataFilter(allData, data, year, selectId);
 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
