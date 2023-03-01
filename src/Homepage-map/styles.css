@@ -76,6 +76,16 @@ pre {
   left: 54rem;
   z-index: 99;
 }
+
+#reset-map {
+  stroke-width: 0.5;
+  stroke: #333333;
+}
+
+text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 /* .slider-wrapper datalist option:nth-child(1) {
   transform: translate(-14px, 10px) rotate(-90deg);
 }
@@ -148,7 +158,13 @@ pre {
   
 */
 
-@media (width >= 1700px) {
+@media (width >= 1850px) {
+  #homepage-map-svg {
+    height: 600px;
+  }
+}
+
+@media (1850px > width >= 1700px) {
   #homepage-map-svg {
     height: 520px;
   }
