@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useUsaGeo } from "./useUsaGeo";
 import { Marks } from "./Marks";
-import { useData2 } from "./useData2";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
 import "../components/styles/Globe.css";
@@ -42,9 +41,7 @@ const App = () => {
     new DOMMatrix([0.85, 0, 0, 0.85, -28, 30])
   );
 
-  //let data = useData();
-  //let data2 = useData2();
-  let data2 = useData2();
+  
   let svgCanvas;
   let viewPort;
   var drag = false;
@@ -203,21 +200,14 @@ const App = () => {
         preserveAspectRatio="xMidYMid meet"
       >
         <g id="matrix-group" transform="matrix(0.85 0 0 0.85 -28 30)">
-          {current_measure === "ozone" ? (
-            <Marks
-              UsaGeo={UsaGeo}
-              data={data2}
-              year={year}
-              colorScale={colorScale}
-            />
-          ) : (
+          
             <Marks
               UsaGeo={UsaGeo}
               data={data}
               year={year}
               colorScale={colorScale}
             />
-          )}
+          
 
           <points point={point} />
         </g>
