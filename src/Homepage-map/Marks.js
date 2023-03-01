@@ -11,7 +11,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
-  let dataMap = DataFilter(allData, data, year, selectId);
+
+  let dataMap = DataFilter(allData, data, year, selectId); 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );

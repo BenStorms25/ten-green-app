@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const DataFilter = (data, data2, year, id) => {
   const StateAbrevs = [
