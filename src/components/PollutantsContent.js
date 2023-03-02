@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/PollutantsContent.css";
 import co2Image from "../images/carbon-monoxide-oQEdDIMEIlc-unsplash-1440x1080.jpeg";
 import noImage from "../images/nitric_oxide.png";
@@ -14,6 +14,32 @@ import largeParticulateMatterImage from "../images/largeparticles.png";
 import CustomFooter from "./CustomFooter";
 
 function PollutantsContent() {
+  const [mounted, setMounted] = useState(false);
+  const [attached, setAttached] = useState(false);
+  var acc;
+  useEffect(() => {
+    acc = document.getElementsByClassName("accordion");
+    if (acc) {
+      setMounted(true);
+      if (mounted && !attached) {
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        setAttached(true);
+      }
+    }
+  });
+
   return (
     <>
       <div className="center-content-1">
@@ -22,8 +48,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
-            <div class="dropdown">
-              <button>Learn More</button>
+            <button class="accordion">Learn More</button>
+            <div class="panel">
+              <p>Carbon Monoxide [CO]</p>
             </div>
           </article>
 
