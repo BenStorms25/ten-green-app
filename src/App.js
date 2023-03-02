@@ -1,5 +1,5 @@
 //import Data from "./pages/Data";
-import React from "react"
+import React from "react";
 // import Pollutants from "./pages/Pollutants";
 // import Standards from "./pages/Standards";
 // import About from "./pages/About";
@@ -17,23 +17,43 @@ import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
-
 const Home = React.lazy(() => import("./pages/Home"));
-const Data = React.lazy(() => import("./pages/Data"));
 const Pollutants = React.lazy(() => import("./pages/Pollutants"));
-const Standards = React.lazy(() => import("./pages/Standards"));
+const AQForecast = React.lazy(() => import("./pages/AQForecast"));
 const About = React.lazy(() => import("./pages/About"));
-const COLeanMore = React.lazy(() => import("./pages/pollutants-learn-more/COLearnMore.js"));
-const ArsenicLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/ArsenicLearnMore"));
-const CadmiumLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/CadmiumLearnMore"));
-const LeadLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/LeadLearnMore"));
-const NO2LearnMore = React.lazy(() => import("./pages/pollutants-learn-more/NO2LearnMore"));
-const OzoneLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/OzoneLearnMore"));
-const NickelLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/NickelLearnMore"));
-const SmallParticulateLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/SmallParticulateLearnMore"));
-const SO2LearnMore = React.lazy(() => import("./pages/pollutants-learn-more/SO2LearnMore"));
-const LargeParticulateLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/LargeParticulateLearnMore.js"));
-const NOLearnMore = React.lazy(() => import("./pages/pollutants-learn-more/NOLearnMore"));
+const COLeanMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/COLearnMore.js")
+);
+const ArsenicLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/ArsenicLearnMore")
+);
+const CadmiumLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/CadmiumLearnMore")
+);
+const LeadLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/LeadLearnMore")
+);
+const NO2LearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/NO2LearnMore")
+);
+const OzoneLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/OzoneLearnMore")
+);
+const NickelLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/NickelLearnMore")
+);
+const SmallParticulateLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/SmallParticulateLearnMore")
+);
+const SO2LearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/SO2LearnMore")
+);
+const LargeParticulateLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/LargeParticulateLearnMore.js")
+);
+const NOLearnMore = React.lazy(() =>
+  import("./pages/pollutants-learn-more/NOLearnMore")
+);
 
 function App() {
   return (
@@ -42,11 +62,13 @@ function App() {
         <React.Suspense>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/score-map" element={<Data />} />
             <Route path="/pollutants-and-standards" element={<Pollutants />} />
-            <Route path="/aq-forecast" element={<Standards />} />
+            <Route path="/aq-forecast" element={<AQForecast />} />
             <Route path="/about" element={<About />} />
-            <Route path="/pollutants-and-standards/co" element={<COLeanMore />} />
+            <Route
+              path="/pollutants-and-standards/co"
+              element={<COLeanMore />}
+            />
             <Route
               path="/pollutants-and-standards/arsenic"
               element={<ArsenicLearnMore />}
@@ -89,7 +111,6 @@ function App() {
             />
           </Routes>
         </React.Suspense>
-
       </div>
     </Router>
   );

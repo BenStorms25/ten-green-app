@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";
 import climateChangeLogo from "../images/climateChangeWhite.png";
+import { HashLink } from "react-router-hash-link";
 
 import "./styles/CustomNav.css";
 
@@ -33,16 +34,16 @@ function CustomNav() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/#/about">About</a>
-          </li>
-          <li>
-            <a href="/#/score-map">Score Map</a>
+            <HashLink to="/#interactive-map">Score Map</HashLink>
           </li>
           <li>
             <a href="/#/pollutants-and-standards">Pollutants/Standards</a>
           </li>
           <li>
             <a href="/#/aq-forecast">AQ Forecast</a>
+          </li>
+          <li>
+            <a href="/#/about">About</a>
           </li>
         </ul>
       </div>

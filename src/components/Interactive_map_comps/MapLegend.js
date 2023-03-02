@@ -8,6 +8,15 @@ function MapLegend() {
         <div className="score-card">
           <div
             className="score-stripe"
+            style={{ "background-color": "rgb(102, 0, 51)" }}
+          >
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <p className="score-number">0</p>
+        </div>
+        <div className="score-card">
+          <div
+            className="score-stripe"
             style={{ "background-color": "rgb(165, 0, 38)" }}
           >
             &nbsp;&nbsp;&nbsp;&nbsp;

@@ -17,24 +17,24 @@ function DataContent() {
     dispatch({ type: "SET_ID", payload: id_as_string });
   };
   const handleOnSearch = (string, results) => {
-
     if (string.length === 5) {
-    for (var i = 0; i < CountyList.length; i++){
-      
-      if (CountyList[i].zip_code === string){
-        dispatch({ type: "SET_ID", payload: CountyList[i].internal_id.toString() });
-        break;
+      for (var i = 0; i < CountyList.length; i++) {
+        if (CountyList[i].zip_code === string) {
+          dispatch({
+            type: "SET_ID",
+            payload: CountyList[i].internal_id.toString(),
+          });
+          break;
+        }
       }
     }
-  }
-    
   };
 
   const handleOnFocus = () => {};
 
   const handleOnClear = () => {};
   return (
-    <div style={{ width: 300, margin: 20 }}>
+    <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
         items={CountyListArray}
         maxResults={5}

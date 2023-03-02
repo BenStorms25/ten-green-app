@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import CustomHeader from "../components/CustomHeader";
 import "./styles/Standards.css";
 
-function Standards() {
+function AQForecast() {
   useEffect(() => {
-    document.title = "Standards - 10Green";
+    document.title = "AQ Forecast - 10Green";
   }, []);
 
   return (
@@ -14,4 +14,4 @@ function Standards() {
   );
 }
 
-export default Standards;
+export default AQForecast;
