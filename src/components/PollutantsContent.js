@@ -16,6 +16,10 @@ import CustomFooter from "./CustomFooter";
 function PollutantsContent() {
   const [mounted, setMounted] = useState(false);
   const [attached, setAttached] = useState(false);
+  const [widthOfDescription, setWidthOfDescription] = useState(
+    window.innerWidth * 0.7
+  );
+
   var acc;
   useEffect(() => {
     acc = document.getElementsByClassName("accordion");
@@ -35,6 +39,10 @@ function PollutantsContent() {
             }
           });
         }
+        window.addEventListener("resize", (event) => {
+          event.preventDefault();
+          setWidthOfDescription(window.innerWidth * 0.7);
+        });
         setAttached(true);
       }
     }
@@ -49,7 +57,10 @@ function PollutantsContent() {
             <img src={co2Image}></img>
             <p>CO</p>
             <button class="accordion">Learn More</button>
-            <div class="panel">
+            <div
+              class="panel"
+              style={{ width: widthOfDescription, zIndex: 99 }}
+            >
               <p>Carbon Monoxide [CO]</p>
             </div>
           </article>
