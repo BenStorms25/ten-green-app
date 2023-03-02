@@ -7,8 +7,6 @@ import "./styles/HomeContent.css";
 import { useData } from "../Homepage-map/useData";
 import { useSelector } from "react-redux";
 
-const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
-
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
   let [currentmeasure, setcurrentmeasure] = useState(null);
@@ -112,10 +110,7 @@ function HomeContent() {
           </p>
         </div>
       </div>
-      <Globe />
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <GraphWidget data={dataPoints} max={current_graph_max} />
-      </React.Suspense>
+      <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
     </>
   );
 }

@@ -228,15 +228,15 @@ const App = () => {
         </g>
         <rect
           id="reset-map"
-          x="745"
+          x="740"
           y="440"
-          width={60}
+          width={65}
           height={23}
           rx="2"
           fill="#f2f2f2"
           onClick={handleReset}
         />
-        <text onClick={handleReset} x="749" y="455" fill="black" font-size="11">
+        <text onClick={handleReset} x="744" y="455" fill="black" font-size="11">
           Reset View
         </text>
       </svg>
@@ -320,10 +320,9 @@ const App = () => {
               <option value="2020" label="2020"></option>
               <option value="2021" label="2021"></option>
             </datalist>
-
-            <current_year>{year}</current_year>
           </div>
         </div>
+        <current_year>{year}</current_year>
       </div>
     </>
   );
