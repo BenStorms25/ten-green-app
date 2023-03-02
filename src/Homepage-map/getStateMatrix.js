@@ -1,7 +1,5 @@
 export default function getStateMatrix(state = "ME") {
   //when passed a state code, return DOMMatrix for that state
-
-  // currently they all zoom to maine.  Does not make sense to hard code values for these before we have a completed design.
   switch (state) {
     case "AL":
       return new DOMMatrix([3.67, 0, 0, 3.67, -2081, -1065]);

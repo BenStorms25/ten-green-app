@@ -164,16 +164,6 @@ function SideDetails() {
         </button>
       </div>
       <div className="side-detail-pollutant">
-        <p className="pollutant-title">Nickel</p>
-        <button
-          className="button"
-          disabled={active === "nickel"}
-          onClick={() => adjust_graph("nickel")}
-        >
-          {!isNaN(nickel) ? nickel.toFixed(3) : "N/A"}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
         <p className="pollutant-title">Lead</p>
         <button
           className="button"

@@ -163,6 +163,11 @@ const App = () => {
   }
 
   function zoom(event) {
+    // Only zoom if the Ctrl key is pressed
+    if (!event.ctrlKey) {
+      return; // exit if Ctrl key is not pressed
+    }
+
     event.preventDefault();
     var zoom = event.deltaY > 0 ? -1 : 1;
     var scale = 1 + factor * zoom;
@@ -212,6 +217,19 @@ const App = () => {
 
           <points point={point} />
         </g>
+        <rect
+          id="reset-map"
+          x="740"
+          y="440"
+          width={65}
+          height={23}
+          rx="2"
+          fill="#f2f2f2"
+          onClick={handleReset}
+        />
+        <text onClick={handleReset} x="744" y="455" fill="black" font-size="11">
+          Reset View
+        </text>
       </svg>
 
       <div className="timeline">
@@ -233,9 +251,6 @@ const App = () => {
             id={"playButton"}
           ></img>
         </div>
-        <button className="reset-map-button" onClick={handleReset}>
-          Reset View
-        </button>
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 
@@ -296,10 +311,9 @@ const App = () => {
               <option value="2020" label="2020"></option>
               <option value="2021" label="2021"></option>
             </datalist>
-
-            <current_year>{year}</current_year>
           </div>
         </div>
+        <current_year>{year}</current_year>
       </div>
     </>
   );
