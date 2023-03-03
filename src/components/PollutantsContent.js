@@ -5,6 +5,7 @@ import noImage from "../images/nitric_oxide.png";
 import ozoneImage from "../images/ozoneImage.png";
 import sulfurDioxideImage from "../images/sulfurDioxide.png";
 import nitrogenDioxideImage from "../images/nitrogenDioxideImage.png";
+import nickelImage from "../images/nickelPollution.png";
 import leadImage from "../images/leadPollution.png";
 import cadmiumImage from "../images/cadmiumImage.png";
 import arsenicImage from "../images/arsenicImage.png";
@@ -18,6 +19,21 @@ function PollutantsContent() {
   const [widthOfDescription, setWidthOfDescription] = useState(
     window.innerWidth * 0.7
   );
+  const [maxCards, setMaxCards] = useState(null);
+
+  function calcCards() {
+    if (widthOfDescription >= 1279) {
+      setMaxCards(5);
+    } else if (widthOfDescription >= 1035) {
+      setMaxCards(4);
+    } else if (widthOfDescription >= 792) {
+      setMaxCards(3);
+    } else if (widthOfDescription >= 548) {
+      setMaxCards(2);
+    } else {
+      setMaxCards(1);
+    }
+  }
 
   var acc;
   useEffect(() => {
@@ -41,6 +57,7 @@ function PollutantsContent() {
         window.addEventListener("resize", (event) => {
           event.preventDefault();
           setWidthOfDescription(window.innerWidth * 0.7);
+          calcCards();
         });
         setAttached(true);
       }
@@ -51,75 +68,153 @@ function PollutantsContent() {
     <>
       <div className="center-content-1">
         <h1>Pollutants & Standards</h1>
-        <section className="cards">
+        <section class="cards">
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
             <button class="accordion">Learn More</button>
-            <div
-              class="panel"
-              style={{ width: widthOfDescription, zIndex: 99 }}
-            >
-              <p>Carbon Monoxide [CO]</p>
-            </div>
           </article>
-          <div class="panel">
+          <div
+            class="panel"
+            id="panel1"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
+          <article class="card">
+            <img src={smallParticulateMatterImage}></img>
+            <p>PM10</p>
+            <a href="pollutants-and-standards/small-particulates">
+              <button>Learn More</button>
+            </a>
+          </article>
+          <div
+            class="panel"
+            id="panel2"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
             <p>Carbon Monoxide [CO]</p>
           </div>
 
           <article class="card">
-            <img src={smallParticulateMatterImage}></img>
-            <p>PM10</p>
-            <button>Learn More</button>
-          </article>
-
-          <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/small-particulates">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel3"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/so2">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel4"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/no2">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel5"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={noImage}></img>
             <p>NO</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/no">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel6"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={ozoneImage}></img>
             <p>Ozone</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/ozone">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel7"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={leadImage}></img>
             <p>Lead</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/lead">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel8"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/cadmium">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel9"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
-            <button>Learn More</button>
+            <a href="pollutants-and-standards/arsenic">
+              <button>Learn More</button>
+            </a>
           </article>
+          <div
+            class="panel"
+            id="panel10"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
         </section>
       </div>
 
