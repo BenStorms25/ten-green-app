@@ -12,7 +12,7 @@ import smallParticulateMatterImage from "../images/particulateMatterImage.png";
 import largeParticulateMatterImage from "../images/largeparticles.png";
 import CustomFooter from "./CustomFooter";
 
-import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
+//import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
 
 function PollutantsContent() {
   const [mounted, setMounted] = useState(false);
@@ -85,11 +85,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button onClick={handleDisplayDescription("PM10")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("PM10")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -102,11 +100,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button onClick={handleDisplayDescription("PM25")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("PM25")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -119,11 +115,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
-            <a href="pollutants-and-standards/so2">
-              <button onClick={handleDisplayDescription("SO2")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("SO2")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -136,11 +130,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
-            <a href="pollutants-and-standards/no2">
-              <button onClick={handleDisplayDescription("NO2")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("NO2")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -153,11 +145,7 @@ function PollutantsContent() {
           <article class="card">
             <img src={noImage}></img>
             <p>NO</p>
-            <a href="pollutants-and-standards/no">
-              <button onClick={handleDisplayDescription("NO")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("NO")}>Learn More</button>
           </article>
           <div
             class="panel"
@@ -170,11 +158,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={ozoneImage}></img>
             <p>Ozone</p>
-            <a href="pollutants-and-standards/ozone">
-              <button onClick={handleDisplayDescription("Ozone")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("Ozone")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -187,11 +173,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={leadImage}></img>
             <p>Lead</p>
-            <a href="pollutants-and-standards/lead">
-              <button onClick={handleDisplayDescription("Lead")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("Lead")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -204,11 +188,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
-            <a href="pollutants-and-standards/cadmium">
-              <button onClick={handleDisplayDescription("Cadmium")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("Cadmium")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -221,11 +203,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
-            <a href="pollutants-and-standards/arsenic">
-              <button onClick={handleDisplayDescription("Arsenic")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={handleDisplayDescription("Arsenic")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
