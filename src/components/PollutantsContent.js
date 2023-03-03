@@ -5,7 +5,6 @@ import noImage from "../images/nitric_oxide.png";
 import ozoneImage from "../images/ozoneImage.png";
 import sulfurDioxideImage from "../images/sulfurDioxide.png";
 import nitrogenDioxideImage from "../images/nitrogenDioxideImage.png";
-import nickelImage from "../images/nickelPollution.png";
 import leadImage from "../images/leadPollution.png";
 import cadmiumImage from "../images/cadmiumImage.png";
 import arsenicImage from "../images/arsenicImage.png";
@@ -31,7 +30,7 @@ function PollutantsContent() {
         for (i = 0; i < acc.length; i++) {
           acc[i].addEventListener("click", function () {
             this.classList.toggle("active");
-            var panel = this.nextElementSibling;
+            var panel = this.parentNode.nextElementSibling;
             if (panel.style.display === "block") {
               panel.style.display = "none";
             } else {
@@ -52,7 +51,7 @@ function PollutantsContent() {
     <>
       <div className="center-content-1">
         <h1>Pollutants & Standards</h1>
-        <section class="cards">
+        <section className="cards">
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
@@ -64,77 +63,62 @@ function PollutantsContent() {
               <p>Carbon Monoxide [CO]</p>
             </div>
           </article>
+          <div class="panel">
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
-            <a href="pollutants-and-standards/so2">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
-            <a href="pollutants-and-standards/no2">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={noImage}></img>
             <p>NO</p>
-            <a href="pollutants-and-standards/no">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={ozoneImage}></img>
             <p>Ozone</p>
-            <a href="pollutants-and-standards/ozone">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={leadImage}></img>
             <p>Lead</p>
-            <a href="pollutants-and-standards/lead">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
-            <a href="pollutants-and-standards/cadmium">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
 
           <article class="card">
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
-            <a href="pollutants-and-standards/arsenic">
-              <button>Learn More</button>
-            </a>
+            <button>Learn More</button>
           </article>
         </section>
       </div>

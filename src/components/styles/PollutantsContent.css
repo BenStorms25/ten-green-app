@@ -1,5 +1,5 @@
 .center-content-1 {
-  width: 70%;
+  max-width: 80%;
   margin: auto;
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -8,6 +8,7 @@
 
 .center-content-1 h1 {
   color: white;
+  margin-left: 3rem;
   margin-bottom: 5rem;
   font-size: 3rem;
   font-weight: bold;
@@ -17,10 +18,11 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-left: 3rem;
 }
 
 .card {
-  flex: 0 0 18.7%;
+  flex: 0 0 195px;
   margin-top: 1rem;
   text-align: center;
   border-radius: 1rem;
