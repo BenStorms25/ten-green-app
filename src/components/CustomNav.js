@@ -16,9 +16,9 @@ function CustomNav() {
   return (
     <nav className="navbar" id="navID">
       <div className="mobile-header">
-        <a href="/">
+        <HashLink to="/">
           <img src={tenGreenLogo} alt="" className="navbar-logo"></img>
-        </a>
+        </HashLink>
         <img className="mobile-logo" alt="" src={climateChangeLogo}></img>
         <img className="mobile-logo" alt="" src={umaineLogo}></img>
       </div>
@@ -31,19 +31,19 @@ function CustomNav() {
       <div className="navbar-links">
         <ul>
           <li>
-            <a href="/">Home</a>
+            <HashLink to="/">Home</HashLink>
           </li>
           <li>
             <HashLink to="/#interactive-map">Score Map</HashLink>
           </li>
           <li>
-            <a href="/#/pollutants-and-standards">Pollutants/Standards</a>
+            <HashLink to="/pollutants-and-standards">Pollutants/Standards</HashLink>
           </li>
           <li>
-            <a href="/#/aq-forecast">AQ Forecast</a>
+            <HashLink to="/aq-forecast">AQ Forecast</HashLink>
           </li>
           <li>
-            <a href="/#/about">About</a>
+            <HashLink to="/about">About</HashLink>
           </li>
         </ul>
       </div>
