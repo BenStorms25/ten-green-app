@@ -19,6 +19,21 @@ function PollutantsContent() {
   const [widthOfDescription, setWidthOfDescription] = useState(
     window.innerWidth * 0.7
   );
+  const [maxCards, setMaxCards] = useState(null);
+
+  function calcCards() {
+    if (widthOfDescription >= 1279) {
+      setMaxCards(5);
+    } else if (widthOfDescription >= 1035) {
+      setMaxCards(4);
+    } else if (widthOfDescription >= 792) {
+      setMaxCards(3);
+    } else if (widthOfDescription >= 548) {
+      setMaxCards(2);
+    } else {
+      setMaxCards(1);
+    }
+  }
 
   var acc;
   useEffect(() => {
@@ -31,7 +46,7 @@ function PollutantsContent() {
         for (i = 0; i < acc.length; i++) {
           acc[i].addEventListener("click", function () {
             this.classList.toggle("active");
-            var panel = this.nextElementSibling;
+            var panel = this.parentNode.nextElementSibling;
             if (panel.style.display === "block") {
               panel.style.display = "none";
             } else {
@@ -42,6 +57,7 @@ function PollutantsContent() {
         window.addEventListener("resize", (event) => {
           event.preventDefault();
           setWidthOfDescription(window.innerWidth * 0.7);
+          calcCards();
         });
         setAttached(true);
       }
@@ -57,14 +73,14 @@ function PollutantsContent() {
             <img src={co2Image}></img>
             <p>CO</p>
             <button class="accordion">Learn More</button>
-            <div
-              class="panel"
-              style={{ width: widthOfDescription, zIndex: 99 }}
-            >
-              <p>Carbon Monoxide [CO]</p>
-            </div>
           </article>
-
+          <div
+            class="panel"
+            id="panel1"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
@@ -72,6 +88,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel2"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
@@ -80,6 +103,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel3"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={sulfurDioxideImage}></img>
@@ -88,6 +118,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel4"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
@@ -96,6 +133,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel5"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={noImage}></img>
@@ -104,6 +148,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel6"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={ozoneImage}></img>
@@ -112,6 +163,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel7"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={leadImage}></img>
@@ -120,6 +178,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel8"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={cadmiumImage}></img>
@@ -128,6 +193,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel9"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
 
           <article class="card">
             <img src={arsenicImage}></img>
@@ -136,6 +208,13 @@ function PollutantsContent() {
               <button>Learn More</button>
             </a>
           </article>
+          <div
+            class="panel"
+            id="panel10"
+            style={{ width: widthOfDescription, zIndex: 99 }}
+          >
+            <p>Carbon Monoxide [CO]</p>
+          </div>
         </section>
       </div>
 
