@@ -5,7 +5,6 @@ import noImage from "../images/nitric_oxide.png";
 import ozoneImage from "../images/ozoneImage.png";
 import sulfurDioxideImage from "../images/sulfurDioxide.png";
 import nitrogenDioxideImage from "../images/nitrogenDioxideImage.png";
-import nickelImage from "../images/nickelPollution.png";
 import leadImage from "../images/leadPollution.png";
 import cadmiumImage from "../images/cadmiumImage.png";
 import arsenicImage from "../images/arsenicImage.png";
@@ -22,13 +21,14 @@ function PollutantsContent() {
   const [maxCards, setMaxCards] = useState(null);
 
   function calcCards() {
-    if (widthOfDescription >= 1279) {
+    if (window.innerWidth >= 1103) {
       setMaxCards(5);
-    } else if (widthOfDescription >= 1035) {
+    } else if (window.innerWidth >= 893) {
       setMaxCards(4);
-    } else if (widthOfDescription >= 792) {
+    } else if (window.innerWidth >= 682) {
       setMaxCards(3);
-    } else if (widthOfDescription >= 548) {
+    } else if (window.innerWidth >= 400) {
+      // wont let me shrink broswer to just one card, dont actually know width for it.
       setMaxCards(2);
     } else {
       setMaxCards(1);
@@ -36,33 +36,26 @@ function PollutantsContent() {
   }
 
   var acc;
+  let panels;
   useEffect(() => {
-    acc = document.getElementsByClassName("accordion");
-    if (acc) {
+    // on runtime, grab the accordion class
+    panels = document.getElementsByClassName("panel");
+    if (panels) {
       setMounted(true);
       if (mounted && !attached) {
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.parentNode.nextElementSibling;
-            if (panel.style.display === "block") {
-              panel.style.display = "none";
-            } else {
-              panel.style.display = "block";
-            }
-          });
-        }
         window.addEventListener("resize", (event) => {
           event.preventDefault();
-          setWidthOfDescription(window.innerWidth * 0.7);
+          //setWidthOfDescription(cards.width);
           calcCards();
         });
         setAttached(true);
       }
     }
   });
+
+  function handleDisplayDescription() {
+    // should assign the correct pollutant json, then should display the correct panel based on
+  }
 
   return (
     <>
@@ -72,21 +65,24 @@ function PollutantsContent() {
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
-            <button class="accordion">Learn More</button>
+            <button onClick={() => handleDisplayDescription("CO")}>
+              Learn More
+            </button>
           </article>
+
           <div
             class="panel"
             id="panel1"
-            style={{ width: widthOfDescription, zIndex: 99 }}
+            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>Carbon Monoxide [CO]</p>
           </div>
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button>Learn More</button>
-            </a>
+            <button onClick={() => handleDisplayDescription("PM10")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -99,9 +95,9 @@ function PollutantsContent() {
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <a href="pollutants-and-standards/small-particulates">
-              <button>Learn More</button>
-            </a>
+            <button onClick={() => handleDisplayDescription("PM25")}>
+              Learn More
+            </button>
           </article>
           <div
             class="panel"
@@ -115,7 +111,9 @@ function PollutantsContent() {
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
             <a href="pollutants-and-standards/so2">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("SO2")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -130,7 +128,9 @@ function PollutantsContent() {
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
             <a href="pollutants-and-standards/no2">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("NO2")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -145,7 +145,9 @@ function PollutantsContent() {
             <img src={noImage}></img>
             <p>NO</p>
             <a href="pollutants-and-standards/no">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("NO")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -160,7 +162,9 @@ function PollutantsContent() {
             <img src={ozoneImage}></img>
             <p>Ozone</p>
             <a href="pollutants-and-standards/ozone">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("Ozone")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -175,7 +179,9 @@ function PollutantsContent() {
             <img src={leadImage}></img>
             <p>Lead</p>
             <a href="pollutants-and-standards/lead">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("Lead")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -190,7 +196,9 @@ function PollutantsContent() {
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
             <a href="pollutants-and-standards/cadmium">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("Cadmium")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
@@ -205,7 +213,9 @@ function PollutantsContent() {
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
             <a href="pollutants-and-standards/arsenic">
-              <button>Learn More</button>
+              <button onClick={() => handleDisplayDescription("Arsenic")}>
+                Learn More
+              </button>
             </a>
           </article>
           <div
