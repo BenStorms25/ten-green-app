@@ -1,0 +1,62 @@
+{
+  "CO": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "Arsenic": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "Lead": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "NO": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "NO2": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "Ozone": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "PM10": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "PM25": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "Cadmium": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  },
+  "SO2": {
+    "pollutant": "CO",
+    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
+    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "source": "Information source: U.S. EPA."
+  }
+}
