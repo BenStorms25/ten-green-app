@@ -31,13 +31,12 @@ function CustomNav() {
       <div className="navbar-links">
         <ul>
           <li>
-            <HashLink to="/">Home</HashLink>
-          </li>
-          <li>
             <HashLink to="/#interactive-map">Score Map</HashLink>
           </li>
           <li>
-            <HashLink to="/pollutants-and-standards">Pollutants/Standards</HashLink>
+            <HashLink to="/pollutants-and-standards">
+              Pollutants/Standards
+            </HashLink>
           </li>
           <li>
             <HashLink to="/aq-forecast">AQ Forecast</HashLink>
