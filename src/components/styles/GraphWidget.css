@@ -1,10 +1,14 @@
 #graphwidget {
-    background-color: rgb(255, 255, 255);
-    border-radius: 3%;
-    padding: 2rem 1rem 2rem 1rem;
-    max-width: 60%;
-    scale: 1;
-    position: absolute;
-    top: 140rem;
-    left: 30rem;
-  }
+  width: 100%;
+}
+RepsonsiveContainer {
+  position: relative;
+  left: 2rem;
+}
+.recharts-wrapper {
+  position: relative;
+  cursor: default;
+  width: 849px;
+  height: 300px;
+  right: 2.5rem;
+}

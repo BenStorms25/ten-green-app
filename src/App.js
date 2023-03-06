@@ -3,9 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"));
-const Data = React.lazy(() => import("./pages/Data"));
 const Pollutants = React.lazy(() => import("./pages/Pollutants"));
-const Standards = React.lazy(() => import("./pages/Standards"));
+const AQForecast = React.lazy(() => import("./pages/AQForecast"));
 const About = React.lazy(() => import("./pages/About"));
 const COLeanMore = React.lazy(() =>
   import("./pages/pollutants-learn-more/COLearnMore.js")
@@ -48,9 +47,8 @@ function App() {
         <React.Suspense>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/score-map" element={<Data />} />
             <Route path="/pollutants-and-standards" element={<Pollutants />} />
-            <Route path="/aq-forecast" element={<Standards />} />
+            <Route path="/aq-forecast" element={<AQForecast />} />
             <Route path="/about" element={<About />} />
             <Route
               path="/pollutants-and-standards/co"

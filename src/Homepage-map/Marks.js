@@ -11,7 +11,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
-  let dataMap = DataFilter(data, year, selectId);
+
+  let dataMap = DataFilter(allData, data, year, selectId); 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
@@ -20,7 +21,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     setSelectedId(incomingID);
   }, [incomingID]);
 
-  DataFilter(allData, null, null);
 
   projection.fitExtent(
     [

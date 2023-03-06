@@ -107,3 +107,19 @@
     margin-top: 0;
   }
 }
+
+@media (max-width: 992px) {
+  .ten-green-logo {
+    max-width: 50%;
+    animation: transitionIn 1s;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .ten-green-logo {
+    max-width: 60%;
+    animation: transitionIn 1s;
+    padding-right: 1rem;
+  }
+}

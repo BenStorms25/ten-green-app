@@ -1,5 +1,12 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import { useSelector } from "react-redux";
 import "./styles/GraphWidget.css";
 import { Title_Formatter } from "./Title_Formatter";
@@ -29,51 +36,53 @@ export const GraphWidget = ({ data, max }) => {
   return (
     <div id="graphwidget">
       <div style={styles}>
-        <LineChart
-          width={800}
-          height={300}
-          data={data}
-          //margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        <ResponsiveContainer width={"105%"} height={300}>
+          <LineChart
+            width={800}
+            height={300}
+            data={data}
+            //margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
 
-          margin={{
-            top: 50,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <text
-            x={200 / 2}
-            y={20}
-            fill="black"
-            textAnchor="middle"
-            dominantBaseline="central"
+            margin={{
+              top: 50,
+              right: 30,
+              left: 0,
+              bottom: 0,
+            }}
           >
-            <tspan fontSize="14">
-              {county}, {Title_Formatter(current_measure)} Score over time
-            </tspan>
-          </text>
-          <Line
-            type="monotone"
-            dataKey="value.x"
-            stroke="#bde59c"
-            dot={false}
-            strokeWidth={4}
-          />
-          <XAxis
-            dataKey="year"
-            type={"category"}
-            interval={4}
-            minTickGap={5}
-            tickLine={true}
-            domain={["dataMin", "dataMax"]}
-          />
-          <YAxis type="number" domain={[0, max]} />
-          <Tooltip
-            wrapperStyle={{ outline: "none" }}
-            content={<CustomTooltip />}
-          />
-        </LineChart>
+            <text
+              x={180}
+              y={20}
+              fill="black"
+              textAnchor="middle"
+              dominantBaseline="central"
+            >
+              <tspan fontSize="14">
+                {county}, {Title_Formatter(current_measure)} Score over time
+              </tspan>
+            </text>
+            <Line
+              type="monotone"
+              dataKey="value.x"
+              stroke="#bde59c"
+              dot={false}
+              strokeWidth={4}
+            />
+            <XAxis
+              dataKey="year"
+              type={"category"}
+              interval={4}
+              minTickGap={5}
+              tickLine={true}
+              domain={["dataMin", "dataMax"]}
+            />
+            <YAxis type="number" domain={[0, max]} />
+            <Tooltip
+              wrapperStyle={{ outline: "none" }}
+              content={<CustomTooltip />}
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );

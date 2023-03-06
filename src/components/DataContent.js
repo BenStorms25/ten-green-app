@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import CountyList from "../content/ZipsToFips2.json";
@@ -34,7 +34,7 @@ function DataContent() {
 
   const handleOnClear = () => {};
   return (
-    <div style={{ width: 300, margin: 20 }}>
+    <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
         items={CountyListArray}
         maxResults={5}

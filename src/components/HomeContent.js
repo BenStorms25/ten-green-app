@@ -4,10 +4,8 @@ import Globe from "./Globe.js";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
-import { useData } from "../Homepage-map/useData";
+import allData from "../content/data_files/allData.json";
 import { useSelector } from "react-redux";
-
-const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -35,7 +33,7 @@ function HomeContent() {
     }
   }
 
-  const data = useData();
+  const data = allData;
 
   let dataPoints = [];
   for (let j = 0; j < 42; j++) {
@@ -112,10 +110,7 @@ function HomeContent() {
           </p>
         </div>
       </div>
-      <Globe />
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <GraphWidget data={dataPoints} max={current_graph_max} />
-      </React.Suspense>
+      <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
     </>
   );
 }
