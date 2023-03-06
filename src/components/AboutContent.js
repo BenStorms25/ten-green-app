@@ -12,132 +12,26 @@ function AboutContent() {
       <div className="center-content-2">
         <h1>About</h1>
         <div className="description">
-          <img src={about10GreenImage} className="tenGreenImage"></img>
-
-          <div className="paragraph-div">
-            <h1>10Green</h1>
-            <p>
-              10Green is an interactive tool that provides a comprehensive
-              assessment of the health of your environment.10Green leverages
-              decades of ice core research that has allowed us to understand how
-              the chemistry of Earth’s atmosphere has changed as a consequence
-              of human activities. For more details go to:
-              http://climatechange.umaine.edu/icecores/. 10Green uses publicly
-              available data from U.S. environmental monitoring programs. The 10
-              air quality measures represent some of the most significant
-              threats to human health.
-            </p>
-
-            <p>
-              10Green uses the strictest health standards from those reported by
-              the U.S. Environmental Protection Agency, European Commission,
-              California Environmental Protection Agency, Health Canada, and the
-              World Health Organization to assign a health score. Learn more
-              about how 10Green scores are calculated, the health implications
-              and how the health of the place you choose to investigate has
-              changed over time, here. 10Green is a collaboration between the
-              Climate Change Institute, the School of Computing and Information
-              Sciences, and Garrand. Funding for 10Green has been provided in
-              part by The Heinz Endowments, The University of Maine, The
-              National Science Foundation, Garrand, and the UMaine Development
-              Office.
-            </p>
-          </div>
-        </div>
-        <div className="description">
-          <div className="image-div"></div>
-          <div className="paragraph-div-2">
-            <h1>Climate Change Institute</h1>
-            <p>
-              The CCI is an interdisciplinary research unit organized to conduct
-              research and graduate education focused on variability of Earth’s
-              climate, ecosystems, and other environmental systems, and on the
-              interaction between humans and the natural world.10Green is an
-              initiative motivated by our research findings that reveal why, how
-              fast, how much, and where changes in physical and chemical climate
-              have occurred; and the realization that significant differences in
-              physical and chemical climate exist between the natural and modern
-              world. For more information about the Climate Change Institute or
-              ice core research: http://climatechange.umaine.edu/icecores/ or
-              http://climatechange.umaine.edu/
-            </p>
-          </div>
-          <img className="cciImage" src={climateChangeImage}></img>
-        </div>
-        <div className="description">
-          <div className="image-div"></div>
-          <img className="cciImage" src={planeImage}></img>
-          <div className="paragraph-div-2">
-            <h1>External Links</h1>
-            <p>
-              10Green uses publicly available data from U.S. environmental
-              monitoring programs. The 10 air quality measures represent some of
-              the most significant threats to human health. For more
-              information, climate analysis, and 7-day forecast maps, visit the
-              full Climate Reanalyzer site. For more information about the
-              Climate Change Institute ice core research:
-              http://climatechange.umaine.edu/icecores/ For more information
-              about the Climate Change Institute:
-              http://climatechange.umaine.edu/ 10Green is a collaboration
-              between the Climate Change Institute, the School of Computing and
-              Information Sciences, and Garrand. Funding for 10Green has been
-              provided in part by The Heinz Endowments, The University of Maine,
-              The National Science Foundation, Garrand, and the UMaine
-              Development Office.
-            </p>
-          </div>
-        </div>
-        <h1 className="meet-the-team-header">Meet The Team</h1>
-        <div className="team-cards">
-          <div class="centered">
-            <section class="cards-1">
-              <article class="card-1">
-                <img src={blankUser}></img>
-                <div>
-                  <p>Team Member</p>
-                  <a href="pollutants-and-standards/co">
-                    <button>Learn More</button>
-                  </a>
-                </div>
-              </article>
-              <article class="card-1">
-                <img src={blankUser}></img>
-                <div>
-                  <p>Team Member</p>
-                  <a href="pollutants-and-standards/co">
-                    <button>Learn More</button>
-                  </a>
-                </div>
-              </article>
-              <article class="card-1">
-                <img src={blankUser}></img>
-                <div>
-                  <p>Team Member</p>
-                  <a href="pollutants-and-standards/co">
-                    <button>Learn More</button>
-                  </a>
-                </div>
-              </article>
-              <article class="card-1">
-                <img src={blankUser}></img>
-                <div>
-                  <p>Team Member</p>
-                  <a href="pollutants-and-standards/co">
-                    <button>Learn More</button>
-                  </a>
-                </div>
-              </article>
-              <article class="card-1">
-                <img src={blankUser}></img>
-                <div>
-                  <p>Team Member</p>
-                  <a href="pollutants-and-standards/co">
-                    <button>Learn More</button>
-                  </a>
-                </div>
-              </article>
-            </section>
-          </div>
+          <h2>What is a 10Green Score?</h2>
+          <p>
+            The 10Green Score indicates the health of your environment using a number from 0 to 10.
+            The higher the score, the healthier your environment.
+            Factors that can reduce your score include unhealthy air quality readings and poor environmental monitoring.
+          </p>
+          <h2>10Green</h2>
+          <p>
+            10Green is an interactive tool that provides a comprehensive assessment of the current and historical air quality of your county.
+            We utilize publicly available data from U.S. environmental monitoring programs to calculate the score, using standards set by:
+            the U.S. Environmental Protection Agency, European Commission, California Environmental Protection Agency, Health Canada, and the World Health Organization.
+            The 11 air quality measures used represent some of the most significant threats to human health.
+          </p>
+          <p>
+            10Green is a collaboration between: the <a href="https://climatechange.umaine.edu/about/">Climate Change Institute</a>,
+            the <a href="https://umaine.edu/scis/">School of Computing and Information Sciences</a>, and <a href="https://www.garrand.com/">Garrand</a>.
+            Funding for 10Green has been provided in part by <a href="https://www.heinz.org/">Heinz Endowments</a>,
+            &nbsp;<a href="https://umaine.edu/">The University of Maine</a>, <a href="https://www.nsf.gov/">The National Science Foundation</a>,
+            &nbsp;<a href="https://www.garrand.com/">Garrand</a>, and the <a href="https://umaine.edu/research-development/">UMaine Development Office</a>.
+          </p>
         </div>
       </div>
       <CustomFooter />

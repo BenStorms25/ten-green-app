@@ -1,19 +1,4 @@
-//import Data from "./pages/Data";
 import React from "react";
-// import Pollutants from "./pages/Pollutants";
-// import Standards from "./pages/Standards";
-// import About from "./pages/About";
-// import COLeanMore from "./pages/pollutants-learn-more/COLearnMore.js";
-// import ArsenicLearnMore from "./pages/pollutants-learn-more/ArsenicLearnMore";
-// import CadmiumLearnMore from "./pages/pollutants-learn-more/CadmiumLearnMore";
-// import LeadLearnMore from "./pages/pollutants-learn-more/LeadLearnMore";
-// import NO2LearnMore from "./pages/pollutants-learn-more/NO2LearnMore";
-// import OzoneLearnMore from "./pages/pollutants-learn-more/OzoneLearnMore";
-// import NickelLearnMore from "./pages/pollutants-learn-more/NickelLearnMore";
-// import SmallParticulateLearnMore from "./pages/pollutants-learn-more/SmallParticulateLearnMore";
-// import SO2LearnMore from "./pages/pollutants-learn-more/SO2LearnMore";
-// import LargeParticulateLearnMore from "./pages/pollutants-learn-more/LargeParticulateLearnMore.js";
-// import NOLearnMore from "./pages/pollutants-learn-more/NOLearnMore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
