@@ -6,57 +6,57 @@
     "source": "Information source: U.S. EPA."
   },
   "Arsenic": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Arsenic",
+    "description": "Arsenic (As) is a toxic natural element that is found in some rock and soil types, and also as a byproduct to human-made pesticides and wood preservatives. Humans most commonly come into contact with arsenic through contaminated groundwater.",
+    "implications": "Soluble inorganic arsenic is very toxic. Intake of this pollutant over time can lead to chronic arsenic poisoning (arsenicosis). Effects, which can take years to develop, include skin lesions, peripheral neuropathy, gastrointestinal illness, diabetes, renal system effects, cardiovascular disease, and cancer.",
     "source": "Information source: U.S. EPA."
   },
   "Lead": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Lead",
+    "description": "Lead (Pb) is a metal toxin that can damage organs and tissues in humans and animals. In the past Romans used lead-made pipes for water transport infrastructure in ancient cities. In modern times, prior to the 1980s when its health hazards became widely known, lead was used in paints, and as an additive in gasoline. Today, although regulated by government agencies, lead continues to be a pollution concern, as it is injected into the atmosphere by smelters, metal processing plants, and incinerators.",
+    "implications": "Lead is distributed throughout the body in blood and accumulates in bone. Depending on the level of exposure, lead can adversely affect several systems in the body including nervous, immune, reproductive, developmental, and cardiovascular. Lead can also impair kidney function, and reduce the oxygen carrying capacity of blood. Infants and young children are especially sensitive to lead poisoning, the latter which may underpin behavioral problems, learning disabilities, and low IQ.",
     "source": "Information source: U.S. EPA."
   },
   "NO": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Nitric Oxide",
+    "description": "needs description",
+    "implications": "needs description",
     "source": "Information source: U.S. EPA."
   },
   "NO2": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Nitrogen Dioxide [NO2]",
+    "description": "Nitrogen dioxide (NO2) is a gas with poignant odor released during the burning of oil, wood, and coal-based fuels. The gas can be toxic to most living organisms, and it is a key agent in the development of acid rain and associated ecological damage. In moderate and high concentrations NO2 can render the horizon with a reddish-brown atmospheric haze.",
+    "implications": "Short-term exposure to NO2 of less than one day can cause bronchioconstriction and increased asthma symptoms. Long-term health effects are unknown. Note that NO2 (and other gaseous nitrogen oxides) can react with ammonia and water molecules in the atmosphere forming small particulates, which have additional adverse health effects.",
     "source": "Information source: U.S. EPA."
   },
   "Ozone": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Ozone",
+    "description": "Ground level ozone (O3) is the primary component of smog. It forms mainly during the summertime when chemicals from fossil fuel combustion, namely nitrogen oxides, carbon monoxide, and volatile organic compounds, react in the presence of sunlight. O3 pollution originating from urban and industrial centers can be carried hundreds of miles in the atmosphere and pollute areas that are otherwise pristine. It should be noted that ground level ozone is different from stratospheric (or upper-atmosphere) ozone, and that the latter does not have direct health impacts.",
+    "implications": "Elevated concentrations of ground level ozone can damage lung tissue and cause respiratory illness. Common indicators of ozone exposure include coughing, wheezing, throat discomfort, and aggravated asthma symptoms.",
     "source": "Information source: U.S. EPA."
   },
   "PM10": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Small Particulates [PM10]",
+    "description": "Small or fine particulates are less than 2.5 micrometers in diameter. Particulates of this type are found in smoke and haze. These particles can be emitted from natural sources such as forest fires, or they can form in chemical reactions in the air with gases emitted from automobiles, power plants, and other industrial sources. Particulate matter pollution can cause respiratory illness and impair atmospheric clearness.",
+    "implications": "Small particulates contain microscopic solid or liquid droplets that can penetrate deep into lung tissue and are generally more harmful than large particulates. Health impacts include airway irritation, coughing, decreased lung function, aggravated asthma, and the development of chronic bronchitis.",
     "source": "Information source: U.S. EPA."
   },
   "PM25": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Large Particulates [PM25]",
+    "description": "Large or coarse particulates are between 10 and 2.5 micrometers in diameter. Particulates of this type are found commonly near dusty roadways and industrial areas. Particulate matter pollution can cause respiratory illness as well as impair atmospheric clearness.",
+    "implications": "Large particulates, although generally less harmful than small particulates, can cause throat and airway irritation, coughing, decreased lung function, aggravated asthma, and the development of chronic bronchitis.",
     "source": "Information source: U.S. EPA."
   },
   "Cadmium": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Cadmium",
+    "description": "Cadmium (Cd), a naturally occurring element, is a carcinogen introduced to the atmosphere primarily from human and industrial activity. These activities include mining, smelting and refining of non-ferrous metals, fossil fuel combustion, waste incineration, and the manufacture of phosphate fertilizers and batteries. Cadmium can also be present in tobacco products. Trace amounts of cadmium are generated in nature from volcanic activity and surface weathering and erosion.",
+    "implications": "Cadmium can reduce kidney function, and have adverse impacts on the skeletal and the respiratory systems.",
     "source": "Information source: U.S. EPA."
   },
   "SO2": {
-    "pollutant": "CO",
-    "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
-    "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
+    "pollutant": "Sulphur Dioxide [SO2]",
+    "description": "Sulfur dioxide (SO2) is a highly reactive gas common in air pollution. SO2 is emitted primarily from fossil fuel combustion at power plants and other industrial facilities. SO2 is also emitted from industrial processes such metal extraction from ore, and burning high-sulfur containing fuels by locomotives, and large ships.",
+    "implications": "Short-term exposure to SO2 of less than one day can cause bronchioconstriction and increased asthma symptoms. Long-term health effects are unknown. Note that SO2 (and other gaseous sulfur oxides) can react with compounds in the atmosphere forming small particulates, which have additional adverse health effects.",
     "source": "Information source: U.S. EPA."
   }
 }

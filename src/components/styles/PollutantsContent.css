@@ -76,10 +76,19 @@
   background-color: #ccc;
 }
 
-.panel {
-  padding: 0 18px;
+.top-panel {
+  padding: 1.5rem;
   display: none;
-  background-color: cyan;
+  background-color: white;
+  border-radius: 20px;
   overflow: hidden;
-  width: 150%;
+  width: 120%;
+}
+.bottom-panel {
+  padding: 1.5rem;
+  display: none;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 120%;
 }

@@ -13,22 +13,21 @@ import largeParticulateMatterImage from "../images/largeparticles.png";
 import CustomFooter from "./CustomFooter";
 import PollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
 
-//import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
-
 function PollutantsContent() {
   const [mounted, setMounted] = useState(false);
   const [attached, setAttached] = useState(false);
   const [descriptionActive, setDescriptionActive] = useState(false);
   const [currentPollutant, setCurrentPollutant] = useState("CO");
   const [pollutantJson, setPollutantJson] = useState({});
-  const [widthOfDescription, setWidthOfDescription] = useState(
-    window.innerWidth * 0.7
-  );
+  const [widthOfDescription, setWidthOfDescription] = useState("70rem");
 
   const [maxCards, setMaxCards] = useState(calcCards());
 
   function calcCards() {
     if (window.innerWidth >= 1103) {
+      //             |
+      // breaks code v  dont put setter in here
+      //setWidthOfDescription("70rem");
       return 5;
     } else if (window.innerWidth >= 893) {
       return 4;
@@ -41,11 +40,13 @@ function PollutantsContent() {
     }
   }
 
-  let panels;
+  let topPanels;
+  let bottomPanels;
   useEffect(() => {
     //
-    panels = document.getElementsByClassName("panel");
-    if (panels) {
+    topPanels = document.getElementsByClassName("top-panel");
+    bottomPanels = document.getElementsByClassName("bottom-panel");
+    if (topPanels) {
       setMounted(true);
       if (mounted && !attached) {
         window.addEventListener("resize", (event) => {
@@ -58,16 +59,29 @@ function PollutantsContent() {
     }
   });
 
-  function handleDisplayDescription(pollutant) {
+  function handleDisplayTop(pollutant) {
     setCurrentPollutant(pollutant);
 
     // setter not working?  Always rendering CO in the panels
     console.log(currentPollutant);
     console.log(PollutantsInfo[currentPollutant].pollutant);
-    if (panels[maxCards - 1].style.display === "block") {
-      panels[maxCards - 1].style.display = "none";
+    if (topPanels[maxCards - 1].style.display === "block") {
+      topPanels[maxCards - 1].style.display = "none";
     } else {
-      panels[maxCards - 1].style.display = "block";
+      topPanels[maxCards - 1].style.display = "block";
+    }
+  }
+
+  function handleDisplayBottom(pollutant) {
+    setCurrentPollutant(pollutant);
+
+    // setter not working?  Always rendering CO in the panels
+    console.log(currentPollutant);
+    console.log(PollutantsInfo[currentPollutant].pollutant);
+    if (bottomPanels[maxCards - 1].style.display === "block") {
+      bottomPanels[maxCards - 1].style.display = "none";
+    } else {
+      bottomPanels[maxCards - 1].style.display = "block";
     }
   }
 
@@ -79,13 +93,11 @@ function PollutantsContent() {
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
-            <button onClick={() => handleDisplayDescription("CO")}>
-              Learn More
-            </button>
+            <button onClick={() => handleDisplayTop("CO")}>Learn More</button>
           </article>
 
           <div
-            class="panel"
+            class="top-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -98,12 +110,10 @@ function PollutantsContent() {
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
-            <button onClick={() => handleDisplayDescription("PM10")}>
-              Learn More
-            </button>
+            <button onClick={() => handleDisplayTop("PM10")}>Learn More</button>
           </article>
           <div
-            class="panel"
+            class="top-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -117,12 +127,10 @@ function PollutantsContent() {
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <button onClick={() => handleDisplayDescription("PM25")}>
-              Learn More
-            </button>
+            <button onClick={() => handleDisplayTop("PM25")}>Learn More</button>
           </article>
           <div
-            class="panel"
+            class="top-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -136,14 +144,10 @@ function PollutantsContent() {
           <article class="card">
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
-            <a href="pollutants-and-standards/so2">
-              <button onClick={() => handleDisplayDescription("SO2")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayTop("SO2")}>Learn More</button>
           </article>
           <div
-            class="panel"
+            class="top-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -157,14 +161,10 @@ function PollutantsContent() {
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
-            <a href="pollutants-and-standards/no2">
-              <button onClick={() => handleDisplayDescription("NO2")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayTop("NO2")}>Learn More</button>
           </article>
           <div
-            class="panel"
+            class="top-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -178,14 +178,12 @@ function PollutantsContent() {
           <article class="card">
             <img src={noImage}></img>
             <p>NO</p>
-            <a href="pollutants-and-standards/no">
-              <button onClick={() => handleDisplayDescription("NO")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayBottom("NO")}>
+              Learn More
+            </button>
           </article>
           <div
-            class="panel"
+            class="bottom-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -199,14 +197,12 @@ function PollutantsContent() {
           <article class="card">
             <img src={ozoneImage}></img>
             <p>Ozone</p>
-            <a href="pollutants-and-standards/ozone">
-              <button onClick={() => handleDisplayDescription("Ozone")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayBottom("Ozone")}>
+              Learn More
+            </button>
           </article>
           <div
-            class="panel"
+            class="bottom-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -220,14 +216,12 @@ function PollutantsContent() {
           <article class="card">
             <img src={leadImage}></img>
             <p>Lead</p>
-            <a href="pollutants-and-standards/lead">
-              <button onClick={() => handleDisplayDescription("Lead")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayBottom("Lead")}>
+              Learn More
+            </button>
           </article>
           <div
-            class="panel"
+            class="bottom-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -241,14 +235,12 @@ function PollutantsContent() {
           <article class="card">
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
-            <a href="pollutants-and-standards/cadmium">
-              <button onClick={() => handleDisplayDescription("Cadmium")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayBottom("Cadmium")}>
+              Learn More
+            </button>
           </article>
           <div
-            class="panel"
+            class="bottom-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
@@ -261,14 +253,12 @@ function PollutantsContent() {
           <article class="card">
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
-            <a href="pollutants-and-standards/arsenic">
-              <button onClick={() => handleDisplayDescription("Arsenic")}>
-                Learn More
-              </button>
-            </a>
+            <button onClick={() => handleDisplayBottom("Arsenic")}>
+              Learn More
+            </button>
           </article>
           <div
-            class="panel"
+            class="bottom-panel"
             id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
