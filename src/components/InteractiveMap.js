@@ -12,12 +12,13 @@ function InteractiveMap(props) {
   const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
   const county = useSelector((state) => state.county);
   const current_measure = useSelector((state) => state.current_measure);
+  const current_year = useSelector((state) => state.year);
 
   return (
     <div id="interactive-map">
       <div className="map-top">
         <h5 className="map-title">
-          {Title_Formatter(current_measure)} Score by County - 1980 to 2021{" "}
+          {Title_Formatter(current_measure)} Score by County - {current_year}{" "}
         </h5>
         <DataContent />
       </div>

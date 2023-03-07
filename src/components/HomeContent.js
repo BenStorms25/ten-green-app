@@ -4,7 +4,7 @@ import Globe from "./Globe.js";
 import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
-import allData from "../content/data_files/allData.json";
+import allData from "../content/json_choropleth/allData.json";
 import { useSelector } from "react-redux";
 
 function HomeContent() {

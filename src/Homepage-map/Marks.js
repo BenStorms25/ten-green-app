@@ -2,7 +2,7 @@ import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import allData from "../content/data_files/allData.json";
+import allData from "../content/json_choropleth/allData.json";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);

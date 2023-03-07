@@ -24,11 +24,11 @@ const App = () => {
 
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
-    .domain([maximum, 0]);
+    .domain([0, maximum]);
   if (current_measure !== "10green") {
     colorScale = d3
       .scaleSequential(d3.interpolateYlGnBu)
-      .domain([maximum, 0]);
+      .domain([0, maximum]);
   }
   let data = Data_Formatter(current_measure);
 
