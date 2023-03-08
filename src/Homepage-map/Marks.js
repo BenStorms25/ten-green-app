@@ -3,6 +3,7 @@ import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import allData from "../content/json_choropleth/allData.json";
+import stateNameToAbbreviation from "../components/Abbrevinator"
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -45,8 +46,10 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
             }
           >
             <title>
-              {feature.properties.name}, {states.get(feature.id.slice(0, 2))}
-              &#xA;{dataMap.get(feature.id)}
+              
+              {dataMap.get(feature.id)} {"- "}
+              {feature.properties.name}, {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
+              
             </title>
           </path>
         );

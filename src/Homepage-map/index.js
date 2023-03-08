@@ -6,17 +6,24 @@ import * as d3 from "d3";
 import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
+<<<<<<< HEAD
 import { Data_Setter } from "../components/Data_Setter";
 
 let ispaused = true;
+=======
+// import { Data_Setter } from "../components/Data_Setter";
+let ispaused = false;
+>>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
+  const current_id = useSelector((state) => state.id);
+  const current_year = useSelector((state) => state.year);
   const county = useSelector((state) => state.county);
   const [currentCounty, setCurrentCounty] = useState(county);
   const [hasMoved, setHasMoved] = useState(false);
@@ -28,6 +35,13 @@ const App = () => {
   const UsaGeo = useUsaGeo();
   const reduxYear = useSelector((state) => state.year);
   const [year, setYear] = useState(reduxYear);
+
+  const dispatch = useDispatch();
+
+  // useEffect(() =>{
+
+  //   Data_Setter(current_id)
+  // }, [current_id]);
 
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
@@ -87,12 +101,26 @@ const App = () => {
     }
   }, [county]);
 
+<<<<<<< HEAD
+=======
+  const point = usePoints();
+  const UsaGeo = useUsaGeo();
+
+
+
+  const [year, setYear] = useState(2021);
+
+
+
+>>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
   }
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
+    
+
   };
 
   const play = () => {
@@ -111,6 +139,7 @@ const App = () => {
       } else {
         y++;
         setYear(y);
+        
 
         if (y === 2022) {
           setYear(1980);
@@ -250,6 +279,7 @@ const App = () => {
       </svg>
 
       <div className="timeline">
+<<<<<<< HEAD
         {ispaused ? (
           <div className="playButton">
             <img
@@ -274,6 +304,30 @@ const App = () => {
           </div>
         )}
 
+=======
+        <div className="pauseButton">
+          <img
+            onmouseover="" 
+            style={{cursor: "pointer"}}
+            src={pausebuttonpic}
+            width={"30px"}
+            height={"30px"}
+            onClick={pause}
+            id={"pauseButton"}
+          ></img>
+        </div>
+        <div className="playButton">
+          <img
+            onmouseover="" 
+            style={{cursor: "pointer"}}
+            src={playbuttonpic}
+            width={"35px"}
+            height={"35px"}
+            onClick={play}
+            id={"playButton"}
+          ></img>
+        </div>
+>>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 

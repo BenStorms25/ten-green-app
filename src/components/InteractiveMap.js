@@ -12,7 +12,7 @@ function InteractiveMap(props) {
   const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
   const county = useSelector((state) => state.county);
   const current_measure = useSelector((state) => state.current_measure);
-  const current_year = useSelector((state) => state.year);
+  const current_year = useSelector((state) => state.title_year);
 
   return (
     <div id="interactive-map">

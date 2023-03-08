@@ -218,10 +218,6 @@ export const DataFilter = (data, data2, year, id) => {
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NICKEL", payload: point.dataValue });
         break;
-      case "no":
-        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_NO", payload: point.dataValue });
-        break;
       case "no2":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NO2", payload: point.dataValue });

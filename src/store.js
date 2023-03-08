@@ -4,13 +4,14 @@ const initialState = {
   county: "Select a County",
   id: "23019",
   year: 2021,
+  title_year: 2021,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,
   cadmium: 0,
   co: 0,
   lead: 0,
-  no: 0,
+  nickel: 0,
   no2: 0,
   ozone: 0,
   pm10: 0,
@@ -81,10 +82,10 @@ function reducer(state = initialState, action) {
     };
   }
   
-  if (action.type === "SET_NO") {
+  if (action.type === "SET_NICKEL") {
     return {
       ...state,
-      no: action.payload,
+      nickel: action.payload,
     };
   }
   if (action.type === "SET_NO2") {
@@ -194,6 +195,19 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       ispaused: action.payload,
+    }
+  }
+
+  if (action.type === "SET_YEAR") {
+    return {
+      ...state,
+      year: action.payload,
+    }
+  }
+  if (action.type === "SET_TITLE_YEAR") {
+    return {
+      ...state,
+      title_year: action.payload,
     }
   }
 
