@@ -35,6 +35,7 @@ function InteractiveMap(props) {
         <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
       </React.Suspense>
     </div>
+    
   );
 }
 

@@ -1,14 +1,12 @@
 #graphwidget {
   width: 100%;
 }
-RepsonsiveContainer {
-  position: relative;
-  left: 2rem;
+.ResponsiveContainer {
+  position: absolute;
 }
 .recharts-wrapper {
-  position: relative;
-  cursor: default;
+  position: absolute;
   width: 849px;
   height: 300px;
-  right: 2.5rem;
+ 
 }

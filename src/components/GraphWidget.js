@@ -6,6 +6,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  CartesianGrid
 } from "recharts";
 import { useSelector } from "react-redux";
 import "./styles/GraphWidget.css";
@@ -38,11 +39,10 @@ export const GraphWidget = ({ data, max }) => {
       <div style={styles}>
         <ResponsiveContainer width={"105%"} height={300}>
           <LineChart
-            width={800}
+            width={500}
             height={300}
             data={data}
-            //margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-
+    
             margin={{
               top: 50,
               right: 30,
@@ -61,6 +61,7 @@ export const GraphWidget = ({ data, max }) => {
                 {county}, {Title_Formatter(current_measure)} Score over time
               </tspan>
             </text>
+            
             <Line
               type="monotone"
               dataKey="value.x"
@@ -80,6 +81,7 @@ export const GraphWidget = ({ data, max }) => {
             <Tooltip
               wrapperStyle={{ outline: "none" }}
               content={<CustomTooltip />}
+              
             />
           </LineChart>
         </ResponsiveContainer>
