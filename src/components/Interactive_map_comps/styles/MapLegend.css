@@ -12,3 +12,9 @@
   text-align: center;
   font-size: smaller;
 }
+.top-bar {
+  height: 0.7rem;
+  width: 100%;
+}
+
+/* background-color: linear-gradient(#071e59 15%, #ffffda); */
