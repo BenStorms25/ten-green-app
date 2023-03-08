@@ -197,6 +197,13 @@ function reducer(state = initialState, action) {
     }
   }
 
+  if (action.type === "SET_YEAR") {
+    return {
+      ...state,
+      year: action.payload,
+    }
+  }
+
   return state;
 }
 

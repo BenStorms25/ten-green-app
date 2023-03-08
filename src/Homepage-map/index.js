@@ -6,21 +6,30 @@ import * as d3 from "d3";
 import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Data_Formatter } from "../components/Data-Formatter";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
-import { Data_Setter } from "../components/Data_Setter";
+// import { Data_Setter } from "../components/Data_Setter";
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
+  const current_id = useSelector((state) => state.id);
+  const current_year = useSelector((state) => state.year);
   const county = useSelector((state) => state.county);
   const [currentCounty, setCurrentCounty] = useState(county);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let maximum = ScaleFormatter(current_measure);
+
+  const dispatch = useDispatch();
+
+  // useEffect(() =>{
+
+  //   Data_Setter(current_id)
+  // }, [current_id]);
 
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
@@ -85,7 +94,13 @@ const App = () => {
   const point = usePoints();
   const UsaGeo = useUsaGeo();
 
-  const [year, setYear] = useState(1980);
+
+
+  const [year, setYear] = useState(2021);
+
+  useEffect(() => {
+    dispatch({ type: "SET_YEAR", payload: year});
+  }, [year]);
 
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
@@ -93,6 +108,8 @@ const App = () => {
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
+    
+
   };
 
   const play = () => {
@@ -107,12 +124,12 @@ const App = () => {
     let x = setInterval(() => {
       // clearInterval(x);
       if (ispaused == true) {
-        console.log("TEST");
         clearInterval(x);
       } else {
         y++;
         console.log(ispaused);
         setYear(y);
+        
 
         if (y === 2021) {
           clearInterval(x);
