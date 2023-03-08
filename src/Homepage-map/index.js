@@ -12,7 +12,7 @@ import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
-
+import { Data_Setter } from "../components/Data_Setter";
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);

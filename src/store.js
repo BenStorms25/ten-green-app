@@ -10,7 +10,6 @@ const initialState = {
   cadmium: 0,
   co: 0,
   lead: 0,
-  nickel: 0,
   no: 0,
   no2: 0,
   ozone: 0,
@@ -18,6 +17,7 @@ const initialState = {
   pm25: 0,
   so2: 0,
   current_measure: "10green",
+  graph_data: [],
   graph_max: 10,
   panX: 40,
   panY: 65,
@@ -80,12 +80,7 @@ function reducer(state = initialState, action) {
       lead: action.payload,
     };
   }
-  if (action.type === "SET_NICKEL") {
-    return {
-      ...state,
-      nickel: action.payload,
-    };
-  }
+  
   if (action.type === "SET_NO") {
     return {
       ...state,
