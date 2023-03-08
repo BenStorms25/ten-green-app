@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 
-function Data_Setter(){
+function Data_Setter(id){
 
 
 
