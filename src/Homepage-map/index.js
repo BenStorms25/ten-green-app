@@ -18,6 +18,7 @@ const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   const county = useSelector((state) => state.county);
   const [currentCounty, setCurrentCounty] = useState(county);
+  const [hasMoved, setHasMoved] = useState(false);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let maximum = ScaleFormatter(current_measure);
@@ -39,7 +40,6 @@ const App = () => {
     new DOMMatrix([0.85, 0, 0, 0.85, -28, 30])
   );
 
-  
   let svgCanvas;
   let viewPort;
   var drag = false;
@@ -128,6 +128,7 @@ const App = () => {
 
   const handleReset = () => {
     resetMap();
+    setHasMoved(false);
   };
 
   function resetMap() {
@@ -151,7 +152,12 @@ const App = () => {
       matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
       viewPort.style.transform = matrix.toString();
       // assign matrix to state
-      setMatrix(matrix);
+      if (!hasMoved) {
+        setMatrix({ ...matrix });
+      } else {
+        setMatrix(matrix);
+      }
+      setHasMoved(true);
     }
   }
 
@@ -180,7 +186,12 @@ const App = () => {
     );
     viewPort.style.transform = matrix.toString();
     // assign matrix to state
-    setMatrix(matrix);
+    if (!hasMoved) {
+      setMatrix({ ...matrix });
+    } else {
+      setMatrix(matrix);
+    }
+    setHasMoved(true);
   }
 
   function attatchListeners() {
@@ -203,30 +214,38 @@ const App = () => {
         preserveAspectRatio="xMidYMid meet"
       >
         <g id="matrix-group" transform="matrix(0.85 0 0 0.85 -28 30)">
-          
-            <Marks
-              UsaGeo={UsaGeo}
-              data={data}
-              year={year}
-              colorScale={colorScale}
-            />
-          
+          <Marks
+            UsaGeo={UsaGeo}
+            data={data}
+            year={year}
+            colorScale={colorScale}
+          />
 
           <points point={point} />
         </g>
-        <rect
-          id="reset-map"
-          x="740"
-          y="440"
-          width={65}
-          height={23}
-          rx="2"
-          fill="#f2f2f2"
-          onClick={handleReset}
-        />
-        <text onClick={handleReset} x="744" y="455" fill="black" font-size="11">
-          Reset View
-        </text>
+        {hasMoved ? (
+          <>
+            <rect
+              id="reset-map"
+              x="740"
+              y="440"
+              width={65}
+              height={23}
+              rx="2"
+              fill="#f2f2f2"
+              onClick={handleReset}
+            />
+            <text
+              onClick={handleReset}
+              x="744"
+              y="455"
+              fill="black"
+              font-size="11"
+            >
+              Reset View
+            </text>
+          </>
+        ) : null}
       </svg>
 
       <div className="timeline">
