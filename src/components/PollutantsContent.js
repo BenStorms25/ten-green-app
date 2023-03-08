@@ -25,9 +25,6 @@ function PollutantsContent() {
 
   function calcCards() {
     if (window.innerWidth >= 1103) {
-      //             |
-      // breaks code v  dont put setter in here
-      //setWidthOfDescription("70rem");
       return 5;
     } else if (window.innerWidth >= 893) {
       return 4;
