@@ -10,7 +10,7 @@ const initialState = {
   cadmium: 0,
   co: 0,
   lead: 0,
-  no: 0,
+  nickel: 0,
   no2: 0,
   ozone: 0,
   pm10: 0,
@@ -81,10 +81,10 @@ function reducer(state = initialState, action) {
     };
   }
   
-  if (action.type === "SET_NO") {
+  if (action.type === "SET_NICKEL") {
     return {
       ...state,
-      no: action.payload,
+      nickel: action.payload,
     };
   }
   if (action.type === "SET_NO2") {
