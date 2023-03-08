@@ -14,8 +14,6 @@ export let Title_Formatter = (measure) => {
             return "Lead";
             case "nickel": 
             return "Nickel";
-            case "no": 
-            return "NO";
             case "no2": 
             return "NO2";
             case "ozone": 

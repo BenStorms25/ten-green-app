@@ -56,8 +56,11 @@ export const GraphWidget = ({ data, max }) => {
               fill="black"
               textAnchor="middle"
               dominantBaseline="central"
+              cursor="auto"
+              text-decoration="none"
             >
-              <tspan fontSize="14">
+              <tspan fontSize="14"
+              style={{textDecoration:"none"}}>
                 {county}, {Title_Formatter(current_measure)} Score over time
               </tspan>
             </text>

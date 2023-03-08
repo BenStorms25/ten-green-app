@@ -263,32 +263,6 @@ const App = () => {
       </svg>
 
       <div className="timeline">
-<<<<<<< HEAD
-        {ispaused ? (
-          <div className="playButton">
-            <img
-              src={playbuttonpic}
-              width={"35px"}
-              height={"35px"}
-              onClick={play}
-              id={"playButton"}
-              alt=""
-            ></img>
-          </div>
-        ) : (
-          <div className="pauseButton">
-            <img
-              src={pausebuttonpic}
-              width={"30px"}
-              height={"30px"}
-              onClick={pause}
-              id={"pauseButton"}
-              alt=""
-            ></img>
-          </div>
-        )}
-
-=======
         <div className="pauseButton">
           <img
             onmouseover="" 
@@ -311,7 +285,6 @@ const App = () => {
             id={"playButton"}
           ></img>
         </div>
->>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 

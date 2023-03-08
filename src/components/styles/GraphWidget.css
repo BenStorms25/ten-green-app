@@ -5,8 +5,13 @@
   position: absolute;
 }
 .recharts-wrapper {
+  text-decoration:"none";
   position: absolute;
   width: 849px;
   height: 300px;
  
+}
+
+text.hover{
+  text-decoration:"none";
 }
