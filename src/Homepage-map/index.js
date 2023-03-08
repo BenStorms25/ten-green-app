@@ -13,23 +13,27 @@ import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
 import { Data_Setter } from "../components/Data_Setter";
-let ispaused = false;
+
+let ispaused = true;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   const county = useSelector((state) => state.county);
   const [currentCounty, setCurrentCounty] = useState(county);
   const [hasMoved, setHasMoved] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let maximum = ScaleFormatter(current_measure);
+  const point = usePoints();
+  const UsaGeo = useUsaGeo();
+  const reduxYear = useSelector((state) => state.year);
+  const [year, setYear] = useState(reduxYear);
 
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
     .domain([0, maximum]);
   if (current_measure !== "10green") {
-    colorScale = d3
-      .scaleSequential(d3.interpolateYlGnBu)
-      .domain([0, maximum]);
+    colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, maximum]);
   }
   let data = Data_Formatter(current_measure);
 
@@ -50,6 +54,7 @@ const App = () => {
     if (county.split(",").length > 1) {
       let stateCode = county.split(",")[1].trim();
       setMatrix(getStateMatrix(stateCode));
+      setHasMoved(true);
     }
   };
 
@@ -82,11 +87,6 @@ const App = () => {
     }
   }, [county]);
 
-  const point = usePoints();
-  const UsaGeo = useUsaGeo();
-
-  const [year, setYear] = useState(1980);
-
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
   }
@@ -96,26 +96,25 @@ const App = () => {
   };
 
   const play = () => {
-    console.log(ispaused);
+    console.log("play -> ispaused: " + ispaused);
 
     ispaused = false;
-    if (+year === 2021) {
-      return;
-    }
+    // if (+year === 2021) {
+    //   return;
+    // }
 
     let y = year;
     let x = setInterval(() => {
       // clearInterval(x);
       if (ispaused == true) {
-        console.log("TEST");
         clearInterval(x);
       } else {
         y++;
-        console.log(ispaused);
         setYear(y);
 
-        if (y === 2021) {
-          clearInterval(x);
+        if (y === 2022) {
+          setYear(1980);
+          y = "1980";
         }
       }
     }, 1000);
@@ -123,7 +122,9 @@ const App = () => {
 
   const pause = () => {
     ispaused = true;
-    console.log(ispaused);
+    console.log("is paused: " + ispaused);
+    // force rerender
+    setIsPaused({ ...isPaused });
   };
 
   const handleReset = () => {
@@ -249,24 +250,30 @@ const App = () => {
       </svg>
 
       <div className="timeline">
-        <div className="pauseButton">
-          <img
-            src={pausebuttonpic}
-            width={"30px"}
-            height={"30px"}
-            onClick={pause}
-            id={"pauseButton"}
-          ></img>
-        </div>
-        <div className="playButton">
-          <img
-            src={playbuttonpic}
-            width={"35px"}
-            height={"35px"}
-            onClick={play}
-            id={"playButton"}
-          ></img>
-        </div>
+        {ispaused ? (
+          <div className="playButton">
+            <img
+              src={playbuttonpic}
+              width={"35px"}
+              height={"35px"}
+              onClick={play}
+              id={"playButton"}
+              alt=""
+            ></img>
+          </div>
+        ) : (
+          <div className="pauseButton">
+            <img
+              src={pausebuttonpic}
+              width={"30px"}
+              height={"30px"}
+              onClick={pause}
+              id={"pauseButton"}
+              alt=""
+            ></img>
+          </div>
+        )}
+
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 
