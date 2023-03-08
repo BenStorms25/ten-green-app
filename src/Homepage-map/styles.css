@@ -35,14 +35,13 @@ pre {
 
 .playButton {
   position: relative;
-  right: 0.1rem;
-  z-index: 99;
+  top: 0.1rem;
 }
 
 .pauseButton {
   position: relative;
-  top: 0.15rem;
-  z-index: 99;
+  margin-right: 0.3rem;
+  top: 0.3rem;
 }
 
 #reset-map-button {
