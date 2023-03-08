@@ -34,7 +34,6 @@ function SideDetails() {
     "arsenic",
     "lead",
     "cadmium",
-    "nickel",
   ];
   const [active, setActive] = useState(measures[0]);
 
@@ -58,9 +57,9 @@ function SideDetails() {
     } else if (value === "lead") {
       dispatch({ type: "SET_CURRENT_MEASURE", payload: "lead" });
       dispatch({ type: "SET_GRAPH_MAX", payload: 0.2 });
-    } else if (value === "no") {
-      dispatch({ type: "SET_CURRENT_MEASURE", payload: "no" });
-      dispatch({ type: "SET_GRAPH_MAX", payload: 30 });
+    } else if (value === "nickel") {
+      dispatch({ type: "SET_CURRENT_MEASURE", payload: "nickel" });
+      dispatch({ type: "SET_GRAPH_MAX", payload: 0.0148 });
     } else if (value === "no2") {
       dispatch({ type: "SET_CURRENT_MEASURE", payload: "no2" });
       dispatch({ type: "SET_GRAPH_MAX", payload: 60 });
@@ -153,13 +152,13 @@ function SideDetails() {
         </button>
       </div>
       <div className="side-detail-pollutant">
-        <p className="pollutant-title">NO</p>
+        <p className="pollutant-title">Nickel</p>
         <button
           className="button"
-          disabled={active === "no"}
-          onClick={() => adjust_graph("no")}
+          disabled={active === "nickel"}
+          onClick={() => adjust_graph("nickel")}
         >
-          {!isNaN(no) ? no.toFixed(3) : "N/A"}
+          {!isNaN(nickel) ? nickel.toFixed(3) : "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
