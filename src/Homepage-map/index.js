@@ -11,7 +11,8 @@ import { Data_Formatter } from "../components/Data-Formatter";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
-
+import { ScaleFormatter } from "../components/ScaleFormatter";
+import { Data_Setter } from "../components/Data_Setter";
 let ispaused = false;
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
@@ -19,21 +20,17 @@ const App = () => {
   const [currentCounty, setCurrentCounty] = useState(county);
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
-  let variableRange = 10;
-  if (current_measure === "ozone") {
-    variableRange = 0.1;
-  }
+  let maximum = ScaleFormatter(current_measure);
+
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
-    .domain([variableRange, 0]);
+    .domain([0, maximum]);
   if (current_measure !== "10green") {
     colorScale = d3
       .scaleSequential(d3.interpolateYlGnBu)
-      .domain([variableRange, 0]);
+      .domain([0, maximum]);
   }
-  // let data = useData();
   let data = Data_Formatter(current_measure);
-  console.log(current_measure);
 
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);

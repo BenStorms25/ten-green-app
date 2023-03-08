@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import "./styles/SideDetails.css";
 
 function SideDetails() {
+  const year = useSelector((state => state.year));
+  const current_id = useSelector((state => state.id))
   const county = useSelector((state) => state.county);
   const tenGreenScore = useSelector((state) => state.tenGreenScore);
   const aqi = useSelector((state) => state.aqi);
@@ -56,9 +58,6 @@ function SideDetails() {
     } else if (value === "lead") {
       dispatch({ type: "SET_CURRENT_MEASURE", payload: "lead" });
       dispatch({ type: "SET_GRAPH_MAX", payload: 0.2 });
-    } else if (value === "nickel") {
-      dispatch({ type: "SET_CURRENT_MEASURE", payload: "nickel" });
-      dispatch({ type: "SET_GRAPH_MAX", payload: 0.01 });
     } else if (value === "no") {
       dispatch({ type: "SET_CURRENT_MEASURE", payload: "no" });
       dispatch({ type: "SET_GRAPH_MAX", payload: 30 });
