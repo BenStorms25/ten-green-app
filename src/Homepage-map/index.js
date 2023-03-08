@@ -96,15 +96,12 @@ const App = () => {
     }
   }, [county]);
 
-
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
   }
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
-    
-
   };
 
   const play = () => {
@@ -123,7 +120,6 @@ const App = () => {
       } else {
         y++;
         setYear(y);
-        
 
         if (y === 2022) {
           setYear(1980);
@@ -263,28 +259,30 @@ const App = () => {
       </svg>
 
       <div className="timeline">
-        <div className="pauseButton">
-          <img
-            onmouseover="" 
-            style={{cursor: "pointer"}}
-            src={pausebuttonpic}
-            width={"30px"}
-            height={"30px"}
-            onClick={pause}
-            id={"pauseButton"}
-          ></img>
-        </div>
-        <div className="playButton">
-          <img
-            onmouseover="" 
-            style={{cursor: "pointer"}}
-            src={playbuttonpic}
-            width={"35px"}
-            height={"35px"}
-            onClick={play}
-            id={"playButton"}
-          ></img>
-        </div>
+        {ispaused ? (
+          <div className="playButton">
+            <img
+              src={playbuttonpic}
+              width={"35px"}
+              height={"35px"}
+              onClick={play}
+              id={"playButton"}
+              alt=""
+            ></img>
+          </div>
+        ) : (
+          <div className="pauseButton">
+            <img
+              src={pausebuttonpic}
+              width={"30px"}
+              height={"30px"}
+              onClick={pause}
+              id={"pauseButton"}
+              alt=""
+            ></img>
+          </div>
+        )}
+
         <div class="slider-wrapper">
           {/* <label for="year">Year {year}</label> */}
 
