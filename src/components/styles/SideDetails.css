@@ -41,6 +41,7 @@
 
 .button {
   /* background-color: blue; */
+  font-size: small;
 }
 .button:disabled {
   font-weight: bold;

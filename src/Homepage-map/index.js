@@ -98,9 +98,7 @@ const App = () => {
 
   const [year, setYear] = useState(2021);
 
-  useEffect(() => {
-    dispatch({ type: "SET_YEAR", payload: year});
-  }, [year]);
+
 
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;

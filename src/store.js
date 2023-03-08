@@ -4,6 +4,7 @@ const initialState = {
   county: "Select a County",
   id: "23019",
   year: 2021,
+  title_year: 2021,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,
@@ -201,6 +202,12 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       year: action.payload,
+    }
+  }
+  if (action.type === "SET_TITLE_YEAR") {
+    return {
+      ...state,
+      title_year: action.payload,
     }
   }
 

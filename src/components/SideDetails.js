@@ -113,7 +113,7 @@ function SideDetails() {
           style={!isNaN(ozone) ? ((ozone >= ThresholdFinder("ozone")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
           
-          {!isNaN(ozone) ? ozone.toFixed(3) : "N/A"}
+          {!isNaN(ozone) ? (ozone.toFixed(3) + " ppb") : "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -124,7 +124,7 @@ function SideDetails() {
           onClick={() => adjust_graph("pm25")}
           style={!isNaN(pm25) ? ((pm25 >= ThresholdFinder("pm25")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(pm25) ? pm25.toFixed(3) : "N/A"}
+          {!isNaN(pm25) ? (pm25.toFixed(3) + "µg m-3"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -136,7 +136,7 @@ function SideDetails() {
           onClick={() => adjust_graph("pm10")}
           style={!isNaN(pm10) ? ((pm10 >= ThresholdFinder("pm10")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(pm10) ? pm10.toFixed(3) : "N/A"}
+          {!isNaN(pm10) ? (pm10.toFixed(3) + "µg m-3"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -147,7 +147,7 @@ function SideDetails() {
           onClick={() => adjust_graph("so2")}
           style={!isNaN(so2) ? ((so2 >= ThresholdFinder("so2")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(so2) ? so2.toFixed(3) : "N/A"}
+          {!isNaN(so2) ? (so2.toFixed(3) + " ppb") : "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -158,7 +158,7 @@ function SideDetails() {
           onClick={() => adjust_graph("no2")}
           style={!isNaN(no2) ? ((no2 >= ThresholdFinder("no2")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(no2) ? no2.toFixed(3) : "N/A"}
+          {!isNaN(no2) ? (no2.toFixed(3) + " ppb") : "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -169,7 +169,7 @@ function SideDetails() {
           onClick={() => adjust_graph("nickel")}
           style={!isNaN(nickel) ? ((nickel >= ThresholdFinder("nickel")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(nickel) ? nickel.toFixed(3) : "N/A"}
+          {!isNaN(nickel) ? (nickel.toFixed(3) + "ng m-3"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -180,7 +180,7 @@ function SideDetails() {
           onClick={() => adjust_graph("lead")}
           style={!isNaN(lead) ? ((lead >= ThresholdFinder("lead")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(lead) ? lead.toFixed(3) : "N/A"}
+          {!isNaN(lead) ? (lead.toFixed(3) + "ng m-3"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -191,7 +191,7 @@ function SideDetails() {
           onClick={() => adjust_graph("co")}
           style={!isNaN(co) ? ((co >= ThresholdFinder("co")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(co) ? co.toFixed(3) : "N/A"}
+          {!isNaN(co) ? (co.toFixed(3) + "ppm"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -200,9 +200,10 @@ function SideDetails() {
           className="button"
           disabled={active === "cadmium"}
           onClick={() => adjust_graph("cadmium")}
-          style={!isNaN(cadmium) ? ((cadmium >= ThresholdFinder("cadmium")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
+          style={!isNaN(cadmium) ? ((cadmium >= ThresholdFinder("cadmium")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}} 
+          
         >
-          {!isNaN(cadmium) ? cadmium.toFixed(3) : "N/A"}
+          {!isNaN(cadmium) ? (cadmium.toFixed(3) +  "ng m-3"): "N/A"}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -213,7 +214,7 @@ function SideDetails() {
           onClick={() => adjust_graph("arsenic")}
           style={!isNaN(arsenic) ? ((arsenic >= ThresholdFinder("arsenic")) ? {backgroundColor:"red"} : {backgroundColor:"green"}) : {backgroundColor: "grey"}}
         >
-          {!isNaN(arsenic) ? arsenic.toFixed(3) : "N/A"}
+          {!isNaN(arsenic) ? (arsenic.toFixed(3) + "ng m-3") : "N/A"}
         </button>
       </div>
     </div>
