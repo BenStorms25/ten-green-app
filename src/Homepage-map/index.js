@@ -249,6 +249,8 @@ const App = () => {
       <div className="timeline">
         <div className="pauseButton">
           <img
+            onmouseover="" 
+            style={{cursor: "pointer"}}
             src={pausebuttonpic}
             width={"30px"}
             height={"30px"}
@@ -258,6 +260,8 @@ const App = () => {
         </div>
         <div className="playButton">
           <img
+            onmouseover="" 
+            style={{cursor: "pointer"}}
             src={playbuttonpic}
             width={"35px"}
             height={"35px"}
