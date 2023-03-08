@@ -12,14 +12,9 @@ import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
-<<<<<<< HEAD
 import { Data_Setter } from "../components/Data_Setter";
 
 let ispaused = true;
-=======
-// import { Data_Setter } from "../components/Data_Setter";
-let ispaused = false;
->>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
 const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   const current_id = useSelector((state) => state.id);
@@ -101,18 +96,7 @@ const App = () => {
     }
   }, [county]);
 
-<<<<<<< HEAD
-=======
-  const point = usePoints();
-  const UsaGeo = useUsaGeo();
 
-
-
-  const [year, setYear] = useState(2021);
-
-
-
->>>>>>> 954a8c0b57fcd80f6578714402cb61f1797d3ce7
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
   }
