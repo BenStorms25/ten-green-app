@@ -3,7 +3,8 @@ import { createStore } from "redux";
 const initialState = {
   county: "Select a County",
   id: "23019",
-  year: 1980,
+  year: 2021,
+  title_year: 2021,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,
@@ -11,13 +12,13 @@ const initialState = {
   co: 0,
   lead: 0,
   nickel: 0,
-  no: 0,
   no2: 0,
   ozone: 0,
   pm10: 0,
   pm25: 0,
   so2: 0,
   current_measure: "10green",
+  graph_data: [],
   graph_max: 10,
   panX: 40,
   panY: 65,
@@ -80,16 +81,11 @@ function reducer(state = initialState, action) {
       lead: action.payload,
     };
   }
+  
   if (action.type === "SET_NICKEL") {
     return {
       ...state,
       nickel: action.payload,
-    };
-  }
-  if (action.type === "SET_NO") {
-    return {
-      ...state,
-      no: action.payload,
     };
   }
   if (action.type === "SET_NO2") {
@@ -199,6 +195,19 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       ispaused: action.payload,
+    }
+  }
+
+  if (action.type === "SET_YEAR") {
+    return {
+      ...state,
+      year: action.payload,
+    }
+  }
+  if (action.type === "SET_TITLE_YEAR") {
+    return {
+      ...state,
+      title_year: action.payload,
     }
   }
 

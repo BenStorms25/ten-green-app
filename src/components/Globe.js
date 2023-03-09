@@ -3,11 +3,22 @@ import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import InteractiveMap from "./InteractiveMap";
 
-function Globe() {
+function Globe(props) {
   // scale globe and transition to map on scroll
   function scaleAndTransitionGlobe() {
     const globeDiv = document.querySelector("#globe");
     const globeImage = document.querySelector("#globe-image");
+    // adjusted fade rate for different widths
+    let fadeRate;
+    if (window.innerWidth >= 1030) {
+      fadeRate = 600;
+    } else if (window.innerWidth < 1030 && window.innerWidth >= 780) {
+      fadeRate = 350;
+    } else if (window.innerWidth < 780 && window.innerWidth >= 680) {
+      fadeRate = 280;
+    } else if (window.innerWidth < 680) {
+      fadeRate = 200;
+    }
 
     window.addEventListener("scroll", function () {
       // 2000 worked well for the scaling
@@ -20,7 +31,7 @@ function Globe() {
           "transform: scale(" + (1 + scaler) + ");"
         );
 
-        opacity = 1 - window.scrollY / 600;
+        opacity = 1 - window.scrollY / fadeRate;
         globeImage.setAttribute("style", "opacity: " + opacity + ";");
       } else {
         // set globe div to overflow hidden
@@ -41,7 +52,10 @@ function Globe() {
         </div>
       </div>
       <div className="interactive-map-container">
-        <InteractiveMap />
+        <InteractiveMap
+          dataPoints={props.dataPoints}
+          current_graph_max={props.current_graph_max}
+        />
       </div>
     </>
   );

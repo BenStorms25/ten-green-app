@@ -18,7 +18,7 @@
 }
 
 .header-logo {
-  height: 2rem;
+  height: 2.5rem;
   padding-right: 1rem;
 }
 
@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1037px) {
   .header-logo {
     display: none;
   }

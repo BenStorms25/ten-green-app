@@ -1,25 +1,20 @@
 .map-legend {
-  max-width: 20%;
-  width: 5%;
-  height: 30rem;
+  width: 100%;
+  display: flex;
 }
 .score-card {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 20%;
 }
 .score-stripe {
-  max-width: 30%;
-  height: 3.3rem;
+  height: 0.7rem;
 }
 .score-number {
-  margin-top: 1rem;
-}
-.legend-label {
-  font-size: 0.75rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
   text-align: center;
-  transform: rotate(180deg);
+  font-size: smaller;
 }
+.top-bar {
+  height: 0.7rem;
+  width: 100%;
+}
+
+/* background-color: linear-gradient(#071e59 15%, #ffffda); */

@@ -2,7 +2,8 @@ import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import allData from "../content/data_files/allData.json";
+import allData from "../content/json_choropleth/allData.json";
+import stateNameToAbbreviation from "../components/Abbrevinator"
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
@@ -11,7 +12,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
-  let dataMap = DataFilter(data, year, selectId);
+
+  let dataMap = DataFilter(allData, data, year, selectId); 
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
@@ -20,7 +22,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
     setSelectedId(incomingID);
   }, [incomingID]);
 
-  DataFilter(allData, null, null);
 
   projection.fitExtent(
     [
@@ -45,8 +46,10 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
             }
           >
             <title>
-              {feature.properties.name}, {states.get(feature.id.slice(0, 2))}
-              &#xA;{dataMap.get(feature.id)}
+              
+              {dataMap.get(feature.id)} {"- "}
+              {feature.properties.name}, {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
+              
             </title>
           </path>
         );

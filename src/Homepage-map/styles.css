@@ -28,41 +28,35 @@ pre {
   font-size: 2.5em;
   fill: #635f5d;
 }
-
-.flex-container {
+.timeline {
   display: flex;
-  flex-direction: row;
-}
-
-.slider-wrapper {
-  position: absolute;
-  left: 20px;
-  display: block;
-  width: 100px;
-  height: 350px;
-  padding: 0;
+  margin-top: 0.5rem;
 }
 
 .playButton {
-  position: fixed;
-  top: 42rem;
-  left: 3rem;
-  z-index: 99;
-} 
+  position: relative;
+  top: 0.1rem;
+}
 
 .pauseButton {
-  position: fixed;
-  top: 42rem;
-  left: 1rem;
-  z-index: 99;
-} 
+  position: relative;
+  margin-right: 0.3rem;
+  top: 0.3rem;
+}
 
- .slider-wrapper input {
+#reset-map-button {
+  position: absolute;
+  left: 736px;
+  top: 37.5rem;
+  z-index: 99;
+  border: 1px solid grey;
+  border-radius: 3%;
+  font-size: 0.75rem;
+}
+
+.slider-wrapper input {
   width: 750px;
   height: 40px;
-  position: relative;
-  top: 36rem;
-  left: 5rem;
   z-index: 99;
 }
 .slider-wrapper datalist {
@@ -75,11 +69,21 @@ pre {
   transform: rotate(-90deg);
 }
 
-.slider-wrapper current_year {
+current_year {
   position: relative;
-  top: 33.5rem;
-  left: 54rem;
+  top: 0.4rem;
+  left: 0.5rem;
   z-index: 99;
+}
+
+#reset-map {
+  stroke-width: 0.5;
+  stroke: #333333;
+}
+
+text:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 /* .slider-wrapper datalist option:nth-child(1) {
   transform: translate(-14px, 10px) rotate(-90deg);
@@ -145,4 +149,228 @@ pre {
 
 .border:hover {
   stroke: black;
+}
+
+/* 
+  
+  Interactive Map Media Queries 
+  
+*/
+
+@media (width >= 1850px) {
+  #homepage-map-svg {
+    height: 600px;
+  }
+  .slider-wrapper input {
+    width: 750px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (1850px > width >= 1700px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 750px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1700px) {
+  #homepage-map-svg {
+    height: 515px;
+  }
+  .slider-wrapper input {
+    width: 700px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1650px) {
+  .slider-wrapper input {
+    width: 680px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1600px) {
+  #homepage-map-svg {
+    height: 500px;
+  }
+  .slider-wrapper input {
+    width: 650px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1550px) {
+  .slider-wrapper input {
+    width: 600px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1500px) {
+  #homepage-map-svg {
+    height: 507px;
+  }
+  .slider-wrapper input {
+    width: 600px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1480px) {
+  .slider-wrapper input {
+    width: 590px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1400px) {
+  #homepage-map-svg {
+    height: 525px;
+  }
+}
+
+@media (max-width: 1360px) {
+  .slider-wrapper input {
+    width: 570px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1300px) {
+  .slider-wrapper input {
+    width: 540px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1250px) {
+  .slider-wrapper input {
+    width: 520px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+/* At 1230, interactive panel enlarges, stretch slider */
+@media (max-width: 1230px) {
+  .slider-wrapper input {
+    width: 560px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1130px) {
+  /* When side details snap below map */
+  #homepage-map-svg {
+    height: 400px;
+  }
+  .slider-wrapper input {
+    width: 560px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 1010px) {
+  /* When side details snap below map */
+  #homepage-map-svg {
+    height: 400px;
+  }
+  .slider-wrapper input {
+    width: 520px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+/* Mobile Devices */
+@media (max-width: 950px) {
+  .slider-wrapper input {
+    width: 500px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 850px) {
+  .slider-wrapper input {
+    width: 400px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 900px) {
+  #homepage-map-svg {
+    height: 300px;
+  }
+}
+
+@media (max-width: 930px) {
+  #homepage-map-svg {
+    height: 300px;
+  }
+  .slider-wrapper input {
+    width: 460px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 860px) {
+  .slider-wrapper input {
+    width: 420px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 800px) {
+  #homepage-map-svg {
+    height: 280px;
+  }
+  .slider-wrapper input {
+    width: 370px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 720px) {
+  .slider-wrapper input {
+    width: 200px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 650px) {
+  #homepage-map-svg {
+    height: 250px;
+  }
+}
+
+/* 
+  
+  Reset button Media Queries 
+  
+*/
+@media (max-width < 1680px) {
+  #reset-map-button {
+    position: absolute;
+    top: 37.5rem;
+    z-index: 99;
+    border: 1px solid grey;
+    border-radius: 3%;
+    font-size: 0.75rem;
+  }
 }

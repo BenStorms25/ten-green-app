@@ -1,5 +1,6 @@
 .center-content-1 {
-  width: 70%;
+  width: 70rem;
+  max-width: fit-content;
   margin: auto;
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -9,19 +10,21 @@
 .center-content-1 h1 {
   color: white;
   margin-bottom: 5rem;
+  margin-left: 2.5rem;
   font-size: 3rem;
   font-weight: bold;
 }
 
 .cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin-left: 2rem;
 }
 
 .card {
   flex: 0 0 195px;
-  margin-top: 1rem;
+  margin: 0.5rem;
   text-align: center;
   border-radius: 1rem;
   border: none;
@@ -73,10 +76,19 @@
   background-color: #ccc;
 }
 
-.panel {
-  padding: 0 18px;
+.top-panel {
+  padding: 1.5rem;
   display: none;
-  background-color: cyan;
+  background-color: white;
+  border-radius: 20px;
   overflow: hidden;
-  width: 150%;
+  width: 120%;
+}
+.bottom-panel {
+  padding: 1.5rem;
+  display: none;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 120%;
 }

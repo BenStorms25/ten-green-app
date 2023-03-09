@@ -1,26 +1,10 @@
-//import Data from "./pages/Data";
 import React from "react";
-// import Pollutants from "./pages/Pollutants";
-// import Standards from "./pages/Standards";
-// import About from "./pages/About";
-// import COLeanMore from "./pages/pollutants-learn-more/COLearnMore.js";
-// import ArsenicLearnMore from "./pages/pollutants-learn-more/ArsenicLearnMore";
-// import CadmiumLearnMore from "./pages/pollutants-learn-more/CadmiumLearnMore";
-// import LeadLearnMore from "./pages/pollutants-learn-more/LeadLearnMore";
-// import NO2LearnMore from "./pages/pollutants-learn-more/NO2LearnMore";
-// import OzoneLearnMore from "./pages/pollutants-learn-more/OzoneLearnMore";
-// import NickelLearnMore from "./pages/pollutants-learn-more/NickelLearnMore";
-// import SmallParticulateLearnMore from "./pages/pollutants-learn-more/SmallParticulateLearnMore";
-// import SO2LearnMore from "./pages/pollutants-learn-more/SO2LearnMore";
-// import LargeParticulateLearnMore from "./pages/pollutants-learn-more/LargeParticulateLearnMore.js";
-// import NOLearnMore from "./pages/pollutants-learn-more/NOLearnMore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"));
-const Data = React.lazy(() => import("./pages/Data"));
 const Pollutants = React.lazy(() => import("./pages/Pollutants"));
-const Standards = React.lazy(() => import("./pages/Standards"));
+const AQForecast = React.lazy(() => import("./pages/AQForecast"));
 const About = React.lazy(() => import("./pages/About"));
 const COLeanMore = React.lazy(() =>
   import("./pages/pollutants-learn-more/COLearnMore.js")
@@ -63,9 +47,8 @@ function App() {
         <React.Suspense>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/score-map" element={<Data />} />
             <Route path="/pollutants-and-standards" element={<Pollutants />} />
-            <Route path="/aq-forecast" element={<Standards />} />
+            <Route path="/aq-forecast" element={<AQForecast />} />
             <Route path="/about" element={<About />} />
             <Route
               path="/pollutants-and-standards/co"

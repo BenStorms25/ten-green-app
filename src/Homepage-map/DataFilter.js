@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-export const DataFilter = (data, year, id) => {
+export const DataFilter = (data, data2, year, id) => {
   const StateAbrevs = [
     "AL",
     "AK",
@@ -219,10 +218,6 @@ export const DataFilter = (data, year, id) => {
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NICKEL", payload: point.dataValue });
         break;
-      case "no":
-        dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_NO", payload: point.dataValue });
-        break;
       case "no2":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
         dispatch({ type: "SET_NO2", payload: point.dataValue });
@@ -249,5 +244,5 @@ export const DataFilter = (data, year, id) => {
   });
 
   // return data that will be mapped to the map
-  return new Map(data.map((obj) => [obj.id, obj.data[year - 1980]]));
+  return new Map(data2.map((obj) => [obj.id, obj.data[year - 1980]]));
 };

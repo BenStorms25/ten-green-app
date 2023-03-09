@@ -1,6 +1,4 @@
 export let Title_Formatter = (measure) => {
-
-
     switch (measure) {
         case "10green": 
             return "10Green";
