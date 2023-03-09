@@ -1,17 +1,16 @@
 #graphwidget {
-  width: 100%;
+  width: 90%;
 }
-.ResponsiveContainer {
-  position: absolute;
-}
+
 .recharts-wrapper {
   text-decoration:"none";
-  position: absolute;
-  width: 849px;
+  position: relative;
+  width: 0;
   height: 300px;
+
  
 }
 
-text.hover{
+.text2{
   text-decoration:"none";
 }
