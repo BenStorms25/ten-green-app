@@ -8,8 +8,18 @@ function DataContent() {
   const dispatch = useDispatch();
   
   const CountyListArray = CountyList;
-  // let incomingID = useSelector((state) => state.id);
+  let incomingID = useSelector((state) => state.id);
   
+  
+  let [selectedString, setString] = useState("04469");
+  
+  let emptyString = "TEST";
+  
+  useEffect(() => {
+    let empty = "TEST"
+    console.log(incomingID.slice(5))
+    setString((incomingID.slice(5)));
+  }, [incomingID]);
 
   const handleOnHover = (result) => {};
 
@@ -35,6 +45,9 @@ function DataContent() {
   const handleOnFocus = () => {};
 
   const handleOnClear = () => {};
+
+ 
+
   return (
     <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
@@ -43,7 +56,7 @@ function DataContent() {
         maxResults={0}
         onSearch={handleOnSearch}
         onHover={handleOnHover}
-        // inputSearchString={incomingID}
+        inputSearchString={selectedString}
         onSelect={handleOnSelect}
         onFocus={handleOnFocus}
         onClear={handleOnClear}
