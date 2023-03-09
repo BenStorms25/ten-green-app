@@ -9,15 +9,9 @@ function DataContent() {
   
   const CountyListArray = CountyList;
   let incomingID = useSelector((state) => state.id);
-  
-  
   let [selectedString, setString] = useState("04469");
   
-  let emptyString = "TEST";
-  
   useEffect(() => {
-    let empty = "TEST"
-    console.log(incomingID.slice(5))
     setString((incomingID.slice(5)));
   }, [incomingID]);
 

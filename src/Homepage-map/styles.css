@@ -83,7 +83,11 @@ pre {
   stroke: #333333;
 }
 
-text:hover {
+text.button {
+  font-size: 0.75rem;
+}
+text.button:hover {
+  
   cursor: pointer;
   text-decoration: underline;
 }
