@@ -13,6 +13,8 @@ import largeParticulateMatterImage from "../images/largeparticles.png";
 import CustomFooter from "./CustomFooter";
 import PollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
 
+//import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
+
 function PollutantsContent() {
   const [mounted, setMounted] = useState(false);
   const [attached, setAttached] = useState(false);
