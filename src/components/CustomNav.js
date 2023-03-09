@@ -35,7 +35,7 @@ function CustomNav() {
           </li>
           <li>
             <HashLink to="/pollutants-and-standards">
-              Pollutants/Standards
+              Pollutants & Standards
             </HashLink>
           </li>
           <li>

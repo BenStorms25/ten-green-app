@@ -345,7 +345,7 @@ const App = () => {
             </datalist>
           </div>
         </div>
-        <current_year>{year}</current_year>
+        <span className="current_year">{year}</span>
       </div>
     </>
   );
