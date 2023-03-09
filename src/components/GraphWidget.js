@@ -15,6 +15,7 @@ import { Title_Formatter } from "./Title_Formatter";
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center",
+  textDecoration: "none",
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -37,12 +38,12 @@ export const GraphWidget = ({ data, max }) => {
   return (
     <div id="graphwidget">
       <div style={styles}>
-        <ResponsiveContainer width={"105%"} height={300}>
+        <ResponsiveContainer width="99%" height={300} zoom= {.8} >
           <LineChart
             width={500}
             height={300}
             data={data}
-    
+            
             margin={{
               top: 50,
               right: 30,
@@ -56,8 +57,11 @@ export const GraphWidget = ({ data, max }) => {
               fill="black"
               textAnchor="middle"
               dominantBaseline="central"
+              cursor="auto"
+              text-decoration="none"
             >
-              <tspan fontSize="14">
+              <tspan fontSize="14"
+              style={{textDecoration:"none"}}>
                 {county}, {Title_Formatter(current_measure)} Score over time
               </tspan>
             </text>
