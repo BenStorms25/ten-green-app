@@ -36,12 +36,14 @@ pre {
 .playButton {
   position: relative;
   top: 0.1rem;
+  cursor: pointer;
 }
 
 .pauseButton {
   position: relative;
   margin-right: 0.3rem;
   top: 0.3rem;
+  cursor: pointer;
 }
 
 #reset-map-button {
@@ -69,7 +71,7 @@ pre {
   transform: rotate(-90deg);
 }
 
-current_year {
+.current_year {
   position: relative;
   top: 0.4rem;
   left: 0.5rem;

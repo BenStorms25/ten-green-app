@@ -18,32 +18,34 @@ footer {
   padding-bottom: 2rem;
 }
 .box1 img {
-height: 3rem;
-margin-bottom: 2rem;
+  height: 3rem;
+  margin-bottom: 2rem;
 }
 .box1 p {
-padding: 0%;
-color: grey;
+  padding: 0%;
+  color: grey;
 }
-.box1, .box2, .box3 {
+.box1,
+.box2,
+.box3 {
   padding-right: 10rem;
 }
-.box2 a, .box3 a {
+.top a {
   color: grey;
   display: block;
   padding-bottom: 0.5rem;
 }
-.box2 a:link, .box3 a:link{
-text-decoration: none;
-}
-.box2 a:visited, .box3 a:visited  {
+.top a:link {
   text-decoration: none;
 }
-.box2 a:hover, .box3 a:hover {
-text-decoration: underline;
+.top a:visited {
+  text-decoration: none;
 }
-.box2 a:active, .box3 a:active {
-text-decoration: none;
+.top a:hover {
+  text-decoration: underline;
+}
+.top a:active {
+  text-decoration: none;
 }
 .bottom {
   display: flex;
@@ -57,8 +59,8 @@ text-decoration: none;
   font-weight: 549;
 }
 .bottom img {
-  height: 1.70rem;
-  padding-left: 1rem; 
+  height: 1.7rem;
+  padding-left: 1rem;
 }
 hr {
   border-color: grey;

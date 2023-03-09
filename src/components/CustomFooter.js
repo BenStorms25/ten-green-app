@@ -24,7 +24,6 @@ function CustomFooter() {
           </div>
           <div className="box2">
             <p>Navigation</p>
-            //instead of # insert redirection on certain page
             <a href="#">Score Map</a>
             <a href="#">About</a>
             <a href="#">Pollutants/Standards</a>
