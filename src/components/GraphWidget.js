@@ -52,6 +52,7 @@ export const GraphWidget = ({ data, max }) => {
             }}
           >
             <text
+              class="second"
               x={180}
               y={20}
               fill="black"

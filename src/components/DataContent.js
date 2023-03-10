@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import CountyList from "../content/ZipsToFips2.json";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function DataContent() {
   const dispatch = useDispatch();
   
   const CountyListArray = CountyList;
+  let incomingID = useSelector((state) => state.id);
+  let [selectedString, setString] = useState("04469");
+  
+  useEffect(() => {
+    setString((incomingID.slice(5)));
+  }, [incomingID]);
 
   const handleOnHover = (result) => {};
 
@@ -33,13 +39,18 @@ function DataContent() {
   const handleOnFocus = () => {};
 
   const handleOnClear = () => {};
+
+ 
+
   return (
     <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
         items={CountyListArray}
-        maxResults={5}
+        showNoResults={false}
+        maxResults={0}
         onSearch={handleOnSearch}
         onHover={handleOnHover}
+        inputSearchString={selectedString}
         onSelect={handleOnSelect}
         onFocus={handleOnFocus}
         onClear={handleOnClear}
