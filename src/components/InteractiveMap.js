@@ -18,7 +18,7 @@ function InteractiveMap(props) {
     <div id="interactive-map">
       <div className="map-top">
         <h5 className="map-title">
-          {Title_Formatter(current_measure)} Score by County - {current_year}{" "}
+          {Title_Formatter(current_measure)} Score by County - 1980 to 2021{" "}
         </h5>
         <DataContent />
       </div>
@@ -35,7 +35,6 @@ function InteractiveMap(props) {
         <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
       </React.Suspense>
     </div>
-    
   );
 }
 
