@@ -116,8 +116,8 @@ function SideDetails() {
           style={
             !isNaN(ozone)
               ? ozone >= ThresholdFinder("ozone")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -133,8 +133,8 @@ function SideDetails() {
           style={
             !isNaN(pm25)
               ? pm25 >= ThresholdFinder("pm25")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -147,13 +147,13 @@ function SideDetails() {
         <button
           className="button"
           disabled={active === "pm10"}
-          background-color="green"
+          background-color="#C9E5AA"
           onClick={() => adjust_graph("pm10")}
           style={
             !isNaN(pm10)
               ? pm10 >= ThresholdFinder("pm10")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -170,8 +170,8 @@ function SideDetails() {
           style={
             !isNaN(so2)
               ? so2 >= ThresholdFinder("so2")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -188,8 +188,8 @@ function SideDetails() {
           style={
             !isNaN(no2)
               ? no2 >= ThresholdFinder("no2")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -206,8 +206,8 @@ function SideDetails() {
           style={
             !isNaN(nickel)
               ? nickel >= ThresholdFinder("nickel")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -224,8 +224,8 @@ function SideDetails() {
           style={
             !isNaN(lead)
               ? lead >= ThresholdFinder("lead")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -241,8 +241,8 @@ function SideDetails() {
           style={
             !isNaN(co)
               ? co >= ThresholdFinder("co")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -259,8 +259,8 @@ function SideDetails() {
           style={
             !isNaN(cadmium)
               ? cadmium >= ThresholdFinder("cadmium")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
@@ -277,8 +277,8 @@ function SideDetails() {
           style={
             !isNaN(arsenic)
               ? arsenic >= ThresholdFinder("arsenic")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
