@@ -46,7 +46,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
                 : "grey"
             }
           >
-            
             <title>
               
               {dataMap.get(feature.id)} {"- "}
