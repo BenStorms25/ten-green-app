@@ -17,10 +17,10 @@
     "implications": "Lead is distributed throughout the body in blood and accumulates in bone. Depending on the level of exposure, lead can adversely affect several systems in the body including nervous, immune, reproductive, developmental, and cardiovascular. Lead can also impair kidney function, and reduce the oxygen carrying capacity of blood. Infants and young children are especially sensitive to lead poisoning, the latter which may underpin behavioral problems, learning disabilities, and low IQ.",
     "source": "Information source: U.S. EPA."
   },
-  "NO": {
-    "pollutant": "Nitric Oxide",
-    "description": "needs description",
-    "implications": "needs description",
+  "Nickel": {
+    "pollutant": "Nickel",
+    "description": "Nickel (Ni) is used primarily in the production of stainless steel and nickel alloys. It is also found in some natural settings. Human exposure comes from food, drinking water, and smoking.",
+    "implications": "Nickel is believed to be carcinogenic, but the only certain effect is a contact allergy in which skin becomes itchy and reddened. ",
     "source": "Information source: U.S. EPA."
   },
   "NO2": {

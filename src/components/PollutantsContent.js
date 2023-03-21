@@ -62,6 +62,17 @@ function PollutantsContent() {
   function handleDisplayTop(pollutant) {
     setCurrentPollutant(pollutant);
 
+    // turn off all panels before
+    for (let i = 0; i < topPanels.length; i++) {
+      topPanels[i].style.display = "none";
+      bottomPanels[i].style.display = "none";
+    }
+    setDescriptionActive(false);
+
+    // if learn more pressed again, collapse panel
+    if (pollutant === currentPollutant && descriptionActive) {
+      return;
+    }
     // setter not working?  Always rendering CO in the panels
     console.log(currentPollutant);
     console.log(PollutantsInfo[currentPollutant].pollutant);
@@ -69,12 +80,23 @@ function PollutantsContent() {
       topPanels[maxCards - 1].style.display = "none";
     } else {
       topPanels[maxCards - 1].style.display = "block";
+      setDescriptionActive(true);
     }
   }
 
   function handleDisplayBottom(pollutant) {
     setCurrentPollutant(pollutant);
+    // turn off all panels
+    for (let i = 0; i < topPanels.length; i++) {
+      topPanels[i].style.display = "none";
+      bottomPanels[i].style.display = "none";
+    }
+    setDescriptionActive(false);
 
+    // if learn more pressed again, collapse panel
+    if (pollutant === currentPollutant && descriptionActive) {
+      return;
+    }
     // setter not working?  Always rendering CO in the panels
     console.log(currentPollutant);
     console.log(PollutantsInfo[currentPollutant].pollutant);
@@ -82,6 +104,7 @@ function PollutantsContent() {
       bottomPanels[maxCards - 1].style.display = "none";
     } else {
       bottomPanels[maxCards - 1].style.display = "block";
+      setDescriptionActive(true);
     }
   }
 
@@ -98,7 +121,6 @@ function PollutantsContent() {
 
           <div
             class="top-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -114,7 +136,6 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -131,7 +152,6 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -148,7 +168,6 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -165,7 +184,6 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -184,7 +202,6 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -203,7 +220,6 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -222,7 +238,6 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -241,7 +256,6 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
@@ -259,7 +273,6 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            id="panel1"
             style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
