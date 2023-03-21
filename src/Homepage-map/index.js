@@ -229,6 +229,7 @@ const App = () => {
             data={data}
             year={year}
             colorScale={colorScale}
+            maximum={maximum}
           />
 
           <points point={point} />

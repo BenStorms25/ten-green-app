@@ -116,12 +116,12 @@ function SideDetails() {
           style={
             !isNaN(ozone)
               ? ozone >= ThresholdFinder("ozone")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
-          {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(3) + " ppb" : "N/A")}
+          {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -133,13 +133,13 @@ function SideDetails() {
           style={
             !isNaN(pm25)
               ? pm25 >= ThresholdFinder("pm25")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(3) + "µg m-3" : "N/A")}
+          {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(1) + "µg m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -147,18 +147,18 @@ function SideDetails() {
         <button
           className="button"
           disabled={active === "pm10"}
-          background-color="green"
+          background-color="#C9E5AA"
           onClick={() => adjust_graph("pm10")}
           style={
             !isNaN(pm10)
               ? pm10 >= ThresholdFinder("pm10")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(3) + "µg m-3" : "N/A")}
+          {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(1) + "µg m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -170,13 +170,13 @@ function SideDetails() {
           style={
             !isNaN(so2)
               ? so2 >= ThresholdFinder("so2")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"SO2: " + (!isNaN(so2) ? so2.toFixed(3) + " ppb" : "N/A")}
+          {"SO2: " + (!isNaN(so2) ? so2.toFixed(1) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -188,13 +188,13 @@ function SideDetails() {
           style={
             !isNaN(no2)
               ? no2 >= ThresholdFinder("no2")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"NO2: " + (!isNaN(no2) ? no2.toFixed(3) + " ppb" : "N/A")}
+          {"NO2: " + (!isNaN(no2) ? no2.toFixed(1) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -206,13 +206,13 @@ function SideDetails() {
           style={
             !isNaN(nickel)
               ? nickel >= ThresholdFinder("nickel")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(3) + "ng m-3" : "N/A")}
+          {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(1) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -224,12 +224,12 @@ function SideDetails() {
           style={
             !isNaN(lead)
               ? lead >= ThresholdFinder("lead")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
-          {"Lead: " + (!isNaN(lead) ? lead.toFixed(3) + "ng m-3" : "N/A")}
+          {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -241,13 +241,13 @@ function SideDetails() {
           style={
             !isNaN(co)
               ? co >= ThresholdFinder("co")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"CO: " + (!isNaN(co) ? co.toFixed(3) + "ppm" : "N/A")}
+          {"CO: " + (!isNaN(co) ? co.toFixed(1) + "ppm" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -259,13 +259,13 @@ function SideDetails() {
           style={
             !isNaN(cadmium)
               ? cadmium >= ThresholdFinder("cadmium")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
           
-          {"Cadmium: " + (!isNaN(cadmium) ? cadmium.toFixed(3) + "ng m-3" : "N/A")}
+          {"Cadmium: " + (!isNaN(cadmium) ? cadmium.toFixed(1) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -277,12 +277,12 @@ function SideDetails() {
           style={
             !isNaN(arsenic)
               ? arsenic >= ThresholdFinder("arsenic")
-                ? { backgroundColor: "red" }
-                : { backgroundColor: "green" }
+                ? { backgroundColor: "#E2AAAA" }
+                : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "grey" }
           }
         >
-          {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(3) + "ng m-3" : "N/A")}
+          {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
         </button>
       </div>
     </div>
