@@ -67,9 +67,10 @@ function PollutantsContent() {
       topPanels[i].style.display = "none";
       bottomPanels[i].style.display = "none";
     }
+    setDescriptionActive(false);
 
     // if learn more pressed again, collapse panel
-    if (pollutant === currentPollutant) {
+    if (pollutant === currentPollutant && descriptionActive) {
       return;
     }
     // setter not working?  Always rendering CO in the panels
@@ -79,6 +80,7 @@ function PollutantsContent() {
       topPanels[maxCards - 1].style.display = "none";
     } else {
       topPanels[maxCards - 1].style.display = "block";
+      setDescriptionActive(true);
     }
   }
 
@@ -89,9 +91,10 @@ function PollutantsContent() {
       topPanels[i].style.display = "none";
       bottomPanels[i].style.display = "none";
     }
+    setDescriptionActive(false);
 
     // if learn more pressed again, collapse panel
-    if (pollutant === currentPollutant) {
+    if (pollutant === currentPollutant && descriptionActive) {
       return;
     }
     // setter not working?  Always rendering CO in the panels
@@ -101,6 +104,7 @@ function PollutantsContent() {
       bottomPanels[maxCards - 1].style.display = "none";
     } else {
       bottomPanels[maxCards - 1].style.display = "block";
+      setDescriptionActive(true);
     }
   }
 
