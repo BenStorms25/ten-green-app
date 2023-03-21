@@ -86,14 +86,14 @@ function SideDetails() {
           onClick={() => adjust_graph("tenGreenScore")}
           className="pollutant-title"
         >
-          10Green Score
+          
         </p>
         <button
           className="button"
           disabled={active === "tenGreenScore"}
           onClick={() => adjust_graph("tenGreenScore")}
         >
-          {tenGreenScore}
+          {"10Green Score:" + (tenGreenScore)}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -103,7 +103,7 @@ function SideDetails() {
           disabled={active === "aqi"}
           onClick={() => adjust_graph("aqi")}
         >
-          {aqi}
+          {"AQI Score: " + (aqi)}
         </button>
       </div>
       <hr></hr>
@@ -121,7 +121,7 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(ozone) ? ozone.toFixed(3) + " ppb" : "N/A"}
+          {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(3) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -138,7 +138,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(pm25) ? pm25.toFixed(3) + "µg m-3" : "N/A"}
+          
+          {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(3) + "µg m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -156,7 +157,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(pm10) ? pm10.toFixed(3) + "µg m-3" : "N/A"}
+          
+          {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(3) + "µg m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -173,7 +175,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(so2) ? so2.toFixed(3) + " ppb" : "N/A"}
+          
+          {"SO2: " + (!isNaN(so2) ? so2.toFixed(3) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -190,7 +193,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(no2) ? no2.toFixed(3) + " ppb" : "N/A"}
+          
+          {"NO2: " + (!isNaN(no2) ? no2.toFixed(3) + " ppb" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -207,7 +211,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(nickel) ? nickel.toFixed(3) + "ng m-3" : "N/A"}
+          
+          {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(3) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -224,7 +229,7 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(lead) ? lead.toFixed(3) + "ng m-3" : "N/A"}
+          {"Lead: " + (!isNaN(lead) ? lead.toFixed(3) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -241,7 +246,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(co) ? co.toFixed(3) + "ppm" : "N/A"}
+          
+          {"CO: " + (!isNaN(co) ? co.toFixed(3) + "ppm" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -258,7 +264,8 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(cadmium) ? cadmium.toFixed(3) + "ng m-3" : "N/A"}
+          
+          {"Cadmium: " + (!isNaN(cadmium) ? cadmium.toFixed(3) + "ng m-3" : "N/A")}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -275,7 +282,7 @@ function SideDetails() {
               : { backgroundColor: "grey" }
           }
         >
-          {!isNaN(arsenic) ? arsenic.toFixed(3) + "ng m-3" : "N/A"}
+          {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(3) + "ng m-3" : "N/A")}
         </button>
       </div>
     </div>

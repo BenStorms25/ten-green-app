@@ -31,7 +31,7 @@ function InteractiveMap(props) {
           <SideDetails />
         </div>
       </div>
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense fallback={<div id ="placeholder_graph">Loading...</div>}>
         <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
       </React.Suspense>
     </div>

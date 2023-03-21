@@ -24,9 +24,10 @@
 }
 .side-details button {
   
-  margin-left: 0.5rem;
+  margin-left: -4.5rem;
   margin-bottom: 0.5rem;
   height: 1.7rem;
+  width: 13rem;
   border: 1px solid grey;
   border-radius: 5px;
   text-align: center;
@@ -47,15 +48,7 @@
   font-weight: bold;
 }
 
-/* .button:badscore {
-  background-color: red;
-  color: black;
 
-}
-.button.goodscore {
-  background-color: green;
-  color: red;
-} */
 
 @media (1600px <= width <= 1700px) {
   .side-details {
