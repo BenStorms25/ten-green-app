@@ -45,7 +45,8 @@ function DataContent() {
     <div style={{ width: 300, margin: 0 }}>
       <ReactSearchAutocomplete
         items={CountyListArray}
-        maxResults={5}
+        showNoResults={true}
+        maxResults={0}
         onSearch={handleOnSearch}
         onHover={handleOnHover}
         inputSearchString={selectedString}

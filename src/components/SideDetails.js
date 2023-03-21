@@ -97,7 +97,7 @@ function SideDetails() {
         </button>
       </div>
       <div className="side-detail-pollutant">
-        <p className="pollutant-title">AQI</p>
+        <p className="pollutant-title"></p>
         <button
           className="button"
           disabled={active === "aqi"}
@@ -118,7 +118,7 @@ function SideDetails() {
               ? ozone >= ThresholdFinder("ozone")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
@@ -135,7 +135,7 @@ function SideDetails() {
               ? pm25 >= ThresholdFinder("pm25")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -154,7 +154,7 @@ function SideDetails() {
               ? pm10 >= ThresholdFinder("pm10")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -172,7 +172,7 @@ function SideDetails() {
               ? so2 >= ThresholdFinder("so2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -190,7 +190,7 @@ function SideDetails() {
               ? no2 >= ThresholdFinder("no2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -208,7 +208,7 @@ function SideDetails() {
               ? nickel >= ThresholdFinder("nickel")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -226,7 +226,7 @@ function SideDetails() {
               ? lead >= ThresholdFinder("lead")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
@@ -243,7 +243,7 @@ function SideDetails() {
               ? co >= ThresholdFinder("co")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -261,7 +261,7 @@ function SideDetails() {
               ? cadmium >= ThresholdFinder("cadmium")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           
@@ -279,7 +279,7 @@ function SideDetails() {
               ? arsenic >= ThresholdFinder("arsenic")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "grey" }
+              : { backgroundColor: "lightgrey" }
           }
         >
           {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
