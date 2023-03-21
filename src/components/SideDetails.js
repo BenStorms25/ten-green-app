@@ -114,11 +114,13 @@ function SideDetails() {
           disabled={active === "ozone"}
           onClick={() => adjust_graph("ozone")}
           style={
+            active === "tenGreenScore" ? 
             !isNaN(ozone)
               ? ozone >= ThresholdFinder("ozone")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "lightgrey" } 
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
@@ -131,11 +133,13 @@ function SideDetails() {
           disabled={active === "pm25"}
           onClick={() => adjust_graph("pm25")}
           style={
+            active === "tenGreenScore" ? 
             !isNaN(pm25)
               ? pm25 >= ThresholdFinder("pm25")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -150,11 +154,13 @@ function SideDetails() {
           background-color="#C9E5AA"
           onClick={() => adjust_graph("pm10")}
           style={
+            active === "tenGreenScore" ? 
             !isNaN(pm10)
               ? pm10 >= ThresholdFinder("pm10")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -168,11 +174,13 @@ function SideDetails() {
           disabled={active === "so2"}
           onClick={() => adjust_graph("so2")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(so2)
               ? so2 >= ThresholdFinder("so2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -186,11 +194,13 @@ function SideDetails() {
           disabled={active === "no2"}
           onClick={() => adjust_graph("no2")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(no2)
               ? no2 >= ThresholdFinder("no2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -204,11 +214,13 @@ function SideDetails() {
           disabled={active === "nickel"}
           onClick={() => adjust_graph("nickel")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(nickel)
               ? nickel >= ThresholdFinder("nickel")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -222,11 +234,14 @@ function SideDetails() {
           disabled={active === "lead"}
           onClick={() => adjust_graph("lead")}
           style={
+            active === "tenGreenScore" ?
+
             !isNaN(lead)
               ? lead >= ThresholdFinder("lead")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
@@ -239,11 +254,13 @@ function SideDetails() {
           disabled={active === "co"}
           onClick={() => adjust_graph("co")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(co)
               ? co >= ThresholdFinder("co")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -257,11 +274,13 @@ function SideDetails() {
           disabled={active === "cadmium"}
           onClick={() => adjust_graph("cadmium")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(cadmium)
               ? cadmium >= ThresholdFinder("cadmium")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -275,11 +294,13 @@ function SideDetails() {
           disabled={active === "arsenic"}
           onClick={() => adjust_graph("arsenic")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(arsenic)
               ? arsenic >= ThresholdFinder("arsenic")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
