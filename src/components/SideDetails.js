@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./styles/SideDetails.css";
 import { ThresholdFinder } from "./ThresholdFinder";
+import { Title_Formatter } from "./Title_Formatter";
 
 function SideDetails() {
   const year = useSelector((state) => state.year);
@@ -93,7 +94,7 @@ function SideDetails() {
           disabled={active === "tenGreenScore"}
           onClick={() => adjust_graph("tenGreenScore")}
         >
-          {"10Green Score:" + (tenGreenScore)}
+          {"10Green Score: " + (tenGreenScore)}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -132,6 +133,7 @@ function SideDetails() {
           className="button"
           disabled={active === "pm25"}
           onClick={() => adjust_graph("pm25")}
+          title="Large Particulates"
           style={
             active === "tenGreenScore" ? 
             !isNaN(pm25)
@@ -153,6 +155,7 @@ function SideDetails() {
           disabled={active === "pm10"}
           background-color="#C9E5AA"
           onClick={() => adjust_graph("pm10")}
+          title="Small Particulates"
           style={
             active === "tenGreenScore" ? 
             !isNaN(pm10)
@@ -173,6 +176,7 @@ function SideDetails() {
           className="button"
           disabled={active === "so2"}
           onClick={() => adjust_graph("so2")}
+          title="Sulfur Dioxide"
           style={
             active === "tenGreenScore" ?
             !isNaN(so2)
@@ -193,6 +197,7 @@ function SideDetails() {
           className="button"
           disabled={active === "no2"}
           onClick={() => adjust_graph("no2")}
+          title="Nitrogen Dioxide"
           style={
             active === "tenGreenScore" ?
             !isNaN(no2)
@@ -213,6 +218,7 @@ function SideDetails() {
           className="button"
           disabled={active === "nickel"}
           onClick={() => adjust_graph("nickel")}
+          title="Nickel"
           style={
             active === "tenGreenScore" ?
             !isNaN(nickel)
@@ -233,6 +239,7 @@ function SideDetails() {
           className="button"
           disabled={active === "lead"}
           onClick={() => adjust_graph("lead")}
+          title="Lead"
           style={
             active === "tenGreenScore" ?
 
@@ -253,6 +260,7 @@ function SideDetails() {
           className="button"
           disabled={active === "co"}
           onClick={() => adjust_graph("co")}
+          Title = "Carbon Monoxide"
           style={
             active === "tenGreenScore" ?
             !isNaN(co)
@@ -273,6 +281,7 @@ function SideDetails() {
           className="button"
           disabled={active === "cadmium"}
           onClick={() => adjust_graph("cadmium")}
+          title="Cadmium"
           style={
             active === "tenGreenScore" ?
             !isNaN(cadmium)
@@ -292,6 +301,7 @@ function SideDetails() {
         <button
           className="button"
           disabled={active === "arsenic"}
+          title="Arsenic"
           onClick={() => adjust_graph("arsenic")}
           style={
             active === "tenGreenScore" ?
