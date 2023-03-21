@@ -45,8 +45,13 @@
   font-size: small;
 }
 .button:disabled {
-  background-color: lightgrey;
+  
+  border: 2px solid rgb(0, 0, 0);
   font-weight: bold;
+  color: rgb(0, 0, 0);
+
+  
+  
 }
 
 
