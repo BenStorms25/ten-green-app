@@ -45,6 +45,7 @@
   font-size: small;
 }
 .button:disabled {
+  background-color: lightgrey;
   font-weight: bold;
 }
 
