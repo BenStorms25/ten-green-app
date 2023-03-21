@@ -8,7 +8,7 @@ import stateNameToAbbreviation from "../components/Abbrevinator"
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
-export const Marks = ({ UsaGeo, data, year, colorScale }) => {
+export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
@@ -41,7 +41,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale }) => {
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
             fill={
               colorScale(dataMap.get(feature.id))
-                ? colorScale((dataMap.get(feature.id) - 1))
+                ? colorScale((dataMap.get(feature.id) - (maximum / 10.0)))
                 : "grey"
             }
           >

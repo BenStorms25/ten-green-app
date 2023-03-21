@@ -97,7 +97,7 @@ function SideDetails() {
         </button>
       </div>
       <div className="side-detail-pollutant">
-        <p className="pollutant-title">AQI</p>
+        <p className="pollutant-title"></p>
         <button
           className="button"
           disabled={active === "aqi"}
