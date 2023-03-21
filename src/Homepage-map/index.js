@@ -246,6 +246,7 @@ const App = () => {
               onClick={handleReset}
             />
             <text
+            className ={"button"}
               onClick={handleReset}
               x="744"
               y="455"
