@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./styles/PollutantsContent.css";
 import co2Image from "../images/carbon-monoxide-oQEdDIMEIlc-unsplash-1440x1080.jpeg";
 import noImage from "../images/nitric_oxide.png";
+import nickelImage from "../images/nickelPollution.png";
 import ozoneImage from "../images/ozoneImage.png";
 import sulfurDioxideImage from "../images/sulfurDioxide.png";
 import nitrogenDioxideImage from "../images/nitrogenDioxideImage.png";
@@ -175,9 +176,9 @@ function PollutantsContent() {
           </div>
 
           <article class="card">
-            <img src={noImage}></img>
-            <p>NO</p>
-            <button onClick={() => handleDisplayBottom("NO")}>
+            <img src={nickelImage}></img>
+            <p>Nickel</p>
+            <button onClick={() => handleDisplayBottom("Nickel")}>
               Learn More
             </button>
           </article>
