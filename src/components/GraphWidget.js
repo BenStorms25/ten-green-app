@@ -38,7 +38,7 @@ export const GraphWidget = ({ data, max }) => {
   return (
     <div id="graphwidget">
       <div style={styles}>
-        <ResponsiveContainer width="99%" height={300} zoom= {.8} >
+        <ResponsiveContainer width="99%" height={200} zoom= {.8} >
           <LineChart
             width={500}
             height={300}
@@ -82,7 +82,7 @@ export const GraphWidget = ({ data, max }) => {
               tickLine={true}
               domain={["dataMin", "dataMax"]}
             />
-            <YAxis type="number" domain={[0, max]} />
+            <YAxis type="number" domain={[0, max]}/>
             <Tooltip
               wrapperStyle={{ outline: "none" }}
               content={<CustomTooltip />}

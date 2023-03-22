@@ -33,10 +33,10 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() =>{
+  useEffect(() =>{
 
-  //   Data_Setter(current_id)
-  // }, [current_id]);
+    dispatch({ type: "SET_TITLE_YEAR", payload: year });
+  }, [year]);
 
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./styles/SideDetails.css";
 import { ThresholdFinder } from "./ThresholdFinder";
+import { Title_Formatter } from "./Title_Formatter";
 
 function SideDetails() {
   const year = useSelector((state) => state.year);
@@ -93,7 +94,7 @@ function SideDetails() {
           disabled={active === "tenGreenScore"}
           onClick={() => adjust_graph("tenGreenScore")}
         >
-          {"10Green Score:" + (tenGreenScore)}
+          {"10Green Score: " + (tenGreenScore)}
         </button>
       </div>
       <div className="side-detail-pollutant">
@@ -114,11 +115,13 @@ function SideDetails() {
           disabled={active === "ozone"}
           onClick={() => adjust_graph("ozone")}
           style={
+            active === "tenGreenScore" ? 
             !isNaN(ozone)
               ? ozone >= ThresholdFinder("ozone")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "lightgrey" } 
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
@@ -130,12 +133,15 @@ function SideDetails() {
           className="button"
           disabled={active === "pm25"}
           onClick={() => adjust_graph("pm25")}
+          title="Large Particulates"
           style={
+            active === "tenGreenScore" ? 
             !isNaN(pm25)
               ? pm25 >= ThresholdFinder("pm25")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -149,12 +155,15 @@ function SideDetails() {
           disabled={active === "pm10"}
           background-color="#C9E5AA"
           onClick={() => adjust_graph("pm10")}
+          title="Small Particulates"
           style={
+            active === "tenGreenScore" ? 
             !isNaN(pm10)
               ? pm10 >= ThresholdFinder("pm10")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -167,12 +176,15 @@ function SideDetails() {
           className="button"
           disabled={active === "so2"}
           onClick={() => adjust_graph("so2")}
+          title="Sulfur Dioxide"
           style={
+            active === "tenGreenScore" ?
             !isNaN(so2)
               ? so2 >= ThresholdFinder("so2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -185,12 +197,15 @@ function SideDetails() {
           className="button"
           disabled={active === "no2"}
           onClick={() => adjust_graph("no2")}
+          title="Nitrogen Dioxide"
           style={
+            active === "tenGreenScore" ?
             !isNaN(no2)
               ? no2 >= ThresholdFinder("no2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -203,12 +218,15 @@ function SideDetails() {
           className="button"
           disabled={active === "nickel"}
           onClick={() => adjust_graph("nickel")}
+          title="Nickel"
           style={
+            active === "tenGreenScore" ?
             !isNaN(nickel)
               ? nickel >= ThresholdFinder("nickel")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -221,12 +239,16 @@ function SideDetails() {
           className="button"
           disabled={active === "lead"}
           onClick={() => adjust_graph("lead")}
+          title="Lead"
           style={
+            active === "tenGreenScore" ?
+
             !isNaN(lead)
               ? lead >= ThresholdFinder("lead")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
@@ -238,12 +260,15 @@ function SideDetails() {
           className="button"
           disabled={active === "co"}
           onClick={() => adjust_graph("co")}
+          Title = "Carbon Monoxide"
           style={
+            active === "tenGreenScore" ?
             !isNaN(co)
               ? co >= ThresholdFinder("co")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -256,12 +281,15 @@ function SideDetails() {
           className="button"
           disabled={active === "cadmium"}
           onClick={() => adjust_graph("cadmium")}
+          title="Cadmium"
           style={
+            active === "tenGreenScore" ?
             !isNaN(cadmium)
               ? cadmium >= ThresholdFinder("cadmium")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           
@@ -273,13 +301,16 @@ function SideDetails() {
         <button
           className="button"
           disabled={active === "arsenic"}
+          title="Arsenic"
           onClick={() => adjust_graph("arsenic")}
           style={
+            active === "tenGreenScore" ?
             !isNaN(arsenic)
               ? arsenic >= ThresholdFinder("arsenic")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
+              : { backgroundColor: "#f5f5f5" }
           }
         >
           {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
