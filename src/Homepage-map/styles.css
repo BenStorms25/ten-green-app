@@ -157,6 +157,17 @@ text.button:hover {
   stroke: black;
 }
 
+.border2 {
+  transition: 1s;
+}
+
+.border2 {
+  stroke: black;
+}
+
+.border[id]{
+  stroke: green;
+}
 /* 
   
   Interactive Map Media Queries 

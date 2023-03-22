@@ -36,8 +36,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
+          
           <path
-            className="border"
+            className= { feature.id === incomingID ? "border2" : "border" }
             d={path(feature)}
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
             fill={
@@ -45,7 +46,7 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
                 ? colorScale((dataMap.get(feature.id) - (maximum / 10.0)))
                 : "grey"
             }
-          >
+          > 
             <title>
               
               {dataMap.get(feature.id)} {"- "}
