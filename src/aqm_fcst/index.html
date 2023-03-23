@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Climate Reanalyzer</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=1024, user-scalable=yes, minimum-scale=0.3, maximum-scale=2.0">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+		<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/aqm_maps_v1.css">
+	</head>
+	
+	<body>
+		
+		
+		<div id="wrap_all">
+			<div id="top"></div>
+			
+			<div id="page_title">
+				<h1>Hourly Forecast Maps</h1>
+				<hr class="style-gradient" style="margin-top:20px;">
+			</div>
+			
+			<div id="wrapper">
+				
+				<div style="margin-bottom:15px;">
+					<fieldset id="mdl_div">
+						<legend align="center">Forecast Model</legend>
+						<select id="mdl_pulldown" style="width:265px;" onChange="javascript: update_mdl(),get_dates(),load_images(),update_image()"></select>
+					</fieldset>
+					
+					<fieldset id="dm_div">
+						<legend align="center">Map Area</legend>
+						<select id="dm_pulldown" style="width:215px;" onChange="javascript: update_param(),get_dates(),load_images(),update_image()"></select>
+					</fieldset>
+					
+					<fieldset id="param_div">
+						<legend align="center">Variable</legend>
+						<select id="param_pulldown" style="width:215px;" onChange="javascript: get_dates(),load_images(),update_image()"></select>
+					</fieldset>
+					
+					<fieldset id="dates_div">
+						<legend align="center">Initialization</legend>
+						<select id="dates_pulldown" style="width:160px;" onChange="javascript: update_dates(),load_images(),update_image()"></select>
+					</fieldset>
+				</div>
+				<div>
+					<fieldset style="margin:9px auto 15px auto;">
+						<!--<legend  align="center" style="margin-bottom:5px;">Playback</legend>-->
+						<span onclick="javascript: loop_images_rev();"><img src="icons/arrow-left_black_transp.png" style="height:44px; opacity: 0.6;"/></span>
+						<span onclick="javascript: stoploop();"><img src="icons/stop_black_transp.png" style="height:44px; opacity: 0.8;"/></span>
+						<span onclick="javascript: loopimages();"><img src="icons/arrow-right_black_transp.png" style="height:44px; opacity: 0.6;"/></span>
+						<span onclick="javascript: slower();"><img src="icons/minus_black_transp.png" style="height:44px; margin-left:10px; opacity: 0.8;"/></span>
+						<span onclick="javascript: faster();"><img src="icons/plus_black_transp.png" style="height:44px; opacity: 0.8;"/></span>
+					</fieldset>
+					
+					<fieldset style="margin-left:50px; margin-right:0px;">
+						<legend id="img_count" align="center">Image Slider</legend>
+						<input id="slider" class="slider" type="range" min="00" max="64" value="0" step="1"/>
+					</fieldset>
+				</div>
+				
+				<style>
+					#img0 {
+						width: 100%;
+						min-width: 1024px;
+						max-width: 1024px;
+					}
+				</style>
+				
+				<img id="img0" class="loading" name="img0" border=0>
+				
+				<div id="page_description">
+					<div class="how_to_headings">
+						<h1 style="font-weight:bold;">Overview</h1>
+						<p class="aa">
+							This interface is for viewing weather forecasts from NOAA/NCEP numerical models. Select 
+							<b>Forecast Model</b>, <b>Map Area</b>, <b>Variable</b>, and <b>Initialization</b> from the 
+							pulldown menus above to view different forecasts. Use the <b>Image Slider</b> or playback 
+							controls to animate. See forecast period, output interval, and initialization times 
+							available for each model:
+						</p>
+						<p style="text-align:center;">
+							<span style="font-size:16px;"><b>Global Forecast System (GFS) [0.25&deg;]</b></span><br>
+							10-day forecast &nbsp;|&nbsp; 3-hourly &nbsp;|&nbsp; 00,06,12,18 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>North American Mesoscale (NAM) [12km]</b></span><br>
+							3.5-day forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp; 00,06,12,18 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>North American Mesoscale (NAM) [3km]</b></span><br>
+							2.5-day forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp; 00,06,12,18 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>North American Mesoscale - Alaska (NAM) [3km]</b></span><br>
+							2.5-day forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp; 12 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>High Resolution Rapid Refresh (HRRR) [3km]</b></span><br>
+							18/36-hour forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  00-21 UTC every 3 hours<br>
+							<br>
+							<span style="font-size:16px;"><b>High Resolution Rapid Refresh - Alaska (HRRR) [3km]</b></span><br>
+							36-hour forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  00,12,18 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>National Blend of Models (NBM) [10km]</b></span><br>
+							36-hour forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  00,06,12,18 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>Air Quality Model (AQM) [4km]</b></span><br>
+							48-hour forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  06,12 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>Real-Time Ocean Forecast System (RTOFS) [1/12&deg;]</b></span><br>
+							8-day forecast &nbsp;|&nbsp; 3-hourly &nbsp;|&nbsp;  00 UTC<br>
+							<br>
+							<span style="font-size:16px;"><b>Unrestricted Mesoscale Analysis (URMA) [3km]</b></span><br>
+							1-day analysis &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  00 UTC
+							<!--<span style="font-size:16px;"><b>GFS/NAM/HRRR Blend (EXPERIMENTAL) [10km]</b></span><br> -->
+							<!--2.5-day forecast &nbsp;|&nbsp; hourly &nbsp;|&nbsp;  00 UTC<br> -->
+							<!--<br> -->
+						</p>
+						<p>
+							Source model output is downloaded from the 
+							<a href="https://nomads.ncep.noaa.gov" target="_blank"/>NOAA Operational Model Archive and Distribution System</a>. 
+							Forecast maps on this page are generated using <a href="https://www.ncl.ucar.edu/" target="_blank">NCAR Command Language (NCL)</a>. 
+							These visualizations are for educational purposes. Always refer to official guidance from the 
+							<a href="https://www.weather.gov/" target="_blank">National Weather Service</a> and 
+							<a href="https://www.spc.noaa.gov/" target="_blank">NOAA</a> for decision making during severe weather.
+						</p>
+						
+						<h1 style="font-weight:bold;">Additional Information</h1>
+						<ul>
+							<li><i>2m Temperature</i> refers to air temperature at 2 meters above the surface. <i>2m Temperature Anomaly</i> refers to 
+								the departure of the current day (or hour) forecasted temperature from a long-term mean for the same day (and hour) of the year. The 
+								anomalies here are based on a 1979-2000 reference climatology derived from the <a href="https://cfs.ncep.noaa.gov/cfsr/" target="_blank">
+								NCEP Climate Forecast System Reanalysis (CFSR)</a>. This 22-year baseline is used instead of the more common 1981-2010 
+								<a href="https://www.wmo.int/pages/prog/wcp/wcdmp/GCDS_1.php" target="_blank">climate normal</a> because 1979-2000 
+								represents conditions prior to rapid Arctic warming and sea-ice loss. A comparison of different climate baselines 
+								against the historical temperature record is shown <a href="images/GISS_land+ocean_1880-2014.png" target="_blank">here</a>.</li><br>
+							<li>Temperature anomalies calculated between GFS (forecast) and CFSR (reanalysis) will differ somewhat from those calculated 
+								entirely within the Climate Forecast System framework (see <a href="https://www.wpc.ncep.noaa.gov/mdlbias/biastext.shtml" target="_blank">
+								this NCEP/NWS discussion</a> on model bias). For the most reliable temperature anomaly estimates, refer to 
+								the <a href="https://climatereanalyzer.org/reanalysis/daily_maps/" target="_blank">Daily Reanalysis Maps</a> page. 
+								The image archive is updated once or twice per month.
+								</li><br>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			
+			<script type="text/javascript" src="js/aqm_maps_v1.js"></script>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,277 @@
+html {
+	overflow-Y: scroll;
+	overflow: -moz-scrollbars-vertical;
+}
+html,body {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", Times, serif;
+	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+	font-family: Arial, Open Sans, sans-serif; font-size: 16px; font-style: normal; font-weight: normal;
+	color: rgb(96,96,96);
+	background-color: rgb(144,144,144);		/* NOTE: must change background-color for #wrap_all as well */
+}
+h1 {
+	font-size: 1.5em;
+	font-weight: normal;
+	text-decoration: none;
+	color: rgb(72,72,72);
+}
+h2 {
+	font-size: 1.25em;
+	font-weight: normal;
+	font-style: italic;
+	text-decoration: none;
+	color: rgb(72,72,72);
+}
+p {
+	font-size: 1em;
+}
+
+#wrap_all {
+	clear: both;
+	width: 100%;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+	background-color: rgb(144,144,144);
+	margin: 0 auto -350px;	/* NOTE: bottom margin must = negative of footer height */
+}
+#wrapper {
+	overflow: hidden;
+	width: 100%;
+	max-width: 1680px;
+	min-width: 1024px;
+	height: auto;
+    min-height: 100%;
+	margin: auto;
+	/*margin-top: 0px;*/
+	text-align: center;
+	color: rgb(0,0,0);
+	background-color: white;
+}
+#content_wrap {
+	clear: both;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	background-color: white;
+}
+
+a {text-decoration: none;}
+a:link    {color:rgb(0,0,160);}
+a:visited {color:rgb(0,0,160);}
+a:hover   {color:rgb(255,128,0);}
+a:active  {color:rgb(255,0,0);}
+
+img {border: 0px;}
+
+.placeholder {color: rgb(96,96,96);}
+
+
+/*--- Page Titles ----------------------------------------------------------------------------------------------------*/
+#page_title {
+	margin: auto;
+	padding: 25px 0px 20px 0px;
+	max-width: 1680px;
+	min-width: 1024px;
+	background-color: white;
+}
+#page_title h1 {
+	margin: 0px auto 0px auto;
+	font-family: 'Open Sans', sans-serif;
+	/*font-size: 1.6em;*/
+	font-size: 2em;
+	font-weight: 200;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(96,96,96);
+}
+hr.style-standard {
+	border-color: rgb(144,144,144);			/* Chrome and Safari */
+	background-color: rgb(144,144,144);		/* Firefox and Opera */
+	color: rgb(144,144,144);				/* IE7+ */
+	border-width: 1px;
+}
+/* https://css-tricks.com/examples/hrs/ */
+/* Gradient transparent - color - transparent */
+hr.style-gradient {
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+
+#wrapper h1 {
+	/*font-family: Helvetica Neue, Helvetica, Arial, sans-serif;*/
+	font-family: Arial, Open Sans; font-size: 24px; font-style: normal; font-weight: normal;
+	text-decoration:none;
+	color: rgb(80,80,80);
+}
+
+fieldset {
+	align: center;
+	text-align: center;
+	border: 0px;
+	padding: auto;
+	/*border: 1px solid rgb(240,240,240);*/
+	height: auto;
+	width: auto;
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+}
+legend {
+	font-size: 18px;
+	color: rgb(80,80,80);
+}
+
+select {
+	margin: 0px 0px 0px 0px;
+	width: auto;
+	padding: 6px 10px 6px 10px;
+	height: auto;
+	/*background: transparent;*/
+	background: rgb(244,244,244);
+	/*border: none;*/
+	border: 1px solid rgb(180,180,180);
+	border-radius: 4px;
+	cursor: pointer;
+	outline: 0;	/*prevents blue outline from appearing after click*/
+	
+	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+	font-family: "Helvetica Neue", Helvetica, "Open Sans", Arial, sans-serif;
+	font-size: 19px;
+	color: rgb(24,24,24);
+
+	/* The following removes the dropdown arrow in Firefox*/
+	/* https://gist.github.com/joaocunha/6273016/ */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 0.01px;
+	text-overflow: '';
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+/* FOR SOME STRANGE REASON, .slider MUST APPEAR AFTER .clearfix */
+.slider {
+  -webkit-appearance: none;
+  width: 530px;
+  height: 7px;
+  border-radius: 5px;
+  background: rgb(212,212,212);
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgb(160,160,160);
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgb(160,160,160);
+  cursor: pointer;
+}
+
+/*
+.loading {
+  background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+}
+*/
+
+
+
+/* https://proto.io/freebies/onoff/ */
+.onoffswitch {
+    position: relative; width: 64px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 1px solid #999999; border-radius: 14px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    /*font-size: 14px; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;*/
+    font-size: 14px; font-family: Arial, Open Sans, sans-serif; font-style: normal; font-weight: normal;
+    color: white;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "On";
+    text-align: left;
+    padding-left: 18px;
+    background-color: rgb(48,128,230); color: rgb(255,255,255);
+}
+.onoffswitch-inner:after {
+    content: "Off";
+    text-align: right;
+    padding-right: 16px;
+    background-color: rgb(236,236,236); color: rgb(32,32,32);
+}
+.onoffswitch-switch {
+    display: block; width: 5px; margin: 7.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 40px;
+    border: 1px solid #999999; border-radius: 14px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+
+#page_description {
+	clear: both;
+	width: 932px;
+	height: auto;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	/*font-family: Helvetica Neue, Helvetica, Arial, sans-serif;*/
+	font-family: Arial, Open Sans; font-size: 15px; font-style: normal; font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: normal;
+	text-decoration:none;
+	color: rgb(72,72,72);
+	background-color: rgb(240,246,250);
+}
+
+.how_to_headings {
+	width: auto;
+	/*margin: 35px 35px 0px 35px;*/
+	padding: 10px 30px 10px 30px;
+	text-align: left;
+	background-color: none;
+}
