@@ -27,7 +27,7 @@ function PollutantsContent() {
   const [maxCards, setMaxCards] = useState(calcCards());
 
   function calcCards() {
-    if (window.innerWidth >= 1103) {
+    if (window.innerWidth >= 1086) {
       return 5;
     } else if (window.innerWidth >= 893) {
       return 4;
@@ -42,11 +42,13 @@ function PollutantsContent() {
 
   let topPanels;
   let bottomPanels;
+  let panels;
   useEffect(() => {
     //
     topPanels = document.getElementsByClassName("top-panel");
     bottomPanels = document.getElementsByClassName("bottom-panel");
-    if (topPanels) {
+    panels = document.getElementsByClassName("panel");
+    if (topPanels || panels) {
       setMounted(true);
       if (mounted && !attached) {
         window.addEventListener("resize", (event) => {
@@ -60,6 +62,20 @@ function PollutantsContent() {
   });
 
   function handleDisplayTop(pollutant) {
+    let numOfCards;
+
+    if (window.innerWidth >= 1086) {
+      numOfCards = 5;
+    } else if (window.innerWidth >= 893) {
+      numOfCards = 4;
+    } else if (window.innerWidth >= 682) {
+      numOfCards = 3;
+    } else if (window.innerWidth >= 400) {
+      numOfCards = 2;
+    } else {
+      numOfCards = 1;
+    }
+
     setCurrentPollutant(pollutant);
 
     // turn off all panels before
@@ -73,18 +89,30 @@ function PollutantsContent() {
     if (pollutant === currentPollutant && descriptionActive) {
       return;
     }
-    // setter not working?  Always rendering CO in the panels
-    console.log(currentPollutant);
-    console.log(PollutantsInfo[currentPollutant].pollutant);
-    if (topPanels[maxCards - 1].style.display === "block") {
-      topPanels[maxCards - 1].style.display = "none";
+
+    if (topPanels[numOfCards - 1].style.display === "block") {
+      topPanels[numOfCards - 1].style.display = "none";
     } else {
-      topPanels[maxCards - 1].style.display = "block";
+      topPanels[numOfCards - 1].style.display = "block";
       setDescriptionActive(true);
     }
   }
 
   function handleDisplayBottom(pollutant) {
+    let numOfCards;
+
+    if (window.innerWidth >= 1086) {
+      numOfCards = 5;
+    } else if (window.innerWidth >= 893) {
+      numOfCards = 4;
+    } else if (window.innerWidth >= 682) {
+      numOfCards = 3;
+    } else if (window.innerWidth >= 400) {
+      numOfCards = 2;
+    } else {
+      numOfCards = 1;
+    }
+
     setCurrentPollutant(pollutant);
     // turn off all panels
     for (let i = 0; i < topPanels.length; i++) {
@@ -97,13 +125,69 @@ function PollutantsContent() {
     if (pollutant === currentPollutant && descriptionActive) {
       return;
     }
-    // setter not working?  Always rendering CO in the panels
-    console.log(currentPollutant);
-    console.log(PollutantsInfo[currentPollutant].pollutant);
-    if (bottomPanels[maxCards - 1].style.display === "block") {
-      bottomPanels[maxCards - 1].style.display = "none";
+
+    if (bottomPanels[numOfCards - 1].style.display === "block") {
+      bottomPanels[numOfCards - 1].style.display = "none";
     } else {
-      bottomPanels[maxCards - 1].style.display = "block";
+      bottomPanels[numOfCards - 1].style.display = "block";
+      setDescriptionActive(true);
+    }
+  }
+
+  function handleDisplayPanel(pollutant, index) {
+    let numOfCards;
+
+    if (window.innerWidth >= 1086) {
+      numOfCards = 5;
+    } else if (window.innerWidth >= 893) {
+      numOfCards = 4;
+    } else if (window.innerWidth >= 682) {
+      numOfCards = 3;
+    } else if (window.innerWidth >= 400) {
+      numOfCards = 2;
+    } else {
+      numOfCards = 1;
+    }
+
+    setCurrentPollutant(pollutant);
+
+    // turn them all off initially
+    for (let i = 0; i < panels.length; i++) {
+      panels[i].style.display = "none";
+    }
+    setDescriptionActive(false);
+
+    if (pollutant === currentPollutant && descriptionActive) {
+      return;
+    }
+
+    if (numOfCards === 4 && index > 8) {
+      numOfCards = 10;
+    } else if (numOfCards === 3 && index > 3 && index <= 6) {
+      numOfCards = 6;
+    } else if (numOfCards === 3 && index > 6 && index < 10) {
+      numOfCards = 9;
+    } else if (numOfCards === 3 && index === 10) {
+      numOfCards = 10;
+    } else if (numOfCards === 2 && index > 2 && index <= 4) {
+      numOfCards = 4;
+    } else if (numOfCards === 2 && index > 4 && index <= 6) {
+      numOfCards = 6;
+    } else if (numOfCards === 2 && index > 6 && index <= 8) {
+      numOfCards = 8;
+    } else if (numOfCards === 2 && index > 8) {
+      numOfCards = 10;
+    } else if (numOfCards === 1) {
+      numOfCards = index;
+    } else if (index > numOfCards) {
+      numOfCards *= 2;
+    }
+
+    // if already on, turn off, if not, turn on
+    if (panels[numOfCards - 1].style.display === "block") {
+      panels[numOfCards - 1].style.display = "none";
+    } else {
+      panels[numOfCards - 1].style.display = "block";
       setDescriptionActive(true);
     }
   }
@@ -116,161 +200,370 @@ function PollutantsContent() {
           <article class="card">
             <img src={co2Image}></img>
             <p>CO</p>
-            <button onClick={() => handleDisplayTop("CO")}>Learn More</button>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayTop("CO")
+                  : () => handleDisplayPanel("CO", 1)
+              }
+            >
+              Learn More
+            </button>
           </article>
 
-          <div class="top-panel">
-            <p className="title">
-              {PollutantsInfo[currentPollutant].pollutant}
-            </p>
-            <div className="description">
-              <h2>Description</h2>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <h2>Health Implications</h2>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-            </div>
+          <div
+            class={window.innerWidth > 1086 ? "top-panel" : "panel"}
+            style={{
+              width: window.innerWidth > 1086 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
+          >
+            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+            <p>{PollutantsInfo[currentPollutant].description}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p>{PollutantsInfo[currentPollutant].implications}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
-            <button onClick={() => handleDisplayTop("PM10")}>Learn More</button>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayTop("PM10")
+                  : () => handleDisplayPanel("PM10", 2)
+              }
+            >
+              Learn More
+            </button>
           </article>
-          <div class="top-panel">
-            <p className="title">
-              {PollutantsInfo[currentPollutant].pollutant}
-            </p>
-            <div className="description">
-              <h2>Description</h2>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <h2>Health Implications</h2>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-            </div>
+          <div
+            class={window.innerWidth > 1086 ? "top-panel" : "panel"}
+            style={{
+              width: window.innerWidth > 1086 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
+          >
+            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+            <p>{PollutantsInfo[currentPollutant].description}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p>{PollutantsInfo[currentPollutant].implications}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
 
           <article class="card">
             <img src={largeParticulateMatterImage}></img>
             <p>PM2.5</p>
-            <button onClick={() => handleDisplayTop("PM25")}>Learn More</button>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayTop("PM25")
+                  : () => handleDisplayPanel("PM25", 3)
+              }
+            >
+              Learn More
+            </button>
           </article>
-          <div class="top-panel">
-            <p className="title">
-              {PollutantsInfo[currentPollutant].pollutant}
-            </p>
-            <div className="description">
-              <h2>Description</h2>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <h2>Health Implications</h2>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-            </div>
+          <div
+            class={window.innerWidth > 1086 ? "top-panel" : "panel"}
+            style={{
+              width: window.innerWidth > 1086 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
+          >
+            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+            <p>{PollutantsInfo[currentPollutant].description}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p>{PollutantsInfo[currentPollutant].implications}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
 
           <article class="card">
             <img src={sulfurDioxideImage}></img>
             <p>SO2</p>
-            <button onClick={() => handleDisplayTop("SO2")}>Learn More</button>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayTop("SO2")
+                  : () => handleDisplayPanel("SO2", 4)
+              }
+            >
+              Learn More
+            </button>
           </article>
-          <div class="top-panel">
-            <p className="title">
-              {PollutantsInfo[currentPollutant].pollutant}
-            </p>
-            <div className="description">
-              <h2>Description</h2>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <h2>Health Implications</h2>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-            </div>
+          <div
+            class={window.innerWidth > 1086 ? "top-panel" : "panel"}
+            style={{
+              width: window.innerWidth > 1086 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
+          >
+            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+            <p>{PollutantsInfo[currentPollutant].description}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p>{PollutantsInfo[currentPollutant].implications}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
 
           <article class="card">
             <img src={nitrogenDioxideImage}></img>
             <p>NO2</p>
-            <button onClick={() => handleDisplayTop("NO2")}>Learn More</button>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayTop("NO2")
+                  : () => handleDisplayPanel("NO2", 5)
+              }
+            >
+              Learn More
+            </button>
           </article>
-          <div class="top-panel">
-            <p className="title">
-              {PollutantsInfo[currentPollutant].pollutant}
-            </p>
-            <div className="description">
-              <h2>Description</h2>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <h2>Health Implications</h2>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-            </div>
+          <div
+            class={window.innerWidth > 1086 ? "top-panel" : "panel"}
+            style={{
+              width: window.innerWidth > 1086 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
+          >
+            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+            <p>{PollutantsInfo[currentPollutant].description}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p>{PollutantsInfo[currentPollutant].implications}</p>
+            <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
 
           <article class="card">
             <img src={nickelImage}></img>
             <p>Nickel</p>
-            <button onClick={() => handleDisplayBottom("Nickel")}>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayBottom("Nickel")
+                  : () => handleDisplayPanel("Nickel", 6)
+              }
+            >
               Learn More
             </button>
           </article>
-          <div class="bottom-panel">
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-          </div>
+          {window.innerWidth > 1086 ? (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          ) : null}
 
+          {window.innerWidth > 1086 ? null : (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          )}
           <article class="card">
             <img src={ozoneImage}></img>
             <p>Ozone</p>
-            <button onClick={() => handleDisplayBottom("Ozone")}>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayBottom("Ozone")
+                  : () => handleDisplayPanel("Ozone", 7)
+              }
+            >
               Learn More
             </button>
           </article>
-          <div class="bottom-panel">
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-          </div>
+          {window.innerWidth > 1086 ? null : (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          )}
+          {window.innerWidth > 1086 ? (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          ) : null}
 
           <article class="card">
             <img src={leadImage}></img>
             <p>Lead</p>
-            <button onClick={() => handleDisplayBottom("Lead")}>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayBottom("Lead")
+                  : () => handleDisplayPanel("Lead", 8)
+              }
+            >
               Learn More
             </button>
           </article>
-          <div class="bottom-panel">
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-          </div>
-
+          {window.innerWidth > 1086 ? null : (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          )}
+          {window.innerWidth > 1086 ? (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          ) : null}
           <article class="card">
             <img src={cadmiumImage}></img>
             <p>Cadmium</p>
-            <button onClick={() => handleDisplayBottom("Cadmium")}>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayBottom("Cadmium")
+                  : () => handleDisplayPanel("Cadmium", 9)
+              }
+            >
               Learn More
             </button>
           </article>
-          <div class="bottom-panel">
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-          </div>
+          {window.innerWidth > 1086 ? null : (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          )}
+          {window.innerWidth > 1086 ? (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          ) : null}
           <article class="card">
             <img src={arsenicImage}></img>
             <p>Arsenic</p>
-            <button onClick={() => handleDisplayBottom("Arsenic")}>
+            <button
+              onClick={
+                window.innerWidth > 1086
+                  ? () => handleDisplayBottom("Arsenic")
+                  : () => handleDisplayPanel("Arsenic", 10)
+              }
+            >
               Learn More
             </button>
           </article>
-          <div class="bottom-panel">
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-          </div>
+          {window.innerWidth > 1086 ? (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          ) : null}
+          {window.innerWidth > 1086 ? null : (
+            <div
+              class={window.innerWidth > 1086 ? "bottom-panel" : "panel"}
+              style={{
+                width: window.innerWidth > 1086 ? "70rem" : "95%",
+                maxWidth: "100%",
+                zIndex: 99,
+              }}
+            >
+              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
+          )}
         </section>
       </div>
 

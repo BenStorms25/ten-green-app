@@ -118,3 +118,12 @@ h2 {
   padding-left: 5rem;
   padding-right: 5rem;
 }
+
+.panel {
+  padding: 1.5rem;
+  display: none;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 120%;
+}
