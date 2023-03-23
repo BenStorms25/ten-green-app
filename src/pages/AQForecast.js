@@ -12,8 +12,10 @@ function AQForecast() {
   return (
     <div className="standards-page">
       <CustomHeader />
-      {/* <iframe src="https://climatereanalyzer.org/wx/fcst/?mdl_id=aqm&dm_id=conus-lc3&wm_id=pm25"></iframe> */}
-      <div dangerouslySetInnerHTML={{__html: forecast}}/>
+      <div id="my-div">
+      <iframe src="https://climatereanalyzer.org/wx/fcst/?mdl_id=aqm&dm_id=conus-lc3&wm_id=pm25" id="my-iframe" scrolling="no"></iframe>
+      </div>
+      {/* <div dangerouslySetInnerHTML={{__html: forecast}}/> */}
     </div>
   );
 }
