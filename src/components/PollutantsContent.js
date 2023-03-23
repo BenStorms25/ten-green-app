@@ -210,7 +210,6 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-
           <div
             class={window.innerWidth > 1086 ? "top-panel" : "panel"}
             style={{
@@ -219,12 +218,37 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <h5>Standards</h5>
+              <table>
+                <tr>
+                  <th>Organization</th>
+                  <th>Type</th>
+                  <th>Standard</th>
+                  <th>Averaging Period</th>
+                </tr>
+                {PollutantsInfo[currentPollutant].standards.map((standard) => {
+                  return (
+                    <tr>
+                      <td>{standard[0]}</td>
+                      <td>{standard[1]}</td>
+                      <td>{standard[2]}</td>
+                      <td>{standard[3]}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           </div>
+
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
@@ -246,11 +270,35 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <h5>Standards</h5>
+              <table>
+                <tr>
+                  <th>Organization</th>
+                  <th>Type</th>
+                  <th>Standard</th>
+                  <th>Averaging Period</th>
+                </tr>
+                {PollutantsInfo[currentPollutant].standards.map((standard) => {
+                  return (
+                    <tr>
+                      <td>{standard[0]}</td>
+                      <td>{standard[1]}</td>
+                      <td>{standard[2]}</td>
+                      <td>{standard[3]}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           </div>
 
           <article class="card">
@@ -274,11 +322,35 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <h5>Standards</h5>
+              <table>
+                <tr>
+                  <th>Organization</th>
+                  <th>Type</th>
+                  <th>Standard</th>
+                  <th>Averaging Period</th>
+                </tr>
+                {PollutantsInfo[currentPollutant].standards.map((standard) => {
+                  return (
+                    <tr>
+                      <td>{standard[0]}</td>
+                      <td>{standard[1]}</td>
+                      <td>{standard[2]}</td>
+                      <td>{standard[3]}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           </div>
 
           <article class="card">
@@ -302,11 +374,35 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <h5>Standards</h5>
+              <table>
+                <tr>
+                  <th>Organization</th>
+                  <th>Type</th>
+                  <th>Standard</th>
+                  <th>Averaging Period</th>
+                </tr>
+                {PollutantsInfo[currentPollutant].standards.map((standard) => {
+                  return (
+                    <tr>
+                      <td>{standard[0]}</td>
+                      <td>{standard[1]}</td>
+                      <td>{standard[2]}</td>
+                      <td>{standard[3]}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           </div>
 
           <article class="card">
@@ -330,11 +426,35 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <h5>Standards</h5>
+              <table>
+                <tr>
+                  <th>Organization</th>
+                  <th>Type</th>
+                  <th>Standard</th>
+                  <th>Averaging Period</th>
+                </tr>
+                {PollutantsInfo[currentPollutant].standards.map((standard) => {
+                  return (
+                    <tr>
+                      <td>{standard[0]}</td>
+                      <td>{standard[1]}</td>
+                      <td>{standard[2]}</td>
+                      <td>{standard[3]}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           </div>
 
           <article class="card">
@@ -359,11 +479,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           ) : null}
 
@@ -376,11 +522,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           )}
           <article class="card">
@@ -405,11 +577,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -421,11 +619,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           ) : null}
 
@@ -451,11 +675,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -467,11 +717,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           ) : null}
           <article class="card">
@@ -496,11 +772,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -512,11 +814,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           ) : null}
           <article class="card">
@@ -541,11 +869,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           ) : null}
           {window.innerWidth > 1086 ? null : (
@@ -557,11 +911,37 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+                <h5>Standards</h5>
+                <table>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </table>
+              </div>
             </div>
           )}
         </section>
