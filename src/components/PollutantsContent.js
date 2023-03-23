@@ -210,7 +210,6 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-
           <div
             class={window.innerWidth > 1086 ? "top-panel" : "panel"}
             style={{
@@ -219,12 +218,18 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
+
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
@@ -246,11 +251,16 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -274,11 +284,16 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -302,11 +317,16 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -330,11 +350,16 @@ function PollutantsContent() {
               zIndex: 99,
             }}
           >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -359,11 +384,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           ) : null}
 
@@ -376,11 +406,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           )}
           <article class="card">
@@ -405,11 +440,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -421,11 +461,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           ) : null}
 
@@ -451,11 +496,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -467,11 +517,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           ) : null}
           <article class="card">
@@ -496,11 +551,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           )}
           {window.innerWidth > 1086 ? (
@@ -512,11 +572,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           ) : null}
           <article class="card">
@@ -541,11 +606,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           ) : null}
           {window.innerWidth > 1086 ? null : (
@@ -557,11 +627,16 @@ function PollutantsContent() {
                 zIndex: 99,
               }}
             >
-              <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-              <p>{PollutantsInfo[currentPollutant].description}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
-              <p>{PollutantsInfo[currentPollutant].implications}</p>
-              <p>{PollutantsInfo[currentPollutant].source}</p>
+              <p className="title">
+                {PollutantsInfo[currentPollutant].pollutant}
+              </p>
+              <div className="description">
+                <h2>Description</h2>
+                <p>{PollutantsInfo[currentPollutant].description}</p>
+                <h2>Health Implications</h2>
+                <p>{PollutantsInfo[currentPollutant].implications}</p>
+                <p>{PollutantsInfo[currentPollutant].source}</p>
+              </div>
             </div>
           )}
         </section>
