@@ -60,6 +60,20 @@ function PollutantsContent() {
   });
 
   function handleDisplayTop(pollutant) {
+    let numOfCards;
+
+    if (window.innerWidth >= 1103) {
+      numOfCards = 5;
+    } else if (window.innerWidth >= 893) {
+      numOfCards = 4;
+    } else if (window.innerWidth >= 682) {
+      numOfCards = 3;
+    } else if (window.innerWidth >= 400) {
+      numOfCards = 2;
+    } else {
+      numOfCards = 1;
+    }
+
     setCurrentPollutant(pollutant);
 
     // turn off all panels before
@@ -76,15 +90,29 @@ function PollutantsContent() {
     // setter not working?  Always rendering CO in the panels
     console.log(currentPollutant);
     console.log(PollutantsInfo[currentPollutant].pollutant);
-    if (topPanels[maxCards - 1].style.display === "block") {
-      topPanels[maxCards - 1].style.display = "none";
+    if (topPanels[numOfCards - 1].style.display === "block") {
+      topPanels[numOfCards - 1].style.display = "none";
     } else {
-      topPanels[maxCards - 1].style.display = "block";
+      topPanels[numOfCards - 1].style.display = "block";
       setDescriptionActive(true);
     }
   }
 
   function handleDisplayBottom(pollutant) {
+    let numOfCards;
+
+    if (window.innerWidth >= 1103) {
+      numOfCards = 5;
+    } else if (window.innerWidth >= 893) {
+      numOfCards = 4;
+    } else if (window.innerWidth >= 682) {
+      numOfCards = 3;
+    } else if (window.innerWidth >= 400) {
+      numOfCards = 2;
+    } else {
+      numOfCards = 1;
+    }
+
     setCurrentPollutant(pollutant);
     // turn off all panels
     for (let i = 0; i < topPanels.length; i++) {
@@ -97,13 +125,11 @@ function PollutantsContent() {
     if (pollutant === currentPollutant && descriptionActive) {
       return;
     }
-    // setter not working?  Always rendering CO in the panels
-    console.log(currentPollutant);
-    console.log(PollutantsInfo[currentPollutant].pollutant);
-    if (bottomPanels[maxCards - 1].style.display === "block") {
-      bottomPanels[maxCards - 1].style.display = "none";
+
+    if (bottomPanels[numOfCards - 1].style.display === "block") {
+      bottomPanels[numOfCards - 1].style.display = "none";
     } else {
-      bottomPanels[maxCards - 1].style.display = "block";
+      bottomPanels[numOfCards - 1].style.display = "block";
       setDescriptionActive(true);
     }
   }
@@ -121,7 +147,11 @@ function PollutantsContent() {
 
           <div
             class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -136,7 +166,11 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -152,7 +186,11 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -168,7 +206,11 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -184,7 +226,11 @@ function PollutantsContent() {
           </article>
           <div
             class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -202,7 +248,11 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -220,7 +270,11 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -238,7 +292,11 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -256,7 +314,11 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
@@ -273,7 +335,11 @@ function PollutantsContent() {
           </article>
           <div
             class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
+            style={{
+              width: window.innerWidth > 1130 ? "70rem" : "95%",
+              maxWidth: "100%",
+              zIndex: 99,
+            }}
           >
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
