@@ -24,10 +24,10 @@ function CustomFooter() {
           </div>
           <div className="box2">
             <p>Navigation</p>
-            <a href="#">Score Map</a>
-            <a href="#">About</a>
-            <a href="#">Pollutants/Standards</a>
-            <a href="#">AQ Forecast</a>
+            <a href="#/#interactive-map">Score Map</a>
+            <a href="#/about">About</a>
+            <a href="#/pollutants-and-standards">Pollutants/Standards</a>
+            <a href="#/aq-forecast">AQ Forecast</a>
           </div>
           <div className="box3">
             <p>External Links</p>
