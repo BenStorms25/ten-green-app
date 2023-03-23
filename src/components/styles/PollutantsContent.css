@@ -80,20 +80,36 @@
 }
 
 .top-panel {
+  margin: 0.5rem 2.5rem 0.5rem 0.5rem;
   padding: 1.5rem;
   display: none;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
-  width: 120%;
+  width: 100%;
+  z-index: 99;
 }
 .bottom-panel {
+  margin: 0.5rem 2.5rem 0.5rem 0.5rem;
   padding: 1.5rem;
   display: none;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
-  width: 120%;
+  width: 100%;
+  z-index: 99;
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.description {
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .panel {
