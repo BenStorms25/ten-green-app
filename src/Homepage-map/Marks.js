@@ -47,12 +47,12 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
                 : "grey"
             }
           > 
-            {/* <title>
+            <title>
               
               {dataMap.get(feature.id)} {"- "}
               {feature.properties.name}, {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
               
-            </title> */}
+            </title>
 
             
             <div className="tooltiptext">Tooltip text</div>
