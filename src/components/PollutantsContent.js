@@ -119,30 +119,34 @@ function PollutantsContent() {
             <button onClick={() => handleDisplayTop("CO")}>Learn More</button>
           </article>
 
-          <div
-            class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+          <div class="top-panel">
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
           <article class="card">
             <img src={smallParticulateMatterImage}></img>
             <p>PM10</p>
             <button onClick={() => handleDisplayTop("PM10")}>Learn More</button>
           </article>
-          <div
-            class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+          <div class="top-panel">
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -150,15 +154,17 @@ function PollutantsContent() {
             <p>PM2.5</p>
             <button onClick={() => handleDisplayTop("PM25")}>Learn More</button>
           </article>
-          <div
-            class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+          <div class="top-panel">
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -166,15 +172,17 @@ function PollutantsContent() {
             <p>SO2</p>
             <button onClick={() => handleDisplayTop("SO2")}>Learn More</button>
           </article>
-          <div
-            class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+          <div class="top-panel">
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -182,15 +190,17 @@ function PollutantsContent() {
             <p>NO2</p>
             <button onClick={() => handleDisplayTop("NO2")}>Learn More</button>
           </article>
-          <div
-            class="top-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
-            <p>{PollutantsInfo[currentPollutant].pollutant}</p>
-            <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
-            <p>{PollutantsInfo[currentPollutant].implications}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
+          <div class="top-panel">
+            <p className="title">
+              {PollutantsInfo[currentPollutant].pollutant}
+            </p>
+            <div className="description">
+              <h2>Description</h2>
+              <p>{PollutantsInfo[currentPollutant].description}</p>
+              <h2>Health Implications</h2>
+              <p>{PollutantsInfo[currentPollutant].implications}</p>
+              <p>{PollutantsInfo[currentPollutant].source}</p>
+            </div>
           </div>
 
           <article class="card">
@@ -200,13 +210,9 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-          <div
-            class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
+          <div class="bottom-panel">
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
             <p>{PollutantsInfo[currentPollutant].implications}</p>
             <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
@@ -218,13 +224,9 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-          <div
-            class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
+          <div class="bottom-panel">
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
             <p>{PollutantsInfo[currentPollutant].implications}</p>
             <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
@@ -236,13 +238,9 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-          <div
-            class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
+          <div class="bottom-panel">
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
             <p>{PollutantsInfo[currentPollutant].implications}</p>
             <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
@@ -254,13 +252,9 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-          <div
-            class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
+          <div class="bottom-panel">
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
             <p>{PollutantsInfo[currentPollutant].implications}</p>
             <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>
@@ -271,13 +265,9 @@ function PollutantsContent() {
               Learn More
             </button>
           </article>
-          <div
-            class="bottom-panel"
-            style={{ width: "70rem", maxWidth: "100%", zIndex: 99 }}
-          >
+          <div class="bottom-panel">
             <p>{PollutantsInfo[currentPollutant].pollutant}</p>
             <p>{PollutantsInfo[currentPollutant].description}</p>
-            <p>{PollutantsInfo[currentPollutant].source}</p>
             <p>{PollutantsInfo[currentPollutant].implications}</p>
             <p>{PollutantsInfo[currentPollutant].source}</p>
           </div>

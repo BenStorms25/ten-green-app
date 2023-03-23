@@ -1,6 +1,6 @@
 {
   "CO": {
-    "pollutant": "CO",
+    "pollutant": "Carbon Monoxide [CO]",
     "description": "Carbon monoxide (CO) is a colorless, odorless gas that forms from the incomplete combustion of fossil fuels. Automobiles are a primary source of this pollutant, and high levels of CO are generally found in areas with heavy traffic congestion. Other sources of CO include metals processing, chemical manufacturing, residential wood burning, and forest fires. CO produced from natural sources is found in the atmosphere in only trace amounts. ",
     "implications": "Carbon monoxide in sufficient concentration reduces oxygen delivery to body organs and tissues, which can lead to illness or death. ",
     "source": "Information source: U.S. EPA."
@@ -42,7 +42,7 @@
     "source": "Information source: U.S. EPA."
   },
   "PM25": {
-    "pollutant": "Large Particulates [PM25]",
+    "pollutant": "Large Particulates [PM2.5]",
     "description": "Large or coarse particulates are between 10 and 2.5 micrometers in diameter. Particulates of this type are found commonly near dusty roadways and industrial areas. Particulate matter pollution can cause respiratory illness as well as impair atmospheric clearness.",
     "implications": "Large particulates, although generally less harmful than small particulates, can cause throat and airway irritation, coughing, decreased lung function, aggravated asthma, and the development of chronic bronchitis.",
     "source": "Information source: U.S. EPA."
