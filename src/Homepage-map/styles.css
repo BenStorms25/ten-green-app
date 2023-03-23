@@ -151,12 +151,26 @@ text.button:hover {
 
 .border {
   transition: 1s;
+  
 }
 
 .border:hover {
   stroke: black;
 }
 
+.border .tooltiptext {
+  
+  width: 120px;
+  background-color: rgb(69, 165, 90);
+  color: #e70202;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 2;
+} 
 .border2 {
   transition: 1s;
 }
@@ -165,9 +179,7 @@ text.button:hover {
   stroke: black;
 }
 
-.border[id]{
-  stroke: green;
-}
+
 /* 
   
   Interactive Map Media Queries 
