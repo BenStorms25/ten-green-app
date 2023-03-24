@@ -3,23 +3,17 @@
   height: 100rem;
 } */
 
-
-#my-div
-{
-    width    : 100%;
-    height   : 2000px;
-    overflow : hidden;
-    position : relative;
-    
-    
-  
+#my-div {
+  width: 100%;
+  height: 2450px;
+  overflow: hidden;
+  position: relative;
 }
 
-#my-iframe
-{
-    position : absolute;
-    top      : -130px;
-    left     : 300px;
-    width    : 1280px;
-    height   : 1200px;
+#my-iframe {
+  position: absolute;
+  top: -130px;
+  left: 12%;
+  width: 1280px;
+  height: 2450px;
 }
