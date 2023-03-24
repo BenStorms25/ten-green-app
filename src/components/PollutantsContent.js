@@ -227,24 +227,30 @@ function PollutantsContent() {
               <h2>Health Implications</h2>
               <p>{PollutantsInfo[currentPollutant].implications}</p>
               <p>{PollutantsInfo[currentPollutant].source}</p>
-              <h5>Standards</h5>
+              <h2>Standards</h2>
               <table>
-                <tr>
-                  <th>Organization</th>
-                  <th>Type</th>
-                  <th>Standard</th>
-                  <th>Averaging Period</th>
-                </tr>
-                {PollutantsInfo[currentPollutant].standards.map((standard) => {
-                  return (
-                    <tr>
-                      <td>{standard[0]}</td>
-                      <td>{standard[1]}</td>
-                      <td>{standard[2]}</td>
-                      <td>{standard[3]}</td>
-                    </tr>
-                  );
-                })}
+                <thead>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td className="first">{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
@@ -279,24 +285,30 @@ function PollutantsContent() {
               <h2>Health Implications</h2>
               <p>{PollutantsInfo[currentPollutant].implications}</p>
               <p>{PollutantsInfo[currentPollutant].source}</p>
-              <h5>Standards</h5>
+              <h2>Standards</h2>
               <table>
-                <tr>
-                  <th>Organization</th>
-                  <th>Type</th>
-                  <th>Standard</th>
-                  <th>Averaging Period</th>
-                </tr>
-                {PollutantsInfo[currentPollutant].standards.map((standard) => {
-                  return (
-                    <tr>
-                      <td>{standard[0]}</td>
-                      <td>{standard[1]}</td>
-                      <td>{standard[2]}</td>
-                      <td>{standard[3]}</td>
-                    </tr>
-                  );
-                })}
+                <thead>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
@@ -331,24 +343,30 @@ function PollutantsContent() {
               <h2>Health Implications</h2>
               <p>{PollutantsInfo[currentPollutant].implications}</p>
               <p>{PollutantsInfo[currentPollutant].source}</p>
-              <h5>Standards</h5>
+              <h2>Standards</h2>
               <table>
-                <tr>
-                  <th>Organization</th>
-                  <th>Type</th>
-                  <th>Standard</th>
-                  <th>Averaging Period</th>
-                </tr>
-                {PollutantsInfo[currentPollutant].standards.map((standard) => {
-                  return (
-                    <tr>
-                      <td>{standard[0]}</td>
-                      <td>{standard[1]}</td>
-                      <td>{standard[2]}</td>
-                      <td>{standard[3]}</td>
-                    </tr>
-                  );
-                })}
+                <thead>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
@@ -383,24 +401,30 @@ function PollutantsContent() {
               <h2>Health Implications</h2>
               <p>{PollutantsInfo[currentPollutant].implications}</p>
               <p>{PollutantsInfo[currentPollutant].source}</p>
-              <h5>Standards</h5>
+              <h2>Standards</h2>
               <table>
-                <tr>
-                  <th>Organization</th>
-                  <th>Type</th>
-                  <th>Standard</th>
-                  <th>Averaging Period</th>
-                </tr>
-                {PollutantsInfo[currentPollutant].standards.map((standard) => {
-                  return (
-                    <tr>
-                      <td>{standard[0]}</td>
-                      <td>{standard[1]}</td>
-                      <td>{standard[2]}</td>
-                      <td>{standard[3]}</td>
-                    </tr>
-                  );
-                })}
+                <thead>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
@@ -435,24 +459,30 @@ function PollutantsContent() {
               <h2>Health Implications</h2>
               <p>{PollutantsInfo[currentPollutant].implications}</p>
               <p>{PollutantsInfo[currentPollutant].source}</p>
-              <h5>Standards</h5>
+              <h2>Standards</h2>
               <table>
-                <tr>
-                  <th>Organization</th>
-                  <th>Type</th>
-                  <th>Standard</th>
-                  <th>Averaging Period</th>
-                </tr>
-                {PollutantsInfo[currentPollutant].standards.map((standard) => {
-                  return (
-                    <tr>
-                      <td>{standard[0]}</td>
-                      <td>{standard[1]}</td>
-                      <td>{standard[2]}</td>
-                      <td>{standard[3]}</td>
-                    </tr>
-                  );
-                })}
+                <thead>
+                  <tr>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Standard</th>
+                    <th>Averaging Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PollutantsInfo[currentPollutant].standards.map(
+                    (standard) => {
+                      return (
+                        <tr>
+                          <td>{standard[0]}</td>
+                          <td>{standard[1]}</td>
+                          <td>{standard[2]}</td>
+                          <td>{standard[3]}</td>
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
@@ -488,26 +518,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -531,26 +565,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -586,26 +624,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -628,26 +670,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -684,26 +730,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -726,26 +776,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -781,26 +835,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -823,26 +881,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -878,26 +940,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -920,26 +986,30 @@ function PollutantsContent() {
                 <h2>Health Implications</h2>
                 <p>{PollutantsInfo[currentPollutant].implications}</p>
                 <p>{PollutantsInfo[currentPollutant].source}</p>
-                <h5>Standards</h5>
+                <h2>Standards</h2>
                 <table>
-                  <tr>
-                    <th>Organization</th>
-                    <th>Type</th>
-                    <th>Standard</th>
-                    <th>Averaging Period</th>
-                  </tr>
-                  {PollutantsInfo[currentPollutant].standards.map(
-                    (standard) => {
-                      return (
-                        <tr>
-                          <td>{standard[0]}</td>
-                          <td>{standard[1]}</td>
-                          <td>{standard[2]}</td>
-                          <td>{standard[3]}</td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  <thead>
+                    <tr>
+                      <th>Organization</th>
+                      <th>Type</th>
+                      <th>Standard</th>
+                      <th>Averaging Period</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PollutantsInfo[currentPollutant].standards.map(
+                      (standard) => {
+                        return (
+                          <tr>
+                            <td>{standard[0]}</td>
+                            <td>{standard[1]}</td>
+                            <td>{standard[2]}</td>
+                            <td>{standard[3]}</td>
+                          </tr>
+                        );
+                      }
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
