@@ -23,11 +23,9 @@
   font-size: 0.7rem;
 }
 .side-details button {
-  
-  margin-left: -4.5rem;
   margin-bottom: 0.5rem;
-  height: 1.7rem;
-  width: 13rem;
+  height: 2rem;
+  width: 100%;
   border: 1px solid grey;
   border-radius: 5px;
   text-align: center;
@@ -45,16 +43,10 @@
   font-size: small;
 }
 .button:disabled {
-  
   border: 2px solid rgb(0, 0, 0);
   font-weight: bold;
   color: rgb(0, 0, 0);
-
-  
-  
 }
-
-
 
 @media (1600px <= width <= 1700px) {
   .side-details {

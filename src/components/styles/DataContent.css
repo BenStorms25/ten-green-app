@@ -19,3 +19,13 @@
 .header {
   float: left;
 }
+#zip-code {
+  width: 300px;
+  margin: 0;
+}
+@media (width < 490px) {
+  #zip-code {
+    width: 200px;
+    margin: 0;
+  }
+}

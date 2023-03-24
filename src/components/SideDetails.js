@@ -82,240 +82,206 @@ function SideDetails() {
   return (
     <div className="side-details">
       <h6>{county}</h6>
-      <div className="side-detail-pollutant-10Green">
-        <p
-          onClick={() => adjust_graph("tenGreenScore")}
-          className="pollutant-title"
-        >
-          
-        </p>
-        <button
-          className="button"
-          disabled={active === "tenGreenScore"}
-          onClick={() => adjust_graph("tenGreenScore")}
-        >
-          {"10Green Score: " + (tenGreenScore)}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title"></p>
-        <button
-          className="button"
-          disabled={active === "aqi"}
-          onClick={() => adjust_graph("aqi")}
-        >
-          {"AQI Score: " + (aqi)}
-        </button>
-      </div>
+
+      <button
+        className="button"
+        disabled={active === "tenGreenScore"}
+        onClick={() => adjust_graph("tenGreenScore")}
+      >
+        {"10Green Score: " + tenGreenScore}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "aqi"}
+        onClick={() => adjust_graph("aqi")}
+      >
+        {"AQI Score: " + aqi}
+      </button>
+
       <hr></hr>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">Ozone</p>
-        <button
-          className="button"
-          disabled={active === "ozone"}
-          onClick={() => adjust_graph("ozone")}
-          style={
-            active === "tenGreenScore" ? 
-            !isNaN(ozone)
+
+      <button
+        className="button"
+        disabled={active === "ozone"}
+        onClick={() => adjust_graph("ozone")}
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(ozone)
               ? ozone >= ThresholdFinder("ozone")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
-              : { backgroundColor: "lightgrey" } 
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">PM2.5</p>
-        <button
-          className="button"
-          disabled={active === "pm25"}
-          onClick={() => adjust_graph("pm25")}
-          title="Large Particulates"
-          style={
-            active === "tenGreenScore" ? 
-            !isNaN(pm25)
+              : { backgroundColor: "lightgrey" }
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "pm25"}
+        onClick={() => adjust_graph("pm25")}
+        title="Large Particulates"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(pm25)
               ? pm25 >= ThresholdFinder("pm25")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(1) + "µg m-3" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">PM10</p>
-        <button
-          className="button"
-          disabled={active === "pm10"}
-          background-color="#C9E5AA"
-          onClick={() => adjust_graph("pm10")}
-          title="Small Particulates"
-          style={
-            active === "tenGreenScore" ? 
-            !isNaN(pm10)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(1) + "µg m-3" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "pm10"}
+        background-color="#C9E5AA"
+        onClick={() => adjust_graph("pm10")}
+        title="Small Particulates"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(pm10)
               ? pm10 >= ThresholdFinder("pm10")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(1) + "µg m-3" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">SO2</p>
-        <button
-          className="button"
-          disabled={active === "so2"}
-          onClick={() => adjust_graph("so2")}
-          title="Sulfur Dioxide"
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(so2)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(1) + "µg m-3" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "so2"}
+        onClick={() => adjust_graph("so2")}
+        title="Sulfur Dioxide"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(so2)
               ? so2 >= ThresholdFinder("so2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"SO2: " + (!isNaN(so2) ? so2.toFixed(1) + " ppb" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">NO2</p>
-        <button
-          className="button"
-          disabled={active === "no2"}
-          onClick={() => adjust_graph("no2")}
-          title="Nitrogen Dioxide"
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(no2)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"SO2: " + (!isNaN(so2) ? so2.toFixed(1) + " ppb" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "no2"}
+        onClick={() => adjust_graph("no2")}
+        title="Nitrogen Dioxide"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(no2)
               ? no2 >= ThresholdFinder("no2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"NO2: " + (!isNaN(no2) ? no2.toFixed(1) + " ppb" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">Nickel</p>
-        <button
-          className="button"
-          disabled={active === "nickel"}
-          onClick={() => adjust_graph("nickel")}
-          title="Nickel"
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(nickel)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"NO2: " + (!isNaN(no2) ? no2.toFixed(1) + " ppb" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "nickel"}
+        onClick={() => adjust_graph("nickel")}
+        title="Nickel"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(nickel)
               ? nickel >= ThresholdFinder("nickel")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(1) + "ng m-3" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">Lead</p>
-        <button
-          className="button"
-          disabled={active === "lead"}
-          onClick={() => adjust_graph("lead")}
-          title="Lead"
-          style={
-            active === "tenGreenScore" ?
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(1) + "ng m-3" : "N/A")}
+      </button>
 
-            !isNaN(lead)
+      <button
+        className="button"
+        disabled={active === "lead"}
+        onClick={() => adjust_graph("lead")}
+        title="Lead"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(lead)
               ? lead >= ThresholdFinder("lead")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">CO</p>
-        <button
-          className="button"
-          disabled={active === "co"}
-          onClick={() => adjust_graph("co")}
-          Title = "Carbon Monoxide"
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(co)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "co"}
+        onClick={() => adjust_graph("co")}
+        Title="Carbon Monoxide"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(co)
               ? co >= ThresholdFinder("co")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"CO: " + (!isNaN(co) ? co.toFixed(1) + "ppm" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">Cadmium</p>
-        <button
-          className="button"
-          disabled={active === "cadmium"}
-          onClick={() => adjust_graph("cadmium")}
-          title="Cadmium"
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(cadmium)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"CO: " + (!isNaN(co) ? co.toFixed(1) + "ppm" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "cadmium"}
+        onClick={() => adjust_graph("cadmium")}
+        title="Cadmium"
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(cadmium)
               ? cadmium >= ThresholdFinder("cadmium")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          
-          {"Cadmium: " + (!isNaN(cadmium) ? cadmium.toFixed(1) + "ng m-3" : "N/A")}
-        </button>
-      </div>
-      <div className="side-detail-pollutant">
-        <p className="pollutant-title">Arsenic</p>
-        <button
-          className="button"
-          disabled={active === "arsenic"}
-          title="Arsenic"
-          onClick={() => adjust_graph("arsenic")}
-          style={
-            active === "tenGreenScore" ?
-            !isNaN(arsenic)
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"Cadmium: " +
+          (!isNaN(cadmium) ? cadmium.toFixed(1) + "ng m-3" : "N/A")}
+      </button>
+
+      <button
+        className="button"
+        disabled={active === "arsenic"}
+        title="Arsenic"
+        onClick={() => adjust_graph("arsenic")}
+        style={
+          active === "tenGreenScore"
+            ? !isNaN(arsenic)
               ? arsenic >= ThresholdFinder("arsenic")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
               : { backgroundColor: "lightgrey" }
-              : { backgroundColor: "#f5f5f5" }
-          }
-        >
-          {"Arsenic: " + (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
-        </button>
-      </div>
+            : { backgroundColor: "#f5f5f5" }
+        }
+      >
+        {"Arsenic: " +
+          (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
+      </button>
     </div>
   );
 }

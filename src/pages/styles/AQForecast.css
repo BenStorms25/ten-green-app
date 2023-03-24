@@ -8,12 +8,13 @@
   height: 2450px;
   overflow: hidden;
   position: relative;
+  display: flex;
 }
 
 #my-iframe {
-  position: absolute;
+  position: relative;
   top: -130px;
-  left: 12%;
-  width: 1280px;
-  height: 2450px;
+  width: 60%;
+  height: 154rem;
+  margin: 0 auto;
 }

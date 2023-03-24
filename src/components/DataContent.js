@@ -42,7 +42,7 @@ function DataContent() {
   const handleOnClear = () => {};
 
   return (
-    <div style={{ width: 300, margin: 0 }}>
+    <div id="zip-code">
       <ReactSearchAutocomplete
         items={CountyListArray}
         showNoResults={true}
