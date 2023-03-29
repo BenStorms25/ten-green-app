@@ -13,6 +13,7 @@ import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
 import { Data_Setter } from "../components/Data_Setter";
+import api from "../api/10Green_data.js";
 
 let ispaused = true;
 const App = () => {
@@ -33,8 +34,7 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() =>{
-
+  useEffect(() => {
     dispatch({ type: "SET_TITLE_YEAR", payload: year });
   }, [year]);
 
@@ -44,7 +44,14 @@ const App = () => {
   if (current_measure !== "10green") {
     colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, maximum]);
   }
-  let data = Data_Formatter(current_measure);
+  // let data = Data_Formatter(current_measure);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get("/10Green_data");
+      } catch (err) {}
+    };
+  }, []);
 
   const [mounted, setMounted] = useState(false);
   const [attatched, setAttatched] = useState(false);
@@ -247,7 +254,7 @@ const App = () => {
               onClick={handleReset}
             />
             <text
-            className ={"button"}
+              className={"button"}
               onClick={handleReset}
               x="744"
               y="455"
