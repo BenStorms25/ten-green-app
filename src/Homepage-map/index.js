@@ -14,58 +14,109 @@ import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
 import { Data_Setter } from "../components/Data_Setter";
 import api from "../api/10Green_data.js";
+import axios from "axios";
 
+// this needs to be outside of the component, not sure why, but it does
 let ispaused = true;
+
 const App = () => {
+  // url for initial map data
+  let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
+
+  // VALUES FROM REDUX
+
   const current_measure = useSelector((state) => state.current_measure);
   const current_id = useSelector((state) => state.id);
   const current_year = useSelector((state) => state.year);
   const county = useSelector((state) => state.county);
+  const reduxYear = useSelector((state) => state.year);
+
+  // STATE VARIABLES
+
   const [currentCounty, setCurrentCounty] = useState(county);
   const [hasMoved, setHasMoved] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
+  const [year, setYear] = useState(reduxYear);
+  const [data, setData] = useState([]);
+  const [mounted, setMounted] = useState(false);
+  const [attatched, setAttatched] = useState(false);
+  const [matrix, setMatrix] = useState(
+    new DOMMatrix([0.85, 0, 0, 0.85, -28, 30])
+  );
+
+  // VARS FOR MAP
+
   const width = window.innerWidth / 2.07;
   const height = width / 1.6;
   let maximum = ScaleFormatter(current_measure);
   const point = usePoints();
   const UsaGeo = useUsaGeo();
-  const reduxYear = useSelector((state) => state.year);
-  const [year, setYear] = useState(reduxYear);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({ type: "SET_TITLE_YEAR", payload: year });
-  }, [year]);
-
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
     .domain([0, maximum]);
   if (current_measure !== "10green") {
     colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, maximum]);
   }
-  // let data = Data_Formatter(current_measure);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api.get("/10Green_data");
-      } catch (err) {}
-    };
-  }, []);
-
-  const [mounted, setMounted] = useState(false);
-  const [attatched, setAttatched] = useState(false);
-
-  const [matrix, setMatrix] = useState(
-    new DOMMatrix([0.85, 0, 0, 0.85, -28, 30])
-  );
-
   let svgCanvas;
   let viewPort;
   var drag = false;
   var offset = { x: 0, y: 0 };
   var factor = 0.02;
 
+  const dispatch = useDispatch();
+
+  // MAP FUNCTIONS
+
+  // get data from resource
+  async function getData() {
+    const response = await axios.get(dataUrl);
+    console.log(response.data);
+    setData(response.data);
+  }
+
+  const handleSliderChange = (event) => {
+    setYear(event.target.value);
+  };
+
+  // upon play button press
+  const play = () => {
+    ispaused = false;
+    let y = year;
+    let x = setInterval(() => {
+      if (ispaused == true) {
+        clearInterval(x);
+      } else {
+        y++;
+        setYear(y);
+
+        if (y === 2022) {
+          setYear(1980);
+          y = "1980";
+        }
+      }
+    }, 1000);
+  };
+
+  // upon pause button press
+  const pause = () => {
+    ispaused = true;
+    // force rerender
+    setIsPaused({ ...isPaused });
+  };
+
+  // reset button press
+  const handleReset = () => {
+    resetMap();
+    setHasMoved(false);
+  };
+
+  function resetMap() {
+    // set map to original matrix
+    setMatrix(new DOMMatrix([0.85, 0, 0, 0.85, -28, 30]));
+    viewPort.style.transform = matrix.toString();
+  }
+
+  // upon state click
   const handleStateChange = () => {
     if (county.split(",").length > 1) {
       let stateCode = county.split(",")[1].trim();
@@ -73,6 +124,87 @@ const App = () => {
       setHasMoved(true);
     }
   };
+
+  // press down on map to drag
+  function beginDrag(event) {
+    drag = true;
+    offset = { x: event.offsetX, y: event.offsetY };
+  }
+
+  // drag based on mouse
+  function transformViewPort(event) {
+    if (drag) {
+      var tx = event.offsetX - offset.x;
+      var ty = event.offsetY - offset.y;
+      offset = {
+        x: event.offsetX,
+        y: event.offsetY,
+      };
+      matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
+      viewPort.style.transform = matrix.toString();
+      // assign matrix to state
+      if (!hasMoved) {
+        setMatrix({ ...matrix });
+      } else {
+        setMatrix(matrix);
+      }
+      setHasMoved(true);
+    }
+  }
+
+  function endDrag(event) {
+    drag = false;
+  }
+
+  // zoom in on map
+  function zoom(event) {
+    // Only zoom if the Ctrl key is pressed
+    if (!event.ctrlKey) {
+      return; // exit if Ctrl key is not pressed
+    }
+
+    event.preventDefault();
+    var zoom = event.deltaY > 0 ? -1 : 1;
+    var scale = 1 + factor * zoom;
+    offset = {
+      x: event.offsetX,
+      y: event.offsetY,
+    };
+    matrix.preMultiplySelf(
+      new DOMMatrix()
+        .translateSelf(offset.x, offset.y)
+        .scaleSelf(scale, scale)
+        .translateSelf(-offset.x, -offset.y)
+    );
+    viewPort.style.transform = matrix.toString();
+    // assign matrix to state
+    if (!hasMoved) {
+      setMatrix({ ...matrix });
+    } else {
+      setMatrix(matrix);
+    }
+    setHasMoved(true);
+  }
+
+  // attatch event listeners for map movement
+  function attatchListeners() {
+    svgCanvas = document.getElementById("homepage-map-svg");
+    viewPort = document.getElementById("matrix-group");
+    svgCanvas.addEventListener("pointerdown", beginDrag);
+    svgCanvas.addEventListener("pointermove", transformViewPort);
+    svgCanvas.addEventListener("pointerup", endDrag);
+    svgCanvas.addEventListener("wheel", zoom);
+  }
+
+  // USEEFFECT HOOKS
+
+  useEffect(() => {
+    dispatch({ type: "SET_TITLE_YEAR", payload: year });
+  }, [year]);
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   // initially attatch event listeners
   useEffect(() => {
@@ -103,121 +235,9 @@ const App = () => {
     }
   }, [county]);
 
+  // if vars cannot be found, return loading text
   if (!UsaGeo || !data || !point) {
     return <pre>Loading...</pre>;
-  }
-
-  const handleSliderChange = (event) => {
-    setYear(event.target.value);
-  };
-
-  const play = () => {
-    console.log("play -> ispaused: " + ispaused);
-
-    ispaused = false;
-    // if (+year === 2021) {
-    //   return;
-    // }
-
-    let y = year;
-    let x = setInterval(() => {
-      // clearInterval(x);
-      if (ispaused == true) {
-        clearInterval(x);
-      } else {
-        y++;
-        setYear(y);
-
-        if (y === 2022) {
-          setYear(1980);
-          y = "1980";
-        }
-      }
-    }, 1000);
-  };
-
-  const pause = () => {
-    ispaused = true;
-    console.log("is paused: " + ispaused);
-    // force rerender
-    setIsPaused({ ...isPaused });
-  };
-
-  const handleReset = () => {
-    resetMap();
-    setHasMoved(false);
-  };
-
-  function resetMap() {
-    setMatrix(new DOMMatrix([0.85, 0, 0, 0.85, -28, 30]));
-    viewPort.style.transform = matrix.toString();
-  }
-
-  function beginDrag(event) {
-    drag = true;
-    offset = { x: event.offsetX, y: event.offsetY };
-  }
-
-  function transformViewPort(event) {
-    if (drag) {
-      var tx = event.offsetX - offset.x;
-      var ty = event.offsetY - offset.y;
-      offset = {
-        x: event.offsetX,
-        y: event.offsetY,
-      };
-      matrix.preMultiplySelf(new DOMMatrix().translateSelf(tx, ty));
-      viewPort.style.transform = matrix.toString();
-      // assign matrix to state
-      if (!hasMoved) {
-        setMatrix({ ...matrix });
-      } else {
-        setMatrix(matrix);
-      }
-      setHasMoved(true);
-    }
-  }
-
-  function endDrag(event) {
-    drag = false;
-  }
-
-  function zoom(event) {
-    // Only zoom if the Ctrl key is pressed
-    if (!event.ctrlKey) {
-      return; // exit if Ctrl key is not pressed
-    }
-
-    event.preventDefault();
-    var zoom = event.deltaY > 0 ? -1 : 1;
-    var scale = 1 + factor * zoom;
-    offset = {
-      x: event.offsetX,
-      y: event.offsetY,
-    };
-    matrix.preMultiplySelf(
-      new DOMMatrix()
-        .translateSelf(offset.x, offset.y)
-        .scaleSelf(scale, scale)
-        .translateSelf(-offset.x, -offset.y)
-    );
-    viewPort.style.transform = matrix.toString();
-    // assign matrix to state
-    if (!hasMoved) {
-      setMatrix({ ...matrix });
-    } else {
-      setMatrix(matrix);
-    }
-    setHasMoved(true);
-  }
-
-  function attatchListeners() {
-    svgCanvas = document.getElementById("homepage-map-svg");
-    viewPort = document.getElementById("matrix-group");
-    svgCanvas.addEventListener("pointerdown", beginDrag);
-    svgCanvas.addEventListener("pointermove", transformViewPort);
-    svgCanvas.addEventListener("pointerup", endDrag);
-    svgCanvas.addEventListener("wheel", zoom);
   }
 
   return (
