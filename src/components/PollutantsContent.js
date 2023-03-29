@@ -207,7 +207,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("CO", 1)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "CO"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           <div
@@ -265,7 +267,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("PM10", 2)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "PM10"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           <div
@@ -323,7 +327,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("PM25", 3)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "PM25"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           <div
@@ -381,7 +387,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("SO2", 4)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "S02"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           <div
@@ -439,7 +447,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("NO2", 5)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "NO2"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           <div
@@ -497,7 +507,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("Nickel", 6)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "Nickel"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           {window.innerWidth > 1086 ? (
@@ -603,7 +615,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("Ozone", 7)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "Ozone"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           {window.innerWidth > 1086 ? null : (
@@ -709,7 +723,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("Lead", 8)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "Lead"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           {window.innerWidth > 1086 ? null : (
@@ -814,7 +830,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("Cadmium", 9)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "Cadmium"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           {window.innerWidth > 1086 ? null : (
@@ -919,7 +937,9 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("Arsenic", 10)
               }
             >
-              Learn More
+              {descriptionActive && currentPollutant === "Arsenic"
+                ? "Close"
+                : "Learn More"}
             </button>
           </article>
           {window.innerWidth > 1086 ? (
