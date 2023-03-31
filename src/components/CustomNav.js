@@ -23,7 +23,7 @@ function CustomNav() {
         <img className="mobile-logo" alt="" src={umaineLogo}></img>
       </div>
 
-      <a href="#" className="toggle-button" onClick={collapseNav}>
+      <a href className="toggle-button" onClick={collapseNav}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>

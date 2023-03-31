@@ -61,10 +61,6 @@
   border-top-right-radius: 1rem;
 }
 
-.active {
-  background-color: #ccc;
-}
-
 .top-panel {
   margin: 10px 40px 10px 10px;
   padding: 1.5%;
@@ -96,7 +92,7 @@ h2 {
   padding: 2% 0;
 }
 .description {
-  padding: 0 10%;
+  padding: 0.5% 10%;
 }
 
 .description p {
@@ -107,17 +103,17 @@ table {
   font-size: 0.9rem;
   width: 100%;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 6px -6px #E5E5E5;
+  box-shadow: 0 8px 6px -6px #e5e5e5;
   border-radius: 1rem;
   overflow: hidden;
-  border: solid 1px #EAEAEA;
+  border: solid 1px #eaeaea;
 }
 th {
   background-color: #f8f8f8;
   padding: 1rem;
 }
-tr  {
-  border-top: solid 1px #EAEAEA;
+tr {
+  border-top: solid 1px #eaeaea;
 }
 td {
   padding: 1rem 0 1rem 1rem;
