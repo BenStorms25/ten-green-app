@@ -40,9 +40,9 @@ export const GraphWidget = ({ data, max }) => {
   return (
     <div id="graphwidget">
       <div style={styles}>
-        <ResponsiveContainer width="99%" height={200} zoom= {.8} >
+        <ResponsiveContainer width={1300} height={200} zoom= {.8} >
           <BarChart
-            width={500}
+            width={600}
             height={300}
             data={data}
             
