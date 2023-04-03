@@ -5,11 +5,15 @@ import { useSelector, useDispatch } from "react-redux";
 import allData from "../content/json_choropleth/allData.json";
 import stateNameToAbbreviation from "../components/Abbrevinator"
 import "../components/styles/Marks.css"
+import { Tooltip } from 'react-tooltip'
+
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
+
 export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
+  let inputRef = React.createRef();
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
@@ -38,6 +42,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
         return (
           
           <path
+          
+          ref={inputRef}
             className= { feature.id === incomingID ? "border2" : "border" }
             d={path(feature)}
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
@@ -55,7 +61,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
             </title>
 
             
-            <div className="tooltiptext">Tooltip text</div>
+            
+            
             
           </path>
         );

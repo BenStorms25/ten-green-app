@@ -3,6 +3,7 @@ import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import InteractiveMap from "./InteractiveMap";
 
+
 function Globe(props) {
   // scale globe and transition to map on scroll
   function scaleAndTransitionGlobe() {
@@ -44,6 +45,8 @@ function Globe(props) {
     scaleAndTransitionGlobe();
   });
 
+  const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
+
   return (
     <>
       <div className="globe-div">
@@ -53,9 +56,13 @@ function Globe(props) {
       </div>
       <div className="interactive-map-container">
         <InteractiveMap
-          dataPoints={props.dataPoints}
-          current_graph_max={props.current_graph_max}
-        />
+         />
+         
+      </div>
+      <div id="graph_wrapper">
+      <React.Suspense fallback={<div id ="placeholder_graph">Loading...</div>}>
+        <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
+      </React.Suspense>
       </div>
     </>
   );
