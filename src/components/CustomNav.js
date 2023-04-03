@@ -3,7 +3,6 @@ import tenGreenLogo from "../images/10Green Logo Black (1).png";
 import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";
 import climateChangeLogo from "../images/climateChangeWhite.png";
 import { HashLink } from "react-router-hash-link";
-
 import "./styles/CustomNav.css";
 
 function CustomNav() {

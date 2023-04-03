@@ -7,13 +7,10 @@ import "../components/styles/Globe.css";
 import "../components/styles/InteractiveMap.css";
 import "./styles.css";
 import { useSelector, useDispatch } from "react-redux";
-import { Data_Formatter } from "../components/Data-Formatter";
 import playbuttonpic from "../images/playbutton.png";
 import pausebuttonpic from "../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
 import { ScaleFormatter } from "../components/ScaleFormatter";
-import { Data_Setter } from "../components/Data_Setter";
-import api from "../api/10Green_data.js";
 import axios from "axios";
 
 // this needs to be outside of the component, not sure why, but it does
@@ -26,8 +23,6 @@ const App = () => {
   // VALUES FROM REDUX
 
   const current_measure = useSelector((state) => state.current_measure);
-  const current_id = useSelector((state) => state.id);
-  const current_year = useSelector((state) => state.year);
   const county = useSelector((state) => state.county);
   const reduxYear = useSelector((state) => state.year);
 
@@ -64,15 +59,6 @@ const App = () => {
   var factor = 0.02;
 
   const dispatch = useDispatch();
-
-  // MAP FUNCTIONS
-
-  // get data from resource
-  async function getData() {
-    const response = await axios.get(dataUrl);
-    console.log(response.data);
-    setData(response.data);
-  }
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
@@ -202,9 +188,33 @@ const App = () => {
     dispatch({ type: "SET_TITLE_YEAR", payload: year });
   }, [year]);
 
+  // initially, get data for 10green pollutant
   useEffect(() => {
-    getData();
+    axios
+      .get(
+        `http://204.197.4.170/10green/json/${
+          current_measure === "aqi" ? "aqi_median" : current_measure
+        }_1980-2021.json`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      });
   }, []);
+
+  // make the axios call on pollutant change
+  useEffect(() => {
+    axios
+      .get(
+        `http://204.197.4.170/10green/json/${
+          current_measure === "aqi" ? "aqi_median" : current_measure
+        }_1980-2021.json`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      });
+  }, [current_measure]);
 
   // initially attatch event listeners
   useEffect(() => {

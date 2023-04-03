@@ -1,10 +1,6 @@
 import React from "react";
 import CustomFooter from "./CustomFooter";
 import "./styles/AboutContent.css";
-import about10GreenImage from "../images/10greenabout.png";
-import climateChangeImage from "../images/Windturbine.png";
-import planeImage from "../images/plane.png";
-import blankUser from "../images/blankUser.png";
 
 function AboutContent() {
   return (
