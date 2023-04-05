@@ -13,6 +13,7 @@ import smallParticulateMatterImage from "../images/particulateMatterImage.png";
 import largeParticulateMatterImage from "../images/largeparticles.png";
 import CustomFooter from "./CustomFooter";
 import PollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
+import { useDispatch } from "react-redux";
 
 //import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
 
@@ -60,6 +61,12 @@ function PollutantsContent() {
       }
     }
   });
+
+  const dispatch = useDispatch();
+  // handle problem of incorrect map being displayed after navigating to different page
+  useEffect(() => {
+    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green" });
+  }, []);
 
   function handleDisplayTop(pollutant) {
     let numOfCards;

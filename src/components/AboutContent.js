@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomFooter from "./CustomFooter";
 import "./styles/AboutContent.css";
+import { useDispatch } from "react-redux";
 
 function AboutContent() {
+  const dispatch = useDispatch();
+  // handle problem of incorrect map being displayed after navigating to different page
+  useEffect(() => {
+    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green" });
+  }, []);
+
   return (
     <div className="entire-page-1">
       <div className="center-content-2">
