@@ -25,10 +25,12 @@ const App = () => {
   const current_measure = useSelector((state) => state.current_measure);
   const county = useSelector((state) => state.county);
   const reduxYear = useSelector((state) => state.year);
+  const id = useSelector((state) => state.id);
 
   // STATE VARIABLES
 
   const [currentCounty, setCurrentCounty] = useState(county);
+  const [countyData, setCountyData] = useState([]);
   const [hasMoved, setHasMoved] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [year, setYear] = useState(reduxYear);
@@ -57,6 +59,65 @@ const App = () => {
   var drag = false;
   var offset = { x: 0, y: 0 };
   var factor = 0.02;
+
+  const StateAbrevs = [
+    "AL",
+    "AK",
+    "null",
+    "AZ",
+    "AR",
+    "CA",
+    "null",
+    "CO",
+    "CT",
+    "DE",
+    "DC",
+    "FL",
+    "GA",
+    "null",
+    "HI",
+    "ID",
+    "IL",
+    "IN",
+    "IA",
+    "KS",
+    "KY",
+    "LA",
+    "ME",
+    "MD",
+    "MA",
+    "MI",
+    "MN",
+    "MS",
+    "MO",
+    "MT",
+    "NE",
+    "NV",
+    "NH",
+    "NJ",
+    "NM",
+    "NY",
+    "NC",
+    "ND",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "null",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VT",
+    "VA",
+    "null",
+    "WA",
+    "WV",
+    "WI",
+    "WY",
+  ];
 
   const dispatch = useDispatch();
 
@@ -182,7 +243,114 @@ const App = () => {
     svgCanvas.addEventListener("wheel", zoom);
   }
 
+  async function getPollutantValsForCounty() {
+    console.log("1.) getting pollutant values");
+    if (!isNaN(id) && id) {
+      //let countyData = await getCountyData(parseInt(id));
+      axios
+        .get(`http://204.197.4.170/10green/json/json_data-by-county/${id}.json`)
+        .then((res) => {
+          setCountyData({ ...res.data });
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        });
+    }
+  }
+
+  function dispatchPollutantVals() {
+    // console.log("dispatching pollutant values");
+    if (!countyData.length && countyData.length !== 0) {
+      console.log("dispatching pollutant values");
+      for (let i = 0; i < Object.keys(countyData).length; i++) {
+        switch (countyData[i].measure) {
+          case "10green":
+            dispatch({
+              type: "SET_TEN_GREEN_SCORE",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "aqi":
+            dispatch({
+              type: "SET_AQI",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "arsenic":
+            dispatch({
+              type: "SET_ARSENIC",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "cadmium":
+            dispatch({
+              type: "SET_CADMIUM",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "co":
+            dispatch({
+              type: "SET_CO",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "lead":
+            dispatch({
+              type: "SET_LEAD",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "nickel":
+            dispatch({
+              type: "SET_NICKEL",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "no2":
+            dispatch({
+              type: "SET_NO2",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "ozone":
+            dispatch({
+              type: "SET_OZONE",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "pm10":
+            dispatch({
+              type: "SET_PM10",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "pm25":
+            dispatch({
+              type: "SET_PM25",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          case "so2":
+            dispatch({
+              type: "SET_SO2",
+              payload: countyData[i].data[year - 1980],
+            });
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  }
   // USEEFFECT HOOKS
+
+  useEffect(() => {
+    getPollutantValsForCounty();
+  }, [county, year]);
+
+  useEffect(() => {
+    dispatchPollutantVals();
+  }, [countyData]);
 
   useEffect(() => {
     dispatch({ type: "SET_TITLE_YEAR", payload: year });
