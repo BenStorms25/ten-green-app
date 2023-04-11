@@ -3,7 +3,6 @@ import CustomHeader from "../components/CustomHeader";
 import "./styles/Standards.css";
 import "./styles/AQForecast.css";
 import { useDispatch } from "react-redux";
-import forecast from "../aqm_fcst/index.html";
 import CustomFooter from "../components/CustomFooter";
 
 function AQForecast() {
@@ -25,7 +24,7 @@ function AQForecast() {
           title="aqforecast"
         ></iframe>
       </div>
-      {/* <div dangerouslySetInnerHTML={{__html: forecast}}/> */}
+
       <CustomFooter />
     </div>
   );
