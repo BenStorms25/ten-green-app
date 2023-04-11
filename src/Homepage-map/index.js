@@ -24,7 +24,7 @@ const App = () => {
   const [hasMoved, setHasMoved] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const width = window.innerWidth / 2.07;
-  const height = width / 1.6;
+  const height = width / 2.5;
   let maximum = ScaleFormatter(current_measure);
   const point = usePoints();
   const UsaGeo = useUsaGeo();
@@ -33,8 +33,7 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() =>{
-
+  useEffect(() => {
     dispatch({ type: "SET_TITLE_YEAR", payload: year });
   }, [year]);
 
@@ -217,7 +216,7 @@ const App = () => {
     <>
       <svg
         width={"100%"}
-        height={height}
+        height={"76%"}
         id="homepage-map-svg"
         viewBox={`0 0 ${812} ${483}`}
         style={{ border: "1px solid grey" }}
@@ -247,7 +246,7 @@ const App = () => {
               onClick={handleReset}
             />
             <text
-            className ={"button"}
+              className={"button"}
               onClick={handleReset}
               x="744"
               y="455"

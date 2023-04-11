@@ -87,7 +87,6 @@ text.button {
   font-size: 0.75rem;
 }
 text.button:hover {
-  
   cursor: pointer;
   text-decoration: underline;
 }
@@ -151,7 +150,6 @@ text.button:hover {
 
 .border {
   transition: 1s;
-  
 }
 
 .border:hover {
@@ -159,18 +157,17 @@ text.button:hover {
 }
 
 .border .tooltiptext {
-  
   width: 120px;
   background-color: rgb(69, 165, 90);
   color: #e70202;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
- 
+
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 2;
-} 
+}
 .border2 {
   transition: 1s;
 }
@@ -178,7 +175,6 @@ text.button:hover {
 .border2 {
   stroke: black;
 }
-
 
 /* 
   
@@ -210,7 +206,6 @@ text.button:hover {
 
 @media (max-width: 1700px) {
   #homepage-map-svg {
-    height: 515px;
   }
   .slider-wrapper input {
     width: 700px;

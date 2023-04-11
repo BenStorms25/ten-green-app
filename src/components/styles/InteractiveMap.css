@@ -16,12 +16,12 @@
 .map-bottom {
   display: grid;
   grid-template-columns: 82% 18%;
+  height: 65%;
 }
 
 #homepage-map-svg {
   border: 1px grey;
 }
-
 
 #placeholder_graph {
   height: 200px;
