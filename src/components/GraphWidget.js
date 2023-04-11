@@ -6,7 +6,9 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  CartesianGrid
+  CartesianGrid,
+  BarChart,
+  Bar
 } from "recharts";
 import { useSelector } from "react-redux";
 import "./styles/GraphWidget.css";
@@ -38,9 +40,9 @@ export const GraphWidget = ({ data, max }) => {
   return (
     <div id="graphwidget">
       <div style={styles}>
-        <ResponsiveContainer width="99%" height={200} zoom= {.8} >
-          <LineChart
-            width={500}
+        <ResponsiveContainer width={1300} height={200} zoom= {.8} >
+          <BarChart
+            width={600}
             height={300}
             data={data}
             
@@ -67,12 +69,8 @@ export const GraphWidget = ({ data, max }) => {
               </tspan>
             </text>
             
-            <Line
-              type="monotone"
-              dataKey="value.x"
-              stroke="#bde59c"
-              dot={false}
-              strokeWidth={4}
+            <Bar dataKey="value.x"
+              fill="#82ca9d"
             />
             <XAxis
               dataKey="year"
@@ -88,7 +86,7 @@ export const GraphWidget = ({ data, max }) => {
               content={<CustomTooltip />}
               
             />
-          </LineChart>
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </div>

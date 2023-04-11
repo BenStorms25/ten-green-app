@@ -3,13 +3,16 @@ import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import allData from "../content/json_choropleth/allData.json";
-import stateNameToAbbreviation from "../components/Abbrevinator";
-import "../components/styles/Marks.css";
+import stateNameToAbbreviation from "../components/Abbrevinator"
+import "../components/styles/Marks.css"
+import { Tooltip } from 'react-tooltip'
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
+
 export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
+  let inputRef = React.createRef();
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
@@ -36,7 +39,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
       {UsaGeo[0].features.map((feature) => {
         return (
           <path
-            className={feature.id === incomingID ? "border2" : "border"}
+          ref={inputRef}
+            className= { feature.id === incomingID ? "border2" : "border" }
             d={path(feature)}
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
             fill={
@@ -51,7 +55,9 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
               {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
             </title>
 
+
             <div className="tooltiptext">Tooltip text</div>
+
           </path>
         );
       })}

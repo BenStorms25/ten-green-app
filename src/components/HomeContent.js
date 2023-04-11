@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Globe from "./Globe.js";
 //import { GraphWidget } from "./GraphWidget.js";
-import tenGreenLogo from "../images/10Green Logo Black (1).png";
+import tenGreenLogo from "../images/10Green-Logo-Black-(1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import allData from "../content/json_choropleth/allData.json";

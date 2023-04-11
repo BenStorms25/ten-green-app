@@ -1,5 +1,5 @@
 import React from "react";
-import tenGreenLogo from "../images/10Green Logo Black (1).png";
+import tenGreenLogo from "../images/10Green-Logo-Black-(1).png";
 import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";
 import climateChangeLogo from "../images/climateChangeWhite.png";
 import { HashLink } from "react-router-hash-link";
@@ -22,7 +22,7 @@ function CustomNav() {
         <img className="mobile-logo" alt="" src={umaineLogo}></img>
       </div>
 
-      <a href="#" className="toggle-button" onClick={collapseNav}>
+      <a href className="toggle-button" onClick={collapseNav}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
