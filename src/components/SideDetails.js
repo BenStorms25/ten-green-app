@@ -96,7 +96,7 @@ function SideDetails() {
         disabled={active === "aqi"}
         onClick={() => adjust_graph("aqi")}
       >
-        {"AQI Score: " + aqi}
+        {"AQI Score: " + (aqi !== null ? aqi : "N/A")}
       </button>
 
       <hr></hr>
@@ -115,7 +115,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"Ozone: " + (!isNaN(ozone) ? ozone.toFixed(1) + " ppb" : "N/A")}
+        {"Ozone: " +
+          (!isNaN(ozone) && ozone !== null ? ozone.toFixed(1) + " ppb" : "N/A")}
       </button>
 
       <button
@@ -133,7 +134,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"PM25: " + (!isNaN(pm25) ? pm25.toFixed(1) + "µg m-3" : "N/A")}
+        {"PM25: " +
+          (!isNaN(pm25) && pm25 !== null ? pm25.toFixed(1) + "µg m-3" : "N/A")}
       </button>
 
       <button
@@ -152,7 +154,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"PM10 " + (!isNaN(pm10) ? pm10.toFixed(1) + "µg m-3" : "N/A")}
+        {"PM10 " +
+          (!isNaN(pm10) && pm10 !== null ? pm10.toFixed(1) + "µg m-3" : "N/A")}
       </button>
 
       <button
@@ -170,7 +173,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"SO2: " + (!isNaN(so2) ? so2.toFixed(1) + " ppb" : "N/A")}
+        {"SO2: " +
+          (!isNaN(so2) && so2 !== null ? so2.toFixed(1) + " ppb" : "N/A")}
       </button>
 
       <button
@@ -188,7 +192,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"NO2: " + (!isNaN(no2) ? no2.toFixed(1) + " ppb" : "N/A")}
+        {"NO2: " +
+          (!isNaN(no2) && no2 !== null ? no2.toFixed(1) + " ppb" : "N/A")}
       </button>
 
       <button
@@ -206,7 +211,10 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"Nickel: " + (!isNaN(nickel) ? nickel.toFixed(1) + "ng m-3" : "N/A")}
+        {"Nickel: " +
+          (!isNaN(nickel) && nickel !== null
+            ? nickel.toFixed(1) + "ng m-3"
+            : "N/A")}
       </button>
 
       <button
@@ -224,7 +232,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"Lead: " + (!isNaN(lead) ? lead.toFixed(1) + "ng m-3" : "N/A")}
+        {"Lead: " +
+          (!isNaN(lead) && lead !== null ? lead.toFixed(1) + "ng m-3" : "N/A")}
       </button>
 
       <button
@@ -242,7 +251,7 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"CO: " + (!isNaN(co) ? co.toFixed(1) + "ppm" : "N/A")}
+        {"CO: " + (!isNaN(co) && co !== null ? co.toFixed(1) + "ppm" : "N/A")}
       </button>
 
       <button
@@ -261,7 +270,9 @@ function SideDetails() {
         }
       >
         {"Cadmium: " +
-          (!isNaN(cadmium) ? cadmium.toFixed(1) + "ng m-3" : "N/A")}
+          (!isNaN(cadmium) && cadmium !== null
+            ? cadmium.toFixed(1) + "ng m-3"
+            : "N/A")}
       </button>
 
       <button
@@ -280,7 +291,9 @@ function SideDetails() {
         }
       >
         {"Arsenic: " +
-          (!isNaN(arsenic) ? arsenic.toFixed(1) + "ng m-3" : "N/A")}
+          (!isNaN(arsenic) && arsenic !== null
+            ? arsenic.toFixed(1) + "ng m-3"
+            : "N/A")}
       </button>
     </div>
   );

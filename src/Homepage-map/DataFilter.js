@@ -62,7 +62,7 @@ export const DataFilter = (data, data2, year, id) => {
 
   const dispatch = useDispatch();
 
-  // basic data point
+  //basic data point
   class DataPoint {
     constructor() {
       this.county = "";
@@ -120,7 +120,6 @@ export const DataFilter = (data, data2, year, id) => {
           dataPoints[i].dataValue = data[i].data[year - 1980];
         } else {
           dataPoints[i].dataValue = "N/A";
-          
         }
       } else if (data[i].measure === "lead") {
         dataPoints[i].measure = "lead";
@@ -182,7 +181,7 @@ export const DataFilter = (data, data2, year, id) => {
     }
   }
 
-  // dispatch data points to redux store
+  //dispatch data points to redux store
   dataPoints.forEach((point) => {
     const Capitalized = point.county.slice(0, -7);
     const StateIndex = parseInt(point.id.slice(0, 2));
@@ -192,51 +191,51 @@ export const DataFilter = (data, data2, year, id) => {
     switch (point.measure) {
       case "10green":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
+        //dispatch({ type: "SET_TEN_GREEN_SCORE", payload: point.dataValue });
         break;
       case "aqi":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_AQI", payload: point.dataValue });
+        //dispatch({ type: "SET_AQI", payload: point.dataValue });
         break;
       case "arsenic":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_ARSENIC", payload: point.dataValue });
+        //dispatch({ type: "SET_ARSENIC", payload: point.dataValue });
         break;
       case "cadmium":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_CADMIUM", payload: point.dataValue });
+        //dispatch({ type: "SET_CADMIUM", payload: point.dataValue });
         break;
       case "co":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_CO", payload: point.dataValue });
+        //dispatch({ type: "SET_CO", payload: point.dataValue });
         break;
       case "lead":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_LEAD", payload: point.dataValue });
+        //dispatch({ type: "SET_LEAD", payload: point.dataValue });
         break;
       case "nickel":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_NICKEL", payload: point.dataValue });
+        //dispatch({ type: "SET_NICKEL", payload: point.dataValue });
         break;
       case "no2":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_NO2", payload: point.dataValue });
+        //dispatch({ type: "SET_NO2", payload: point.dataValue });
         break;
       case "ozone":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_OZONE", payload: point.dataValue });
+        //dispatch({ type: "SET_OZONE", payload: point.dataValue });
         break;
       case "pm10":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_PM10", payload: point.dataValue });
+        //dispatch({ type: "SET_PM10", payload: point.dataValue });
         break;
       case "pm25":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_PM25", payload: point.dataValue });
+        //dispatch({ type: "SET_PM25", payload: point.dataValue });
         break;
       case "so2":
         dispatch({ type: "SET_COUNTY_NAME", payload: finalName });
-        dispatch({ type: "SET_SO2", payload: point.dataValue });
+        //dispatch({ type: "SET_SO2", payload: point.dataValue });
         break;
       default:
         break;
