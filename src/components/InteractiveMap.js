@@ -9,8 +9,8 @@ import JustTitle from "./JustTitle";
 import { Title_Formatter } from "./Title_Formatter";
 import MapLegend from "./Interactive_map_comps/MapLegend";
 
-function InteractiveMap(props) {
-  const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
+function InteractiveMap() {
+  
   const county = useSelector((state) => state.county);
   const current_measure = useSelector((state) => state.current_measure);
   // const current_year = useSelector((state) => state.title_year);
@@ -33,9 +33,7 @@ function InteractiveMap(props) {
           <SideDetails />
         </div>
       </div>
-      <React.Suspense fallback={<div id ="placeholder_graph">Loading...</div>}>
-        <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
-      </React.Suspense>
+      
     </div>
   );
 }

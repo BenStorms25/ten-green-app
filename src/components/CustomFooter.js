@@ -5,7 +5,6 @@ import umaineLogo from "../images/UMaine_fullcrest_logo4c.png";
 import "./styles/CustomFooter.css";
 
 function CustomFooter() {
-  function applyBoldOverActiveLink() {}
   return (
     <footer>
       <div className="content">
