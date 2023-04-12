@@ -67,7 +67,7 @@ export const GraphWidget = ({ data, max }) => {
               </tspan>
             </text>
 
-            <Bar dataKey="value.x" fill="#82ca9d" />
+            <Bar dataKey="value" fill="#82ca9d" />
             <XAxis
               dataKey="year"
               type={"category"}
