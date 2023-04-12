@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import InteractiveMap from "./InteractiveMap";
-import { ResponsiveContainer } from "recharts";
 
 function Globe(props) {
   // scale globe and transition to map on scroll
