@@ -87,7 +87,6 @@ text.button {
   font-size: 0.75rem;
 }
 text.button:hover {
-  
   cursor: pointer;
   text-decoration: underline;
 }
@@ -151,7 +150,6 @@ text.button:hover {
 
 .border {
   transition: 1s;
-  
 }
 
 .border:hover {
@@ -159,18 +157,17 @@ text.button:hover {
 }
 
 .border .tooltiptext {
-  
   width: 120px;
   background-color: rgb(69, 165, 90);
   color: #e70202;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
- 
+
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 2;
-} 
+}
 .border2 {
   transition: 1s;
 }
@@ -178,8 +175,6 @@ text.button:hover {
 .border2 {
   stroke: black;
 }
-
-
 
 /* 
   
@@ -211,7 +206,6 @@ text.button:hover {
 
 @media (max-width: 1700px) {
   #homepage-map-svg {
-    height: 515px;
   }
   .slider-wrapper input {
     width: 700px;
@@ -228,7 +222,7 @@ text.button:hover {
 }
 @media (max-width: 1600px) {
   #homepage-map-svg {
-    height: 500px;
+    height: 450px;
   }
   .slider-wrapper input {
     width: 650px;
@@ -245,7 +239,7 @@ text.button:hover {
 }
 @media (max-width: 1500px) {
   #homepage-map-svg {
-    height: 507px;
+    height: 450px;
   }
   .slider-wrapper input {
     width: 600px;
@@ -264,18 +258,18 @@ text.button:hover {
 
 @media (max-width: 1400px) {
   #homepage-map-svg {
-    height: 525px;
+    height: 450px;
   }
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1370px) {
   .slider-wrapper input {
     width: 570px;
     height: 40px;
     z-index: 99;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1325px) {
   .slider-wrapper input {
     width: 540px;
     height: 40px;
@@ -283,7 +277,7 @@ text.button:hover {
   }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1270px) {
   .slider-wrapper input {
     width: 520px;
     height: 40px;
@@ -298,6 +292,13 @@ text.button:hover {
     z-index: 99;
   }
 }
+@media (max-width: 1150px) {
+  .slider-wrapper input {
+    width: 545px;
+    height: 40px;
+    z-index: 99;
+  }
+}
 
 @media (max-width: 1130px) {
   /* When side details snap below map */
@@ -305,7 +306,7 @@ text.button:hover {
     height: 400px;
   }
   .slider-wrapper input {
-    width: 560px;
+    width: 600px;
     height: 40px;
     z-index: 99;
   }

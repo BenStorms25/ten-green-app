@@ -17,6 +17,7 @@
 .map-bottom {
   display: grid;
   grid-template-columns: 82% 18%;
+  height: 65%;
 }
 
 #homepage-map-svg {
@@ -39,7 +40,7 @@
   }
 }
 
-@media (width < 1130px) {
+@media (max-width: 1130px) {
   .map-bottom {
     display: block;
   }
