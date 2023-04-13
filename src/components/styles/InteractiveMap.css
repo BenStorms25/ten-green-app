@@ -1,6 +1,7 @@
 #interactive-map {
   background-color: #f5f5f5;
-  border-radius: 3%;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
   padding: 1.5rem 1.5rem 1.5rem 1.5em;
   width: 62%;
   scale: 1.3;

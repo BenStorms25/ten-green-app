@@ -1,16 +1,14 @@
 #graphwidget {
-  width: 90%;
+  width: 100%;
 }
 
 .recharts-wrapper {
-  text-decoration:"none";
+  text-decoration: "none";
   position: relative;
   width: 0;
   height: 300px;
-
- 
 }
 
-text.second{
-  text-decoration:"none";
+text.second {
+  text-decoration: "none";
 }

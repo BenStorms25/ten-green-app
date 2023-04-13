@@ -44,6 +44,8 @@ function Globe(props) {
     scaleAndTransitionGlobe();
   });
 
+  const GraphWidget = React.lazy(() => import("./GraphWidget.js"));
+
   return (
     <>
       <div className="globe-div">
@@ -52,10 +54,19 @@ function Globe(props) {
         </div>
       </div>
       <div className="interactive-map-container">
-        <InteractiveMap
-          dataPoints={props.dataPoints}
-          current_graph_max={props.current_graph_max}
-        />
+        <InteractiveMap />
+      </div>
+      <div className="graph">
+        <div id="graph_wrapper">
+          <React.Suspense
+            fallback={<div id="placeholder_graph">Loading...</div>}
+          >
+            <GraphWidget
+              data={props.dataPoints}
+              max={props.current_graph_max}
+            />
+          </React.Suspense>
+        </div>
       </div>
     </>
   );

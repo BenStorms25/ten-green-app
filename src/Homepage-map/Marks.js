@@ -3,18 +3,20 @@ import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import allData from "../content/json_choropleth/allData.json";
-import stateNameToAbbreviation from "../components/Abbrevinator"
-import "../components/styles/Marks.css"
+import stateNameToAbbreviation from "../components/Abbrevinator";
+import "../components/styles/Marks.css";
+import { Tooltip } from "react-tooltip";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
 export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
+  let inputRef = React.createRef();
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
 
-  let dataMap = DataFilter(allData, data, year, selectId); 
+  let dataMap = DataFilter(allData, data, year, selectId);
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
@@ -22,7 +24,6 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
   useEffect(() => {
     setSelectedId(incomingID);
   }, [incomingID]);
-
 
   projection.fitExtent(
     [
@@ -36,27 +37,24 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
         return (
-          
           <path
-            className= { feature.id === incomingID ? "border2" : "border" }
+            ref={inputRef}
+            className={feature.id === incomingID ? "border2" : "border"}
             d={path(feature)}
             onClick={() => dispatch({ type: "SET_ID", payload: feature.id })}
             fill={
               colorScale(dataMap.get(feature.id))
-                ? colorScale((dataMap.get(feature.id) - (maximum / 10.0)))
+                ? colorScale(dataMap.get(feature.id) - maximum / 10.0)
                 : "grey"
             }
-          > 
+          >
             <title>
-              
               {dataMap.get(feature.id)} {"- "}
-              {feature.properties.name}, {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
-              
+              {feature.properties.name},{" "}
+              {stateNameToAbbreviation(states.get(feature.id.slice(0, 2)))}
             </title>
 
-            
             <div className="tooltiptext">Tooltip text</div>
-            
           </path>
         );
       })}
