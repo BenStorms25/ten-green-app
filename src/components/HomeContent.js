@@ -4,8 +4,8 @@ import Globe from "./Globe.js";
 import tenGreenLogo from "../images/10Green-Logo-Black-(1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
-import allData from "../content/json_choropleth/allData.json";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -14,9 +14,27 @@ function HomeContent() {
   let incomingmeasure = useSelector((state) => state.current_measure);
   let [current_graph_max, setgraphmax] = useState(null);
   let incominggraphmax = useSelector((state) => state.graph_max);
+  const [countyData, setCountyData] = useState([]);
+
+  async function getPollutantValsForCounty() {
+    console.log("1.) getting pollutant values");
+    if (!isNaN(incomingID) && incomingID) {
+      axios
+        .get(
+          `http://204.197.4.170/10green/json/json_data-by-county/${incomingID}.json`
+        )
+        .then((res) => {
+          setCountyData({ ...res.data });
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        });
+    }
+  }
 
   useEffect(() => {
     setSelectedId(incomingID);
+    getPollutantValsForCounty();
   }, [incomingID]);
   useEffect(() => {
     setcurrentmeasure(incomingmeasure);
@@ -27,17 +45,23 @@ function HomeContent() {
 
   // let selectId = "51041";
   class DataPoint {
-    constructor() {
-      this.year = 1980;
-      this.value = 0;
+    constructor(year, value) {
+      this.year = year;
+      this.value = value;
     }
   }
 
-  const data = allData;
-
   let dataPoints = [];
-  for (let j = 0; j < 42; j++) {
-    dataPoints.push(new DataPoint());
+  let data = [];
+  console.log("county Data", countyData);
+  if (countyData !== [] && countyData[0]) {
+    for (let i = 0; i < Object.keys(countyData).length; i++) {
+      if (countyData[i].measure === currentmeasure) {
+        for (let j = 0; j < countyData[0].data.length; j++) {
+          dataPoints.push(new DataPoint(1980 + j, countyData[i].data[j]));
+        }
+      }
+    }
   }
 
   // if (data){
@@ -51,25 +75,25 @@ function HomeContent() {
   //           dataPoints[year - 1980].value = {x: data[i].data[year - 1980]};
   //           // dataPoints[year - 1980].value = data[i].data[year - 1980];
 
-  if (data) {
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].id === selectId) {
-        if (data[i].measure === currentmeasure) {
-          for (let year = 1980; year < 2022; year++) {
-            if (data[i].data[year - 1980] !== null) {
-              dataPoints[year - 1980].value = { x: data[i].data[year - 1980] };
-              // dataPoints[year - 1980].value = data[i].data[year - 1980];
+  // if (data) {
+  //   for (let i = 0; i < data.length; i++) {
+  //     if (data[i].id === selectId) {
+  //       if (data[i].measure === currentmeasure) {
+  //         for (let year = 1980; year < 2022; year++) {
+  //           if (data[i].data[year - 1980] !== null) {
+  //             dataPoints[year - 1980].value = { x: data[i].data[year - 1980] };
+  //             // dataPoints[year - 1980].value = data[i].data[year - 1980];
 
-              dataPoints[year - 1980].year = year;
-            } else {
-              dataPoints[year - 1980].value = "N/A";
-              dataPoints[year - 1980].year = year;
-            }
-          }
-        }
-      }
-    }
-  }
+  //             dataPoints[year - 1980].year = year;
+  //           } else {
+  //             dataPoints[year - 1980].value = "N/A";
+  //             dataPoints[year - 1980].year = year;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   function removeScrollDown() {
     // remove scroll down arrow when user starts to scroll

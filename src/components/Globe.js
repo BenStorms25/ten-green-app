@@ -3,7 +3,6 @@ import "./styles/Globe.css";
 import globeImage from "../images/10Green Concept 3 Globe-01.png";
 import InteractiveMap from "./InteractiveMap";
 
-
 function Globe(props) {
   // scale globe and transition to map on scroll
   function scaleAndTransitionGlobe() {
@@ -55,14 +54,19 @@ function Globe(props) {
         </div>
       </div>
       <div className="interactive-map-container">
-        <InteractiveMap
-         />
-         
+        <InteractiveMap />
       </div>
-      <div id="graph_wrapper">
-      <React.Suspense fallback={<div id ="placeholder_graph">Loading...</div>}>
-        <GraphWidget data={props.dataPoints} max={props.current_graph_max} />
-      </React.Suspense>
+      <div className="graph">
+        <div id="graph_wrapper">
+          <React.Suspense
+            fallback={<div id="placeholder_graph">Loading...</div>}
+          >
+            <GraphWidget
+              data={props.dataPoints}
+              max={props.current_graph_max}
+            />
+          </React.Suspense>
+        </div>
       </div>
     </>
   );
