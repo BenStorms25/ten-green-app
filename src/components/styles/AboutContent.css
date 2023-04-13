@@ -4,13 +4,13 @@
 }
 
 .center-content-2 {
-  width: 80%;
+  width: 70%;
   margin: auto;
   padding-top: 5rem;
 }
 
 .center-content-2 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: white;
   font-weight: bold;
   letter-spacing: -0.1rem;
@@ -53,4 +53,12 @@
 
 .description a:active {
   color: #bde59c;
+}
+
+@media (max-width: 1500px) {
+  .center-content-2 {
+    width: 80%;
+    margin: auto;
+    padding-top: 5rem;
+  }
 }
