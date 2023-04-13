@@ -222,7 +222,7 @@ text.button:hover {
 }
 @media (max-width: 1600px) {
   #homepage-map-svg {
-    height: 500px;
+    height: 450px;
   }
   .slider-wrapper input {
     width: 650px;
@@ -239,7 +239,7 @@ text.button:hover {
 }
 @media (max-width: 1500px) {
   #homepage-map-svg {
-    height: 507px;
+    height: 450px;
   }
   .slider-wrapper input {
     width: 600px;
@@ -258,18 +258,18 @@ text.button:hover {
 
 @media (max-width: 1400px) {
   #homepage-map-svg {
-    height: 525px;
+    height: 450px;
   }
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1370px) {
   .slider-wrapper input {
     width: 570px;
     height: 40px;
     z-index: 99;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1325px) {
   .slider-wrapper input {
     width: 540px;
     height: 40px;
@@ -277,7 +277,7 @@ text.button:hover {
   }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1270px) {
   .slider-wrapper input {
     width: 520px;
     height: 40px;
@@ -292,6 +292,13 @@ text.button:hover {
     z-index: 99;
   }
 }
+@media (max-width: 1150px) {
+  .slider-wrapper input {
+    width: 545px;
+    height: 40px;
+    z-index: 99;
+  }
+}
 
 @media (max-width: 1130px) {
   /* When side details snap below map */
@@ -299,7 +306,7 @@ text.button:hover {
     height: 400px;
   }
   .slider-wrapper input {
-    width: 560px;
+    width: 600px;
     height: 40px;
     z-index: 99;
   }
