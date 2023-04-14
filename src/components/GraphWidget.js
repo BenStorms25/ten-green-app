@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   BarChart,
   Bar,
+  Cell,
 } from "recharts";
 import { useSelector } from "react-redux";
 import "./styles/GraphWidget.css";
@@ -37,6 +38,7 @@ export const GraphWidget = ({ data, max }) => {
   // let dataMap = DataFilter(data, year, currentID);
   const county = useSelector((state) => state.county);
   const current_measure = useSelector((state) => state.current_measure);
+  const reduxYear = useSelector((state) => state.title_year);
   return (
     <div id="graphwidget">
       <div style={styles}>
@@ -67,7 +69,6 @@ export const GraphWidget = ({ data, max }) => {
               </tspan>
             </text>
 
-            <Bar dataKey="value" fill="#82ca9d" />
             <XAxis
               dataKey="year"
               type={"category"}
@@ -81,6 +82,16 @@ export const GraphWidget = ({ data, max }) => {
               wrapperStyle={{ outline: "none" }}
               content={<CustomTooltip />}
             />
+            <Bar dataKey="value">
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={
+                    entry.year === parseInt(reduxYear) ? "#a9f26d" : "#82ca9d"
+                  }
+                />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
