@@ -101,7 +101,7 @@
 }
 
 /* Navbar collapse at specific width */
-@media (max-width: 1037px) {
+@media (max-width: 1054px) {
   .toggle-button {
     display: flex;
   }

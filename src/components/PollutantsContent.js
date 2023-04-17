@@ -77,7 +77,7 @@ function PollutantsContent() {
       numOfCards = 4;
     } else if (window.innerWidth >= 682) {
       numOfCards = 3;
-    } else if (window.innerWidth >= 400) {
+    } else if (window.innerWidth >= 421) {
       numOfCards = 2;
     } else {
       numOfCards = 1;
@@ -114,7 +114,7 @@ function PollutantsContent() {
       numOfCards = 4;
     } else if (window.innerWidth >= 682) {
       numOfCards = 3;
-    } else if (window.innerWidth >= 400) {
+    } else if (window.innerWidth >= 421) {
       numOfCards = 2;
     } else {
       numOfCards = 1;
@@ -150,7 +150,7 @@ function PollutantsContent() {
       numOfCards = 4;
     } else if (window.innerWidth >= 682) {
       numOfCards = 3;
-    } else if (window.innerWidth >= 400) {
+    } else if (window.innerWidth >= 421) {
       numOfCards = 2;
     } else {
       numOfCards = 1;
@@ -394,7 +394,7 @@ function PollutantsContent() {
                   : () => handleDisplayPanel("SO2", 4)
               }
             >
-              {descriptionActive && currentPollutant === "S02"
+              {descriptionActive && currentPollutant === "SO2"
                 ? "Close"
                 : "Learn More"}
             </button>

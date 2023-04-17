@@ -126,3 +126,20 @@ td {
   overflow: hidden;
   width: 120%;
 }
+
+@media (max-width: 453px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 0rem;
+  }
+  .panel {
+    padding: 1.5rem;
+    display: none;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 120%;
+  }
+}
