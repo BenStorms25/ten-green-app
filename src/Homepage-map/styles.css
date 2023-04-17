@@ -390,6 +390,19 @@ text.button:hover {
   }
 }
 
+@media (max-width: 435px) {
+  .timeline {
+    display: flex;
+    margin-top: 0.5rem;
+    position: relative;
+    right: 1rem;
+  }
+  .slider-wrapper input {
+    width: 180px;
+    height: 40px;
+    z-index: 99;
+  }
+}
 /* 
   
   Reset button Media Queries 

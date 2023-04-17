@@ -17,7 +17,7 @@ function Globe(props) {
     } else if (window.innerWidth < 780 && window.innerWidth >= 680) {
       fadeRate = 280;
     } else if (window.innerWidth < 680) {
-      fadeRate = 200;
+      fadeRate = 50;
     }
 
     window.addEventListener("scroll", function () {
