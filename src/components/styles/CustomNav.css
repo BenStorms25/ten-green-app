@@ -147,3 +147,27 @@
     padding-right: 1rem;
   }
 }
+
+@media (max-width: 450px) {
+  .mobile-logo {
+    display: block;
+    height: 2rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    top: 1.4rem;
+  }
+  .navbar-logo {
+    width: 9rem;
+    height: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .navbar-logo {
+    width: 8rem;
+    height: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

@@ -20,12 +20,20 @@ const styles = {
   textAlign: "center",
   textDecoration: "none",
 };
+const mobileStyles = {
+  fontFamily: "sans-serif",
+  textAlign: "center",
+  textDecoration: "none",
+  position: "relative",
+  right: "1rem",
+};
+const isMobile = window.innerWidth > 500;
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div>
-        <p>{` ${payload[0].value} `}</p>
+        <p>{` (${payload[0].payload.year}) - ${payload[0].value} `}</p>
       </div>
     );
   }
@@ -41,8 +49,12 @@ export const GraphWidget = ({ data, max }) => {
   const reduxYear = useSelector((state) => state.title_year);
   return (
     <div id="graphwidget">
-      <div style={styles}>
-        <ResponsiveContainer width={"100%"} height={200} zoom={0.8}>
+      <div style={isMobile ? styles : mobileStyles}>
+        <ResponsiveContainer
+          width={isMobile ? "100%" : "110%"}
+          height={200}
+          zoom={0.8}
+        >
           <BarChart
             width={600}
             height={300}
@@ -72,7 +84,7 @@ export const GraphWidget = ({ data, max }) => {
             <XAxis
               dataKey="year"
               type={"category"}
-              interval={4}
+              interval={window.innerWidth > 460 ? 4 : 5}
               minTickGap={5}
               tickLine={true}
               domain={["dataMin", "dataMax"]}
