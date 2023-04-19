@@ -29,19 +29,13 @@
 
 .info-icon:hover + .hidden-info {
   display: block;
-  position: relative;
+  position: absolute;
   background-color: white;
   padding: 0.6rem;
   border-radius: 5%;
   width: 20rem;
   font-size: 80%;
-  right: 7.5rem;
-  top: 10.5rem;
-}
-
-.info-icon:hover {
-  position: relative;
-  top: 10.6rem;
+  right: 20rem;
 }
 
 @keyframes transitionRight {
@@ -121,5 +115,31 @@
     max-width: 60%;
     animation: transitionIn 1s;
     padding-right: 1rem;
+  }
+}
+
+@media (max-width: 1600px) {
+  .info-icon:hover + .hidden-info {
+    right: 15rem;
+  }
+}
+@media (max-width: 1300px) {
+  .info-icon:hover + .hidden-info {
+    right: 10rem;
+  }
+}
+@media (max-width: 1050px) {
+  .info-icon:hover + .hidden-info {
+    right: 5rem;
+  }
+}
+@media (max-width: 900px) {
+  .info-icon:hover + .hidden-info {
+    right: 2rem;
+  }
+}
+@media (max-width: 800px) {
+  .info-icon:hover + .hidden-info {
+    right: 0rem;
   }
 }
