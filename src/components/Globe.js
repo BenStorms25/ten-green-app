@@ -40,6 +40,7 @@ function Globe(props) {
     });
   }
 
+  // scale and transition the globe on each rerender
   useEffect(() => {
     scaleAndTransitionGlobe();
   });
