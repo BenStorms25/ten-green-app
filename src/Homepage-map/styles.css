@@ -67,8 +67,9 @@ pre {
 }
 .slider-wrapper datalist option {
   font-size: 0.05px;
+  position: relative;
   /* transform-origin: top center; */
-  transform: rotate(-90deg);
+  /* transform: rotate(-90deg); */
 }
 
 .current_year {

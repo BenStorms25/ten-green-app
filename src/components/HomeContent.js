@@ -6,6 +6,7 @@ import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import fileDownload from "js-file-download";
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -31,6 +32,8 @@ function HomeContent() {
         });
     }
   }
+
+  
 
   useEffect(() => {
     setSelectedId(incomingID);
@@ -112,7 +115,16 @@ function HomeContent() {
     removeScrollDown();
   }, []);
 
+  function download(url, filename) {
+    axios.get(url, {
+      responseType: 'blob',
+    }).then(res => {
+      fileDownload(res.data, filename);
+    });
+  }
+
   return (
+    
     <>
       <div className="center-div">
         <img src={tenGreenLogo} className="ten-green-logo" alt=""></img>
@@ -135,6 +147,7 @@ function HomeContent() {
         </div>
       </div>
       <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
+      <a href="http://204.197.4.170/10green/zip_download" class="btn btn-primary">Download Data</a>
     </>
   );
 }
