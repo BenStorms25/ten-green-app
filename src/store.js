@@ -5,7 +5,8 @@ const initialState = {
   county: "Select a County",
   id: "23019",
   year: 2021,
-  title_year: 0,
+  //Still have to figure out how to update this one with axios.
+  title_year: 2021,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,

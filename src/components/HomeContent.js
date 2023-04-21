@@ -84,6 +84,7 @@ function HomeContent() {
     removeScrollDown();
   }, []);
 
+  createDataPoints();
 
 
   return (
