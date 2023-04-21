@@ -15,8 +15,6 @@ import CustomFooter from "./CustomFooter";
 import PollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
 import { useDispatch } from "react-redux";
 
-//import pollutantsInfo from "./Interactive_map_comps/Content/PollutantsInfo.json";
-
 function PollutantsContent() {
   const [mounted, setMounted] = useState(false);
   const [attached, setAttached] = useState(false);
@@ -24,8 +22,12 @@ function PollutantsContent() {
   const [currentPollutant, setCurrentPollutant] = useState("CO");
   const [pollutantJson, setPollutantJson] = useState({});
   const [widthOfDescription, setWidthOfDescription] = useState("70rem");
-
   const [maxCards, setMaxCards] = useState(calcCards());
+  const dispatch = useDispatch();
+
+  let topPanels;
+  let bottomPanels;
+  let panels;
 
   function calcCards() {
     if (window.innerWidth >= 1086) {
@@ -40,33 +42,6 @@ function PollutantsContent() {
       return 1;
     }
   }
-
-  let topPanels;
-  let bottomPanels;
-  let panels;
-  useEffect(() => {
-    //
-    topPanels = document.getElementsByClassName("top-panel");
-    bottomPanels = document.getElementsByClassName("bottom-panel");
-    panels = document.getElementsByClassName("panel");
-    if (topPanels || panels) {
-      setMounted(true);
-      if (mounted && !attached) {
-        window.addEventListener("resize", (event) => {
-          event.preventDefault();
-          //setWidthOfDescription(cards.width);
-          setMaxCards(calcCards());
-        });
-        setAttached(true);
-      }
-    }
-  });
-
-  const dispatch = useDispatch();
-  // handle problem of incorrect map being displayed after navigating to different page
-  useEffect(() => {
-    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green" });
-  }, []);
 
   function handleDisplayTop(pollutant) {
     let numOfCards;
@@ -198,6 +173,28 @@ function PollutantsContent() {
       setDescriptionActive(true);
     }
   }
+
+  useEffect(() => {
+    topPanels = document.getElementsByClassName("top-panel");
+    bottomPanels = document.getElementsByClassName("bottom-panel");
+    panels = document.getElementsByClassName("panel");
+    if (topPanels || panels) {
+      setMounted(true);
+      if (mounted && !attached) {
+        window.addEventListener("resize", (event) => {
+          event.preventDefault();
+          //setWidthOfDescription(cards.width);
+          setMaxCards(calcCards());
+        });
+        setAttached(true);
+      }
+    }
+  });
+
+  // handle problem of incorrect map being displayed after navigating to different page
+  useEffect(() => {
+    dispatch({ type: "SET_CURRENT_MEASURE", payload: "10green" });
+  }, []);
 
   return (
     <>

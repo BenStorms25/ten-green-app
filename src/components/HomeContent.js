@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Globe from "./Globe.js";
-//import { GraphWidget } from "./GraphWidget.js";
 import tenGreenLogo from "../images/10Green-Logo-Black-(1).png";
 import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
@@ -17,8 +16,30 @@ function HomeContent() {
   let incominggraphmax = useSelector((state) => state.graph_max);
   const [countyData, setCountyData] = useState([]);
 
+  class DataPoint {
+    constructor(year, value) {
+      this.year = year;
+      this.value = value;
+    }
+  }
+
+  let dataPoints = [];
+
+  // from the retrieved data, populate the dataPoints array with DataPoint objects
+  function createDataPoints() {
+    if (countyData !== [] && countyData[0]) {
+      for (let i = 0; i < Object.keys(countyData).length; i++) {
+        if (countyData[i].measure === currentmeasure) {
+          for (let j = 0; j < countyData[0].data.length; j++) {
+            dataPoints.push(new DataPoint(1980 + j, countyData[i].data[j]));
+          }
+        }
+      }
+    }
+  }
+
   async function getPollutantValsForCounty() {
-    console.log("1.) getting pollutant values");
+    // if it's still 'Select a County', don't perform get request
     if (!isNaN(incomingID) && incomingID) {
       axios
         .get(
@@ -33,73 +54,8 @@ function HomeContent() {
     }
   }
 
-  
-
-  useEffect(() => {
-    setSelectedId(incomingID);
-    getPollutantValsForCounty();
-  }, [incomingID]);
-  useEffect(() => {
-    setcurrentmeasure(incomingmeasure);
-  }, [incomingmeasure]);
-  useEffect(() => {
-    setgraphmax(incominggraphmax);
-  }, [incominggraphmax]);
-
-  // let selectId = "51041";
-  class DataPoint {
-    constructor(year, value) {
-      this.year = year;
-      this.value = value;
-    }
-  }
-
-  let dataPoints = [];
-  let data = [];
-  console.log("county Data", countyData);
-  if (countyData !== [] && countyData[0]) {
-    for (let i = 0; i < Object.keys(countyData).length; i++) {
-      if (countyData[i].measure === currentmeasure) {
-        for (let j = 0; j < countyData[0].data.length; j++) {
-          dataPoints.push(new DataPoint(1980 + j, countyData[i].data[j]));
-        }
-      }
-    }
-  }
-
-  // if (data){
-  // for (let i = 0; i < data.length; i++){
-  //   if (data[i].id === selectId) {
-  //     if (data[i].measure === currentmeasure) {
-
-  //       for (let year = 1980; year < 2022; year++){
-  //         if (data[i].data[year - 1980] !== null) {
-
-  //           dataPoints[year - 1980].value = {x: data[i].data[year - 1980]};
-  //           // dataPoints[year - 1980].value = data[i].data[year - 1980];
-
-  // if (data) {
-  //   for (let i = 0; i < data.length; i++) {
-  //     if (data[i].id === selectId) {
-  //       if (data[i].measure === currentmeasure) {
-  //         for (let year = 1980; year < 2022; year++) {
-  //           if (data[i].data[year - 1980] !== null) {
-  //             dataPoints[year - 1980].value = { x: data[i].data[year - 1980] };
-  //             // dataPoints[year - 1980].value = data[i].data[year - 1980];
-
-  //             dataPoints[year - 1980].year = year;
-  //           } else {
-  //             dataPoints[year - 1980].value = "N/A";
-  //             dataPoints[year - 1980].year = year;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 
   function removeScrollDown() {
-    // remove scroll down arrow when user starts to scroll
     let downArrow = document.querySelector("#down-arrow");
     let scrollDown = document.querySelector("#scroll-down");
 
@@ -112,16 +68,23 @@ function HomeContent() {
   }
 
   useEffect(() => {
+    setSelectedId(incomingID);
+    getPollutantValsForCounty();
+  }, [incomingID]);
+
+  useEffect(() => {
+    setcurrentmeasure(incomingmeasure);
+  }, [incomingmeasure]);
+
+  useEffect(() => {
+    setgraphmax(incominggraphmax);
+  }, [incominggraphmax]);
+
+  useEffect(() => {
     removeScrollDown();
   }, []);
 
-  function download(url, filename) {
-    axios.get(url, {
-      responseType: 'blob',
-    }).then(res => {
-      fileDownload(res.data, filename);
-    });
-  }
+
 
   return (
     

@@ -17,7 +17,7 @@
   margin-bottom: 2rem;
 }
 
-.description {
+.about-description {
   background-color: white;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -27,31 +27,32 @@
   padding-bottom: 3rem;
 }
 
-.description h2 {
+.about-description h2 {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: -0.1rem;
+  padding: 2% 0;
 }
 
-.description p {
+.about-p {
   font-size: 1.4rem;
-  font-weight: lighter;
+  font-weight: 100;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.description a:link,
-.description a:visited {
+.about-description a:link,
+.about-description a:visited {
   color: #51931bcd;
   text-decoration: none;
 }
 
-.description a:hover {
+.about-description a:hover {
   color: #bde59c;
   text-decoration: underline;
 }
 
-.description a:active {
+.about-description a:active {
   color: #bde59c;
 }
 
@@ -63,7 +64,7 @@
   }
 }
 @media (max-width: 1300px) {
-  .description {
+  .about-description {
     background-color: white;
     border-radius: 1rem;
     margin-bottom: 5rem;
@@ -72,16 +73,15 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  .description p {
+  .about-p {
     font-size: 1.2rem;
-    font-weight: lighter;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .description {
+  .about-description {
     background-color: white;
     border-radius: 1rem;
     margin-bottom: 5rem;
@@ -90,9 +90,8 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  .description p {
+  .about-p {
     font-size: 1rem;
-    font-weight: lighter;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
