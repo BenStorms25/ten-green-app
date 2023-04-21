@@ -2,19 +2,11 @@ import React from "react";
 import HomepageMap from "../Homepage-map";
 import "./styles/InteractiveMap.css";
 import SideDetails from "./SideDetails";
-import { useSelector } from "react-redux";
 import DataContent from "./DataContent";
 import JustTitle from "./JustTitle";
-
-import { Title_Formatter } from "./Title_Formatter";
 import MapLegend from "./Interactive_map_comps/MapLegend";
 
 function InteractiveMap() {
-  
-  const county = useSelector((state) => state.county);
-  const current_measure = useSelector((state) => state.current_measure);
-  // const current_year = useSelector((state) => state.title_year);
-
   return (
     <div id="interactive-map">
       <div className="map-top">
@@ -33,7 +25,6 @@ function InteractiveMap() {
           <SideDetails />
         </div>
       </div>
-      
     </div>
   );
 }
