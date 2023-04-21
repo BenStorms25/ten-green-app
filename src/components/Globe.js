@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./styles/Globe.css";
-import globeImage from "../images/10Green Concept 3 Globe-01.png";
+import globeImage from "../images/10green_globe_8bit.png";
 import InteractiveMap from "./InteractiveMap";
 
 function Globe(props) {

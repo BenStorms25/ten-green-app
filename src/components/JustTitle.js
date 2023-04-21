@@ -2,9 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Title_Formatter } from "./Title_Formatter";
 
-
-
-
 function JustTitle() {
     const current_year = useSelector((state) => state.title_year);
     const current_measure = useSelector((state) => state.current_measure);
