@@ -5,6 +5,7 @@ import infoIcon from "../images/info.png";
 import "./styles/HomeContent.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import fileDownload from "js-file-download";
 
 function HomeContent() {
   let [selectId, setSelectedId] = useState(null);
@@ -53,7 +54,7 @@ function HomeContent() {
     }
   }
 
-  // remove scroll down arrow when user starts to scroll
+
   function removeScrollDown() {
     let downArrow = document.querySelector("#down-arrow");
     let scrollDown = document.querySelector("#scroll-down");
@@ -83,9 +84,10 @@ function HomeContent() {
     removeScrollDown();
   }, []);
 
-  createDataPoints();
+
 
   return (
+    
     <>
       <div className="center-div">
         <img src={tenGreenLogo} className="ten-green-logo" alt=""></img>
@@ -108,6 +110,7 @@ function HomeContent() {
         </div>
       </div>
       <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
+      <a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual" class="sourcebtn">Source: EPA Annual Air Data</a>
     </>
   );
 }

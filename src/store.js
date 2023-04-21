@@ -1,10 +1,11 @@
 import { createStore } from "redux";
 
+
 const initialState = {
   county: "Select a County",
   id: "23019",
   year: 2021,
-  title_year: 2021,
+  title_year: 0,
   tenGreenScore: 0,
   aqi: 0,
   arsenic: 0,

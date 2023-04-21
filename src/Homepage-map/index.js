@@ -16,7 +16,19 @@ import axios from "axios";
 // this needs to be outside of the component, not sure why, but it does
 let ispaused = true;
 
+
 const App = () => {
+
+
+
+  
+
+
+ 
+
+
+ 
+
   // url for initial map data
   let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
 
@@ -33,6 +45,8 @@ const App = () => {
   const [countyData, setCountyData] = useState([]);
   const [hasMoved, setHasMoved] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
+  const [firstYear, setFirstYear] = useState(0);
+  const [lastYear, setLastYear] = useState(0);
   const [year, setYear] = useState(reduxYear);
   const [data, setData] = useState([]);
   const [mounted, setMounted] = useState(false);
@@ -121,6 +135,27 @@ const App = () => {
 
   const dispatch = useDispatch();
 
+ 
+
+  
+  useEffect(() => {
+    const configResponse = async () => {
+    await axios.get(
+        `http://204.197.4.170/10green/json/config.json`,
+        
+      )
+      .then((response) => {
+        setFirstYear(response.data.first_year);
+        setLastYear(response.data.last_year); 
+        dispatch({
+          type: "SET_TITLE_YEAR",
+          payload: lastYear
+        })
+    })}
+      configResponse();
+  }, []);
+
+
   const handleSliderChange = (event) => {
     setYear(event.target.value);
   };
@@ -136,9 +171,9 @@ const App = () => {
         y++;
         setYear(y);
 
-        if (y === 2022) {
-          setYear(1980);
-          y = "1980";
+        if (y === (lastYear + 1)) {
+          setYear(firstYear);
+          y = firstYear.toString();
         }
       }
     }, 1000);
@@ -267,73 +302,73 @@ const App = () => {
           case "10green":
             dispatch({
               type: "SET_TEN_GREEN_SCORE",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "aqi":
             dispatch({
               type: "SET_AQI",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "arsenic":
             dispatch({
               type: "SET_ARSENIC",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "cadmium":
             dispatch({
               type: "SET_CADMIUM",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "co":
             dispatch({
               type: "SET_CO",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "lead":
             dispatch({
               type: "SET_LEAD",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "nickel":
             dispatch({
               type: "SET_NICKEL",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "no2":
             dispatch({
               type: "SET_NO2",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "ozone":
             dispatch({
               type: "SET_OZONE",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "pm10":
             dispatch({
               type: "SET_PM10",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "pm25":
             dispatch({
               type: "SET_PM25",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           case "so2":
             dispatch({
               type: "SET_SO2",
-              payload: countyData[i].data[year - 1980],
+              payload: countyData[i].data[year - firstYear],
             });
             break;
           default:
@@ -369,6 +404,7 @@ const App = () => {
         setData(res.data);
       });
   }, []);
+
 
   // make the axios call on pollutant change
   useEffect(() => {
@@ -412,6 +448,26 @@ const App = () => {
       handleStateChange();
     }
   }, [county]);
+
+
+  
+  
+  
+  let optionArray = [];
+console.log(lastYear);  
+  for (let i = firstYear; i <= lastYear; i++) {
+    optionArray.push(i.toString());
+    
+    
+
+  }
+  console.log(optionArray);
+
+  const optionList = optionArray.map((yearValue) =>
+
+    <option value={yearValue} label={yearValue}></option>
+
+  );
 
   // if vars cannot be found, return loading text
   if (!UsaGeo || !data || !point) {
@@ -498,57 +554,18 @@ const App = () => {
               type="range"
               id="year"
               name="year"
-              min="1980"
-              max="2021"
+              min={optionArray[0]}
+              max={optionArray.slice(-1)}
               step="1"
               list="tickmarks"
               value={year}
               onChange={(e) => handleSliderChange(e)}
             />
 
+
             <datalist id="tickmarks">
-              <option value="1980" label="1980"></option>
-              <option value="1981" label="1981"></option>
-              <option value="1982" label="1982"></option>
-              <option value="1983" label="1983"></option>
-              <option value="1984" label="1984"></option>
-              <option value="1985" label="1985"></option>
-              <option value="1986" label="1986"></option>
-              <option value="1987" label="1987"></option>
-              <option value="1988" label="1988"></option>
-              <option value="1989" label="1989"></option>
-              <option value="1990" label="1990"></option>
-              <option value="1991" label="1991"></option>
-              <option value="1992" label="1992"></option>
-              <option value="1993" label="1993"></option>
-              <option value="1994" label="1994"></option>
-              <option value="1995" label="1995"></option>
-              <option value="1996" label="1996"></option>
-              <option value="1997" label="1997"></option>
-              <option value="1998" label="1998"></option>
-              <option value="1999" label="1999"></option>
-              <option value="2000" label="2000"></option>
-              <option value="2001" label="2001"></option>
-              <option value="2002" label="2002"></option>
-              <option value="2003" label="2003"></option>
-              <option value="2004" label="2004"></option>
-              <option value="2005" label="2005"></option>
-              <option value="2006" label="2006"></option>
-              <option value="2007" label="2007"></option>
-              <option value="2008" label="2008"></option>
-              <option value="2009" label="2009"></option>
-              <option value="2010" label="2010"></option>
-              <option value="2011" label="2011"></option>
-              <option value="2012" label="2012"></option>
-              <option value="2013" label="2013"></option>
-              <option value="2014" label="2014"></option>
-              <option value="2015" label="2015"></option>
-              <option value="2016" label="2016"></option>
-              <option value="2017" label="2017"></option>
-              <option value="2018" label="2018"></option>
-              <option value="2019" label="2019"></option>
-              <option value="2020" label="2020"></option>
-              <option value="2021" label="2021"></option>
+              {optionList}
+              
             </datalist>
           </div>
         </div>
