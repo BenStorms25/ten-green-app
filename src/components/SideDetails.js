@@ -107,7 +107,7 @@ function SideDetails() {
         onClick={() => adjust_graph("ozone")}
         style={
           active === "tenGreenScore"
-            ? !isNaN(ozone)
+            ? ozone !== null 
               ? ozone >= ThresholdFinder("ozone")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -126,7 +126,7 @@ function SideDetails() {
         title="Large Particulates"
         style={
           active === "tenGreenScore"
-            ? !isNaN(pm25)
+            ? pm25 !== null
               ? pm25 >= ThresholdFinder("pm25")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -134,8 +134,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"PM25: " +
-          (!isNaN(pm25) && pm25 !== null ? pm25.toFixed(1) + "µg m-3" : "N/A")}
+        {"PM.25: " +
+          (!isNaN(pm25) && pm25 !== null ? pm25.toFixed(1) + "µg m" + "\u00B3" : "N/A")}
       </button>
 
       <button
@@ -146,7 +146,7 @@ function SideDetails() {
         title="Small Particulates"
         style={
           active === "tenGreenScore"
-            ? !isNaN(pm10)
+            ? pm10 !== null
               ? pm10 >= ThresholdFinder("pm10")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -154,8 +154,8 @@ function SideDetails() {
             : { backgroundColor: "#f5f5f5" }
         }
       >
-        {"PM10 " +
-          (!isNaN(pm10) && pm10 !== null ? pm10.toFixed(1) + "µg m-3" : "N/A")}
+        {"PM10: " +
+          (!isNaN(pm10) && pm10 !== null ? pm10.toFixed(1) + "µg m" + "\u00B3" : "N/A")}
       </button>
 
       <button
@@ -165,7 +165,7 @@ function SideDetails() {
         title="Sulfur Dioxide"
         style={
           active === "tenGreenScore"
-            ? !isNaN(so2)
+            ? so2 !== null
               ? so2 >= ThresholdFinder("so2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -184,7 +184,7 @@ function SideDetails() {
         title="Nitrogen Dioxide"
         style={
           active === "tenGreenScore"
-            ? !isNaN(no2)
+            ? no2 !== null
               ? no2 >= ThresholdFinder("no2")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -203,7 +203,7 @@ function SideDetails() {
         title="Nickel"
         style={
           active === "tenGreenScore"
-            ? !isNaN(nickel)
+            ? nickel !== null
               ? nickel >= ThresholdFinder("nickel")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -224,7 +224,7 @@ function SideDetails() {
         title="Lead"
         style={
           active === "tenGreenScore"
-            ? !isNaN(lead)
+            ? lead !== null
               ? lead >= ThresholdFinder("lead")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -243,7 +243,7 @@ function SideDetails() {
         Title="Carbon Monoxide"
         style={
           active === "tenGreenScore"
-            ? !isNaN(co)
+            ? co !== null
               ? co >= ThresholdFinder("co")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -261,7 +261,7 @@ function SideDetails() {
         title="Cadmium"
         style={
           active === "tenGreenScore"
-            ? !isNaN(cadmium)
+            ? cadmium !== null
               ? cadmium >= ThresholdFinder("cadmium")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
@@ -282,7 +282,7 @@ function SideDetails() {
         onClick={() => adjust_graph("arsenic")}
         style={
           active === "tenGreenScore"
-            ? !isNaN(arsenic)
+            ? arsenic !== null
               ? arsenic >= ThresholdFinder("arsenic")
                 ? { backgroundColor: "#E2AAAA" }
                 : { backgroundColor: "#C9E5AA" }
