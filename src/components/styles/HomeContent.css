@@ -96,16 +96,16 @@
   transform: rotateZ(45deg);
 }
 
-.downloadbtn {
+.sourcebtn {
   margin-bottom: 0.5rem;
   height: 2rem;
   width: 100%;
   border: 1px solid grey;
   border-radius: 5px;
-  color: red;
+  
   text-align: center;
   position: relative;
-  left: 1570px;
+  left: 1500px;
   top: -970px;
 }
 
