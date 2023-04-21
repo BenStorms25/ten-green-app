@@ -142,22 +142,17 @@ const App = () => {
     const configResponse = async () => {
     await axios.get(
         `http://204.197.4.170/10green/json/config.json`,
-
-        
         
       )
       .then((response) => {
         setFirstYear(response.data.first_year);
-        console.log(response.data.first_year);
         setLastYear(response.data.last_year); 
-        
-        console.log(response.data.last_year);
+        dispatch({
+          type: "SET_TITLE_YEAR",
+          payload: lastYear
+        })
     })}
-
       configResponse();
-        
-  
-      
   }, []);
 
 

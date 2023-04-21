@@ -147,7 +147,7 @@ function HomeContent() {
         </div>
       </div>
       <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
-      <a href="http://204.197.4.170/10green/zip_download" class="btn btn-primary">Download Data</a>
+      <a href="http://204.197.4.170/10green/zip_download" class="downloadbtn">Download Data</a>
     </>
   );
 }
