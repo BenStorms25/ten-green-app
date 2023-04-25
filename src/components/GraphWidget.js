@@ -107,7 +107,12 @@ export const GraphWidget = ({ data, max }) => {
               tickLine={true}
               domain={["dataMin", "dataMax"]}
             />
-            <YAxis type="number" domain={[0, max]} />
+            <YAxis type="number" domain={[0, max]} 
+            tickCount={10}
+            
+            interval={0}
+            
+            />
             <Tooltip
               wrapperStyle={{ outline: "none" }}
               content={<CustomTooltip />}
@@ -116,13 +121,23 @@ export const GraphWidget = ({ data, max }) => {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
+                  
                   fill={
                     //entry.year === parseInt(reduxYear) ? "#a9f26d" : "#82ca9d"
                     colorScale(entry.value - maximum / 10.0 )
+                  
                     
-                  }
+                 }
+
+                 stroke={"black"}
+                  strokeWidth={entry.year === parseInt(reduxYear)? 4 : 0 }
+                  
+                  
                 />
+
               ))}
+
+              
             </Bar>
           </BarChart>
         </ResponsiveContainer>
