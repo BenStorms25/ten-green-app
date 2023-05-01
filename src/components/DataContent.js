@@ -26,7 +26,6 @@ function DataContent() {
     if (string.length < 6) {
       for (var i = 0; i < CountyList.length; i++) {
         if (parseInt(CountyList[i].zip_code) === parseInt(string)) {
-          console.log(string);
           dispatch({
             type: "SET_ID",
             payload: CountyList[i].internal_id.toString(),

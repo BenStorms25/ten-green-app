@@ -6,7 +6,6 @@ function JustTitle() {
   const current_year = useSelector((state) => state.title_year);
   const current_measure = useSelector((state) => state.current_measure);
 
-  console.log(current_year);
   return (
     <h5>
       {Title_Formatter(current_measure)} Score by County -{" "}

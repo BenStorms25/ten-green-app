@@ -262,7 +262,6 @@ const App = () => {
   }
 
   async function getPollutantValsForCounty() {
-    console.log("1.) getting pollutant values");
     if (!isNaN(id) && id) {
       //let countyData = await getCountyData(parseInt(id));
       axios
@@ -277,9 +276,7 @@ const App = () => {
   }
 
   function dispatchPollutantVals() {
-    // console.log("dispatching pollutant values");
     if (!countyData.length && countyData.length !== 0) {
-      console.log("dispatching pollutant values");
       for (let i = 0; i < Object.keys(countyData).length; i++) {
         switch (countyData[i].measure) {
           case "10green":
@@ -383,7 +380,6 @@ const App = () => {
         }_1980-2021.json`
       )
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       });
   }, []);
@@ -397,7 +393,6 @@ const App = () => {
         }_1980-2021.json`
       )
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       });
   }, [current_measure]);
@@ -432,11 +427,10 @@ const App = () => {
   }, [county]);
 
   let optionArray = [];
-  console.log(lastYear);
+
   for (let i = firstYear; i <= lastYear; i++) {
     optionArray.push(i.toString());
   }
-  console.log(optionArray);
 
   const optionList = optionArray.map((yearValue) => (
     <option value={yearValue} label={yearValue}></option>
