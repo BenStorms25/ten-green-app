@@ -37,6 +37,8 @@
 
   border-color: black;
 }
+.buttons {
+}
 
 .button {
   /* background-color: blue; */
@@ -56,5 +58,28 @@
 @media (1500px <= width <= 1600px) {
   .side-details {
     right: 12rem;
+  }
+}
+
+@media (max-width: 1130px) {
+  .side-details {
+    margin-left: 1rem;
+    align-items: center;
+  }
+  .side-details button {
+    margin-bottom: 0.5rem;
+    height: 2rem;
+    width: 10rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .buttons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

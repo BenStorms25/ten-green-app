@@ -17,8 +17,6 @@ import { Title_Formatter } from "./Title_Formatter";
 import { ScaleFormatter } from "../components/ScaleFormatter";
 import * as d3 from "d3";
 
-
-
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center",
@@ -54,16 +52,12 @@ export const GraphWidget = ({ data, max }) => {
 
   let maximum = ScaleFormatter(current_measure);
 
-
-
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
     .domain([0, maximum]);
   if (current_measure !== "10green") {
     colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, maximum]);
   }
-
-
 
   return (
     <div id="graphwidget">
@@ -116,11 +110,9 @@ export const GraphWidget = ({ data, max }) => {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={
-                    //entry.year === parseInt(reduxYear) ? "#a9f26d" : "#82ca9d"
-                    colorScale(entry.value - maximum / 10.0 )
-                    
-                  }
+                  fill={colorScale(entry.value - maximum / 10.0)}
+                  stroke="#000000"
+                  strokeWidth={entry.year === parseInt(reduxYear) ? 1 : 0}
                 />
               ))}
             </Bar>
