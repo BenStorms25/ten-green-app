@@ -16,19 +16,7 @@ import axios from "axios";
 // this needs to be outside of the component, not sure why, but it does
 let ispaused = true;
 
-
 const App = () => {
-
-
-
-  
-
-
- 
-
-
- 
-
   // url for initial map data
   let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
 
@@ -135,26 +123,21 @@ const App = () => {
 
   const dispatch = useDispatch();
 
- 
-
-  
   useEffect(() => {
     const configResponse = async () => {
-    await axios.get(
-        `http://204.197.4.170/10green/json/config.json`,
-        
-      )
-      .then((response) => {
-        setFirstYear(response.data.first_year);
-        setLastYear(response.data.last_year); 
-        dispatch({
-          type: "SET_TITLE_YEAR",
-          payload: lastYear
-        })
-    })}
-      configResponse();
+      await axios
+        .get(`http://204.197.4.170/10green/json/config.json`)
+        .then((response) => {
+          setFirstYear(response.data.first_year);
+          setLastYear(response.data.last_year);
+          dispatch({
+            type: "SET_TITLE_YEAR",
+            payload: lastYear,
+          });
+        });
+    };
+    configResponse();
   }, []);
-
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
@@ -171,7 +154,7 @@ const App = () => {
         y++;
         setYear(y);
 
-        if (y === (lastYear + 1)) {
+        if (y === lastYear + 1) {
           setYear(firstYear);
           y = firstYear.toString();
         }
@@ -405,7 +388,6 @@ const App = () => {
       });
   }, []);
 
-
   // make the axios call on pollutant change
   useEffect(() => {
     axios
@@ -449,25 +431,16 @@ const App = () => {
     }
   }, [county]);
 
-
-  
-  
-  
   let optionArray = [];
-console.log(lastYear);  
+  console.log(lastYear);
   for (let i = firstYear; i <= lastYear; i++) {
     optionArray.push(i.toString());
-    
-    
-
   }
   console.log(optionArray);
 
-  const optionList = optionArray.map((yearValue) =>
-
+  const optionList = optionArray.map((yearValue) => (
     <option value={yearValue} label={yearValue}></option>
-
-  );
+  ));
 
   // if vars cannot be found, return loading text
   if (!UsaGeo || !data || !point) {
@@ -562,11 +535,7 @@ console.log(lastYear);
               onChange={(e) => handleSliderChange(e)}
             />
 
-
-            <datalist id="tickmarks">
-              {optionList}
-              
-            </datalist>
+            <datalist id="tickmarks">{optionList}</datalist>
           </div>
         </div>
         <span className="current_year">{year}</span>

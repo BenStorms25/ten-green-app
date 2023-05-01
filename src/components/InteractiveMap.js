@@ -11,7 +11,6 @@ function InteractiveMap() {
     <div id="interactive-map">
       <div className="map-top">
         <h5 className="map-title">
-          {/* {Title_Formatter(current_measure)} Score by County - {current_year}{" "} */}
           <JustTitle></JustTitle>
         </h5>
         <DataContent />

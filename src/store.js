@@ -1,6 +1,5 @@
 import { createStore } from "redux";
 
-
 const initialState = {
   county: "Select a County",
   id: "23019",
@@ -84,7 +83,7 @@ function reducer(state = initialState, action) {
       lead: action.payload,
     };
   }
-  
+
   if (action.type === "SET_NICKEL") {
     return {
       ...state,
@@ -132,7 +131,6 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       graph_max: action.payload,
-
     };
   }
   if (action.type === "SET_PAN_X") {
@@ -198,20 +196,20 @@ function reducer(state = initialState, action) {
     return {
       ...state,
       ispaused: action.payload,
-    }
+    };
   }
 
   if (action.type === "SET_YEAR") {
     return {
       ...state,
       year: action.payload,
-    }
+    };
   }
   if (action.type === "SET_TITLE_YEAR") {
     return {
       ...state,
       title_year: action.payload,
-    }
+    };
   }
 
   return state;
