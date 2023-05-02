@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import allData from "../content/json_choropleth/allData.json";
 import stateNameToAbbreviation from "../components/Abbrevinator";
 import "../components/styles/Marks.css";
-import { Tooltip } from "react-tooltip";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);

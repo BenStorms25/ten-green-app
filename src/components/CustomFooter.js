@@ -6,7 +6,7 @@ import "./styles/CustomFooter.css";
 
 function CustomFooter() {
   return (
-    <footer>
+    <footer style={{ zIndex: 99 }}>
       <div className="content">
         <div className="top">
           <div className="box1">
