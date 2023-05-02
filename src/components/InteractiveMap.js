@@ -1,5 +1,5 @@
 import React from "react";
-import HomepageMap from "../Homepage-map";
+import HomepageMap from "./Interactive_map_comps/Homepage-map";
 import "./styles/InteractiveMap.css";
 import SideDetails from "./SideDetails";
 import DataContent from "./DataContent";
