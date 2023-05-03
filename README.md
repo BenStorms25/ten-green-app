@@ -89,6 +89,12 @@ export default CustomNav;
 
 All of the react components as well as their styling files are located in the 'src' folder. Inside src, there is a 'components' folder and a 'pages' folder which house all of the react components for the site. The difference between the two is that the 'pages' folder holds the root components for each page on our site. Also inside of src, are an 'images' folder, and a 'content' folder. 'images' as you might expect, holds all of the images for the site. 'content' holds json data, such as the file that maps ZIP codes to counties.
 
+### Technical Design
+
+The majority of the technical aspects of the application involve the interactive map featured on the homepage. The map is an svg element that utilizes the javascript d3 library to visualize pollutant data across the U.S., using counties to display individual data points.
+
+To achieve this, json data used to populate the map is pulled from an online location using the axios http request library.
+
 ## Available Scripts
 
 In the project directory, you can run:
