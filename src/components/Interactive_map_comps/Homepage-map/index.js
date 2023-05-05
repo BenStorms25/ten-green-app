@@ -532,7 +532,6 @@ const App = () => {
             <datalist id="tickmarks">{optionList}</datalist>
           </div>
         </div>
-        <span className="current_year">{year}</span>
       </div>
     </>
   );
