@@ -3,14 +3,14 @@ import { useUsaGeo } from "./useUsaGeo";
 import { Marks } from "./Marks";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
-import "../components/styles/Globe.css";
-import "../components/styles/InteractiveMap.css";
+import "../../styles/Globe.css";
+import "../../styles/InteractiveMap.css";
 import "./styles.css";
 import { useSelector, useDispatch } from "react-redux";
-import playbuttonpic from "../images/playbutton.png";
-import pausebuttonpic from "../images/pause button.png";
+import playbuttonpic from "../../../images/playbutton.png";
+import pausebuttonpic from "../../../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
-import { ScaleFormatter } from "../components/ScaleFormatter";
+import { ScaleFormatter } from "../../ScaleFormatter";
 import axios from "axios";
 
 // this needs to be outside of the component, not sure why, but it does

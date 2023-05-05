@@ -112,7 +112,7 @@ export const GraphWidget = ({ data, max }) => {
                   key={`cell-${index}`}
                   fill={colorScale(entry.value - maximum / 10.0)}
                   stroke="#000000"
-                  strokeWidth={entry.year === parseInt(reduxYear) ? 1 : 0}
+                  strokeWidth={entry.year === parseInt(reduxYear) ? 2 : 0}
                 />
               ))}
             </Bar>
