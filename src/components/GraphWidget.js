@@ -80,7 +80,7 @@ export const GraphWidget = ({ data, max }) => {
           >
             <text
               class="second"
-              x={180}
+              x={300}
               y={20}
               fill="black"
               textAnchor="middle"
@@ -89,8 +89,14 @@ export const GraphWidget = ({ data, max }) => {
               text-decoration="none"
             >
               <tspan fontSize="16" style={{ textDecoration: "none" }}>
-                {county} - {Title_Formatter(current_measure)} Score Over Time
-              </tspan>
+                {county} - {Title_Formatter(current_measure)} Score Over Time -
+              </tspan>{" "}
+              <a
+                href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual"
+                class="sourcebtn"
+              >
+                Source: EPA Annual Air Data
+              </a>
             </text>
 
             <XAxis
