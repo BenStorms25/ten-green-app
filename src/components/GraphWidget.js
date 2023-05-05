@@ -63,7 +63,7 @@ export const GraphWidget = ({ data, max }) => {
     <div id="graphwidget">
       <div style={isMobile ? styles : mobileStyles}>
         <ResponsiveContainer
-          width={isMobile ? "100%" : "110%"}
+          width={isMobile ? "82.5%" : "110%"}
           height={200}
           zoom={0.8}
         >
