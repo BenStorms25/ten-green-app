@@ -1,5 +1,5 @@
 import React from "react";
-import HomepageMap from "../Homepage-map";
+import HomepageMap from "./Interactive_map_comps/Homepage-map";
 import "./styles/InteractiveMap.css";
 import SideDetails from "./SideDetails";
 import DataContent from "./DataContent";
@@ -11,7 +11,6 @@ function InteractiveMap() {
     <div id="interactive-map">
       <div className="map-top">
         <h5 className="map-title">
-          {/* {Title_Formatter(current_measure)} Score by County - {current_year}{" "} */}
           <JustTitle></JustTitle>
         </h5>
         <DataContent />

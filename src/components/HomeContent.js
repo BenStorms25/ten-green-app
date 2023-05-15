@@ -54,7 +54,6 @@ function HomeContent() {
     }
   }
 
-
   function removeScrollDown() {
     let downArrow = document.querySelector("#down-arrow");
     let scrollDown = document.querySelector("#scroll-down");
@@ -86,9 +85,7 @@ function HomeContent() {
 
   createDataPoints();
 
-
   return (
-    
     <>
       <div className="center-div">
         <img src={tenGreenLogo} className="ten-green-logo" alt=""></img>
@@ -111,7 +108,6 @@ function HomeContent() {
         </div>
       </div>
       <Globe dataPoints={dataPoints} current_graph_max={current_graph_max} />
-      <a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual" class="sourcebtn">Source: EPA Annual Air Data</a>
     </>
   );
 }

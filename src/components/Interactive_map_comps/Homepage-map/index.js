@@ -3,32 +3,20 @@ import { useUsaGeo } from "./useUsaGeo";
 import { Marks } from "./Marks";
 import { usePoints } from "./usePoints";
 import * as d3 from "d3";
-import "../components/styles/Globe.css";
-import "../components/styles/InteractiveMap.css";
+import "../../styles/Globe.css";
+import "../../styles/InteractiveMap.css";
 import "./styles.css";
 import { useSelector, useDispatch } from "react-redux";
-import playbuttonpic from "../images/playbutton.png";
-import pausebuttonpic from "../images/pause button.png";
+import playbuttonpic from "../../../images/playbutton.png";
+import pausebuttonpic from "../../../images/pause button.png";
 import getStateMatrix from "./getStateMatrix";
-import { ScaleFormatter } from "../components/ScaleFormatter";
+import { ScaleFormatter } from "../../ScaleFormatter";
 import axios from "axios";
 
 // this needs to be outside of the component, not sure why, but it does
 let ispaused = true;
 
-
 const App = () => {
-
-
-
-  
-
-
- 
-
-
- 
-
   // url for initial map data
   let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
 
@@ -135,26 +123,21 @@ const App = () => {
 
   const dispatch = useDispatch();
 
- 
-
-  
   useEffect(() => {
     const configResponse = async () => {
-    await axios.get(
-        `http://204.197.4.170/10green/json/config.json`,
-        
-      )
-      .then((response) => {
-        setFirstYear(response.data.first_year);
-        setLastYear(response.data.last_year); 
-        dispatch({
-          type: "SET_TITLE_YEAR",
-          payload: lastYear
-        })
-    })}
-      configResponse();
+      await axios
+        .get(`http://204.197.4.170/10green/json/config.json`)
+        .then((response) => {
+          setFirstYear(response.data.first_year);
+          setLastYear(response.data.last_year);
+          dispatch({
+            type: "SET_TITLE_YEAR",
+            payload: lastYear,
+          });
+        });
+    };
+    configResponse();
   }, []);
-
 
   const handleSliderChange = (event) => {
     setYear(event.target.value);
@@ -171,7 +154,7 @@ const App = () => {
         y++;
         setYear(y);
 
-        if (y === (lastYear + 1)) {
+        if (y === lastYear + 1) {
           setYear(firstYear);
           y = firstYear.toString();
         }
@@ -279,7 +262,6 @@ const App = () => {
   }
 
   async function getPollutantValsForCounty() {
-    console.log("1.) getting pollutant values");
     if (!isNaN(id) && id) {
       //let countyData = await getCountyData(parseInt(id));
       axios
@@ -294,9 +276,7 @@ const App = () => {
   }
 
   function dispatchPollutantVals() {
-    // console.log("dispatching pollutant values");
     if (!countyData.length && countyData.length !== 0) {
-      console.log("dispatching pollutant values");
       for (let i = 0; i < Object.keys(countyData).length; i++) {
         switch (countyData[i].measure) {
           case "10green":
@@ -400,11 +380,9 @@ const App = () => {
         }_1980-2021.json`
       )
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       });
   }, []);
-
 
   // make the axios call on pollutant change
   useEffect(() => {
@@ -415,7 +393,6 @@ const App = () => {
         }_1980-2021.json`
       )
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       });
   }, [current_measure]);
@@ -449,25 +426,15 @@ const App = () => {
     }
   }, [county]);
 
-
-  
-  
-  
   let optionArray = [];
-console.log(lastYear);  
+
   for (let i = firstYear; i <= lastYear; i++) {
     optionArray.push(i.toString());
-    
-    
-
   }
-  console.log(optionArray);
 
-  const optionList = optionArray.map((yearValue) =>
-
+  const optionList = optionArray.map((yearValue) => (
     <option value={yearValue} label={yearValue}></option>
-
-  );
+  ));
 
   // if vars cannot be found, return loading text
   if (!UsaGeo || !data || !point) {
@@ -562,14 +529,9 @@ console.log(lastYear);
               onChange={(e) => handleSliderChange(e)}
             />
 
-
-            <datalist id="tickmarks">
-              {optionList}
-              
-            </datalist>
+            <datalist id="tickmarks">{optionList}</datalist>
           </div>
         </div>
-        <span className="current_year">{year}</span>
       </div>
     </>
   );

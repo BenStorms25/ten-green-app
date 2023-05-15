@@ -183,23 +183,87 @@ text.button:hover {
   
 */
 
-@media (width >= 1850px) {
+@media (width >= 2100px) {
   #homepage-map-svg {
-    height: 600px;
+    height: 520px;
   }
   .slider-wrapper input {
-    width: 750px;
+    width: 980px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (2100px > width >= 2000px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 950px;
     height: 40px;
     z-index: 99;
   }
 }
 
-@media (1850px > width >= 1700px) {
+@media (2000px > width >= 1950px) {
   #homepage-map-svg {
     height: 520px;
   }
   .slider-wrapper input {
-    width: 750px;
+    width: 920px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (1950px > width >= 1900px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 880px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (1900px > width >= 1850px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 850px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (1850px > width >= 1800px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 820px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (1800px > width >= 1750px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 800px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
+@media (1750px > width >= 1700px) {
+  #homepage-map-svg {
+    height: 520px;
+  }
+  .slider-wrapper input {
+    width: 780px;
     height: 40px;
     z-index: 99;
   }
@@ -207,16 +271,21 @@ text.button:hover {
 
 @media (max-width: 1700px) {
   #homepage-map-svg {
+    height: 450px;
   }
+
   .slider-wrapper input {
-    width: 700px;
+    width: 750px;
     height: 40px;
     z-index: 99;
   }
 }
 @media (max-width: 1650px) {
+  #homepage-map-svg {
+    height: 450px;
+  }
   .slider-wrapper input {
-    width: 680px;
+    width: 740px;
     height: 40px;
     z-index: 99;
   }
@@ -226,14 +295,21 @@ text.button:hover {
     height: 450px;
   }
   .slider-wrapper input {
-    width: 650px;
+    width: 720px;
     height: 40px;
     z-index: 99;
   }
 }
 @media (max-width: 1550px) {
   .slider-wrapper input {
-    width: 600px;
+    width: 700px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1530px) {
+  .slider-wrapper input {
+    width: 680px;
     height: 40px;
     z-index: 99;
   }
@@ -243,7 +319,7 @@ text.button:hover {
     height: 450px;
   }
   .slider-wrapper input {
-    width: 600px;
+    width: 660px;
     height: 40px;
     z-index: 99;
   }
@@ -251,7 +327,14 @@ text.button:hover {
 
 @media (max-width: 1480px) {
   .slider-wrapper input {
-    width: 590px;
+    width: 650px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1440px) {
+  .slider-wrapper input {
+    width: 630px;
     height: 40px;
     z-index: 99;
   }
@@ -261,18 +344,23 @@ text.button:hover {
   #homepage-map-svg {
     height: 450px;
   }
+  .slider-wrapper input {
+    width: 610px;
+    height: 40px;
+    z-index: 99;
+  }
 }
 
 @media (max-width: 1370px) {
   .slider-wrapper input {
-    width: 570px;
+    width: 590px;
     height: 40px;
     z-index: 99;
   }
 }
 @media (max-width: 1325px) {
   .slider-wrapper input {
-    width: 540px;
+    width: 570px;
     height: 40px;
     z-index: 99;
   }
@@ -280,7 +368,14 @@ text.button:hover {
 
 @media (max-width: 1270px) {
   .slider-wrapper input {
-    width: 520px;
+    width: 640px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+@media (max-width: 1250px) {
+  .slider-wrapper input {
+    width: 620px;
     height: 40px;
     z-index: 99;
   }
@@ -288,14 +383,22 @@ text.button:hover {
 /* At 1230, interactive panel enlarges, stretch slider */
 @media (max-width: 1230px) {
   .slider-wrapper input {
-    width: 560px;
+    width: 600px;
     height: 40px;
     z-index: 99;
   }
 }
+@media (max-width: 1180px) {
+  .slider-wrapper input {
+    width: 580px;
+    height: 40px;
+    z-index: 99;
+  }
+}
+
 @media (max-width: 1150px) {
   .slider-wrapper input {
-    width: 545px;
+    width: 570px;
     height: 40px;
     z-index: 99;
   }

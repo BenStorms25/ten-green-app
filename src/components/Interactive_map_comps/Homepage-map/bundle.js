@@ -127,7 +127,6 @@
   const width = 960;
   const height = 500;
   const colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([10, 0]);
-  console.log(colorScale);
 
   const App = () => {
     const data = useData();
@@ -144,9 +143,7 @@
     };
 
     const play = () => {
-      console.log(year);
       if (+year === 2021) {
-        console.log(2021);
         return;
       }
 
@@ -154,7 +151,7 @@
       const x = setInterval(() => {
         y++;
         setYear(y);
-        console.log(y);
+
         if (y === 2021) {
           clearInterval(x);
         }

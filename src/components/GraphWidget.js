@@ -17,8 +17,6 @@ import { Title_Formatter } from "./Title_Formatter";
 import { ScaleFormatter } from "../components/ScaleFormatter";
 import * as d3 from "d3";
 
-
-
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center",
@@ -54,8 +52,6 @@ export const GraphWidget = ({ data, max }) => {
 
   let maximum = ScaleFormatter(current_measure);
 
-
-
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
     .domain([0, maximum]);
@@ -63,13 +59,11 @@ export const GraphWidget = ({ data, max }) => {
     colorScale = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, maximum]);
   }
 
-
-
   return (
     <div id="graphwidget">
       <div style={isMobile ? styles : mobileStyles}>
         <ResponsiveContainer
-          width={isMobile ? "100%" : "110%"}
+          width={isMobile ? "82.5%" : "110%"}
           height={200}
           zoom={0.8}
         >
@@ -86,7 +80,7 @@ export const GraphWidget = ({ data, max }) => {
           >
             <text
               class="second"
-              x={180}
+              x={300}
               y={20}
               fill="black"
               textAnchor="middle"
@@ -95,8 +89,14 @@ export const GraphWidget = ({ data, max }) => {
               text-decoration="none"
             >
               <tspan fontSize="16" style={{ textDecoration: "none" }}>
-                {county} - {Title_Formatter(current_measure)} Score Over Time
-              </tspan>
+                {county} - {Title_Formatter(current_measure)} Score Over Time -
+              </tspan>{" "}
+              <a
+                href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual"
+                class="sourcebtn"
+              >
+                Source: EPA Annual Air Data
+              </a>
             </text>
 
             <XAxis
@@ -121,18 +121,9 @@ export const GraphWidget = ({ data, max }) => {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  
-                  fill={
-                    //entry.year === parseInt(reduxYear) ? "#a9f26d" : "#82ca9d"
-                    colorScale(entry.value - maximum / 10.0 )
-                  
-                    
-                 }
-
-                 stroke={"black"}
-                  strokeWidth={entry.year === parseInt(reduxYear)? 4 : 0 }
-                  
-                  
+                  fill={colorScale(entry.value - maximum / 10.0)}
+                  stroke="#000000"
+                  strokeWidth={entry.year === parseInt(reduxYear) ? 2 : 0}
                 />
 
               ))}

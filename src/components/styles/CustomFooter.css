@@ -4,6 +4,7 @@ footer {
   padding-top: 4rem;
   padding-right: 2rem;
   padding-left: 2rem;
+  position: relative;
 }
 .content {
   display: center;
@@ -64,4 +65,15 @@ footer {
 hr {
   border-color: grey;
   height: 1px;
+}
+@media (max-width: 595px) {
+  footer {
+    background-color: white;
+    font-family: "Open Sans", sans-serif;
+    padding-top: 4rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    position: relative;
+    top: 10rem;
+  }
 }

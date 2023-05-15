@@ -32,7 +32,6 @@ export let Data_Formatter = (measure) => {
     axios
       .get("http://204.197.4.170/10green/json/10green_1980-2021.json")
       .then((response) => {
-        console.log(response);
         return response.data;
       });
     // const aqiResponse = await axios.get(
