@@ -124,9 +124,12 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(window.location.hostname)
     const configResponse = async () => {
       await axios
-        .get(`http://204.197.4.170/10green/json/config.json`)
+        //.get(   `http://204.197.4.170/10green/json/config.json`   )
+        //.get (window.location.origin + '/10green/json/config.json')
+        .get ('http://204.197.4.170' +'/10green/json/config.json' )
         .then((response) => {
           setFirstYear(response.data.first_year);
           setLastYear(response.data.last_year);
@@ -376,7 +379,8 @@ const App = () => {
   useEffect(() => {
     axios
       .get(
-        `http://204.197.4.170/10green/json/${
+        //`http://204.197.4.170/10green/json/${
+          window.location.origin + `/10green/json/${
           current_measure === "aqi" ? "aqi_median" : current_measure
         }_1980-2021.json`
       )

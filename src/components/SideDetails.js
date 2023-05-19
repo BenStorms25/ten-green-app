@@ -1,3 +1,5 @@
+//Component to store the column(s) of buttons to select different pollutants and to display the data of the currently-selected county.
+
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./styles/SideDetails.css";
@@ -101,6 +103,7 @@ function SideDetails() {
 
         {window.innerWidth > 1130 && <hr></hr>}
 
+        {/* Each button is greyed out if the current score is not 10Green. If it is, then the buttons are red if it's a negative score, green if positive, and grey if there is no data*/}
         <button
           className="button"
           disabled={active === "ozone"}

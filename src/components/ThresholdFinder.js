@@ -1,3 +1,5 @@
+//A function that returns the score above which a pollutant will count towards a county's 10Green score.
+
 export let ThresholdFinder = (measure) => {
     switch (measure) {
             case "arsenic": 
