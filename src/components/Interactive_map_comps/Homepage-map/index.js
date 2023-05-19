@@ -18,7 +18,8 @@ let ispaused = true;
 
 const App = () => {
   // url for initial map data
-  let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
+  //let dataUrl = "http://204.197.4.170/10green/json/10green_1980-2021.json";
+  let dataUrl = window.location.origin + '/10green/json/10green_1980-2021.json';
 
   // VALUES FROM REDUX
 
@@ -128,8 +129,7 @@ const App = () => {
     const configResponse = async () => {
       await axios
         //.get(   `http://204.197.4.170/10green/json/config.json`   )
-        //.get (window.location.origin + '/10green/json/config.json')
-        .get ('http://204.197.4.170' +'/10green/json/config.json' )
+        .get (window.location.origin + '/10green/json/config.json')
         .then((response) => {
           setFirstYear(response.data.first_year);
           setLastYear(response.data.last_year);
@@ -269,7 +269,10 @@ const App = () => {
     if (!isNaN(id) && id) {
       //let countyData = await getCountyData(parseInt(id));
       axios
-        .get(`http://204.197.4.170/10green/json/json_data-by-county/${id}.json`)
+        .get(
+          //`http://204.197.4.170/10green/json/json_data-by-county/${id}.json`
+          window.location.origin + '/10green/json/json_data-by-county/${id}.json'
+          )
         .then((res) => {
           setCountyData({ ...res.data });
         })
@@ -393,7 +396,8 @@ const App = () => {
   useEffect(() => {
     axios
       .get(
-        `http://204.197.4.170/10green/json/${
+        //`http://204.197.4.170/10green/json/${
+          window.location.origin + `/10green/json/${
           current_measure === "aqi" ? "aqi_median" : current_measure
         }_1980-2021.json`
       )
