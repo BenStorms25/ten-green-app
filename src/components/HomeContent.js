@@ -1,3 +1,4 @@
+//Content displayed on the homepage
 import React, { useEffect, useState } from "react";
 import Globe from "./Globe.js";
 import tenGreenLogo from "../images/10Green-Logo-Black-(1).png";

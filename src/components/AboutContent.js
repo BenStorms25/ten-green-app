@@ -1,3 +1,4 @@
+//Content displayed on the About page. 
 import React, { useEffect } from "react";
 import CustomFooter from "./CustomFooter";
 import "./styles/AboutContent.css";
@@ -27,7 +28,8 @@ function AboutContent() {
             represent some of the most significant threats to human health.
           </p>
           <p className="about-p">
-            10Green is a collaboration between: the{" "}
+          The original version of 10Green (developed in 2010) was a collaboration between: 
+            the{" "}
             <a href="https://climatechange.umaine.edu/about/">
               Climate Change Institute
             </a>
@@ -35,8 +37,8 @@ function AboutContent() {
             <a href="https://umaine.edu/scis/">
               School of Computing and Information Sciences
             </a>
-            , and <a href="https://www.garrand.com/">Garrand</a>. Funding for
-            10Green has been provided in part by{" "}
+            , and <a href="https://www.garrand.com/">Garrand</a>. Funding for the original version of
+            10Green was been provided in part by{" "}
             <a href="https://www.heinz.org/">Heinz Endowments</a>, &nbsp;
             <a href="https://umaine.edu/">The University of Maine</a>,{" "}
             <a href="https://www.nsf.gov/">The National Science Foundation</a>,
@@ -45,6 +47,8 @@ function AboutContent() {
               UMaine Development Office
             </a>
             .
+
+          The latest version of 10Green (updated 2023) is based on a collaboration between the Climate Change Institute and ASAP Media, with funding from the Russell Grinnell Memorial Trust.
           </p>
           <h2>What is a 10Green Score?</h2>
           <p className="about-p">

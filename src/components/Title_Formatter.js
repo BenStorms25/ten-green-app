@@ -1,3 +1,4 @@
+//A function to return the correctly formatted name of a measure given the 'shorthand' variable.
 export let Title_Formatter = (measure) => {
     switch (measure) {
         case "10green": 

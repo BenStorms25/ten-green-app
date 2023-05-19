@@ -1,3 +1,4 @@
+//Parent component that nests together several child components that are all displayed on the homepage.
 import React from "react";
 import HomepageMap from "./Interactive_map_comps/Homepage-map";
 import "./styles/InteractiveMap.css";

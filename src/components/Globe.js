@@ -1,3 +1,4 @@
+//Code that handles the globe graphic that fades out on scrolling down
 import React, { useEffect } from "react";
 import "./styles/Globe.css";
 import globeImage from "../images/10green_globe_8bit.png";

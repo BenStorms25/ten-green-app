@@ -1,3 +1,5 @@
+//'Abbrevinator' takes the name of the state and returns the appropriate abbreviation
+
 function stateNameToAbbreviation(name) {
   let states = {
     arizona: "AZ",

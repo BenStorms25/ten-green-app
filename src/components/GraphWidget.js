@@ -1,3 +1,4 @@
+//Graph that is displayed underneath the map.
 import React from "react";
 import {
   LineChart,
@@ -31,6 +32,7 @@ const mobileStyles = {
 };
 const isMobile = window.innerWidth > 500;
 
+//Code that enables a tooltip on hover and determines what is displayed. 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -52,6 +54,7 @@ export const GraphWidget = ({ data, max }) => {
 
   let maximum = ScaleFormatter(current_measure);
 
+  //Uses d3's color interpolation to determine color picked (same process as the map so the colors will match)
   let colorScale = d3
     .scaleSequential(d3.interpolateRdYlGn)
     .domain([0, maximum]);
@@ -119,6 +122,7 @@ export const GraphWidget = ({ data, max }) => {
             />
             <Bar dataKey="value">
               {data.map((entry, index) => (
+                //Dynamically recolors individual cells and adds 
                 <Cell
                   key={`cell-${index}`}
                   fill={colorScale(entry.value - maximum / 10.0)}
