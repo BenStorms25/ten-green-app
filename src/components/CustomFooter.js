@@ -1,3 +1,4 @@
+//Content displayed at the bottom of each page.
 import React from "react";
 import climateChangeImage from "../images/cci_logo_v8_sep2022.png";
 import tenGreenLogoBlack from "../images/10Greenblacklogo.png";

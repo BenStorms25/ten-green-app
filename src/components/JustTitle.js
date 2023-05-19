@@ -1,3 +1,5 @@
+//Title of the homepage map, stored in a separate component so it is not re-rendered when other components change.
+
 import React from "react";
 import { useSelector } from "react-redux";
 import { Title_Formatter } from "./Title_Formatter";

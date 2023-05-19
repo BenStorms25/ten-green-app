@@ -1,3 +1,5 @@
+//Content displayed on the Pollutants page.
+
 import React, { useState, useEffect } from "react";
 import "./styles/PollutantsContent.css";
 import co2Image from "../images/carbon-monoxide-oQEdDIMEIlc-unsplash-1440x1080.jpeg";

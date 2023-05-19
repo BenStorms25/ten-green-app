@@ -1,3 +1,6 @@
+//Basic function that returns the maximum possible value for a given pollutant.
+//Technically this should be re-evaluated if/when neew maximums are reached in future years. 
+
 export let ScaleFormatter = (measure) => {
     switch (measure) {
             case "10green": 

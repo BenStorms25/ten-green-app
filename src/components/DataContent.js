@@ -1,3 +1,5 @@
+//Despite the name, this is the code for the search bar displayed next to the map.
+
 import React, { useEffect, useState } from "react";
 import "./styles/DataContent.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";

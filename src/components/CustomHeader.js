@@ -1,3 +1,4 @@
+//Content displayed at top of each page.
 import React from "react";
 import CustomNav from "./CustomNav";
 import umaineLogo from "../images/UMaine_fullcrest_logo4c_reverse.png";

@@ -134,6 +134,7 @@ const App = () => {
             type: "SET_TITLE_YEAR",
             payload: lastYear,
           });
+          
         });
     };
     configResponse();
