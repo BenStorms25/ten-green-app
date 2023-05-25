@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build2",
     "build-webpack": "",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -59,6 +59,7 @@
   "devDependencies": {
     "@types/d3": "^7.4.0",
     "html-loader": "^4.2.0",
+    "rewire": "^6.0.0",
     "webpack": "^5.74.0"
   }
 }
