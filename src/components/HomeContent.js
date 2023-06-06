@@ -44,7 +44,7 @@ function HomeContent() {
     if (!isNaN(incomingID) && incomingID) {
       axios
         .get(
-          `json/json_data-by-county/${incomingID}.json`
+          `/json/json_data-by-county/${incomingID}.json`
         ) 
         .then((res) => {
           setCountyData({ ...res.data });
