@@ -15,7 +15,7 @@ function DataContent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://gist.githubusercontent.com/Edaran123/8f39dcfded59c7e258c3a4338064d08d/raw/97560ac261842f92a9a7a14c0c652e3051666ed7/ZipsToFips2.json");
+        const response = await axios.get('/json/Zips2Fips.json');
         setCountyList(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

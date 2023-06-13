@@ -19,7 +19,7 @@ export const Marks =  ({ UsaGeo, data, year, colorScale, maximum }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://gist.githubusercontent.com/Edaran123/76cf49719d46fc93251588f197010977/raw/4b957a5804f031454c0170177941ba029efaecd9/allData.json");
+        const response = await axios.get('/json/mapData.json');
         setAllData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
