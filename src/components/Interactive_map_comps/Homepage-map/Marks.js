@@ -2,20 +2,33 @@ import { geoIdentity, geoPath } from "d3";
 import { DataFilter } from "./DataFilter";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import allData from "../../../content/json_choropleth/allData.json";
+import axios from "axios";
 import stateNameToAbbreviation from "../../Abbrevinator.js";
 import "../../styles/Marks.css";
 
 const projection = geoIdentity().reflectY(false);
 const path = geoPath(projection);
 
-export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
+export const Marks =  ({ UsaGeo, data, year, colorScale, maximum }) => {
   let inputRef = React.createRef();
   let [selectId, setSelectedId] = useState(null);
   const dispatch = useDispatch();
   let incomingID = useSelector((state) => state.id);
+  let [allData, setAllData] = useState(null);
 
-  let dataMap = DataFilter(allData, data, year, selectId);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://gist.githubusercontent.com/Edaran123/76cf49719d46fc93251588f197010977/raw/4b957a5804f031454c0170177941ba029efaecd9/allData.json");
+        setAllData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  let dataMap = null;
   const states = new Map(
     UsaGeo[1].features.map((d) => [d.id, d.properties.name])
   );
@@ -32,6 +45,12 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
     UsaGeo[0]
   );
 
+  if (!allData) {
+    return null; // Render nothing until dataMap is available
+  }
+
+  if (allData) {
+    dataMap = DataFilter(allData, data, year, selectId);
   return (
     <g className="marks">
       {UsaGeo[0].features.map((feature) => {
@@ -61,6 +80,8 @@ export const Marks = ({ UsaGeo, data, year, colorScale, maximum }) => {
     </g>
   );
 };
+}
+
 
 export const dots = ({ points }) => (
   <g className="dots">
